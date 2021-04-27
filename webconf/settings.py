@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ConfPC.apps.ConfpcConfig',
     'homepage',
     'about_us',
+    'configure',
 ]
 
 MIDDLEWARE = [
