@@ -4,7 +4,8 @@ class CPU(models.Model):
     name = models.CharField(max_length=300)
     link = models.URLField()
     price = models.IntegerField()
-    socket = models.CharField(max_length=100)
+    socket = models.CharField(max_length=100, null=True)
+    benchmark_mark = models.IntegerField()
     picture = models.URLField(null=True)
     guarantee = models.CharField(max_length=100, null=True)
     producing_country = models.CharField(max_length=50, null=True)
@@ -50,13 +51,14 @@ class CPU(models.Model):
     cpu_overclocking_technology = models.CharField(max_length=100, null=True)
     energy_saving_technology = models.CharField(max_length=100, null=True)
     a_set_of_instructions_and_commands = models.CharField(max_length=200, null=True)
+    features_optional = models.CharField(max_length=100, null=True)
 
 
 class motherboard(models.Model):
     name = models.CharField(max_length=300)
     link = models.URLField()
     price = models.IntegerField()
-    socket = models.CharField(max_length=50)
+    socket = models.CharField(max_length=50, null=True)
     release_year = models.IntegerField(null=True)
     picture = models.URLField(null=True)
     guarantee = models.CharField(max_length=30, null=True)
@@ -130,7 +132,8 @@ class GPU(models.Model):
     name = models.CharField(max_length=300)
     link = models.URLField()
     price = models.IntegerField()
-    picture = models.IntegerField(null=True)
+    picture = models.URLField(null=True)
+    benchmark_mark = models.IntegerField()
     guarantee = models.CharField(max_length=30, null=True)
     producing_country = models.CharField(max_length=100, null=True)
     release_year = models.IntegerField(null=True)
@@ -176,3 +179,67 @@ class GPU(models.Model):
     rgb_backlight_sync = models.CharField(max_length=100, null=True)
     lcd_display = models.CharField(max_length=100, null=True)
     bios_switch = models.CharField(max_length=100, null=True)
+
+
+class RAM(models.Model):
+    Гарантия: guarantee
+    Страна - производитель: producing_country
+    Модель: model
+    Код
+    производителя: manufacturer_code
+    Год
+    релиза: release_year
+    Тип
+    памяти: memory_type
+    Форм - фактор
+    памяти: memory_form_factor
+    Регистровая
+    память: register_memory
+    ECC - память: ecc_memory
+    Объем
+    одного
+    модуля
+    памяти: the_volume_of_one_memory_module
+    Количество
+    модулей
+    в
+    комплекте: number_of_modules_included
+    Тактовая
+    частота: clock_frequency
+    Пропускная
+    способность: bandwidth
+    Профили
+    Intel
+    XMP: intel_xmp_profiles
+    Поддерживаемые
+    режимы
+    работы: supported_operating_modes
+    CAS
+    Latency(CL): cas_latency_cl
+    RAS
+    to
+    CAS
+    Delay(tRCD): ras_to_cas_delay_trcd
+    Row
+    Precharge
+    Delay(tRP): row_precharge_delay_trp
+    Наличие
+    радиатора: the_presence_of_a_radiator
+    Подсветка
+    элементов
+    платы: illumination_of_board_elements
+    Высота: height
+    Низкопрофильная(Low
+    Profile): low_profile
+    Напряжение
+    питания: supply_voltage
+    Название: name
+    Ссылка: link
+    Цена: price
+    Изображение: picture
+    Activate
+    to
+    Precharge
+    Delay(tRAS): activate_to_precharge_delay_tras
+    Ранговость: rank
+    features_optional
