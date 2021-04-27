@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="db" uuid="3579cec1-b98f-40d6-949a-82ee49fbb94b">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\learning\3_semestr\practice\webconf\db.sqlite3</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="MySQL - config@localhost" uuid="83a0f04e-8da7-40b7-af2f-290d0398d433">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/config?serverTimezone=UTC</jdbc-url>
+    </data-source>
+  </component>
+</project>
