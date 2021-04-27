@@ -2,10 +2,10 @@ from django.db import models
 
 class CPU(models.Model):
     name = models.CharField(max_length=300)
-    link = models.URLField()
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField()
     socket = models.CharField(max_length=100, null=True)
-    benchmark_mark = models.IntegerField(default=0)
+    benchmark_mark = models.IntegerField(null=True, default=0)
     picture = models.URLField(null=True)
     guarantee = models.CharField(max_length=100, null=True)
     producing_country = models.CharField(max_length=50, null=True)
@@ -56,7 +56,7 @@ class CPU(models.Model):
 
 class motherboard(models.Model):
     name = models.CharField(max_length=300)
-    link = models.URLField()
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField()
     socket = models.CharField(max_length=50, null=True)
     release_year = models.IntegerField(null=True)
@@ -130,10 +130,10 @@ class motherboard(models.Model):
 
 class GPU(models.Model):
     name = models.CharField(max_length=300)
-    link = models.URLField()
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField()
     picture = models.URLField(null=True)
-    benchmark_mark = models.IntegerField(default=0)
+    benchmark_mark = models.IntegerField(null=True, default=0)
     guarantee = models.CharField(max_length=30, null=True)
     producing_country = models.CharField(max_length=100, null=True)
     release_year = models.IntegerField(null=True)
@@ -182,12 +182,12 @@ class GPU(models.Model):
 
 
 class RAM(models.Model):
-    name = models.CharField(max_length=100)
-    link = models.URLField()
+    name = models.CharField(max_length=300)
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField(null=True)
     picture = models.URLField(null=True)
-    number_of_modules_included = models.IntegerField(null=True)
-    the_volume_of_one_memory_module = models.IntegerField(null=True)
+    number_of_modules_included = models.CharField(max_length=100, null=True)
+    the_volume_of_one_memory_module = models.CharField(max_length=100, null=True)
     model = models.CharField(max_length=100, null=True)
     release_year = models.IntegerField(null=True)
     clock_frequency = models.CharField(max_length=100, null=True)
@@ -210,13 +210,13 @@ class RAM(models.Model):
     low_profile = models.CharField(max_length=100, null=True)
     supply_voltage = models.CharField(max_length=100, null=True)
     activate_to_precharge_delay_tras = models.CharField(max_length=100, null=True)
-    rank = models.CharField(max_length=100, null=True)
+    degree = models.CharField(max_length=100, null=True)
     features_optional = models.CharField(max_length=200, null=True)
 
 
 class cooler(models.Model):
     name = models.CharField(max_length=200, null=True)
-    link = models.URLField(null=True)
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField(null=True)
     picture = models.URLField(null=True)
     producing_country = models.CharField(max_length=200, null=True)
@@ -253,11 +253,11 @@ class cooler(models.Model):
 
 class hard25(models.Model):
     name = models.CharField(max_length=200, null=True)
-    link = models.URLField(null=True)
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField(null=True)
     picture = models.URLField(null=True)
     release_year = models.IntegerField(null=True)
-    hdd_capacity = models.IntegerField(null=True)
+    hdd_capacity = models.CharField(max_length=200, null=True)
     energy_consumption = models.CharField(max_length=200, null=True)
     guarantee = models.CharField(max_length=200, null=True)
     producing_country = models.CharField(max_length=200, null=True)
@@ -281,11 +281,11 @@ class hard25(models.Model):
 
 class hard35(models.Model):
     name = models.CharField(max_length=200, null=True)
-    link = models.URLField(null=True)
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField(null=True)
     picture = models.URLField(null=True)
     release_year = models.IntegerField(null=True)
-    hdd_capacity = models.IntegerField(null=True)
+    hdd_capacity = models.CharField(max_length=200, null=True)
     maximum_power_consumption = models.CharField(max_length=200, null=True)
     guarantee = models.CharField(max_length=200, null=True)
     producing_country = models.CharField(max_length=200, null=True)
@@ -318,16 +318,16 @@ class hard35(models.Model):
 
 class SSD(models.Model):
     name = models.CharField(max_length=200)
-    link = models.URLField(null=True)
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField(null=True)
     picture = models.URLField(null=True)
     model = models.CharField(max_length=200, null=True)
+    release_year = models.IntegerField(null=True)
+    drive_volume = models.CharField(max_length=200, null=True)
     guarantee = models.CharField(max_length=200, null=True)
     producing_country = models.CharField(max_length=200, null=True)
     manufacturer_code = models.CharField(max_length=200, null=True)
-    release_year = models.IntegerField(null=True)
     server = models.CharField(max_length=200, null=True)
-    drive_volume = models.IntegerField(null=True)
     physical_interface = models.CharField(max_length=200, null=True)
     nvme = models.CharField(max_length=200, null=True)
     controller = models.CharField(max_length=200, null=True)
@@ -354,7 +354,7 @@ class SSD(models.Model):
 
 class ssd_m2(models.Model):
     name = models.CharField(max_length=200, null=True)
-    link = models.URLField(null=True)
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField(null=True)
     picture = models.URLField(null=True)
     release_year = models.IntegerField(null=True)
@@ -363,7 +363,7 @@ class ssd_m2(models.Model):
     model = models.CharField(max_length=200, null=True)
     manufacturer_code = models.CharField(max_length=200, null=True)
     server = models.CharField(max_length=200, null=True)
-    drive_volume = models.IntegerField(null=True)
+    drive_volume = models.CharField(max_length=200, null=True)
     form_factor = models.CharField(max_length=200, null=True)
     logical_interface = models.CharField(max_length=200, null=True)
     m_2_socket_key = models.CharField(max_length=200, null=True)
@@ -397,7 +397,7 @@ class ssd_m2(models.Model):
 
 class powersupply(models.Model):
     name = models.CharField(max_length=200, null=True)
-    link = models.URLField(null=True)
+    link = models.URLField(null=True, unique=True)
     price = models.IntegerField(null=True)
     picture = models.URLField(null=True)
     release_year = models.IntegerField(null=True)
