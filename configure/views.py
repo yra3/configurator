@@ -22,12 +22,12 @@ def remove_over_budget(configurates: list, budget):
 # budget: int, priorities: list
 
 
-def inner_join(conf_list: list, component_list):
-    return [conf + [component] for conf in conf_list for component in component_list]
+def inner_join(configure_list: list, component_list):
+    return [tuple(list(configure) + [component]) for configure in configure_list for component in component_list]
 
 
 def find_configure(r):  # Ммм, хуита
-    budget = 20000
+    budget = 250000
     cpus = CPU.objects.filter(price__lt=budget)
     gpus = GPU.objects.filter(price__lt=budget)
     mothers = motherboard.objects.filter(price__lt=budget)
@@ -38,33 +38,27 @@ def find_configure(r):  # Ммм, хуита
     ssds = SSD.objects.filter(price__lt=budget).union(ssd_m2.objects.filter(price__lt=budget))
     powersupplies = powersupply.objects.filter(price__lt=budget)
 
-    cgs = [[c, g] for c in cpus for g in gpus]
+    cgs = [tuple([c]+ [g]) for c in cpus for g in gpus]
     print(len(cgs))
 
-    remove_over_budget(cgs, budget)
-
-
-    cgs.sort(key=lambda x: summary_price(x))
-    cgpumothers = [cg + [mother] for cg in cgs for mother in mothers]
+    bad_confs = set() #cpu and gpu
+    for cg in cgs:
+        if (summary_price(cg) > budget):
+            bad_confs.add(cg)
+    cgs = set(cgs).difference(bad_confs)
     print(len(cgs))
 
-    print(len(cgpumothers))
-    remove_over_budget(cgpumothers, budget)
-    print(len(cgpumothers))
-    for cgm in cgpumothers:
-        if cgm[0].socket != cgm[2].socket:
-            cgpumothers.remove(cgm)
-    print(len(cgpumothers))
+    cgms = inner_join(cgs, mothers)
 
-    for cgm in cgpumothers:
-        if cgm[0].socket != cgm[2].socket:
-            cgpumothers.remove(cgm)
-    print(len(cgpumothers))
+    bad_confs = set()
+    for cgm in cgms:
+        if (summary_price(cgm) > budget or
+                cgm[0].socket != cgm[2].socket):
+            bad_confs.add(cgm)
+    cgms = set(cgms).difference(bad_confs)
 
-    # cgmrs = inner_join(cgpumothers,
-    #                   rams)  # supported_memory_form_factor, supported_memory_type, memory_type, memory_form_factor
-    # start ram compotib
-    cgmrs = [tuple(conf + [component]) for conf in cgpumothers for component in rams]
+    cgmrs = inner_join(cgms, rams)
+
     print(len(cgmrs))
     bad_confs = set()
     for cgmr in cgmrs:
@@ -112,6 +106,7 @@ def find_configure(r):  # Ммм, хуита
     # print(len(cgmrchs))
 
     cgmrchps = [tuple(list(conf) + [component]) for conf in cgmrchs for component in powersupplies]
+    print(len(cgmrchps))
     bad_confs = set()
     for cgmrchp in cgmrchps:
         if (summary_price(cgmrchp) > budget or
