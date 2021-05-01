@@ -162,13 +162,15 @@ def real_auto_configure(budget: int, configure_type: int, maximized_attributes):
     priorities = prioriti_calculator(budget)
     # configurator
 
-def half_auto_configure(budget: int, configure_type: int, maximized_attributes, priorytes)
+def half_auto_configure(budget: int, configure_type: int, maximized_attributes, priorytes):
+    pass
 
 
-def auto_configure(budget, budget_constraints: dict, component_priorities, prioripi_attributes):
+def auto_configure(budget, budget_constraints: dict, component_priorities, priorities_attributes):
 
     # TODO: write checking normalise var 'component_priorities'
-    lower_estimate =
+    lower_estimate_finder = StrictConstraintMethod(budget, component_priorities)
+    lower_estimate = lower_estimate_finder.find()
     def get_lower_estimate():
         def get_lower_estimate(self):
             cpu, gpu, mother, ram1, cooler1, hard1, ssd1, powersupply1 = self.find_configure()
