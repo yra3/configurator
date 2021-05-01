@@ -38,25 +38,28 @@ budget_constraints = {
 }
 
 
-
-
-class ObjectiveFunction:
-    def __init__(self, coefficients: dict, operate='+', constant=0):
+class ObjectiveFunctionInterface:
+    def __init__(self, coefficients):
         self.coefficients = coefficients
-        self.operate = operate
-        self.constant = constant
 
     def calculate(self, parameters):
-        answer = self.constant
-        if self.operate == '+':
-            for name, value in parameters.items():
-                answer += self.coefficients[name] * value
-        if self.operate == '-':
-            for name, value in parameters.items():
-                answer -= self.coefficients[name] * value
-        else:
-            for name, value in parameters.items():
-                answer += self.coefficients[name] * value
+        '''Get list or dict of parameters
+        returns integer value'''
+        pass
+
+
+class ObjectiveFunctionUseDict(ObjectiveFunctionInterface):
+    def __init__(self, coefficients: dict):
+        '''Parameter coefficients must be
+        dict{component_name: importance_coefficient}'''
+        super().__init__(coefficients)
+
+    def calculate(self, parameters):
+        '''Get dict{component_name: value} of configuration
+        parameters, returns integer value'''
+        answer = 0
+        for name, value in parameters.items():
+            answer += self.coefficients[name] * value
         return answer
 
 
@@ -70,7 +73,7 @@ def _get_budget_constraints(budget: int, component_priorities: dict):
 def first_lower_estimate(budget: int, component_priorities: dict):
     budget_constraints = _get_budget_constraints(budget, component_priorities)
 
-    objective_func = ObjectiveFunction(component_priorities)
+    objective_func = ObjectiveFunctionUseDict(component_priorities)
 
     cpus = CPU.objects.filter(price__lt=budget_constraints['CPU']).order_by(maximize_component[0])  # 'price'
     for cpu in cpus:
@@ -127,8 +130,6 @@ def first_lower_estimate(budget: int, component_priorities: dict):
             'powersupply': powersupply1.power_nominal,
         }
         return objective_func.calculate(configurate)
-
-
 
 
 def auto_configure(budget, budget_constraints: dict, component_priorities):
