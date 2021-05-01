@@ -4,7 +4,6 @@ from configure.models import *
 
 maximize_component = ['price', 'price', 'count_of_memory']
 
-
 def convert_to_int(string_value):
     return int(string_value.split(' ')[0])
 
@@ -43,21 +42,21 @@ class ObjectiveFunctionInterface:
         self.coefficients = coefficients
 
     def calculate(self, parameters):
-        ''':param parameters:  list or dict of parameters
+        """:param parameters:  list or dict of parameters
         :returns: value of objective function
-        :rtype: int'''
+        :rtype: int"""
         pass
 
 
 class ObjectiveFunctionUseDict(ObjectiveFunctionInterface):
     def __init__(self, coefficients: dict):
-        '''Parameter coefficients must be
-        dict{component_name: importance_coefficient}'''
+        """Parameter coefficients must be
+        dict{component_name: importance_coefficient}"""
         super().__init__(coefficients)
 
     def calculate(self, parameters):
-        '''Get dict{component_name: value} of configuration
-        parameters, :returns integer value'''
+        """Get dict{component_name: value} of configuration
+        parameters, :returns integer value"""
         answer = 0
         for name, value in parameters.items():
             answer += self.coefficients[name] * value
@@ -65,21 +64,22 @@ class ObjectiveFunctionUseDict(ObjectiveFunctionInterface):
 
 
 def _get_budget_constraints(budget: int, component_priorities: dict):
+    """    :returns: maximum price for each component"""
     budget_constraints = dict()
-    for component_name, cost in dict.items():
+    for component_name, cost in component_priorities.items():
         budget_constraints[component_name] = cost * budget
     return budget_constraints
 
 
 class ConfigurationFinder:
     def __init__(self, budget: int):
-        ''':param budget: maximum summary cost of components'''
+        """:param budget: maximum summary cost of components"""
         self.budget = budget
 
     def find(self, objective_function: ObjectiveFunctionInterface):
-        ''':param objective_function: func for calculate coolness of the configuration
+        """:param objective_function: func for calculate coolness of the configuration
         :returns integer value of lower Estimate
-        :rtype: int'''
+        :rtype: int"""
         pass
 
 
@@ -151,9 +151,38 @@ class StrictConstraintMethod(ConfigurationFinder):
             return objective_func.calculate(configurate)
 
 
-def auto_configure(budget, budget_constraints: dict, component_priorities):
-    # TODO: write checking normalise var 'component_priorities'
+# TODO write priorities functions
+prioriti_calculators = {
+    0: lambda x: [7,5,9,5,7],
+    1: lambda x: [7, 5, 7, 5, 6]
 
+}
+def real_auto_configure(budget: int, configure_type: int, maximized_attributes):
+    prioriti_calculator = prioriti_calculators[configure_type]
+    priorities = prioriti_calculator(budget)
+    # configurator
+
+def half_auto_configure(budget: int, configure_type: int, maximized_attributes, priorytes)
+
+
+def auto_configure(budget, budget_constraints: dict, component_priorities, prioripi_attributes):
+
+    # TODO: write checking normalise var 'component_priorities'
+    lower_estimate =
+    def get_lower_estimate():
+        def get_lower_estimate(self):
+            cpu, gpu, mother, ram1, cooler1, hard1, ssd1, powersupply1 = self.find_configure()
+            configurate = {
+                'CPU': cpu.price,
+                'GPU': gpu.price,
+                'motherboard': mother.price,
+                'RAM': ram1.the_volume_of_one_memory_module * ram1.number_of_modules_included,
+                'cooler': cooler1.power_dissipation,
+                'hard_35': hard1.hdd_capacity,
+                'ssd': ssd1.drive_volume,
+                'powersupply': powersupply1.power_nominal,
+            }
+            return self.objective_function.calculate(configurate)
 
     cpus = CPU.objects.filter(price__lt=budget_constraints['CPU'])
     gpus = GPU.objects.filter(price__lt=budget_constraints['GPU'])
