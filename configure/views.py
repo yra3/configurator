@@ -43,8 +43,9 @@ class ObjectiveFunctionInterface:
         self.coefficients = coefficients
 
     def calculate(self, parameters):
-        '''Get list or dict of parameters
-        returns integer value'''
+        ''':param parameters:  list or dict of parameters
+        :returns: value of objective function
+        :rtype: int'''
         pass
 
 
@@ -56,7 +57,7 @@ class ObjectiveFunctionUseDict(ObjectiveFunctionInterface):
 
     def calculate(self, parameters):
         '''Get dict{component_name: value} of configuration
-        parameters, returns integer value'''
+        parameters, :returns integer value'''
         answer = 0
         for name, value in parameters.items():
             answer += self.coefficients[name] * value
@@ -70,70 +71,90 @@ def _get_budget_constraints(budget: int, component_priorities: dict):
     return budget_constraints
 
 
-def first_lower_estimate(budget: int, component_priorities: dict):
-    budget_constraints = _get_budget_constraints(budget, component_priorities)
+class ConfigurationFinder:
+    def __init__(self, budget: int):
+        ''':param budget: maximum summary cost of components'''
+        self.budget = budget
 
-    objective_func = ObjectiveFunctionUseDict(component_priorities)
+    def find(self, objective_function: ObjectiveFunctionInterface):
+        ''':param objective_function: func for calculate coolness of the configuration
+        :returns integer value of lower Estimate
+        :rtype: int'''
+        pass
 
-    cpus = CPU.objects.filter(price__lt=budget_constraints['CPU']).order_by(maximize_component[0])  # 'price'
-    for cpu in cpus:
-        # TODO add using difference between component cost and component max cost
 
-        # For configure only desktops supported_memory_form_factor='DIMM'
-        # TODO add filter motherboard.ram_min_frequency < cpu.ram_max_frequency
-        mother = motherboard.objects.filter(price__lt=budget_constraints['motherboard'],
-                                            socket__iexact=cpu.socket,
-                                            supported_memory_form_factor__iexact='DIMM'
-                                            ).order_by(maximize_component[2]).first()
+class StrictConstraintMethod(ConfigurationFinder):
+    def __init__(self, budget: int, component_priorities: dict):
+        super().__init__(budget)
+        self.component_priorities = component_priorities
 
-        gpu = GPU.objects.filter(price__lt=budget_constraints['GPU']).order_by(maximize_component[1]).first()  # 'price'
+    def find(self, objective_function: ObjectiveFunctionInterface):
+        budget_constraints = _get_budget_constraints(self.budget, self.component_priorities)
 
-        # TODO uncomment next 2 rows, when change db attributes to integer
-        # maximum_ram_frequency = min(mother.maximum_memory_frequency, cpu.maximum_frequency_of_ram)
-        # minimum_memory_frequency = max(mother.minimum_memory_frequency, cpu.minimum_frequency_of_ram)
-        ram1 = RAM.objects.filter(price__lt=budget_constraints['RAM'],
-                                  memory_form_factor__iexact='DIMM',
-                                  memory_type__iexact=mother.supported_memory_type,
-                                  # TODO add filter memory*number_of_modules< mother.max_ram_memory
-                                  # TODO uncomment next 3 rows, when change db attributes to integer
-                                  # number_of_modules_included__lte=mother.number_of_memory_slots,
-                                  # clock_frequency__lt=maximum_ram_frequency,
-                                  # clock_frequency__gt=minimum_memory_frequency,
-                                  ).order_by(maximize_component[1]).first()
+        objective_func = ObjectiveFunctionUseDict(self.component_priorities)
+        # TODO add try except construction for each loop iteration
+        cpus = CPU.objects.filter(price__lt=budget_constraints['CPU']).order_by(maximize_component[0])  # 'price'
+        for cpu in cpus:
+            # TODO add using difference between component cost and component max cost
 
-        cooler1 = cooler.objects.filter(price__lt=budget_constraints['cooler'],
-                                        socket__in=mother.socket,
-                                        # TODO uncomment next row, when change db attributes to integer
-                                        # power_dissipation__gt=cpu.heat_dissipation_tdp
-                                        ).order_by('power_dissipation').first()
+            # For configure only desktops supported_memory_form_factor='DIMM'
+            # TODO add filter motherboard.ram_min_frequency < cpu.ram_max_frequency
+            mother = motherboard.objects.filter(price__lt=budget_constraints['motherboard'],
+                                                socket__iexact=cpu.socket,
+                                                supported_memory_form_factor__iexact='DIMM'
+                                                ).order_by(maximize_component[2]).first()
 
-        # TODO add ability to switch between hdd, ssd, ssd+hdd modes
-        hard1 = hard35.objects.filter(price__lt=budget_constraints['hard_35']).order_by('hdd_capacity').first()
+            gpu = GPU.objects.filter(price__lt=budget_constraints['GPU']).order_by(
+                maximize_component[1]).first()  # 'price'
 
-        ssd1 = SSD.objects.filter(price__lt=budget_constraints['ssd']).order_by('drive_volume').first()
+            # TODO uncomment next 2 rows, when change db attributes to integer
+            # maximum_ram_frequency = min(mother.maximum_memory_frequency, cpu.maximum_frequency_of_ram)
+            # minimum_memory_frequency = max(mother.minimum_memory_frequency, cpu.minimum_frequency_of_ram)
+            ram1 = RAM.objects.filter(price__lt=budget_constraints['RAM'],
+                                      memory_form_factor__iexact='DIMM',
+                                      memory_type__iexact=mother.supported_memory_type,
+                                      # TODO add filter memory*number_of_modules< mother.max_ram_memory
+                                      # TODO uncomment next 3 rows, when change db attributes to integer
+                                      # number_of_modules_included__lte=mother.number_of_memory_slots,
+                                      # clock_frequency__lt=maximum_ram_frequency,
+                                      # clock_frequency__gt=minimum_memory_frequency,
+                                      ).order_by(maximize_component[1]).first()
 
-        # TODO uncomment next row, when change db attributes to integer
-        # summary_tdp = cpu.heat_dissipation_tdp + gpu.maximum_power_consumption + 5 + 20 + 9 + 6 + 3
-        powersupply1 = powersupply.objects.filter(price__lt=budget_constraints['powersupply'],
-                                                  # TODO uncomment next row, when change db attributes to integer
-                                                  # power_nominal__gt=summary_tdp,
-                                                  ).order_by('power_nominal').first()
+            cooler1 = cooler.objects.filter(price__lt=budget_constraints['cooler'],
+                                            socket__in=mother.socket,
+                                            # TODO uncomment next row, when change db attributes to integer
+                                            # power_dissipation__gt=cpu.heat_dissipation_tdp
+                                            ).order_by('power_dissipation').first()
 
-        configurate = {
-            'CPU': cpu.price,
-            'GPU': gpu.price,
-            'motherboard': mother.price,
-            'RAM': ram1.the_volume_of_one_memory_module * ram1.number_of_modules_included,
-            'cooler': cooler1.power_dissipation,
-            'hard_35': hard1.hdd_capacity,
-            'ssd': ssd1.drive_volume,
-            'powersupply': powersupply1.power_nominal,
-        }
-        return objective_func.calculate(configurate)
+            # TODO add ability to switch between hdd, ssd, ssd+hdd modes
+            hard1 = hard35.objects.filter(price__lt=budget_constraints['hard_35']).order_by('hdd_capacity').first()
+
+            ssd1 = SSD.objects.filter(price__lt=budget_constraints['ssd']).order_by('drive_volume').first()
+
+            # TODO uncomment next row, when change db attributes to integer
+            # summary_tdp = cpu.heat_dissipation_tdp + gpu.maximum_power_consumption + 5 + 20 + 9 + 6 + 3
+            powersupply1 = powersupply.objects.filter(price__lt=budget_constraints['powersupply'],
+                                                      # TODO uncomment next row, when change db attributes to integer
+                                                      # power_nominal__gt=summary_tdp,
+                                                      ).order_by('power_nominal').first()
+
+            configurate = {
+                'CPU': cpu.price,
+                'GPU': gpu.price,
+                'motherboard': mother.price,
+                'RAM': ram1.the_volume_of_one_memory_module * ram1.number_of_modules_included,
+                'cooler': cooler1.power_dissipation,
+                'hard_35': hard1.hdd_capacity,
+                'ssd': ssd1.drive_volume,
+                'powersupply': powersupply1.power_nominal,
+            }
+            return objective_func.calculate(configurate)
 
 
 def auto_configure(budget, budget_constraints: dict, component_priorities):
     # TODO: write checking normalise var 'component_priorities'
+
+
     cpus = CPU.objects.filter(price__lt=budget_constraints['CPU'])
     gpus = GPU.objects.filter(price__lt=budget_constraints['GPU'])
     mothers = motherboard.objects.filter(price__lt=budget_constraints['motherboard'])
