@@ -1,6 +1,5 @@
 .main {
     background: #fffefe;
-    color: #008dd3;
     margin: auto;
     background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
     background-attachment: fixed;
@@ -16,6 +15,8 @@
     box-shadow: 0 5px 10px #090808;
     align-items: center;
     display: flex;
+    z-index: 5;
+
 }
 .main .underheader .tap {
     font-size: large;
@@ -25,6 +26,15 @@
     border-color: #fffefe;
     margin: 5px 5px 5px 5px;
 }
+.undent{
+    display: flex;
+    width: 90%;
+    max-width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+
+}
+
 .col {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -37,29 +47,25 @@
 .card {
     min-height: 500px;
     height: 100%;
+    z-index: 1;
 }
 
 .card-body {
     color: #ffffff;
     background: #1f1f1f;
+    position: static;
+    z-index: 1;
 }
 
 .card .card-body:hover {
-    background: #cf0202;
-    border-color: #7c0101;
+    background: #3e3e3e;
 }
 
-.card:hover {
-    background: #480101;
+
+.card .card-body:active {
+    background: #151414;
 }
 
-.card:active {
-    background: #ffffff;
-}
-
-.card:focus {
-    background: #4e0101;
-}
 
 .photo-block {
     position: relative;
@@ -84,39 +90,30 @@
     align-items: center;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.nav .site_logo {
-    display: flex;
+.nav .undent .site_logo {
+    margin-right: auto;
     align-items: center;
 }
-
 .nav .infos {
     display: flex;
+    margin-left: auto;
     align-items: center;
 
 }
-
+.header-info{
+    padding: 17px;
+}
 .nav .logo {
     display: block;
-    width: 50px;
-    height: 50px;
+    width: 250px;
+    height: auto;
     margin: 20px 20px 20px 20px;
 }
 
-.nav .name {
-    font-size: xx-large;
-}
-
-.nav .name .one {
-    color: White;
-}
-
-.nav .name .two {
-    color: red;
-}
-
-.nav .for_slogan {
+.for_slogan {
     align-items: center;
     margin: auto;
 }
@@ -139,9 +136,10 @@
 }
 
 .content {
+    padding-top: 20px;
     justify-content: center;
     align-items: center;
-    color: Red;
+    color: #02a546;
 }
 
 .content .title {
@@ -153,7 +151,15 @@
     flex-wrap: wrap;
 }
 
-
+.information .col{
+    display: flex;
+    font-size: 1em;
+    justify-content: center;
+}
+.information .col .tap{
+    padding: 20px;
+    color: #ffffff;
+}
 footer{
     padding-top: 35px;
 }
