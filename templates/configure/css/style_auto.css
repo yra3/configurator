@@ -1,0 +1,239 @@
+.main {
+    margin: auto;
+    background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
+    background-attachment: fixed;
+}
+
+.main .container {
+    width: 90%;
+    max-width: 100%;
+    margin: auto;
+}
+.nav {
+    background: #1f1f1f;
+    color: #fffefe;
+    box-shadow: 0 5px 10px #090808;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.nav .undent .site_logo {
+    margin-right: auto;
+    align-items: center;
+}
+.nav .infos {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+
+}
+.header-info{
+    padding: 17px;
+}
+.nav .logo {
+    display: block;
+    width: 250px;
+    height: auto;
+    margin: 20px 20px 20px 20px;
+}
+
+.for_slogan {
+    align-items: center;
+    margin: auto;
+}
+
+.nav .for_slogan .slogan {
+    font-family: 'Times New Roman', Times, serif; /* Шрифт с засечками */
+    font-style: italic; /* Курсивное начертание */
+    font-size: xx-large;
+    opacity: 20%;
+}
+
+.underheader {
+    color: #fffefe;
+    box-shadow: 0 5px 10px #090808;
+    align-items: center;
+    display: flex;
+    z-index: 5;
+
+}
+.main .underheader .tap {
+    font-size: large;
+    color: #fffefe;
+    display: block;
+    border-width: 5px;
+    border-color: #fffefe;
+    margin: 5px 5px 5px 5px;
+}
+.undent{
+    display: flex;
+    width: 90%;
+    max-width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+
+}
+.content {
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+    color: #02ca58;
+}
+.text-type{
+    width: 60%;
+}
+.photo-block {
+    width: 500px;
+}
+
+.input-block{
+    color: #ffffff;
+    background: #1f1f1f;
+    border: 1px solid white;
+}
+.configs{
+    width: 80%;
+    margin: auto;
+}
+.col {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+
+.col .row-cols-1 {
+    width: 10px;
+}
+
+.card {
+    min-height: 300px;
+    height: 100%;
+    z-index: 1;
+}
+
+.card-body {
+    color: #ffffff;
+    position: static;
+    z-index: 1;
+}
+.card:hover {
+    background: #3e3e3e;
+    box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 20px 2px #02ca58;
+    border: 3px solid #02ca58;
+}
+
+.card:active {
+
+    box-shadow: 0 0 50px 0 #02ca58 inset, 0 0 50px 2px #02ca58;
+    border: 3px solid #02ca58;
+}
+
+input[type=number] {
+    color: #17a2b8;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #02ca58;
+}
+
+input[type=number]:focus {
+    outline: none;
+}
+input[type=text]:focus {
+    outline: none;
+}
+.intext{
+    width: 80%;
+    margin: auto;
+    padding-bottom: 30px;
+}
+input[type=text] {
+    width: 100%;
+
+    color: #17a2b8;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #02ca58;
+}
+.typepc{
+    display: none;
+}
+.endbtn{
+    width: 20%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.button-end {
+    text-align: center;
+    background-color: transparent;
+    border: 3px solid #02ca58;
+    color: #02ca58;
+    transition: .3s;
+}
+.button-end:hover {
+    animation: pulse 1s infinite;
+    transition: .3s;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.information .col{
+    display: flex;
+    font-size: 1em;
+    justify-content: center;
+}
+.information .col .tap{
+    padding: 20px;
+    color: #ffffff;
+}
+footer{
+    padding-top: 35px;
+}
+
+.bov{
+    color: white;
+    background: #1f1f1f;
+}
+.fab{
+    font-size: 2em;
+    padding: 6px;
+}
+.fa-vk{
+    color: #597da3;
+}
+.fa-instagram{
+    color: #b1ab4d;
+}
+.fa-youtube{
+    color: #c4302b;
+}
+.fa-twitter{
+    color: #00acee;
+}
+.fa-facebook{
+    color: #3b5998;
+}
+.fab:hover{
+    color: gray;
+}
+.last-section{
+    text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
