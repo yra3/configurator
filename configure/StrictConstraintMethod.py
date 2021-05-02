@@ -11,10 +11,9 @@ class StrictConstraintMethod(ConfigurationFinder):
         super().__init__(budget)
         self.component_priorities = component_priorities
         self.hdd_ssd_ssdhdd = hdd_ssd_ssdhdd
-        if is_benchmark_find==0:
+        if is_benchmark_find == 0:
             self.maximize_component = ['price', 'price', 'count_of_memory']
         else:
-            # TODO find how order memory by count_of_memory*number_of_modules_included
             self.maximize_component = ['benchmark_mark', 'benchmark_mark', 'count_of_memory']
         self.is_benchmark_find = is_benchmark_find
 
@@ -34,60 +33,55 @@ class StrictConstraintMethod(ConfigurationFinder):
     def find(self):
         budget_constraints = self._get_budget_constraints()
 
-        # TODO add try except construction for each loop iteration
         cpus = CPU.objects.filter(price__lt=budget_constraints['CPU']).order_by(self.maximize_component[0])  # 'price'
         for cpu in cpus:
-            # TODO add using difference between component cost and component max cost
+            try:
+                # TODO add using difference between component cost and component max cost
 
-            # For configure only desktops supported_memory_form_factor='DIMM'
-            # TODO add filter motherboard.ram_min_frequency < cpu.ram_max_frequency
-            mother = motherboard.objects.filter(price__lt=budget_constraints['motherboard'],
-                                                socket__iexact=cpu.socket,
-                                                supported_memory_form_factor__iexact='DIMM'
-                                                ).order_by(self.maximize_component[2]).first()
+                # For configure only desktops supported_memory_form_factor='DIMM'
+                mother = motherboard.objects.filter(price__lt=budget_constraints['motherboard'],
+                                                    socket__iexact=cpu.socket,
+                                                    supported_memory_form_factor__iexact='DIMM'
+                                                    ).order_by('price').first()
 
-            gpu = GPU.objects.filter(price__lt=budget_constraints['GPU']).order_by(
-                self.maximize_component[1]).first()  # 'price'
+                gpu = GPU.objects.filter(price__lt=budget_constraints['GPU']).order_by(
+                    self.maximize_component[1]).first()  # 'price'
 
-            # TODO uncomment next 2 rows, when change db attributes to integer
-            # maximum_ram_frequency = min(mother.maximum_memory_frequency, cpu.maximum_frequency_of_ram)
-            # minimum_memory_frequency = max(mother.minimum_memory_frequency, cpu.minimum_frequency_of_ram)
-            ram1 = RAM.objects.filter(price__lt=budget_constraints['RAM'],
-                                      memory_form_factor__iexact='DIMM',
-                                      memory_type__iexact=mother.supported_memory_type,
-                                      # TODO uncomment, when change db attributes to integer
-                                      # number_of_modules_included__lte=mother.number_of_memory_slots,
-                                      # clock_frequency__range=(minimum_memory_frequency, maximum_ram_frequency),
-                                      # number_of_modules_included__lte=F('number_of_memory_slots')
-                                      # // mother.max_ram_memory,
-                                      # TODO change order by when change db attributes to integer
-                                      # ).annotate(stars_per_user=F('number_of_memory_slots') *
-                                      # F('number_of_modules_included')).order_by('-stars_per_user').first()
-                                      ).order_by('price').first()
+                maximum_ram_frequency = min(mother.maximum_memory_frequency, cpu.maximum_frequency_of_ram)
+                minimum_memory_frequency = max(mother.minimum_memory_frequency, cpu.minimum_frequency_of_ram)
+                ram1 = RAM.objects.filter(price__lt=budget_constraints['RAM'],
+                                          memory_form_factor__iexact='DIMM',
+                                          memory_type__iexact=mother.supported_memory_type,
+                                          number_of_modules_included__lte=mother.number_of_memory_slots,
+                                          clock_frequency__range=(minimum_memory_frequency, maximum_ram_frequency),
+                                          the_volume_of_one_memory_module__lte=mother.maximum_memory //
+                                                                               F('number_of_modules_included'),
+                                          ).annotate(stars_per_user=F('the_volume_of_one_memory_module') *
+                                                                    F('number_of_modules_included')).order_by(
+                    '-stars_per_user').first()
 
-            cooler1 = cooler.objects.filter(price__lt=budget_constraints['cooler'],
-                                            socket__in=mother.socket,
-                                            # TODO uncomment next row, when change db attributes to integer
-                                            # power_dissipation__gt=cpu.heat_dissipation_tdp
-                                            ).order_by('power_dissipation').first()
+                cooler1 = cooler.objects.filter(price__lt=budget_constraints['cooler'],
+                                                socket__in=mother.socket,
+                                                power_dissipation__gt=cpu.heat_dissipation_tdp
+                                                ).order_by('power_dissipation').first()
 
-            if self.hdd_ssd_ssdhdd == 0:
-                hard1 = self._find_hdd(budget_constraints['hdd'])
-                ssd1 = None
-            elif self.hdd_ssd_ssdhdd == 1:
-                ssd1 = self._find_ssd(budget_constraints['ssd'])
-                hard1 = None
-            elif self.hdd_ssd_ssdhdd == 2:
-                hard1 = self._find_hdd(budget_constraints['hdd'])
-                ssd1 = self._find_ssd(budget_constraints['ssd'])
-            else:
-                raise Exception(AttributeError)
+                if self.hdd_ssd_ssdhdd == 0:
+                    hard1 = self._find_hdd(budget_constraints['hdd'])
+                    ssd1 = None
+                elif self.hdd_ssd_ssdhdd == 1:
+                    ssd1 = self._find_ssd(budget_constraints['ssd'])
+                    hard1 = None
+                elif self.hdd_ssd_ssdhdd == 2:
+                    hard1 = self._find_hdd(budget_constraints['hdd'])
+                    ssd1 = self._find_ssd(budget_constraints['ssd'])
+                else:
+                    raise Exception(AttributeError)
 
-            # TODO uncomment next row, when change db attributes to integer
-            # summary_tdp = cpu.heat_dissipation_tdp + gpu.maximum_power_consumption + 5 + 20 + 9 + 6 + 3
-            powersupply1 = powersupply.objects.filter(price__lt=budget_constraints['powersupply'],
-                                                      # TODO uncomment next row, when change db attributes to integer
-                                                      # power_nominal__gt=summary_tdp,
-                                                      ).order_by('power_nominal').first()
+                summary_tdp = cpu.heat_dissipation_tdp + gpu.maximum_power_consumption + 5 + 20 + 9 + 6 + 3
+                powersupply1 = powersupply.objects.filter(price__lt=budget_constraints['powersupply'],
+                                                          power_nominal__gt=summary_tdp,
+                                                          ).order_by('power_nominal').first()
 
-            return cpu, gpu, mother, ram1, cooler1, hard1, ssd1, powersupply1
+                return cpu, gpu, mother, ram1, cooler1, hard1, ssd1, powersupply1
+            except:
+                pass

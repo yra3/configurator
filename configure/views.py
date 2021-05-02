@@ -1,8 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+
+from configure.StrictConstraintMethod import StrictConstraintMethod
 from configure.models import *
 
 maximize_component = ['price', 'price', 'count_of_memory']
+
 
 def convert_to_int(string_value):
     return int(string_value.split(' ')[0])
@@ -83,7 +86,7 @@ class ConfigurationFinder:
         pass
 
 
-class StrictConstraintMethod(ConfigurationFinder):
+class SotrictConstraintMethod(ConfigurationFinder):
     def __init__(self, budget: int, component_priorities: dict):
         super().__init__(budget)
         self.component_priorities = component_priorities
@@ -153,24 +156,27 @@ class StrictConstraintMethod(ConfigurationFinder):
 
 # TODO write priorities functions
 prioriti_calculators = {
-    0: lambda x: [7,5,9,5,7],
+    0: lambda x: [7, 5, 9, 5, 7],
     1: lambda x: [7, 5, 7, 5, 6]
 
 }
+
+
 def real_auto_configure(budget: int, configure_type: int, maximized_attributes):
     prioriti_calculator = prioriti_calculators[configure_type]
     priorities = prioriti_calculator(budget)
     # configurator
+
 
 def half_auto_configure(budget: int, configure_type: int, maximized_attributes, priorytes):
     pass
 
 
 def auto_configure(budget, budget_constraints: dict, component_priorities, priorities_attributes):
-
     # TODO: write checking normalise var 'component_priorities'
     lower_estimate_finder = StrictConstraintMethod(budget, component_priorities)
     lower_estimate = lower_estimate_finder.find()
+
     def get_lower_estimate():
         def get_lower_estimate(self):
             cpu, gpu, mother, ram1, cooler1, hard1, ssd1, powersupply1 = self.find_configure()
@@ -197,7 +203,20 @@ def auto_configure(budget, budget_constraints: dict, component_priorities, prior
 
 
 def find_configure(r):  # Ммм, хуита
-    budget = 250000
+    budget = 40000
+    conf_finder = StrictConstraintMethod(budget, {
+        'CPU': 0.25,
+        'GPU': 0.2,
+        'motherboard': 0.1,
+        'RAM': 0.1,
+        'cooler': 0.05,
+        'hard_35': 0.1,
+        'ssd': 0.1,
+        'powersupply': 0.1,
+    })
+    conf = (conf_finder.find())
+    print(conf)
+    return HttpResponse("success")
     cpus = CPU.objects.filter(price__lt=budget)
     gpus = GPU.objects.filter(price__lt=budget)
     mothers = motherboard.objects.filter(price__lt=budget)
