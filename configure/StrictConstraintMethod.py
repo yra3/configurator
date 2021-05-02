@@ -33,13 +33,13 @@ class StrictConstraintMethod(ConfigurationFinder):
     def find(self):
         budget_constraints = self._get_budget_constraints()
 
-        cpus = CPU.objects.filter(price__lt=budget_constraints['CPU']).order_by(self.maximize_component[0])  # 'price'
+        cpus = CPU.objects.filter(price__lte=budget_constraints['CPU']).order_by(self.maximize_component[0])  # 'price'
         for cpu in cpus:
             try:
                 # TODO add using difference between component cost and component max cost
 
                 # For configure only desktops supported_memory_form_factor='DIMM'
-                mother = motherboard.objects.filter(price__lt=budget_constraints['motherboard'],
+                mother = motherboard.objects.filter(price__lte=budget_constraints['motherboard'],
                                                     socket__iexact=cpu.socket,
                                                     supported_memory_form_factor__iexact='DIMM'
                                                     ).order_by('price').first()
@@ -49,7 +49,7 @@ class StrictConstraintMethod(ConfigurationFinder):
 
                 maximum_ram_frequency = min(mother.maximum_memory_frequency, cpu.maximum_frequency_of_ram)
                 minimum_memory_frequency = max(mother.minimum_memory_frequency, cpu.minimum_frequency_of_ram)
-                ram1 = RAM.objects.filter(price__lt=budget_constraints['RAM'],
+                ram1 = RAM.objects.filter(price__lte=budget_constraints['RAM'],
                                           memory_form_factor__iexact='DIMM',
                                           memory_type__iexact=mother.supported_memory_type,
                                           number_of_modules_included__lte=mother.number_of_memory_slots,
@@ -60,7 +60,7 @@ class StrictConstraintMethod(ConfigurationFinder):
                                                                     F('number_of_modules_included')).order_by(
                     '-stars_per_user').first()
 
-                cooler1 = cooler.objects.filter(price__lt=budget_constraints['cooler'],
+                cooler1 = cooler.objects.filter(price__lte=budget_constraints['cooler'],
                                                 socket__in=mother.socket,
                                                 power_dissipation__gt=cpu.heat_dissipation_tdp
                                                 ).order_by('power_dissipation').first()
@@ -78,7 +78,7 @@ class StrictConstraintMethod(ConfigurationFinder):
                     raise Exception(AttributeError)
 
                 summary_tdp = cpu.heat_dissipation_tdp + gpu.maximum_power_consumption + 5 + 20 + 9 + 6 + 3
-                powersupply1 = powersupply.objects.filter(price__lt=budget_constraints['powersupply'],
+                powersupply1 = powersupply.objects.filter(price__lte=budget_constraints['powersupply'],
                                                           power_nominal__gt=summary_tdp,
                                                           ).order_by('power_nominal').first()
 
