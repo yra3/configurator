@@ -1,12 +1,12 @@
 from django.urls import path
 from homepage import views
-from configure.views import find_configure, find_configure2
+from configure.views import real_auto_configure, half_auto_configure
 urlpatterns = [
-    path('c', find_configure),
-    path('b', find_configure2),
+    path('a', real_auto_configure),
+    path('b', half_auto_configure),
     path('', views.index),
     path('auto/', views.auto),
-
+    path('config/', views.config),
 ]
 
 
