@@ -203,7 +203,7 @@ def auto_configure(budget, budget_constraints: dict, component_priorities, prior
 
 
 def find_configure(r):  # Ммм, хуита
-    budget = 40000
+    budget = 1000000
     conf_finder = StrictConstraintMethod(budget, {
         'CPU': 0.25,
         'GPU': 0.2,
@@ -214,9 +214,16 @@ def find_configure(r):  # Ммм, хуита
         'ssd': 0.1,
         'powersupply': 0.1,
     })
-    conf = (conf_finder.find())
-    print(conf)
-    return HttpResponse("success")
+    try:
+        conf = list(conf_finder.find())
+        resp = ''
+        for c in conf:
+            if c.__class__ == RAM:
+                resp += str(c.number_of_modules_included)+' * '
+            resp += c.name + '<br/>'
+        return HttpResponse(resp)
+    except:
+        return HttpResponse('Не удалось получить конфигурацию')
     cpus = CPU.objects.filter(price__lt=budget)
     gpus = GPU.objects.filter(price__lt=budget)
     mothers = motherboard.objects.filter(price__lt=budget)

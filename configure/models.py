@@ -172,7 +172,7 @@ class GPU(models.Model):
     graphics_card_thickness = models.CharField(max_length=100, null=True)
     equipment = models.CharField(max_length=100, null=True)
     weight = models.CharField(max_length=100, null=True)
-    features_optional = models.CharField(max_length=100, null=True)
+    features_optional = models.CharField(max_length=300, null=True)
     gpu_codename = models.CharField(max_length=100, null=True)
     peak_performance_of_chips_in_fp32 = models.CharField(max_length=100, null=True)
     rotation_speed_control = models.CharField(max_length=100, null=True)
