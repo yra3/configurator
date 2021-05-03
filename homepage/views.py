@@ -16,6 +16,8 @@ def auto(request):
     return render(request, "configure/auto.html")
 
 def config(request):
+
+
     return render(request, "configure/config.html")
 
 
