@@ -136,7 +136,7 @@
             </div>
             <div class="photo-block">
                 <img class="img-fluid"
-                     src="https://madgear.ru/wa-data/public/shop/products/59/06/659/images/997/997.970.png" alt="">
+                     src="https://delta-game.ru/wp-content/uploads/2020/08/PHOENIX-1.png" alt="">
             </div>
         </div>
 
@@ -152,7 +152,7 @@
                         <div class="col">
                             <div class="card" id="card1" onclick="ClickFunction(1)">
                                 <img class="card-img-top img-fluid"
-                                     src="https://madgear.ru/wa-data/public/shop/products/59/06/659/images/997/997.970.png"
+                                     src="https://man-made.ru/upload/iblock/5c8/igrovoy-komputer-man-made-base-sa2.png"
                                      alt="Card image cap">
                                 <div class="card-body">
                                     <a href="#"data-bs-toggle="modal" data-bs-target="#exampleModal1"><h5 class="card-title" style="color: #17a2b8">Домашний</h5></a>
@@ -191,7 +191,7 @@
                 <div class="intext"><input type="text" name="description" value=""></div>
 
                 <div class="endbtn">
-                    <a href="#"><div class="button button-end">Сконфигурировать</div></a>
+                    <a href="#" class="btn btn-primary" style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" >Скачать</a>
                 </div>
             </form>
         </div>
@@ -253,11 +253,19 @@
 
     function ClickFunction($str) {
         document.getElementById("comp").value = $str;
-        document.getElementById("card1").style.borderColor = "white";
-        document.getElementById("card2").style.borderColor = "white";
-        document.getElementById("card3").style.borderColor = "white";
+        document.getElementById("card1").style.background = "#1f1f1f";
+        document.getElementById("card1").style.boxShadow = "";
+        document.getElementById("card1").style.border = "1px solid white";
+        document.getElementById("card2").style.background = "#1f1f1f";
+        document.getElementById("card2").style.boxShadow = "";
+        document.getElementById("card2").style.border = "1px solid white";
+        document.getElementById("card3").style.background = "#1f1f1f";
+        document.getElementById("card3").style.boxShadow = "";
+        document.getElementById("card3").style.border = "1px solid white";
         var name = "card" + $str
-        document.getElementById(name).style.borderColor = "#02ca58";
+        document.getElementById(name).style.background = "#3e3e3e";
+        document.getElementById(name).style.boxShadow = "0 0 10px 0 #02ca58 inset, 0 0 20px 2px #02ca58";
+        document.getElementById(name).style.border = "#02ca58";
     }
 
 </script>
