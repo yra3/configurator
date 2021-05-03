@@ -1,0 +1,196 @@
+.main {
+    background: #fffefe;
+    margin: auto;
+    background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
+    background-attachment: fixed;
+}
+
+.main .container {
+    width: 90%;
+    max-width: 100%;
+    margin: auto;
+}
+.underheader {
+    color: #fffefe;
+    box-shadow: 0 5px 10px #090808;
+    align-items: center;
+    display: flex;
+    z-index: 5;
+
+}
+.main .underheader .tap {
+    font-size: large;
+    color: #fffefe;
+    display: block;
+    border-width: 5px;
+    border-color: #fffefe;
+    margin: 5px 5px 5px 5px;
+}
+.undent{
+    display: flex;
+    width: 90%;
+    max-width: 100%;
+    margin: auto;
+    flex-wrap: wrap;
+
+}
+
+.col {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.col .row-cols-1 {
+    width: 10px;
+}
+
+.card {
+    min-height: 500px;
+    height: 100%;
+    z-index: 1;
+}
+
+.card-body {
+    color: #ffffff;
+    background: #1f1f1f;
+    position: static;
+    z-index: 1;
+}
+
+.card .card-body:hover {
+    background: #3e3e3e;
+}
+
+
+.card .card-body:active {
+    background: #151414;
+}
+
+
+.photo-block {
+    position: relative;
+}
+
+.photo-block .type {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    background: #0D1B2A;
+    font-size: 15px;
+    color: #fffefe;
+}
+
+
+
+
+.nav {
+    background: #1f1f1f;
+    color: #fffefe;
+    box-shadow: 0 5px 10px #090808;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.nav .undent .site_logo {
+    margin-right: auto;
+    align-items: center;
+}
+.nav .infos {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+
+}
+.header-info{
+    padding: 17px;
+}
+.nav .logo {
+    display: block;
+    width: 250px;
+    height: auto;
+    margin: 20px 20px 20px 20px;
+}
+
+.for_slogan {
+    align-items: center;
+    margin: auto;
+}
+
+.nav .for_slogan .slogan {
+    font-family: 'Times New Roman', Times, serif; /* Шрифт с засечками */
+    font-style: italic; /* Курсивное начертание */
+    font-size: xx-large;
+    opacity: 20%;
+}
+
+.nav .btn {
+    background: #fffefe;
+    color: #415A77;
+    display: block;
+    border-width: 2px;
+    border-color: #fffefe;
+    border-radius: 10px;
+    margin: 20px 20px 20px 20px;
+}
+
+.content {
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+    color: #02a546;
+}
+
+.content .title {
+
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.information .col{
+    display: flex;
+    font-size: 1em;
+    justify-content: center;
+}
+.information .col .tap{
+    padding: 20px;
+    color: #ffffff;
+}
+footer{
+    padding-top: 35px;
+}
+
+.bov{
+    color: white;
+    background: #1f1f1f;
+}
+.fab{
+    font-size: 2em;
+    padding: 6px;
+}
+.fa-vk{
+    color: #597da3;
+}
+.fa-instagram{
+    color: #b1ab4d;
+}
+.fa-youtube{
+    color: #c4302b;
+}
+.fa-twitter{
+    color: #00acee;
+}
+.fa-facebook{
+    color: #3b5998;
+}
+.fab:hover{
+    color: gray;
+}
+.last-section{
+    text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
