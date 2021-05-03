@@ -90,22 +90,17 @@
 .cl1 {
     padding-top: 15px;
     padding-bottom: 15px;
-    flex: 1 1 100px; text-align: center;
-    flex-basis:400px;
+    flex: 1 1 100px;
+    flex-basis:40%;
 }
 .cl2{
     padding-top: 15px;
     padding-bottom: 15px;
-    flex: 1 1 100px; text-align: center;
-    flex-basis:400px; flex-grow: 3;
+    flex: 1 1 100px;
+    flex-basis:700px; flex-grow: 3;
 }
-.cl3{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    flex: 1 1 100px; text-align: center;
-    flex-basis:400px;
-}
-.card .card-body .itm {
+
+.card .card-body .box .itm {
     display: flex;
     margin: 2%;
     height: auto;
@@ -118,8 +113,28 @@
     margin-bottom: 20px;
     padding: 20px;
 }
-
-
+.card-head{
+    border-bottom: 2px solid white;
+}
+.card-foot{
+    border-top: 2px solid white;
+    display: flex;
+}
+.card-price{
+    margin-left: auto;
+}
+.imgs{
+    background: white;
+    width: 80%;
+    margin: auto;
+    height: 150px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 20px 2px #02ca58;
+    border: 3px solid #02ca58;
+}
+.slider{
+    height: 100%;
+}
 .col .row-cols-1 {
     width: 10px;
 }
@@ -135,7 +150,11 @@
     position: static;
     z-index: 1;
 }
-
+.butt-block{
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .row {
     display: flex;
@@ -186,4 +205,5 @@ footer{
 .last-section{
     text-align: center;
 }
+
 /*# sourceMappingURL=style.css.map */

@@ -2,8 +2,11 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style_config.css">
+    <script src="css/slick/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/slick/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/slick/slick/slick-theme.css"/>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -17,6 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/7635fe0a2f.js" crossorigin="anonymous"></script>
+
     <title>configuration</title>
     <style> a:hover {
         text-decoration: none;
@@ -69,40 +73,66 @@
             <a href="#" class="tap">Каталог</a>
         </div>
     </div>
+    <div class="imgs">
+        <div class="slider multiple-items">
+            <div>
+                <img style="display: block;
+    margin-left: auto;
+    margin-right: auto; height: 100px; width: auto;
+margin-top: 25px;margin-bottom: 25px;"
+                     src="https://c.dns-shop.ru/thumb/st4/fit/320/250/73aee4b6ce88fe044106afb3d57aaa2c/5a1664d3ee70341a2f5d04f1dbf64331e1a0a534f9ab1ba029dc5c04ca374816.jpg">
+            </div>
+
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="cl1">
                 <div class="card">
                     <div class="card-body">
-                        <div class="itm" id='0' >
-                            <div class="itmname" >
-                                <h6 class="card-title" style="margin: 10px"><a href="{{}}" style="color: #17a2b8">{{Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Alias aliquid blanditiis cumque dolor, esse ipsam itaque laborum
-                                    libero nobis numquam perferendis quia quod, sed tempore!}}</a></h6>
+                        <h5 class="card-head">Список комплектующих</h5>
+                        <div class="box">
+                            <div class="itm" id='0'>
+                                <div class="itmname">
+                                    <h6 class="card-title" style="margin: 10px"><a href="{{}}" style="color: #17a2b8">{{Lorem
+                                        ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Alias aliquid blanditiis cumque dolor, esse ipsam itaque
+                                        laborum
+                                        libero nobis numquam perferendis quia quod, sed tempore!}}</a></h6>
+                                </div>
+                                <div class="itmprice">
+                                    <h6 class="card-title" style="margin: 10px; color: aliceblue">10000Р</h6>
+                                </div>
                             </div>
-                            <div class="itmprice">
-                                <h5 class="card-title" style="margin: 10px; color: aliceblue">10000Р</h5>
+                            <div class="itm" id='1'>
+                                <div class="itmname">
+                                    <h6 class="card-title" style="margin: 10px"><a href="{{}}" style="color: #17a2b8">{{Lorem
+                                        ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Alias aliquid blanditiis cumque dolor, esse ipsam itaque
+                                        laborum
+                                        libero nobis numquam perferendis quia quod, sed tempore!}}</a></h6>
+                                </div>
+                                <div class="itmprice">
+                                    <h6 class="card-title" style="margin: 10px; color: aliceblue">10000Р</h6>
+                                </div>
+                            </div>
+                            <div class="itm" id='2'>
+                                <div class="itmname">
+                                    <h6 class="card-title" style="margin: 10px"><a href="{{}}" style="color: #17a2b8">{{Lorem
+                                        ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Alias aliquid blanditiis cumque dolor, esse ipsam itaque
+                                        laborum
+                                        libero nobis numquam perferendis quia quod, sed tempore!}}</a></h6>
+                                </div>
+                                <div class="itmprice">
+                                    <h6 class="card-title" style="margin: 10px; color: aliceblue">10000Р</h6>
+                                </div>
                             </div>
                         </div>
-                        <div class="itm" id='1' >
-                            <div class="itmname" >
-                                <h6 class="card-title" style="margin: 10px"><a href="{{}}" style="color: #17a2b8">{{Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Alias aliquid blanditiis cumque dolor, esse ipsam itaque laborum
-                                    libero nobis numquam perferendis quia quod, sed tempore!}}</a></h6>
-                            </div>
-                            <div class="itmprice">
-                                <h5 class="card-title" style="margin: 10px; color: aliceblue">10000Р</h5>
-                            </div>
-                        </div>
-                        <div class="itm" id='2' >
-                            <div class="itmname" >
-                                <h6 class="card-title" style="margin: 10px"><a href="{{}}" style="color: #17a2b8">{{Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Alias aliquid blanditiis cumque dolor, esse ipsam itaque laborum
-                                    libero nobis numquam perferendis quia quod, sed tempore!}}</a></h6>
-                            </div>
-                            <div class="itmprice">
-                                <h5 class="card-title" style="margin: 10px; color: aliceblue">10000Р</h5>
-                            </div>
+                        <div class="card-foot">
+                        <h5 class="card-total">Тотал</h5>
+                            <h5 class="card-price">Р</h5>
+
                         </div>
                     </div>
                 </div>
@@ -111,17 +141,14 @@
             <div class="cl2">
                 <div class="card">
                     <div class="card-body" style="display: flex; flex-direction: column;">
+                        <h5 class="card-head">Описание</h5>
+                        <h6 style="border-bottom: 1px solid #02ca58; padding-top: 50px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cumque distinctio eaque eius exercitationem illum in inventore itaque laudantium magnam non nostrum odit qui quisquam ratione, reiciendis rerum suscipit voluptate.</h6>
+                        <div class="butt-block">
+                            <a href="#" class="btn btn-primary" style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Редактировать</a>
+                            <a href="#" class="btn btn-primary" style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f;" >Скачать</a>
+                            <a href="#" class="btn btn-primary" style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Копировать ссылку</a>
 
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="cl3">
-                <div class="card">
-                    <div class="card-body" style="display: flex; flex-direction: column;">
-
-
+                        </div>
                     </div>
                 </div>
             </div>
@@ -165,8 +192,9 @@
     </footer>
 </div>
 
-
+<script src="./css/slick/slick/slick.js" type="text/javascript" charset="utf-8"></script>
 <script>
+
     $(function () {
         $(window).scroll(function () {
             var top = $(document).scrollTop();
@@ -181,17 +209,41 @@
         });
     });
 
-    function DeleteLast(){
+    function DeleteLast() {
         var x = document.getElementsByClassName('itm').length
-        var id = x-1
+        var id = x - 1
         document.getElementById(id).style.border = "none";
 
     }
-    $(document).ready(function(){
+
+    $(document).ready(function () {
         DeleteLast();
     });
 
 </script>
-
+<script type="text/javascript">
+    $(function () {
+        $('.multiple-items').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ]
+        });
+    });
+</script>
 </body>
 </html>
