@@ -28,10 +28,24 @@ class BranchAndBoundMethod(ConfigurationFinder):
         return budget_constraints
 
     def _find_hdd(self, budget_constraint):
-        return hard35.objects.filter(price__lt=self._get_budget_constraints()['hard_35']).order_by('hdd_capacity')
+        return hard35.objects.filter(price__lte=self._get_budget_constraints()['hard_35']).order_by('-hdd_capacity')
 
     def _find_ssd(self, budget_constraint):
-        return SSD.objects.filter(price__lt=self._get_budget_constraints()['ssd']).order_by('drive_volume')
+        return SSD.objects.filter(price__lte=self._get_budget_constraints()['ssd']).order_by('-drive_volume')
+
+    def _find_hdd_ssd(self, budget_constraints):
+        if self.hdd_ssd_ssdhdd == 0:
+            hard1 = self._find_hdd(budget_constraints['hard_35'])
+            ssd1 = None
+        elif self.hdd_ssd_ssdhdd == 1:
+            ssd1 = self._find_ssd(budget_constraints['ssd'])
+            hard1 = None
+        elif self.hdd_ssd_ssdhdd == 2:
+            hard1 = self._find_hdd(budget_constraints['hard_35'])
+            ssd1 = self._find_ssd(budget_constraints['ssd'])
+        else:
+            raise Exception(AttributeError)
+        return hard1, ssd1
 
     def inner_join(configure_list: list, component_list):
         return [tuple(list(configure) + [component]) for configure in configure_list for component in component_list]
@@ -51,56 +65,48 @@ class BranchAndBoundMethod(ConfigurationFinder):
     def find(self):
         budget_constraints = self._get_budget_constraints()
 
+        # TODO add func witch find component with maximum value of some attribute
         cpus = CPU.objects.filter(price__lte=budget_constraints['CPU']).order_by(self.maximize_component[0])
         best_available_cpu = cpus.first()
         if self.is_benchmark_find==0:
-            worst_from_better_cpu = CPU.objects.filter(price__gt=best_available_cpu.price
-                                                         ).order_by('price').first()
+            worst_from_better_cpu = best_available_cpu.price + 1
         else:
-            worst_from_better_cpu = CPU.objects.filter(benchmark_mark__gt=budget_constraints['CPU']
-                                                         ).order_by('benchmark_mark').first()
+            worst_from_better_cpu = best_available_cpu.benchmark_mark + 1
 
         gpus = GPU.objects.filter(price__lte=budget_constraints['GPU']).order_by(self.maximize_component[1])
         best_available_gpu = gpus.first()
         if self.is_benchmark_find == 0:
-            worst_from_better_gpu = GPU.objects.filter(price__gt=best_available_gpu.price
-                                                         ).order_by('price').first()
+            worst_from_better_gpu = best_available_gpu.price + 1
         else:
-            worst_from_better_gpu = GPU.objects.filter(benchmark_mark__gt=budget_constraints['CPU']
-                                                         ).order_by('benchmark_mark').first()
+            worst_from_better_gpu = best_available_gpu.benchmark_mark + 1
 
-        mothers = motherboard.objects.filter(price__lt=budget_constraints['motherboard']).order_by(
+        mothers = motherboard.objects.filter(price__lte=budget_constraints['motherboard']).order_by(
                 '-price')  # 'price'
         best_available_mother = mothers.first()
-        worst_from_better_motherboards = motherboard.objects.filter(price__gt=best_available_mother.price # WARNING if you change maximize parameter for mother you must change it  here
-                                                               ).order_by('price').first()
+        worst_from_better_motherboards = best_available_mother.price + 1
 
-        rams = RAM.objects.filter(price__lt=budget_constraints['RAM']
+        rams = RAM.objects.filter(price__lte=budget_constraints['RAM']
                                   ).annotate(stars_per_user=F('the_volume_of_one_memory_module'
                                   ) * F('number_of_modules_included')).order_by('-stars_per_user')
         best_available_ram = rams.first()
-        worst_from_better_rams = motherboard.objects.annotate(stars_per_user=F('the_volume_of_one_memory_module'
-                                  ) * F('number_of_modules_included')).filter(
-            stars_per_user__gt=best_available_ram.stars_per_user).order_by('stars_per_user').first()
+        worst_from_better_rams = best_available_ram.the_volume_of_one_memory_module\
+                                 * best_available_ram.number_of_modules_included + 1
 
-        coolers = cooler.objects.filter(price__lt=budget_constraints['cooler']).order_by('-power_dissipation')
+        coolers = cooler.objects.filter(price__lte=budget_constraints['cooler']).order_by('-power_dissipation')
         best_available_cooler = coolers.first()
-        worst_from_better_coolers = cooler.objects.filter(power_dissipation__gt=best_available_cooler.power_dissipation
-                                                         ).order_by('power_dissipation').first()
+        worst_from_better_coolers = best_available_cooler.power_dissipation + 1
 
-        if self.hdd_ssd_ssdhdd == 0:
-            hards = self._find_hdd(budget_constraints['hdd'])
-            ssds = None
-        elif self.hdd_ssd_ssdhdd == 1:
-            ssds = self._find_ssd(budget_constraints['ssd'])
-            hards = None
-        elif self.hdd_ssd_ssdhdd == 2:
-            hards = self._find_hdd(budget_constraints['hdd'])
-            ssds = self._find_ssd(budget_constraints['ssd'])
-        else:
-            raise Exception(AttributeError)
+        hards, ssds = self._find_hdd_ssd(budget_constraints)
+        best_available_hard = hards.first()
+        worst_from_better_hard = best_available_hard.hdd_capacity + 1
 
-        powersupplies = powersupply.objects.filter(price__lt=budget_constraints['powersupply'])
+        best_available_ssd = ssds.first()
+        worst_from_better_ssd = best_available_ssd.drive_volume + 1
+
+        powersupplies = powersupply.objects.filter(price__lte=budget_constraints['powersupply']
+                                                   ).order_by('-power_nominal')
+        best_available_powersupply = powersupplies.first()
+        worst_from_better_powersupply = best_available_powersupply.drive_volume + 1
 
         components = [gpus, mothers, rams, coolers, hards, ssds, powersupplies]
         cgs = [tuple([c] + [g]) for c in cpus for g in gpus]
