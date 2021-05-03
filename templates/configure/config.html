@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static "css/style_config.css" %}">
-    <script src="css/slick/slick/slick.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./css/slick/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/slick/slick/slick-theme.css"/>
+    <script src="{% static "css/slick/slick/slick.min.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "css/slick/slick/slick.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/slick/slick/slick-theme.css" %}"/>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -75,17 +75,17 @@
     </div>
     <div class="imgs">
         <div class="slider multiple-items"> <!-- create div block into slider for each component -->
-            <!--
-{% for component, i in  rows %}
+
+{% for i in  pics %}
             <div>
                 <img style="display: block;
     margin-left: auto;
     margin-right: auto; height: 100px; width: auto;
 margin-top: 25px;margin-bottom: 25px;"
-                     src="{{ component.picture }}">
+                     src="{{ i|safe }}" alt="А вот">
             </div>
             {% endfor %}
--->
+
         </div>
     </div>
     <div class="container">
@@ -96,23 +96,27 @@ margin-top: 25px;margin-bottom: 25px;"
                         <h5 class="card-head">Список комплектующих</h5>
                         <div class="box">
 
-                            {% for component, i in  rows %}
+                            <!--{% for  i in  nums %}
                                 <div class="itm" id='{{ i }}'>
                                     <div class="itmname">
-                                        <h6 class="card-title" style="margin: 10px"><a href="/{{ component.id }}"
+                                        <h6 class="card-title" style="margin: 10px"><a href="/{{ rows.i.id }}"
                                                                                        style="color: #17a2b8">
-                                            {{ component.name }}</a></h6>
+                                            {{ rows.i.name }}</a></h6>
                                     </div>
                                     <div class="itmprice">
-                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{{ component.price}}'Р'</h6>
+                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{{ rows.i.price}}'Р'</h6>
                                     </div>
                                 </div>
+                            {% endfor %}-->
+                            {% for h in hm %}
+                                {{ h|safe }}
                             {% endfor %}
+
 
                         </div>
                         <div class="card-foot">
                             <h5 class="card-total">Тотал</h5>
-                            <h5 class="card-price">Р</h5>
+                            <h5 class="card-price">{{ sum_price }}Р</h5>
 
                         </div>
                     </div>
@@ -133,7 +137,7 @@ margin-top: 25px;margin-bottom: 25px;"
                             <a href="#" class="btn btn-primary"
                                style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f;">Скачать</a>
                             <a href="#" class="btn btn-primary"
-                               style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Копировать ссылку</a>
+                               style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;" onclick="CopyHref()">Копировать ссылку</a>
 
                         </div>
                     </div>
@@ -179,7 +183,7 @@ margin-top: 25px;margin-bottom: 25px;"
     </footer>
 </div>
 
-<script src="./css/slick/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "css/slick/slick/slick.js" %}" type="text/javascript" charset="utf-8"></script>
 <script>
 
     $(function () {
@@ -207,6 +211,12 @@ margin-top: 25px;margin-bottom: 25px;"
         DeleteLast();
     });
 
+    function CopyHref() {
+        var markup = document.documentElement.innerHTML;
+        console.log(document.URL);
+        markup.select();
+        document.execCommand("copy");
+    }
 </script>
 <script type="text/javascript">
     $(function () {

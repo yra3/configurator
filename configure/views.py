@@ -63,10 +63,32 @@ def autopage(request):
     stroka = ''
     pri = int(request.POST['price'])
     tip = request.POST['answer']
-    config = (zip(list(real_auto_configure(pri, tip)), range(8)))
+    config = list(real_auto_configure(pri, tip))
+    r = range(8)
+    pics = []
+    ans = []
+    sum_price = 0
+    for i in range(8):
+        pics.append(config[i].picture)
+        sum_price += config[i].price
+        ans .append( \
+    f''' <div class="itm" id='{ i }'>
+                                    <div class="itmname">
+                                        <h6 class="card-title" style="margin: 10px"><a href="/{ config[i].id }"
+                                                                                       style="color: #17a2b8">
+                                            { config[i].name }</a></h6>
+                                    </div>
+                                    <div class="itmprice">
+                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{ config[i].price}'Р'</h6>
+                                    </div>
+                                </div>''')
 
     data = {
+        'hm': ans,
         'rows': config,
+        'nums': r,
+        'pics': pics,
+        'sum_price':sum_price,
     }
     return render(request, 'configure/config.html', context=data)
 
@@ -74,9 +96,9 @@ def autopage(request):
 def real_auto_configure(budget: int, configure_type: int, hdd_ssd=2, is_banchmarck_mode=0):
     prioriti_calculator = prioriti_calculators[configure_type]
     priorities = prioriti_calculator(budget)
-    from configure.BranchAndBoundMethod import BranchAndBoundMethod
+    from configure.StrictConstraintMethod import StrictConstraintMethod
     hdd_ssd = 2
-    finder = BranchAndBoundMethod(budget, priorities, hdd_ssd)
+    finder = StrictConstraintMethod(budget, priorities, hdd_ssd)
 
     return finder.find()
 

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slick Playground</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+  <style type="text/css">
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+        width: 50%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+
+    .slick-prev,
+    .slick-next {
+      -webkit-transform: translate(-50%, 0) rotate(90deg);
+      -ms-transform: translate(-50%, 0) rotate(90deg);
+      transform: translate(-50%, 0) rotate(90deg);
+      left: 50%;
+    }
+
+    .slick-prev {
+      top: -10px;
+    }
+
+    .slick-next {
+      top: auto;
+      bottom: -20px;
+    }
+    .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+    
+    .slick-active {
+      opacity: .5;
+    }
+
+    .slick-current {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="slider slick-vertical">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('.slick-vertical').slick({
+        vertical: true,
+        verticalSwiping: true,
+        slidesToShow: 3,
+        autoplay: true,
+      });
+    });
+</script>
+
+</body>
+</html>
