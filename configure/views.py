@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+
 from configure.StrictConstraintMethod import StrictConstraintMethod
 from configure.models import *
 
@@ -201,18 +202,57 @@ def auto_configure(budget, budget_constraints: dict, component_priorities, prior
     ssds = SSD.objects.filter(price__lt=budget_constraints['ssd'])
     powersupplies = powersupply.objects.filter(price__lt=budget_constraints['powersupply'])
 
+def find_configure2(r):
+    from configure.BranchAndBoundMethod import BranchAndBoundMethod
+    conf = 1
+    budget = 100000
+    conf_finder = BranchAndBoundMethod(budget,
+                                       {
+                                           'CPU': 0.25,
+                                           'GPU': 0.2,
+                                           'motherboard': 0.1,
+                                           'RAM': 0.1,
+                                           'cooler': 0.05,
+                                           'hard_35': 0.1,
+                                           'ssd': 0.1,
+                                           'powersupply': 0.1,
+                                       },
+                                       summary_price(StrictConstraintMethod(budget,
+                                                                            {
+        'CPU': 0.25,
+        'GPU': 0.40,
+        'motherboard': 0.7,
+        'RAM': 0.1,
+        'cooler': 0.03,
+        'hard_35': 0.05,
+        'ssd': 0.05,
+        'powersupply': 0.05,
+    }).find()),
+                                       )
+    conf = list(conf_finder.find())
+    try:
+        conf = list(conf_finder.find())
+        resp = ''
+        for c in conf:
+            if c.__class__ == RAM:
+                resp += str(c.number_of_modules_included)+' * '
+            resp += c.name + '<br/>'
+        return HttpResponse(resp)
+    except:
+        return HttpResponse('Не удалось получить конфигурацию')
+
 
 def find_configure(r):  # Ммм, хуита
     budget = 1000000
     conf_finder = StrictConstraintMethod(budget, {
         'CPU': 0.25,
-        'GPU': 0.2,
-        'motherboard': 0.1,
+        'GPU': 0.40,
+        'motherboard': 0.7,
         'RAM': 0.1,
-        'cooler': 0.05,
-        'hard_35': 0.1,
-        'ssd': 0.1,
-        'powersupply': 0.1,
+        'cooler': 0.03,
+        'hard_35': 0.05,
+        'ssd': 0.05,
+        'powersupply': 0.05,
     })
     try:
         conf = list(conf_finder.find())
