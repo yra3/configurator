@@ -6,12 +6,10 @@ from configure.models import *
 
 
 class BranchAndBoundMethod(ConfigurationFinder):
-    def __init__(self, budget: int, component_priorities: dict, lower_estimate, hdd_ssd_ssdhdd=2, is_benchmark_find=0):
+    def __init__(self, budget: int, component_priorities: dict, hdd_ssd_ssdhdd=2, is_benchmark_find=0):
         super().__init__(budget)
         self.component_priorities = component_priorities
         self.hdd_ssd_ssdhdd = hdd_ssd_ssdhdd
-        self.lower_estimate = lower_estimate
-        self.lower_estimate = 2000
         self.budget_constraints = self._get_budget_constraints()
         if is_benchmark_find == 0:
             self.maximize_component = ['-price', '-price']
@@ -20,8 +18,10 @@ class BranchAndBoundMethod(ConfigurationFinder):
         self.is_benchmark_find = is_benchmark_find
         le = StrictConstraintMethod(budget, component_priorities, hdd_ssd_ssdhdd, is_benchmark_find)
         self.the_best_config = le.find()
-        self.lower_estimate = self.objective_function(self.the_best_config)
-
+        try:
+            self.lower_estimate = self.objective_function(self.the_best_config)
+        except:
+            self.lower_estimate = 0
         from webconf.settings import DEBUG
         if DEBUG:
             self._print_config(self.the_best_config)
