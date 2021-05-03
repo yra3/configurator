@@ -69,7 +69,7 @@ class BranchAndBoundMethod(ConfigurationFinder):
         # TODO add func witch find component with maximum value of some attribute
         cpus = CPU.objects.filter(price__lte=budget_constraints['CPU'], socket__isnull=False,
                                   maximum_frequency_of_ram__isnull=False, minimum_frequency_of_ram__isnull=False,
-                                  heat_dissipation_tdp__isnull=False,).order_by(self.maximize_component[0])
+                                  heat_dissipation_tdp__isnull=False, ).order_by(self.maximize_component[0])
         best_available_cpu = cpus.first()
         if self.is_benchmark_find == 0:
             worst_from_better_cpu = best_available_cpu.price + 1
@@ -86,12 +86,21 @@ class BranchAndBoundMethod(ConfigurationFinder):
         worst_from_better_gpu *= self.component_priorities['GPU']
 
         mothers = motherboard.objects.filter(price__lte=budget_constraints['motherboard'],
-                                             socket__isnull=False).order_by('-price')  # 'price'
+                                             socket__isnull=False, supported_memory_form_factor__isnull=False,
+                                             supported_memory_type__isnull=False,number_of_memory_slots__isnull=False,
+                                             maximum_memory_frequency__isnull=False,
+                                             minimum_memory_frequency__isnull=False,
+                                             maximum_memory__isnull=False,
+
+                                             ).order_by('-price')  # 'price'
         best_available_mother = mothers.first()
         worst_from_better_motherboards = best_available_mother.price + 1
         worst_from_better_motherboards *= self.component_priorities['motherboard']
 
-        rams = RAM.objects.filter(price__lte=budget_constraints['RAM']
+        rams = RAM.objects.filter(price__lte=budget_constraints['RAM'],
+                                  memory_form_factor__isnull=False, memory_type__isnull=False,
+                                  number_of_modules_included__isnull=False, clock_frequency__isnull=False,
+                                  the_volume_of_one_memory_module__isnull=False,
                                   ).annotate(stars_per_user=F('the_volume_of_one_memory_module'
                                                               ) * F('number_of_modules_included')).order_by(
             '-stars_per_user')
@@ -101,7 +110,8 @@ class BranchAndBoundMethod(ConfigurationFinder):
         worst_from_better_ram *= self.component_priorities['RAM']
 
         coolers = cooler.objects.filter(price__lte=budget_constraints['cooler'],
-                                        power_dissipation__isnull=False).order_by('-power_dissipation')
+                                        socket__isnull=False, power_dissipation__isnull=False,
+                                        ).order_by('-power_dissipation')
         best_available_cooler = coolers.first()
         worst_from_better_cooler = best_available_cooler.power_dissipation + 1
         worst_from_better_cooler *= self.component_priorities['cooler']
@@ -115,7 +125,8 @@ class BranchAndBoundMethod(ConfigurationFinder):
         worst_from_better_ssd = best_available_ssd.drive_volume + 1
         worst_from_better_ssd *= self.component_priorities['ssd']
 
-        powersupplies = powersupply.objects.filter(price__lte=budget_constraints['powersupply']
+        powersupplies = powersupply.objects.filter(price__lte=budget_constraints['powersupply'],
+                                                   power_nominal__isnull=False,
                                                    ).order_by('-power_nominal')
         best_available_powersupply = powersupplies.first()
         worst_from_better_powersupply = best_available_powersupply.power_nominal + 1
