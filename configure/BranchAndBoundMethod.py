@@ -15,9 +15,9 @@ class BranchAndBoundMethod(ConfigurationFinder):
         self.lower_estimate = lower_estimate
         self.budget_constraints = self._get_budget_constraints()
         if is_benchmark_find==0:
-            self.maximize_component = ['price', 'price']
+            self.maximize_component = ['-price', '-price']
         else:
-            self.maximize_component = ['benchmark_mark', 'benchmark_mark']
+            self.maximize_component = ['-benchmark_mark', '-benchmark_mark']
         self.is_benchmark_find = is_benchmark_find
 
     def _get_budget_constraints(self):
@@ -50,13 +50,44 @@ class BranchAndBoundMethod(ConfigurationFinder):
 
     def find(self):
         budget_constraints = self._get_budget_constraints()
-        cpus = CPU.objects.filter(price__lt=budget_constraints['CPU']).order_by(self.maximize_component[0])
-        gpus = GPU.objects.filter(price__lt=budget_constraints['GPU']).order_by(self.maximize_component[1])
+
+        cpus = CPU.objects.filter(price__lte=budget_constraints['CPU']).order_by(self.maximize_component[0])
+        best_available_cpu = cpus.first()
+        if self.is_benchmark_find==0:
+            worst_from_better_cpu = CPU.objects.filter(price__gt=best_available_cpu.price
+                                                         ).order_by('price').first()
+        else:
+            worst_from_better_cpu = CPU.objects.filter(benchmark_mark__gt=budget_constraints['CPU']
+                                                         ).order_by('benchmark_mark').first()
+
+        gpus = GPU.objects.filter(price__lte=budget_constraints['GPU']).order_by(self.maximize_component[1])
+        best_available_gpu = gpus.first()
+        if self.is_benchmark_find == 0:
+            worst_from_better_gpu = GPU.objects.filter(price__gt=best_available_gpu.price
+                                                         ).order_by('price').first()
+        else:
+            worst_from_better_gpu = GPU.objects.filter(benchmark_mark__gt=budget_constraints['CPU']
+                                                         ).order_by('benchmark_mark').first()
+
         mothers = motherboard.objects.filter(price__lt=budget_constraints['motherboard']).order_by(
-                self.maximize_component[1])  # 'price'
-        rams = RAM.objects.filter(price__lt=budget_constraints['RAM']).order_by(
-                self.maximize_component[1])  # 'price'
-        coolers = cooler.objects.filter(price__lt=budget_constraints['cooler']).order_by('power_dissipation')
+                '-price')  # 'price'
+        best_available_mother = mothers.first()
+        worst_from_better_motherboards = motherboard.objects.filter(price__gt=best_available_mother.price # WARNING if you change maximize parameter for mother you must change it  here
+                                                               ).order_by('price').first()
+
+        rams = RAM.objects.filter(price__lt=budget_constraints['RAM']
+                                  ).annotate(stars_per_user=F('the_volume_of_one_memory_module'
+                                  ) * F('number_of_modules_included')).order_by('-stars_per_user')
+        best_available_ram = rams.first()
+        worst_from_better_rams = motherboard.objects.annotate(stars_per_user=F('the_volume_of_one_memory_module'
+                                  ) * F('number_of_modules_included')).filter(
+            stars_per_user__gt=best_available_ram.stars_per_user).order_by('stars_per_user').first()
+
+        coolers = cooler.objects.filter(price__lt=budget_constraints['cooler']).order_by('-power_dissipation')
+        best_available_cooler = coolers.first()
+        worst_from_better_coolers = cooler.objects.filter(power_dissipation__gt=best_available_cooler.power_dissipation
+                                                         ).order_by('power_dissipation').first()
+
         if self.hdd_ssd_ssdhdd == 0:
             hards = self._find_hdd(budget_constraints['hdd'])
             ssds = None
@@ -68,6 +99,7 @@ class BranchAndBoundMethod(ConfigurationFinder):
             ssds = self._find_ssd(budget_constraints['ssd'])
         else:
             raise Exception(AttributeError)
+
         powersupplies = powersupply.objects.filter(price__lt=budget_constraints['powersupply'])
 
         components = [gpus, mothers, rams, coolers, hards, ssds, powersupplies]
