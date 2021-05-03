@@ -205,7 +205,7 @@ def auto_configure(budget, budget_constraints: dict, component_priorities, prior
 def find_configure2(r):
     from configure.BranchAndBoundMethod import BranchAndBoundMethod
     conf = 1
-    budget = 100000
+    budget = 70000
     conf_finder = BranchAndBoundMethod(budget,
                                        {
                                            'CPU': 0.25,
@@ -217,7 +217,7 @@ def find_configure2(r):
                                            'ssd': 0.1,
                                            'powersupply': 0.1,
                                        },
-                                       summary_price(StrictConstraintMethod(budget,
+                                       (StrictConstraintMethod(budget,
                                                                             {
         'CPU': 0.25,
         'GPU': 0.40,
@@ -227,11 +227,10 @@ def find_configure2(r):
         'hard_35': 0.05,
         'ssd': 0.05,
         'powersupply': 0.05,
-    }).find()),
-                                       )
+    }).find()),)
     conf = list(conf_finder.find())
     try:
-        conf = list(conf_finder.find())
+        # conf = list(conf_finder.find())
         resp = ''
         for c in conf:
             if c.__class__ == RAM:

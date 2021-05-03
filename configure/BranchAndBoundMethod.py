@@ -19,6 +19,31 @@ class BranchAndBoundMethod(ConfigurationFinder):
         else:
             self.maximize_component = ['-benchmark_mark', '-benchmark_mark']
         self.is_benchmark_find = is_benchmark_find
+        from configure.StrictConstraintMethod import StrictConstraintMethod
+        le = StrictConstraintMethod(budget, component_priorities, hdd_ssd_ssdhdd, is_benchmark_find)
+
+        lel = [cpu, gpu, mother, ram, cooler1, hard, ssd, ps1] = le.find()
+        resp = ''
+        for c in lel:
+            if c.__class__ == RAM:
+                resp += str(c.number_of_modules_included) + ' * '
+            resp += c.name + '\n'
+        print(resp)
+        for c in lel:
+            print(c.price)
+        print()
+
+        cpu, gpu, mother, ram, cooler1, hard, ssd, ps1 = le.find()
+
+        self.lower_estimate = cpu.price * self.component_priorities['CPU'] \
+        + gpu.price * self.component_priorities['GPU'] \
+        + mother.price * self.component_priorities['motherboard'] \
+        + ram.the_volume_of_one_memory_module * ram.number_of_modules_included * self.component_priorities['RAM'] \
+        + cooler1.power_dissipation * self.component_priorities['cooler'] \
+        + hard.hdd_capacity * self.component_priorities['hard_35'] \
+        + ssd.drive_volume * self.component_priorities['ssd'] \
+        + ps1.power_nominal * self.component_priorities['powersupply']
+        print(self.lower_estimate)
 
     def _get_budget_constraints(self):
         """:returns: maximum price for each component"""
@@ -195,7 +220,9 @@ class BranchAndBoundMethod(ConfigurationFinder):
                                         uecgmrc = worst_from_better_hard + worst_from_better_ssd \
                                                + worst_from_better_powersupply
                                         for cooler1 in coolers:  # I write cooler1 because name cooler already exist
-                                            if cpu.price * self.component_priorities['CPU'] \
+                                            if cooler1.power_dissipation < cpu.heat_dissipation_tdp or \
+                                                    mother.socket not in cooler1.socket or \
+                                                    cpu.price * self.component_priorities['CPU'] \
                                                     + gpu.price * self.component_priorities['GPU'] \
                                                     + mother.price * self.component_priorities['motherboard'] \
                                                     + ram.the_volume_of_one_memory_module \
@@ -258,12 +285,22 @@ class BranchAndBoundMethod(ConfigurationFinder):
                                                                     * self.component_priorities['ssd']\
                                                                     + ps1.power_nominal \
                                                                     * self.component_priorities['powersupply']
-                                                                if obj_func>self.lower_estimate:
+                                                                if obj_func > self.lower_estimate:
                                                                     self.lower_estimate = obj_func
                                                                     print(self.lower_estimate)
                                                                     self.the_best_config = (cpu, gpu, mother, ram,
                                                                                             cooler1, hard, ssd,
                                                                                             ps1)
+                                                                    resp = ''
+                                                                    for c in list(self.the_best_config):
+                                                                        if c.__class__ == RAM:
+                                                                            resp += str(
+                                                                                c.number_of_modules_included) + ' * '
+                                                                        resp += c.name + '\n'
+                                                                    print(resp)
+                                                                    for c in list(self.the_best_config):
+                                                                        print(c.price)
+                                                                    print()
                                                                     # TODO add outer continues
         print(self.lower_estimate)
         return self.the_best_config
