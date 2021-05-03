@@ -75,14 +75,17 @@
     </div>
     <div class="imgs">
         <div class="slider multiple-items"> <!-- create div block into slider for each component -->
+            <!--
+{% for component, i in  rows %}
             <div>
                 <img style="display: block;
     margin-left: auto;
     margin-right: auto; height: 100px; width: auto;
 margin-top: 25px;margin-bottom: 25px;"
-                     src="https://c.dns-shop.ru/thumb/st4/fit/320/250/73aee4b6ce88fe044106afb3d57aaa2c/5a1664d3ee70341a2f5d04f1dbf64331e1a0a534f9ab1ba029dc5c04ca374816.jpg">
+                     src="{{ component.picture }}">
             </div>
-
+            {% endfor %}
+-->
         </div>
     </div>
     <div class="container">
@@ -92,45 +95,23 @@ margin-top: 25px;margin-bottom: 25px;"
                     <div class="card-body">
                         <h5 class="card-head">Список комплектующих</h5>
                         <div class="box">
-                            <div class="itm" id='0'>
-                                <div class="itmname">
-                                    <h6 class="card-title" style="margin: 10px"><a href="{{}}" style="color: #17a2b8">{{Lorem
-                                        ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Alias aliquid blanditiis cumque dolor, esse ipsam itaque
-                                        laborum
-                                        libero nobis numquam perferendis quia quod, sed tempore!}}</a></h6>
+
+                            {% for component, i in  rows %}
+                                <div class="itm" id='{{ i }}'>
+                                    <div class="itmname">
+                                        <h6 class="card-title" style="margin: 10px"><a href="/{{ component.id }}"
+                                                                                       style="color: #17a2b8">
+                                            {{ component.name }}</a></h6>
+                                    </div>
+                                    <div class="itmprice">
+                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{{ component.price}}'Р'</h6>
+                                    </div>
                                 </div>
-                                <div class="itmprice">
-                                    <h6 class="card-title" style="margin: 10px; color: aliceblue">10000Р</h6>
-                                </div>
-                            </div>
-                            <div class="itm" id='1'>
-                                <div class="itmname">
-                                    <h6 class="card-title" style="margin: 10px"><a href="{{}}" style="color: #17a2b8">{{Lorem
-                                        ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Alias aliquid blanditiis cumque dolor, esse ipsam itaque
-                                        laborum
-                                        libero nobis numquam perferendis quia quod, sed tempore!}}</a></h6>
-                                </div>
-                                <div class="itmprice">
-                                    <h6 class="card-title" style="margin: 10px; color: aliceblue">10000Р</h6>
-                                </div>
-                            </div>
-                            <div class="itm" id='2'>
-                                <div class="itmname">
-                                    <h6 class="card-title" style="margin: 10px"><a href="{{}}" style="color: #17a2b8">{{Lorem
-                                        ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Alias aliquid blanditiis cumque dolor, esse ipsam itaque
-                                        laborum
-                                        libero nobis numquam perferendis quia quod, sed tempore!}}</a></h6>
-                                </div>
-                                <div class="itmprice">
-                                    <h6 class="card-title" style="margin: 10px; color: aliceblue">10000Р</h6>
-                                </div>
-                            </div>
+                            {% endfor %}
+
                         </div>
                         <div class="card-foot">
-                        <h5 class="card-total">Тотал</h5>
+                            <h5 class="card-total">Тотал</h5>
                             <h5 class="card-price">Р</h5>
 
                         </div>
@@ -142,11 +123,17 @@ margin-top: 25px;margin-bottom: 25px;"
                 <div class="card">
                     <div class="card-body" style="display: flex; flex-direction: column;">
                         <h5 class="card-head">Описание</h5>
-                        <h6 style="border-bottom: 1px solid #02ca58; padding-top: 50px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cumque distinctio eaque eius exercitationem illum in inventore itaque laudantium magnam non nostrum odit qui quisquam ratione, reiciendis rerum suscipit voluptate.</h6>
+                        <h6 style="border-bottom: 1px solid #02ca58; padding-top: 50px;">Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit. Animi cumque distinctio eaque eius exercitationem illum in
+                            inventore itaque laudantium magnam non nostrum odit qui quisquam ratione, reiciendis rerum
+                            suscipit voluptate.</h6>
                         <div class="butt-block">
-                            <a href="#" class="btn btn-primary" style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Редактировать</a>
-                            <a href="#" class="btn btn-primary" style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f;" >Скачать</a>
-                            <a href="#" class="btn btn-primary" style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Копировать ссылку</a>
+                            <a href="#" class="btn btn-primary"
+                               style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Редактировать</a>
+                            <a href="#" class="btn btn-primary"
+                               style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f;">Скачать</a>
+                            <a href="#" class="btn btn-primary"
+                               style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Копировать ссылку</a>
 
                         </div>
                     </div>

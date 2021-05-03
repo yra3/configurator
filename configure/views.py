@@ -40,7 +40,7 @@ prioriti_calculators = {
     '2': lambda x: {
         'CPU': 0.25,
         'GPU': 0.40,
-        'motherboard': 0.7,
+        'motherboard': 0.07,
         'RAM': 0.1,
         'cooler': 0.03,
         'hard_35': 0.05,
@@ -50,7 +50,7 @@ prioriti_calculators = {
     '3': lambda x: {
         'CPU': 0.45,
         'GPU': 0.15,
-        'motherboard': 0.7,
+        'motherboard': 0.07,
         'RAM': 0.15,
         'cooler': 0.03,
         'hard_35': 0.05,
@@ -61,28 +61,20 @@ prioriti_calculators = {
 
 def autopage(request):
     stroka = ''
-    for component, id in zip(real_auto_configure(request.price, request.answer), range(8)):
-        stroka += f'''
-        <div class="itm" id='{ id }'>
-            <div class="itmname">
-                <h6 class="card-title" style="margin: 10px"><a href="/{ component.id }" style="color: #17a2b8">{ component.name }</a></h6>
-            </div>
-            <div class="itmprice">
-                <h6 class="card-title" style="margin: 10px; color: aliceblue">{ component.price }'Р'</h6>
-            </div>
-        </div>
-        '''
+    pri = int(request.POST['price'])
+    tip = request.POST['answer']
+    config = (zip(list(real_auto_configure(pri, tip)), range(8)))
+
     data = {
-        'rows': stroka,
+        'rows': config,
     }
-    return render('configure.configure', context=data)
+    return render(request, 'configure/config.html', context=data)
+
 
 def real_auto_configure(budget: int, configure_type: int, hdd_ssd=2, is_banchmarck_mode=0):
-    configure_type = 'working'
     prioriti_calculator = prioriti_calculators[configure_type]
     priorities = prioriti_calculator(budget)
     from configure.BranchAndBoundMethod import BranchAndBoundMethod
-    budget = 70000
     hdd_ssd = 2
     finder = BranchAndBoundMethod(budget, priorities, hdd_ssd)
 

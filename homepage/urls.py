@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.index),
     path('auto/', views.auto),
     path('auto/conf/', autopage),
-    path('config/', views.config),
+    path('config/', autopage),
 ]
 
 
