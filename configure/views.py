@@ -23,9 +23,42 @@ budget_constraints = {
 }
 
 
+def priority_calc(type: int, budget: int):
+    return {
+        "1": lambda x, y: {
+            'CPU': 0.25,
+            'GPU': 0.2,
+            'motherboard': 0.1,
+            'RAM': 0.1,
+            'cooler': 0.05,
+            'hard_35': 0.1,
+            'ssd': 0.1,
+            'powersupply': 0.1
+        },
+        '2': lambda x, y: {
+            'CPU': 4.69532 * pow(10, -12) * y * y - 1.53484 * pow(10, -6) * y + 0.285049,
+            'GPU': 1.87181 * pow(10, -16) * pow(y, 3) - 8.86215 * pow(10, -11) * y * y + 0.000012088 * y + 0.0458876,
+            'motherboard': 2.39955 * pow(10, -12) * y * y - 8.70106 * pow(10, -7) * y + 0.153233,
+            'RAM': -3.09443 * pow(10, -12) * y * y + 1.04014 * pow(10, -6) * y + 0.00444359,
+            'cooler': -1.28803 * pow(10, -13) * y * y + 1.27392 * pow(10, -7) * y + 0.010703,
+            'hard_35': 1.72394 * pow(10, -12) * y * y - 4.76713 * pow(10, -7) * y + 0.0915476,
+            'ssd': 1.72394 * pow(10, -12) * y * y - 4.76713 * pow(10, -7) * y + 0.0915476,
+            'powersupply': 1.15148 * pow(10, -12) - 2.98272 * pow(10, -7) * y + 0.0642154,
+        },
+        '3': lambda x, y: {
+            'CPU': 0.45,
+            'GPU': 0.15,
+            'motherboard': 0.07,
+            'RAM': 0.15,
+            'cooler': 0.03,
+            'hard_35': 0.05,
+            'ssd': 0.05,
+            'powersupply': 0.05,
+        },
+    }.get(type, -1)
+    # TODO write priorities functions
 
 
-# TODO write priorities functions
 prioriti_calculators = {
     '1': lambda x: {
         'CPU': 0.25,
