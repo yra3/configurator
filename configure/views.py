@@ -78,7 +78,7 @@ def autopage(request):
                                                                                        style="color: #17a2b8">
                                             { config[i].name }</a></h6>
                                     </div>
-                                    <div class="itmprice">
+                                    <div class="itmprice" style="margin-left: auto;">
                                         <h6 class="card-title" style="margin: 10px; color: aliceblue">{ config[i].price}'Р'</h6>
                                     </div>
                                 </div>''')
@@ -99,7 +99,6 @@ def real_auto_configure(budget: int, configure_type: int, hdd_ssd=2, is_banchmar
     from configure.StrictConstraintMethod import StrictConstraintMethod
     hdd_ssd = 2
     finder = StrictConstraintMethod(budget, priorities, hdd_ssd)
-
     return finder.find()
 
 
@@ -112,4 +111,3 @@ def half_auto_configure(budget: int, priorities, hdd_ssd=2, is_banchmarck_mode=0
         'configuration': finder.find()
     }
     return render('configure.config', context=data)
-
