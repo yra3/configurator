@@ -1,3 +1,5 @@
+from datetime import time
+
 from django.db.models import F
 
 from configure.StrictConstraintMethod import StrictConstraintMethod
@@ -81,6 +83,8 @@ class BranchAndBoundMethod(ConfigurationFinder):
         return answer
 
     def find(self):
+
+
         budget_constraints = self._get_budget_constraints()
 
         # TODO add func witch find component with maximum value of some attribute
