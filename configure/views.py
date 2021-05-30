@@ -119,23 +119,23 @@ def autopage(request):
     stroka = ''
     pri = int(request.POST['price'])
     tip = request.POST['answer']
-    config = list(real_auto_configure(pri, tip))
+    config = real_auto_configure(pri, tip)
     r = range(8)
     pics = []
     ans = []
     sum_price = 0
-    for i in range(8):
-        pics.append(config[i].picture)
-        sum_price += config[i].price
+    for comp, i in zip(config.values(), range(8)):
+        pics.append(comp.picture)
+        sum_price += comp.price
         ans .append( \
     f''' <div class="itm" id='{ i }'>
                                     <div class="itmname">
-                                        <h6 class="card-title" style="margin: 10px"><a href="/{ config[i].id }"
+                                        <h6 class="card-title" style="margin: 10px"><a href="/{ comp.id }"
                                                                                        style="color: #17a2b8">
-                                            { config[i].name }</a></h6>
+                                            { comp.name }</a></h6>
                                     </div>
                                     <div class="itmprice" style="margin-left: auto;">
-                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{ config[i].price}'Р'</h6>
+                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{ comp.price}'Р'</h6>
                                     </div>
                                 </div>''')
 

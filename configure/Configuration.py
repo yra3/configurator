@@ -18,12 +18,14 @@ class Configuration:
     # def __init__(self):
     #     self.components = {}
 
-    def __init__(self, upper_estimates: dict, maximum_budget: int):
+    def __init__(self, upper_estimates: dict, maximum_budget: int, minimum_prices: dict):
         """:param maximum_budget: value of maximum available budget, number
-        :param upper_estimates: dict with keys - types of components, value - max maximized value that we can get"""
+        :param upper_estimates: dict with keys - types of components, value - max maximized value that we can get
+        :param minimum_prices:  dict with keys - types of components, value - min price that we must spend"""
         self._constructor_parameters_checking(upper_estimates)
         self.maximum_budget = maximum_budget
         self.upper_estimates = upper_estimates
+        self.minimum_prices = minimum_prices
         self.components = {component_type: None for component_type in upper_estimates.keys()}
 
     def drop_component(self, component_type: str):
@@ -48,11 +50,13 @@ class Configuration:
                 summary_budget += component.price
         return summary_budget <= self.maximum_budget
 
-    def get_difference_between_available_budget_and_summary_price_of_components(self):
+    def get_balance_of_the_budget(self):
         difference = self.maximum_budget
-        for component in self.components.values():
+        for component_type, component in self.components.items():
             if component is not None:
                 difference -= component.price
+            else:
+                difference -= self.minimum_prices[component_type]
         return difference
 
     def get_objective_function(self):
@@ -60,7 +64,7 @@ class Configuration:
         for component_type, component in self.components.items():
             if component is None:
                 raise Exception('Can\'t calculate objective function. Configuration not completed', component_type)
-        for component_type, component in self.components:
+        for component_type, component in self.components.items():
                 product *= component.maximized_component
         return product
 
@@ -88,7 +92,7 @@ class Configuration:
             return self.is_compatible_cpu()
         elif component_type == 'Gpu':
             return True
-        elif component_type == 'Motherboards':
+        elif component_type == 'Motherboard':
             return self.is_compatible_mother()
         elif component_type == 'Cooler':
             return self.is_compatible_cooler()
@@ -169,7 +173,7 @@ class Configuration:
         power_supply = self.components['PowerSupply']
         cpu = self.components['Cpu']
         gpu = self.components['Gpu']
-        if cpu is not None and gpu is None:
+        if cpu is not None and gpu is not None:
             return power_supply.is_compatible_cpu_and_gpu(cpu, gpu)
         return True
 
