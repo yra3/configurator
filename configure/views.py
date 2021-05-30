@@ -114,7 +114,7 @@ prioriti_calculators = {
 def autopage(request):
     import time
     tm = time.time()
-    time.sleep()
+    time.sleep(0.1)
     m2 = time.time()
     stroka = ''
     pri = int(request.POST['price'])
@@ -152,9 +152,9 @@ def autopage(request):
 def real_auto_configure(budget: int, configure_type: int, hdd_ssd=2, is_banchmarck_mode=0):
     prioriti_calculator = RegressionConfigurePrioritiesCalculator(budget, configure_type)
     priorities = prioriti_calculator.get_priorities()
-    from configure.StrictConstraintMethod import StrictConstraintMethod
+    from configure.BranchAndBoundMethod import BranchAndBoundMethod
     hdd_ssd = 2
-    finder = StrictConstraintMethod(budget, priorities, hdd_ssd)
+    finder = BranchAndBoundMethod(budget, priorities, hdd_ssd)
     return finder.find()
 
 
