@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from configure.StrictConstraintMethod import StrictConstraintMethod
 from configure.models import *
@@ -120,22 +120,65 @@ def autopage(request):
     pri = int(request.POST['price'])
     tip = request.POST['answer']
     config = real_auto_configure(pri, tip)
+    s = ''
+    for com in config.values() :
+        s += str(com.id)+'/'
+    return redirect(s)
+    # r = range(8)
+    # pics = []
+    # ans = []
+    # sum_price = 0
+    # for key, comp, i in zip(config.keys(), config.values(), range(8)):
+    #     pics.append(comp.picture)
+    #     sum_price += comp.price
+    #     ans .append( \
+    # f''' <div class="itm" id='{ i }'>
+    #                                 <div class="itmname">
+    #                                     <h6 class="card-title" style="margin: 10px"><a href="{ key }/{ comp.id }"
+    #                                                                                    style="color: #17a2b8">
+    #                                         { comp.name }</a></h6>
+    #                                 </div>
+    #                                 <div class="itmprice" style="margin-left: auto;">
+    #                                     <h6 class="card-title" style="margin: 10px; color: aliceblue">{ comp.price}'Р'</h6>
+    #                                 </div>
+    #                             </div>''')
+    #
+    # data = {
+    #     'hm': ans,
+    #     'rows': config,
+    #     'nums': r,
+    #     'pics': pics,
+    #     'sum_price':sum_price,
+    # }
+    # return render(request, 'configure/config.html', context=data)
+
+def sborka(request, cpu, gpu, mother, ram, cooler, ssd ,hdd, ps):
+    from configure import models
+    config = {}
     r = range(8)
+    config['Cpu'] = models.CPU.objects.filter(id=cpu)[0]
+    config['Gpu'] = models.GPU.objects.filter(id=gpu)[0]
+    config['Motherboard'] = models.motherboard.objects.filter(id=mother)[0]
+    config['Ram'] = models.RAM.objects.filter(id=ram)[0]
+    config['Cooler'] = models.cooler.objects.filter(id=cooler)[0]
+    config['Hard35'] = models.hard35.objects.filter(id=ssd)[0]
+    config['Ssd'] = models.SSD.objects.filter(id=hdd)[0]
+    config['PowerSupply'] = models.powersupply.objects.filter(id=ps)[0]
     pics = []
     ans = []
     sum_price = 0
-    for comp, i in zip(config.values(), range(8)):
+    for key, comp, i in zip(config.keys(), config.values(), range(8)):
         pics.append(comp.picture)
         sum_price += comp.price
-        ans .append( \
-    f''' <div class="itm" id='{ i }'>
+        ans.append( \
+            f''' <div class="itm" id='{i}'>
                                     <div class="itmname">
-                                        <h6 class="card-title" style="margin: 10px"><a href="/{ comp.id }"
+                                        <h6 class="card-title" style="margin: 10px"><a href="/{key}/{comp.id}"
                                                                                        style="color: #17a2b8">
-                                            { comp.name }</a></h6>
+                                            {comp.name}</a></h6>
                                     </div>
                                     <div class="itmprice" style="margin-left: auto;">
-                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{ comp.price}'Р'</h6>
+                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{comp.price}'Р'</h6>
                                     </div>
                                 </div>''')
 
@@ -144,10 +187,9 @@ def autopage(request):
         'rows': config,
         'nums': r,
         'pics': pics,
-        'sum_price':sum_price,
+        'sum_price': sum_price,
     }
     return render(request, 'configure/config.html', context=data)
-
 
 def real_auto_configure(budget: int, configure_type: int, hdd_ssd=2, is_banchmarck_mode=0):
     prioriti_calculator = RegressionConfigurePrioritiesCalculator(budget, configure_type)
