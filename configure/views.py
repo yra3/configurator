@@ -51,8 +51,8 @@ class RegressionConfigurePrioritiesCalculator:
 
     def get_game_priorities(self):
         x = self.budget
-        xx = x ^ 2
-        xxx = x ^ 3
+        xx = x ** 2
+        xxx = x ** 3
         return {
             'CPU': 4.69532 * pow(10, -12) * xx - 1.53484 * pow(10, -6) * x + 0.285049,
             'GPU': 1.87181 * pow(10, -16) * xxx - 8.86215 * pow(10, -11) * xx + 0.000012088 * x + 0.0458876,

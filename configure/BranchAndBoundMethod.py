@@ -7,7 +7,8 @@ from configure.StrictConstraintMethod import StrictConstraintMethod
 from configure.ConfigurationFinder import ConfigurationFinder
 from configure.Configuration import *
 from webconf.settings import DEBUG
-from multiprocessing import Process, Lock
+from multiprocessing import Process, Lock, cpu_count, Value, Array
+
 
 class BranchAndBoundMethod(ConfigurationFinder):
     def __init__(self, budget: int, component_priorities: dict, hdd_ssd_ssdhdd=2, is_benchmark_find=0):
@@ -200,3 +201,82 @@ class BranchAndBoundMethod(ConfigurationFinder):
                 self.the_best_config = configuration.components.copy()
                 if DEBUG:
                     self._print_config(self.the_best_config)
+# multiprocess code
+    # def find(self):
+    #     self.component_lists = self._get_all_available_components()
+    #     upper_estimates = self._get_upper_estimates(self.component_lists)
+    #     cheapest = self._get_cheapest_components(self.component_lists)
+    #
+    #     # configuration = Configuration(upper_estimates, self.budget, cheapest)
+    #     self.component_lists_for_processes = [None for x in range(cpu_count())]
+    #
+    #     lock = Lock()
+    #     lower_estimate = Value('d', 0)
+    #     best_config = Array('i', range(8))
+    #     processes = []
+    #     process_count = cpu_count() - 1
+    #     for i in range(cpu_count()):
+    #         self.component_lists_for_processes[i] = self.component_lists.copy()
+    #         self.component_lists_for_processes[i]['Cpu'] = self.component_lists['Cpu'][i::cpu_count()]
+    #
+    #     configurations = [Configuration(self._get_upper_estimates(self.component_lists_for_processes[i]
+    #                                                               ), self.budget, cheapest) for i in range(cpu_count())]
+    #
+    #     for i in range(process_count):
+    #         processes.append(Process(target=self.find_component, args=(configurations[i], 0, i, lock, lower_estimate, best_config)))
+    #         processes[i].start()
+    #     self.find_component(configurations[process_count], 0, process_count, lock, lower_estimate, best_config)
+    #     for process in processes:
+    #         process.join()
+    #
+    #
+    #     # self.find_component(configuration, 0)
+    #     config = {}
+    #
+    #     # it's convert from own classes to Model objects
+    #     from . import models
+    #     config['Cpu'] = models.CPU.objects.filter(id=best_config[0])[0]
+    #     config['Gpu'] = models.GPU.objects.filter(id=best_config[1])[0]
+    #     config['Motherboard'] = models.motherboard.objects.filter(id=best_config[2])[0]
+    #     config['Ram'] = models.RAM.objects.filter(id=best_config[3])[0]
+    #     config['Cooler'] = models.cooler.objects.filter(id=best_config[4])[0]
+    #     config['Hard35'] = models.hard35.objects.filter(id=best_config[5])[0]
+    #     config['Ssd'] = models.SSD.objects.filter(id=best_config[6])[0]
+    #     config['PowerSupply'] = models.powersupply.objects.filter(id=best_config[7])[0]
+    #     # config['Cpu'] = models.CPU.objects.filter(id=self.the_best_config['Cpu'].id)[0]
+    #     # config['Gpu'] = models.GPU.objects.filter(id=self.the_best_config['Gpu'].id)[0]
+    #     # config['Motherboard'] = models.motherboard.objects.filter(id=self.the_best_config['Motherboard'].id)[0]
+    #     # config['Ram'] = models.RAM.objects.filter(id=self.the_best_config['Ram'].id)[0]
+    #     # config['Cooler'] = models.cooler.objects.filter(id=self.the_best_config['Cooler'].id)[0]
+    #     # config['Ssd'] = models.SSD.objects.filter(id=self.the_best_config['Ssd'].id)[0]
+    #     # config['Hard35'] = models.hard35.objects.filter(id=self.the_best_config['Hard35'].id)[0]
+    #     # config['PowerSupply'] = models.powersupply.objects.filter(id=self.the_best_config['PowerSupply'].id)[0]
+    #     return config
+    #
+    # def find_component(self, configuration, index, process_number, lock, lower_estimate, best_config):
+    #     if index != self.count_components:
+    #         component_type = self.component_types[index]
+    #         for component in self.component_lists_for_processes[process_number][component_type]:
+    #             configuration.set_component(component, component_type)
+    #
+    #             if configuration.get_upper_estimate() <= lower_estimate.value:
+    #                 configuration.drop_component(component_type)
+    #                 break
+    #             compatibility_condition = configuration.is_compatible(component_type)
+    #             if not compatibility_condition or configuration.get_balance_of_the_budget() < 0:
+    #                 configuration.drop_component(component_type)
+    #                 continue
+    #             self.find_component(configuration, index + 1, process_number, lock, lower_estimate, best_config)
+    #     else:
+    #         lock.acquire()
+    #         objective_function = configuration.get_objective_function()
+    #         if objective_function > lower_estimate.value:
+    #             lower_estimate.value = objective_function
+    #             # self.the_best_config = configuration.components.copy()
+    #             for i, component in zip(range(8), configuration.components.values()):
+    #                 best_config[i] = component.id
+    #             if DEBUG:
+    #                 #self._print_config(self.the_best_config)
+    #                 print(process_number, end=' ')
+    #                 print(lower_estimate.value)
+    #         lock.release()
