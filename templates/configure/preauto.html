@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/style_preauto.css" %}">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7635fe0a2f.js" crossorigin="anonymous"></script>
+    <title>preauto</title>
+    <style> a:hover {
+        text-decoration: none;
+    }
+
+    .card {
+        background: #1f1f1f;
+        border: 1px solid white;
+    }</style>
+</head>
+
+
+<body>
+
+<div class="main">
+
+    <header class="nav">
+        <div class="undent">
+            <div class="site_logo">
+                <img class="logo"
+                     src="https://psv4.userapi.com/c536132/u240890695/docs/d6/58609214581d/logo2.png?extra=bHj_5M-VguyRqLudFT5PBFKBTMqmU9srl7oCrkmxai3YzvTnE0vDynnUbj6lZbZVigdq6jSSeM6c_WAzhbYojr7emlhJ6bd2KJosOGguvQ3zaRukxFEztQtib6lV0KmjECaFAX8i0l09JDp_nWch-co"
+                     alt="logo">
+            </div>
+            <div class="for_slogan"><span class="slogan">Соберем PC для каждого!</span></div>
+            <div class="infos">
+                <div class="header-info">
+                    <a class="uk-link-muted uk-text-small">
+            <span class="uk-icon" style="margin-right:2px">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                    <path d="M1 11l9 3 3 9 9-21z" fill="#ccc" fill-rule="evenodd"></path>
+                </svg>
+            </span>
+                        <span class="jsCityLabel" title="625000, Тюменская обл, г Тюмень"
+                              style="color: white">Тюмень</span>
+                    </a>
+                </div>
+                <div class="header-info">
+                    <a href="tel:88002349919" class="header__phone">
+                        <img src="https://edelws.ru/local/templates/main/img/icon/phone.svg" alt="">
+                        <span class="header__phone-tel" style="color: white">8 800 555-35-35</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="underheader bg-dark">
+        <div class="undent">
+            <a href="#" class="tap">Конфигуратор</a>
+            <a href="#" class="tap">Каталог</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="text-type">
+                <div class="text-header"><h2>Полуавтоматический режим</h2>
+                </div>
+                <div class="text-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dignissimos fugit
+                    nihil nisi non odio officia sapiente sed voluptas? Ad.
+                </div>
+            </div>
+            <div class="photo-block">
+                <img class="img-fluid"
+                     src="https://madgear.ru/wa-data/public/shop/products/59/06/659/images/997/997.970.png" alt="">
+            </div>
+        </div>
+
+        <div class="input-block">
+
+
+            <form action="config">
+
+                <p style="padding-top: 35px; padding-left: 10px;">Введите Ваш бюджет <input type="number" id="price"
+                                                                                            name="price"
+                                                                                            value="" min="5000"
+                                                                                            step="500"> руб.</p>
+
+
+                <table class="tablestyle" style="width: 98%; margin: auto" id="table">
+                    <tbody>
+                    <tr style="padding-left: 10px; width: 100%; ">
+                        <td style="margin-right: auto">Процессор:</td>
+                        <td style="margin: auto">
+                            <input type="range" class="slider" name="rangeInput" id="rangeInput1" min="0" max="100"
+                                   step="1" onchange="updateTextInput('textInput1', this.value);updateSum();"
+                                   style="width: 50%;">
+                        </td>
+                        <td style="margin-left: auto"><input name="cpu-price" type="number" id="textInput1" value=""
+                                                             size="3"
+                                                             onchange="updateRangeInput('rangeInput1', this.value);updateSum();"
+                                                             style="width: 40px;">%
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Материнская плата:</td>
+                        <td>
+                            <input type="range" class="slider" name="rangeInput" id="rangeInput2" min="0" max="100"
+                                   step="1" onchange="updateTextInput('textInput2', this.value);updateSum();"
+                                   style="width: 50%;">
+
+                        </td>
+                        <td><input name="mb-price" type="number" id="textInput2" value="" size="3"
+                                   onchange="updateRangeInput('rangeInput2', this.value);updateSum();"
+                                   style="width: 40px;">%
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Видеокарта:</td>
+                        <td>
+                            <input type="range" class="slider" name="rangeInput" min="0" id="rangeInput3" max="100"
+                                   step="1" onchange="updateTextInput('textInput3', this.value);updateSum();"
+                                   style="width: 50%;">
+
+                        </td>
+                        <td><input name="gpu-price" type="number" id="textInput3" value="" size="3"
+                                   onchange="updateRangeInput('rangeInput3', this.value);updateSum();"
+                                   style="width: 40px;">%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Оперативная память:</td>
+                        <td>
+                            <input type="range" class="slider" name="rangeInput" min="0" max="100" id="rangeInput4"
+                                   step="1" onchange="updateTextInput('textInput4', this.value);updateSum();"
+                                   style="width: 50%;">
+
+                        </td>
+                        <td><input name="ram-price" type="number" id="textInput4" value="" size="3"
+                                   onchange="updateRangeInput('rangeInput4', this.value);updateSum();"
+                                   style="width: 40px;">%
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Кулер:</td>
+                        <td>
+                            <input type="range" class="slider" name="rangeInput" min="0" max="100" id="rangeInput5"
+                                   step="1" onchange="updateTextInput('textInput5', this.value);updateSum();"
+                                   style="width: 50%;">
+
+                        </td>
+                        <td><input name="cooler-price" type="number" id="textInput5" value="" size="3"
+                                   onchange="updateRangeInput('rangeInput5', this.value);updateSum();"
+                                   style="width: 40px;">%
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Хранилище:</td>
+                        <td>
+                            <input type="range" class="slider" name="rangeInput" min="0" max="100" id="rangeInput6"
+                                   step="1" onchange="updateTextInput('textInput6', this.value);updateSum();"
+                                   style="width: 50%;">
+
+                        </td>
+                        <td><input name="storage-price" type="number" id="textInput6" value="" size="3"
+                                   onchange="updateRangeInput('rangeInput6', this.value);updateSum();"
+                                   style="width: 40px;">%
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Блок питания:</td>
+                        <td>
+                            <input type="range" class="slider" name="rangeInput" min="0" max="100" step="1"
+                                   id="rangeInput7" onchange="updateTextInput('textInput7', this.value);updateSum();"
+                                   style="width: 50%;">
+
+                        </td>
+                        <td><input name="ps-price" type="number" id="textInput7" value="" size="3"
+                                   onchange="updateRangeInput('rangeInput7', this.value);updateSum();"
+                                   style="width: 40px;">%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Итого (от заданной цены):</td>
+                        <td align="right"><input id="sum" type="number" size="3" readonly/></td>
+                        <td>%</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <br>
+                <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="processor" class="toggleMenu">
+                    <label for="processor" class="toggleMenu"><i class="fa fa-bars"></i>Процессор</label>
+                    <ul>
+                        <!--                        <div class="slidecontainer" style="padding-top: 10px">-->
+                        <!--&lt;!&ndash;                            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">&ndash;&gt;-->
+                        <!--                        </div>-->
+                        <!--&lt;!&ndash;                        <span id="demo" style="font-weight:bold;color:red"></span>&ndash;&gt;-->
+
+
+                        <div class="form-check">
+                            <p><b>Производитель процессора</b></p>
+                            {% for manufacturer_cpu in manufacturer_cpu_list %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{manufacturer_cpu}}"
+                                       name="manufacturer_cpu[]">
+                                <label class="form-check-label" for="manufacturer_cpu[]">
+                                    {{manufacturer_cpu}}
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Сокет процессора</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{socket-cpu}}"
+                                       name="socket-cpu[]">
+                                <label class="form-check-label" for="socket-cpu[]">
+                                    {{socket-cpu}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Количество ядер</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{count-cores-cpu}}"
+                                       name="count-cores-cpu[]">
+                                <label class="form-check-label" for="count-cores-cpu[]">
+                                    {{count-cores-cpu}}
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-check">
+                            <p><b>Многопоточность</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="true" name="ismultithread[]">
+                                <label class="form-check-label" for="ismultithread[]">
+                                    Да
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="false" name="ismultithread[]">
+                                <label class="form-check-label" for="ismultithread[]">
+                                    Нет
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Тип памяти</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{memory-type-cpu}}"
+                                       name="type-memory-cpu[]">
+                                <label class="form-check-label" for="type-memory-cpu[]">
+                                    {{memory-type-cpu}}
+                                </label>
+                            </div>
+                        </div>
+
+                    </ul>
+                </nav>
+                <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="motherboard" class="toggleMenu">
+                    <label for="motherboard" class="toggleMenu"><i class="fa fa-bars"></i>Мать</label>
+                    <ul>
+
+                        <div class="form-check">
+                            <p><b>Сокет материнской платы</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{socket-mb}}"
+                                       name="socket-mb[]">
+                                <label class="form-check-label" for="socket-mb[]">
+                                    {{socket-mb}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Чипсет</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{chipset-mb}}"
+                                       name="chipset-mb[]">
+                                <label class="form-check-label" for="chipset-mb[]">
+                                    {{chipset-mb}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Форм-фактор</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{form-factor-mb}}"
+                                       name="form-factor-mb[]">
+                                <label class="form-check-label" for="form-factor-mb[]">
+                                    {{form-factor-mb}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Количество слотов памяти</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{memory-slot-mb}}"
+                                       name="memory-slots-mb[]">
+                                <label class="form-check-label" for="memory-slots-mb[]">
+                                    {{memory-slot-mb}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Тип поддерживаемой памяти</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{memory-type-mb}}"
+                                       name="memory-type-mb[]">
+                                <label class="form-check-label" for="memory-type-mb[]">
+                                    {{memory-type-mb}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <p><b>Встроенный адаптер Wi-Fi</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="true" name="haswifi-mb[]">
+                                <label class="form-check-label" for="haswifi-mb[]">
+                                    Да
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="false" name="haswifi-mb[]">
+                                <label class="form-check-label" for="haswifi-mb[]">
+                                    Нет
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <p><b>Количество разъемов M.2</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{m2-slots-mb}}"
+                                       name="m2-slots-mb[]">
+                                <label class="form-check-label" for="m2-slots-mb[]">
+                                    {{m2-slots-mb}}
+                                </label>
+                            </div>
+                        </div>
+
+                    </ul>
+                </nav>
+                <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="gpu" class="toggleMenu">
+                    <label for="gpu" class="toggleMenu"><i class="fa fa-bars"></i>Видеокарта</label>
+                    <ul>
+                        <div class="form-check">
+                            <p><b>Объем видеопамяти</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{video-memory-gpu}}"
+                                       name="video-memory-gpu[]">
+                                <label class="form-check-label" for="video-memory-gpu[]">
+                                    {{video-memory-gpu}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Тип памяти</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{memory-type-gpu}}"
+                                       name="memory-type-gpu[]">
+                                <label class="form-check-label" for="memory-type-gpu[]">
+                                    {{memory-type-gpu}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Версия PCI Express</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{pci-version-gpu}}"
+                                       name="pci-version-gpu[]">
+                                <label class="form-check-label" for="pci-version-gpu[]">
+                                    {{pci-version-gpu}}
+                                </label>
+                            </div>
+                        </div>
+
+                    </ul>
+                </nav>
+                <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="powersupply" class="toggleMenu">
+                    <label for="powersupply" class="toggleMenu"><i class="fa fa-bars"></i>Блок питания</label>
+                    <ul>
+                        <div class="form-check">
+                            <p><b>Мощность (Вт)</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="1" name="power-ps">
+                                <label class="form-check-label" for="power-ps">
+                                    Менее 500
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="2" name="power-ps">
+                                <label class="form-check-label" for="power-ps">
+                                    500.1-1000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="3" name="power-ps">
+                                <label class="form-check-label" for="power-ps">
+                                    Более 1000.1
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <p><b>Форм-фактор</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{form-factor-ps}}"
+                                       name="form-factor-ps[]">
+                                <label class="form-check-label" for="form-factor-ps[]">
+                                    {{form-factor-ps}}
+                                </label>
+                            </div>
+                        </div>
+
+                    </ul>
+                </nav>
+                <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="ram" class="toggleMenu">
+                    <label for="ram" class="toggleMenu"><i class="fa fa-bars"></i>Оперативная память</label>
+                    <ul>
+                        <div class="form-check">
+                            <p><b>Тип памяти</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{memory-type-ram}}"
+                                       name="memory-type-ram[]">
+                                <label class="form-check-label" for="memory-type-ram[]">
+                                    {{memory-type-ram}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <p><b>Тактовая частота (МГц)</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="1" name="frequency-ram">
+                                <label class="form-check-label" for="frequency-ram">
+                                    Менее 1000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="2" name="frequency-ram">
+                                <label class="form-check-label" for="frequency-ram">
+                                    1001-2000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="3" name="frequency-ram">
+                                <label class="form-check-label" for="frequency-ram">
+                                    2001-3000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="4" name="frequency-ram">
+                                <label class="form-check-label" for="frequency-ram">
+                                    3001-4000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="5" name="frequency-ram">
+                                <label class="form-check-label" for="frequency-ram">
+                                    Более 4000
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <p><b>Подсветка элементов платы</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="true" name="color-ram[]">
+                                <label class="form-check-label" for="color-ram[]">
+                                    Да
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="false" name="color-ram[]">
+                                <label class="form-check-label" for="color-ram[]">
+                                    Нет
+                                </label>
+                            </div>
+                        </div>
+
+                    </ul>
+                </nav>
+                <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="cooler" class="toggleMenu">
+                    <label for="cooler" class="toggleMenu"><i class="fa fa-bars"></i>Кулер процессора</label>
+                    <ul>
+                        <div class="form-check">
+                            <p><b>Разъем для подключения вентиляторов</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{fan-connector-cl}}"
+                                       name="fan-connector-cl[]">
+                                <label class="form-check-label" for="fan-connector-cl[]">
+                                    {{fan-connector-cl}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Регулировка скорости вращения</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{rotation-speed-control-cl}}"
+                                       name="rotation-speed-control-cl[]">
+                                <label class="form-check-label" for="rotation-speed-control-cl[]">
+                                    {{rotation-speed-control-cl}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Тип подсветки вентилятора</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{fan-backlight-type-cl}}"
+                                       name="fan-backlight-type-cl[]">
+                                <label class="form-check-label" for="fan-backlight-type-cl[]">
+                                    {{fan-backlight-type-cl}}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Цвет подсветки вентилятора</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{fan-illumination-color-cl}}"
+                                       name="fan-illumination-color-cl[]">
+                                <label class="form-check-label" for="fan-illumination-color-cl[]">
+                                    {{fan-illumination-color-cl}}
+                                </label>
+                            </div>
+                        </div>
+                    </ul>
+                </nav>
+                <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="storage" class="toggleMenu">
+                    <label for="storage" class="toggleMenu"><i class="fa fa-bars"></i>Хранилище</label>
+                    <ul>
+                        <div class="dynamic_fields">
+                            <div class="example">
+                                <div class="table1">
+                                    <div class="cell">
+                                        <div class="form-check">
+                                            <p><b>Тип накопителя </b></p>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="1"
+                                                       name="type-sg[]">
+                                                <label class="form-check-label" for="type-sg[]">
+                                                    HDD
+                                                </label>
+                                                <br>
+                                                <input class="form-check-input" type="checkbox" value="2"
+                                                       name="type-sg[]">
+                                                <label class="form-check-label" for="type-sg[]">
+                                                    SSD
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell">
+                                        <div class="js-remove pull-right btn btn-danger">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="strgs"></div>
+                            <div class="js-add pull-right btn btn-success">+</div>
+                        </div>
+
+                        <div class="form-check">
+                            <p><b>Объем накопителя</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{value-sg}}"
+                                       name="value-sg[]">
+                                <label class="form-check-label" for="value-sg[]">
+                                    {{value-sg}}
+                                </label>
+                            </div>
+                        </div>
+                    </ul>
+                </nav>
+                <p style="padding-top: 35px; padding-left: 10px;">Введите описание</p>
+                <div class="intext"><input type="text" name="description" value=""></div>
+
+                <div class="endbtn">
+                    <button class="btn btn-primary"
+                            style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" type="submit"
+                            data-bs-toggle="modal" data-bs-target="#loadModal">Скачать
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <footer class="bov">
+        <div class="container">
+            <div class="row padding text-center">
+                <div class="information">
+                    <div class="inf-for-user">
+                        <h3>Информация пользователю</h3>
+                    </div>
+                    <div class="col">
+                        <a href="#">
+                            <div class="tap">Источники</div>
+                        </a>
+                        <a href="#">
+                            <div class="tap">Справка</div>
+                        </a>
+                        <a href="#">
+                            <div class="tap">О нас</div>
+                        </a>
+                        <a href="#">
+                            <div class="tap">Контакты</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <a href="#"><i class="fab fa-vk"> </i></a>
+                    <a href="#"><i class="fab fa-instagram"> </i></a>
+                    <a href="#"><i class="fab fa-youtube"> </i></a>
+                    <a href="#"><i class="fab fa-twitter"> </i></a>
+                    <a href="#"><i class="fab fa-facebook"> </i></a>
+                </div>
+            </div>
+            <div class="last-section">
+                © 2021 ConfigPC. Все права защищены.
+            </div>
+        </div>
+
+    </footer>
+</div>
+
+
+<script>
+    $(function () {
+        $(window).scroll(function () {
+            var top = $(document).scrollTop();
+            if (top < 95) $(".underheader").css({top: '0', position: 'relative'});
+            else $(".underheader").css({
+                top: '0',
+                left: '0',
+                position: 'fixed',
+                width: '100%',
+                background: 'none repeat scroll 0% 0% rgba(9, 125, 240, 0.7)'
+            });
+        });
+    });
+
+
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+
+    function updateTextInput(id, val) {
+        document.getElementById(id).value = val;
+    }
+
+    function updateSum() {
+        var textInput1 = document.getElementById('textInput1').value;
+        var textInput2 = document.getElementById('textInput2').value;
+        var textInput3 = document.getElementById('textInput3').value;
+        var textInput4 = document.getElementById('textInput4').value;
+        var textInput5 = document.getElementById('textInput5').value;
+        var textInput6 = document.getElementById('textInput6').value;
+        var textInput7 = document.getElementById('textInput7').value;
+
+        document.getElementById('sum').value = Number(textInput1) + Number(textInput2) + Number(textInput3) + Number(textInput4) + Number(textInput5) + Number(textInput6) + Number(textInput7);
+    }
+
+    function updateRangeInput(id, val) {
+        document.getElementById(id).value = val;
+    }
+
+
+    var button_add = document.querySelector('.dynamic_fields .js-add');
+
+    button_add.addEventListener('click', function () {
+
+        var strgs = document.querySelector('.dynamic_fields .strgs');
+
+        var element = document.querySelector('.example').cloneNode(true);
+
+        element.classList.add('strgs');
+
+        element.classList.remove('example');
+
+        strgs.appendChild(element);
+    });
+
+    document.addEventListener('click', function (el) {
+
+        if (el.target && el.target.classList.contains('js-remove')) {
+
+            var child = el.target.closest('.table1');
+
+            child.parentNode.removeChild(child);
+        }
+    });
+</script>
+
+</body>
+</html>
