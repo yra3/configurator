@@ -5,10 +5,8 @@ from configure.StrictConstraintMethod import StrictConstraintMethod
 from configure.models import *
 
 
-
 def convert_to_int(string_value):
     return int(string_value.split(' ')[0])
-
 
 
 budget_constraints = {
@@ -38,15 +36,18 @@ class RegressionConfigurePrioritiesCalculator:
             return self.get_work_priorities()  # TODO write this priorities function
 
     def get_home_priorities(self):
+        x = self.budget
+        xx = x ** 2
+        xxx = x ** 3
         return {
-            'CPU': 0.25,
-            'GPU': 0.2,
-            'motherboard': 0.1,
-            'RAM': 0.1,
-            'cooler': 0.05,
-            'hard_35': 0.1,
-            'ssd': 0.1,
-            'powersupply': 0.1
+            'CPU': 7.35334 * pow(10, -17) * xxx - 3.91966 * pow(10, -11) * xx + 5.77059 * pow(10, -6) * x + 0.038136,
+            'GPU': -2.43693 * pow(10, -12) * xx + 1.42841 * pow(10, -6) * x + 0.208638,
+            'motherboard': 5.05664 * pow(10, -12) * xx - 1.68784 * pow(10, -6) * x + 0.203876,
+            'RAM': 4.93807 * pow(10, -12) * xx - 1.61084 * pow(10, -6) * x + 0.200755,
+            'cooler': -4.17194 * pow(10, -12) * xx + 7.22912 * pow(10, -7) * x + 0.00768568,
+            'hard_35': 2.40797 * pow(10, -12) * xx - 1.05115 * pow(10, -6) * x + 0.210022,
+            'ssd': 2.40797 * pow(10, -12) * xx - 1.05115 * pow(10, -6) * x + 0.210022,
+            'powersupply': 4.14385 * pow(10, -12) * xx - 1.43206 * pow(10, -6) * x + 0.150924
         }
 
     def get_game_priorities(self):
@@ -65,17 +66,19 @@ class RegressionConfigurePrioritiesCalculator:
         }
 
     def get_work_priorities(self):
+        x = self.budget
+        xx = x ** 2
+        xxx = x ** 3
         return {
-            'CPU': 0.45,
-            'GPU': 0.15,
-            'motherboard': 0.07,
-            'RAM': 0.15,
-            'cooler': 0.03,
-            'hard_35': 0.05,
-            'ssd': 0.05,
-            'powersupply': 0.05,
+            'CPU': -7.72411 * pow(10, -12) * xx + 1.48088 * pow(10, -6) * x + 0.325251,
+            'GPU': 1.75387 * pow(10, -12) * xx + 1.04826 * pow(10, -6) * x + 0.0104763,
+            'motherboard': 2.47102 * pow(10, -12) * xx - 1.1073 * pow(10, -6) * x + 0.230359,
+            'RAM': 5.35811 * pow(10, -17) * xxx - 2.20686 * pow(10, -11) * xx + 2.28215 * pow(10, -6) * x + 0.0747362,
+            'cooler': -8.55621 * pow(10, -13) * xx + 2.36216 * pow(10, -7) * x + 0.0235645,
+            'hard_35': 7.81749 * pow(10, -12) * xx - 2.40609 * pow(10, -6) * x + 0.201275,
+            'ssd': 7.81749 * pow(10, 12) * xx - 2.40609 * pow(10, -6) * x + 0.201275,
+            'powersupply': 2.57604 * pow(10, -12) * xx - 9.86143 * pow(10, -7) * x + 0.138944,
         }
-
 
 
 prioriti_calculators = {
