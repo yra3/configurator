@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/7635fe0a2f.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
 
     <title>configuration</title>
     <style> a:hover {
@@ -132,12 +133,12 @@ margin-top: 25px;margin-bottom: 25px;"
                             inventore itaque laudantium magnam non nostrum odit qui quisquam ratione, reiciendis rerum
                             suscipit voluptate.</h6>
                         <div class="butt-block">
-                            <a href="#" class="btn btn-primary"
+                            <a href="#" class="btn"
                                style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Редактировать</a>
-                            <a href="#" class="btn btn-primary"
+                            <a href="#" class="btn"
                                style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f;">Скачать</a>
-                            <a href="#" class="btn btn-primary"
-                               style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;" onclick="CopyHref()">Копировать ссылку</a>
+                            <a href="#" class="btn btn1"
+                               style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Копировать ссылку</a>
 
                         </div>
                     </div>
@@ -184,8 +185,15 @@ margin-top: 25px;margin-bottom: 25px;"
 </div>
 
 <script src="{% static "css/slick/slick/slick.js" %}" type="text/javascript" charset="utf-8"></script>
+<!-- скрипт для кнопки копирования -->
 <script>
-
+    jQuery(document).ready(function($){
+var url = document.location.href;
+new Clipboard('.btn1', {text: function(){ return url;}});
+$('.btn1').click(function(){alert('Cсылка успешно скопирована в буфер обмена.');});
+});
+</script>
+<script>
     $(function () {
         $(window).scroll(function () {
             var top = $(document).scrollTop();
