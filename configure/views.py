@@ -29,11 +29,11 @@ class RegressionConfigurePrioritiesCalculator:
     def get_priorities(self):
         ctype = self.purpose_of_computer
         if ctype == '1' or ctype == 1 or ctype == 'home':
-            return self.get_home_priorities()  # TODO write this priorities function
+            return self.get_home_priorities()
         if ctype == '2' or ctype == 2 or ctype == 'game':
             return self.get_game_priorities()
         if ctype == '3' or ctype == 3 or ctype == 'work':
-            return self.get_work_priorities()  # TODO write this priorities function
+            return self.get_work_priorities()
 
     def get_home_priorities(self):
         x = self.budget
@@ -177,7 +177,7 @@ def sborka(request, cpu, gpu, mother, ram, cooler, ssd ,hdd, ps):
         ans.append( \
             f''' <div class="itm" id='{i}'>
                                     <div class="itmname">
-                                        <h6 class="card-title" style="margin: 10px"><a href="/{key}/{comp.id}"
+                                        <h6 class="card-title" style="margin: 10px"><a href="/configuration/{key}/{comp.id}"
                                                                                        style="color: #17a2b8">
                                             {comp.name}</a></h6>
                                     </div>
@@ -217,25 +217,29 @@ def extended_configure(budget: int, priorities, hdd_ssd=2, is_banchmarck_mode=0)
 
 
 def component(request, component_name, component_id):
-    import configure.models
-    if component_name == 'cpu':
-        component = configure.models.CPU.objects.where(id=component_id)
-    elif component_name == 'gpu':
-        component = configure.models.GPU.objects.where(id=component_id)
-    elif component_name == 'motherboard':
-        component = configure.models.motherboard.objects.where(id=component_id)
-    elif component_name == 'cooler':
-        component = configure.models.cooler.objects.where(id=component_id)
-    elif component_name == 'ram':
-        component = configure.models.RAM.objects.where(id=component_id)
-    elif component_name == 'hdd':
-        component = configure.models.hard35.objects.where(id=component_id)
-    elif component_name == 'ssd':
-        component = configure.models.SSD.objects.where(id=component_id)
-    elif component_name == 'powersupply':
-        component = configure.models.powersupply.objects.where(id=component_id)
+    from configure import models
+    if component_name == 'Cpu':
+        component = models.CPU.objects.get(pk=component_id)
+    elif component_name == 'Gpu':
+        component = models.GPU.objects.get(pk=component_id)
+    elif component_name == 'Motherboard':
+        component = models.motherboard.objects.get(pk=component_id)
+    elif component_name == 'Cooler':
+        component = models.cooler.objects.get(pk=component_id)
+    elif component_name == 'Ram':
+        component = models.RAM.objects.get(pk=component_id)
+    elif component_name == 'Hard35':
+        component = models.hard35.objects.get(pk=component_id)
+    elif component_name == 'Ssd':
+        component = models.SSD.objects.get(pk=component_id)
+    elif component_name == 'PowerSupply':
+        component = models.powersupply.objects.get(pk=component_id)
     else:
         return HttpResponse('404')
-    data = {'component': component}
-    return render('configure.component', data)
+    data = {'component_name': component.name.split('[')[0],
+            'component_price': component.price,
+            'component_photo': component.picture,
+            }
+
+    return render(request, template_name='configure/component.html', context=data)
 

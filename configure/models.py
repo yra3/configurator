@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class CPU(models.Model):
     name = models.CharField(max_length=300)
     link = models.URLField(null=True, unique=True)
