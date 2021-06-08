@@ -124,7 +124,7 @@ def simple_configure(request):
     pri = int(request.POST['price'])
     tip = request.POST['answer']
     config = real_auto_configure(pri, tip)
-    s = ''
+    s = '/configuration/'
     for com in config.values() :
         s += str(com.id)+'/'
     return redirect(s)
@@ -213,4 +213,29 @@ def extended_configure(budget: int, priorities, hdd_ssd=2, is_banchmarck_mode=0)
     data = {
         'configuration': finder.find()
     }
-    return render('configure.config', context=data)
+    return render(template_name='configure.config', context=data)
+
+
+def component(request, component_name, component_id):
+    import configure.models
+    if component_name == 'cpu':
+        component = configure.models.CPU.objects.where(id=component_id)
+    elif component_name == 'gpu':
+        component = configure.models.GPU.objects.where(id=component_id)
+    elif component_name == 'motherboard':
+        component = configure.models.motherboard.objects.where(id=component_id)
+    elif component_name == 'cooler':
+        component = configure.models.cooler.objects.where(id=component_id)
+    elif component_name == 'ram':
+        component = configure.models.RAM.objects.where(id=component_id)
+    elif component_name == 'hdd':
+        component = configure.models.hard35.objects.where(id=component_id)
+    elif component_name == 'ssd':
+        component = configure.models.SSD.objects.where(id=component_id)
+    elif component_name == 'powersupply':
+        component = configure.models.powersupply.objects.where(id=component_id)
+    else:
+        return HttpResponse('404')
+    data = {'component': component}
+    return render('configure.component', data)
+

@@ -67,7 +67,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 ">
             <div class="col">
                 <div class="card">
-                    <div class="card-body" onclick = "f(1)">
+                    <div class="card-body" onclick = "f1()">
                         <h5 class="card-title">Автоматический</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias autem
                             debitis delectus deleniti dignissimos eius eum fugit hic quisquam tempora. Asperiores
@@ -79,7 +79,7 @@
 
             <div class="col">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" onclick = "f2()">
                         <h5 class="card-title">Полуавтоматический</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
                             dignissimos eaque est itaque labore libero omnis placeat porro, quos, ratione sequi soluta,
@@ -90,7 +90,7 @@
 
             <div class="col">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" onclick = "f3()">
                         <h5 class="card-title">Ручной</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis fugit
                             impedit minus molestiae odio officiis optio rerum? Dolorem earum exercitationem expedita
@@ -149,9 +149,22 @@
             else $(".underheader").css({top: '0', left: '0', position: 'fixed', width:'100%', background: 'none repeat scroll 0% 0% rgba(9, 125, 240, 0.7)'});
         });
     });
-    function f() {
+    function f1() {
         location.href = "/configure/simple";
     }
+    function f2() {
+        location.href = "/configure/extended";
+    }
+    function f3() {
+        location.href = "/configure/extended";
+    }
+
+<!--        function f(x) {-->
+<!--    if (x===1) (location.href = "/configure/simple";)-->
+<!--    else if(x===2) ( location.href = "/configure/extended"; )-->
+<!--    else if(x===3) ( location.href = "/configure/handled";)-->
+
+<!--    }-->
 </script>
 
 </body>

@@ -21,5 +21,5 @@ urlpatterns = [
     path('configure/', include('configure.urls')),
     path('', include('homepage.urls')),
     # path('hand/', include('catalog.urls')),
-    # path('configuration/', include('configuration.urls')),
+    path('configuration/', include('configuration.urls')),
 ]
