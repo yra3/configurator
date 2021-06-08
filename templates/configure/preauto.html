@@ -553,7 +553,7 @@
                     <label for="storage" class="toggleMenu"><i class="fa fa-bars"></i>Хранилище</label>
                     <ul>
                         <div class="dynamic_fields">
-                            <div class="example">
+                            <div class="example_store">
                                 <div class="table1">
                                     <div class="cell">
                                         <div class="form-check">
@@ -571,15 +571,25 @@
                                                     SSD
                                                 </label>
                                             </div>
+                                            <div class="form-check">
+                                                <p><b>Объем накопителя</b></p>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="{{value-sg}}"
+                                                           name="value-sg[]">
+                                                    <label class="form-check-label" for="value-sg[]">
+                                                        {{value-sg}}
+                                                    </label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="cell">
-                                        <div class="js-remove pull-right btn btn-danger">-</div>
+                                        <a class="js-remove pull-right btn btn-danger">-</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="strgs"></div>
-                            <div class="js-add pull-right btn btn-success">+</div>
+                            <a class="js-add pull-right btn btn-success">+</a>
                         </div>
 
                         <div class="form-check">
@@ -698,11 +708,11 @@
 
         var strgs = document.querySelector('.dynamic_fields .strgs');
 
-        var element = document.querySelector('.example').cloneNode(true);
+        var element = document.querySelector('.example_store').cloneNode(true);
 
-        element.classList.add('strgs');
+        element.classList.add('student');
 
-        element.classList.remove('example');
+        element.classList.remove('example_store');
 
         strgs.appendChild(element);
     });
