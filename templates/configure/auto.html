@@ -111,8 +111,9 @@
         <div class="undent">
             <div class="site_logo">
                 <img class="logo"
-                     src="https://psv4.userapi.com/c536132/u240890695/docs/d6/58609214581d/logo2.png?extra=bHj_5M-VguyRqLudFT5PBFKBTMqmU9srl7oCrkmxai3YzvTnE0vDynnUbj6lZbZVigdq6jSSeM6c_WAzhbYojr7emlhJ6bd2KJosOGguvQ3zaRukxFEztQtib6lV0KmjECaFAX8i0l09JDp_nWch-co"
-                     alt="logo">
+                     src="{% static "images/logo2.png" %}" alt="logo">
+<!--                     src="https://psv4.userapi.com/c536132/u240890695/docs/d6/58609214581d/logo2.png?extra=bHj_5M-VguyRqLudFT5PBFKBTMqmU9srl7oCrkmxai3YzvTnE0vDynnUbj6lZbZVigdq6jSSeM6c_WAzhbYojr7emlhJ6bd2KJosOGguvQ3zaRukxFEztQtib6lV0KmjECaFAX8i0l09JDp_nWch-co"-->
+
             </div>
             <div class="for_slogan"><span class="slogan">Соберем PC для каждого!</span></div>
             <div class="infos">
@@ -159,7 +160,7 @@
 
         <div class="input-block">
 
-            <form action="/config/" method="post">
+            <form action="/configure/simple/find/" method="post">
                 {% csrf_token %}
                 <p style="padding-top: 35px; padding-left: 10px;">Введите Ваш бюджет <input type="number" name="price"
                                                                                             value="" min="5000"
@@ -209,7 +210,7 @@
                 <div class="intext"><input type="text" name="description" value=""></div>
 
                 <div class="endbtn">
-                    <button class="btn btn-primary" style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" type="submit" data-bs-toggle="modal" data-bs-target="#loadModal">Скачать</button>
+                    <button class="btn btn-primary" style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" type="submit" data-bs-toggle="modal" data-bs-target="#loadModal">Собрать</button>
                 </div>
             </form>
         </div>

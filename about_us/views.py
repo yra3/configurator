@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from homepage.models import Processor
+
 
 def about(request):
 

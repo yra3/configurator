@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html>
 <head>
     <meta charset="utf-8">
@@ -227,10 +227,10 @@
                         <div class="form-check">
                             <p><b>Сокет процессора</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{socket-cpu}}"
+                                <input class="form-check-input" type="checkbox" value="{{socket_cpu}}"
                                        name="socket-cpu[]">
                                 <label class="form-check-label" for="socket-cpu[]">
-                                    {{socket-cpu}}
+                                    {{socket_cpu}}
                                 </label>
                             </div>
                         </div>
@@ -238,10 +238,10 @@
                         <div class="form-check">
                             <p><b>Количество ядер</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{count-cores-cpu}}"
+                                <input class="form-check-input" type="checkbox" value="{{count_cores_cpu}}"
                                        name="count-cores-cpu[]">
                                 <label class="form-check-label" for="count-cores-cpu[]">
-                                    {{count-cores-cpu}}
+                                    {{count_cores_cpu}}
                                 </label>
                             </div>
                         </div>
@@ -266,10 +266,10 @@
                         <div class="form-check">
                             <p><b>Тип памяти</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{memory-type-cpu}}"
+                                <input class="form-check-input" type="checkbox" value="{{memory_type_cpu}}"
                                        name="type-memory-cpu[]">
                                 <label class="form-check-label" for="type-memory-cpu[]">
-                                    {{memory-type-cpu}}
+                                    {{memory_type_cpu}}
                                 </label>
                             </div>
                         </div>
@@ -284,10 +284,10 @@
                         <div class="form-check">
                             <p><b>Сокет материнской платы</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{socket-mb}}"
+                                <input class="form-check-input" type="checkbox" value="{{socket_mb}}"
                                        name="socket-mb[]">
                                 <label class="form-check-label" for="socket-mb[]">
-                                    {{socket-mb}}
+                                    {{socket_mb}}
                                 </label>
                             </div>
                         </div>
@@ -295,10 +295,10 @@
                         <div class="form-check">
                             <p><b>Чипсет</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{chipset-mb}}"
+                                <input class="form-check-input" type="checkbox" value="{{chipset_mb}}"
                                        name="chipset-mb[]">
                                 <label class="form-check-label" for="chipset-mb[]">
-                                    {{chipset-mb}}
+                                    {{chipset_mb}}
                                 </label>
                             </div>
                         </div>
@@ -306,10 +306,10 @@
                         <div class="form-check">
                             <p><b>Форм-фактор</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{form-factor-mb}}"
+                                <input class="form-check-input" type="checkbox" value="{{form_factor_mb}}"
                                        name="form-factor-mb[]">
                                 <label class="form-check-label" for="form-factor-mb[]">
-                                    {{form-factor-mb}}
+                                    {{form_factor_mb}}
                                 </label>
                             </div>
                         </div>
@@ -317,10 +317,10 @@
                         <div class="form-check">
                             <p><b>Количество слотов памяти</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{memory-slot-mb}}"
+                                <input class="form-check-input" type="checkbox" value="{{memory_slot_mb}}"
                                        name="memory-slots-mb[]">
                                 <label class="form-check-label" for="memory-slots-mb[]">
-                                    {{memory-slot-mb}}
+                                    {{memory_slot_mb}}
                                 </label>
                             </div>
                         </div>
@@ -328,10 +328,10 @@
                         <div class="form-check">
                             <p><b>Тип поддерживаемой памяти</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{memory-type-mb}}"
+                                <input class="form-check-input" type="checkbox" value="{{memory_type_mb}}"
                                        name="memory-type-mb[]">
                                 <label class="form-check-label" for="memory-type-mb[]">
-                                    {{memory-type-mb}}
+                                    {{memory_type_mb}}
                                 </label>
                             </div>
                         </div>
@@ -353,10 +353,10 @@
                         <div class="form-check">
                             <p><b>Количество разъемов M.2</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{m2-slots-mb}}"
+                                <input class="form-check-input" type="checkbox" value="{{m2_slots_mb}}"
                                        name="m2-slots-mb[]">
                                 <label class="form-check-label" for="m2-slots-mb[]">
-                                    {{m2-slots-mb}}
+                                    {{m2_slots_mb}}
                                 </label>
                             </div>
                         </div>
@@ -370,10 +370,10 @@
                         <div class="form-check">
                             <p><b>Объем видеопамяти</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{video-memory-gpu}}"
+                                <input class="form-check-input" type="checkbox" value="{{video_memory_gpu}}"
                                        name="video-memory-gpu[]">
                                 <label class="form-check-label" for="video-memory-gpu[]">
-                                    {{video-memory-gpu}}
+                                    {{video_memory_gpu}}
                                 </label>
                             </div>
                         </div>
@@ -381,10 +381,10 @@
                         <div class="form-check">
                             <p><b>Тип памяти</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{memory-type-gpu}}"
+                                <input class="form-check-input" type="checkbox" value="{{memory_type_gpu}}"
                                        name="memory-type-gpu[]">
                                 <label class="form-check-label" for="memory-type-gpu[]">
-                                    {{memory-type-gpu}}
+                                    {{memory_type_gpu}}
                                 </label>
                             </div>
                         </div>
@@ -392,10 +392,10 @@
                         <div class="form-check">
                             <p><b>Версия PCI Express</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{pci-version-gpu}}"
+                                <input class="form-check-input" type="checkbox" value="{{pci_version_gpu}}"
                                        name="pci-version-gpu[]">
                                 <label class="form-check-label" for="pci-version-gpu[]">
-                                    {{pci-version-gpu}}
+                                    {{pci_version_gpu}}
                                 </label>
                             </div>
                         </div>
@@ -428,10 +428,10 @@
                         <div class="form-check">
                             <p><b>Форм-фактор</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{form-factor-ps}}"
+                                <input class="form-check-input" type="checkbox" value="{{form_factor_ps}}"
                                        name="form-factor-ps[]">
                                 <label class="form-check-label" for="form-factor-ps[]">
-                                    {{form-factor-ps}}
+                                    {{form_factor_ps}}
                                 </label>
                             </div>
                         </div>
@@ -445,10 +445,10 @@
                         <div class="form-check">
                             <p><b>Тип памяти</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{memory-type-ram}}"
+                                <input class="form-check-input" type="checkbox" value="{{memory_type_ram}}"
                                        name="memory-type-ram[]">
                                 <label class="form-check-label" for="memory-type-ram[]">
-                                    {{memory-type-ram}}
+                                    {{memory_type_ram}}
                                 </label>
                             </div>
                         </div>
@@ -506,10 +506,10 @@
                         <div class="form-check">
                             <p><b>Разъем для подключения вентиляторов</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{fan-connector-cl}}"
+                                <input class="form-check-input" type="checkbox" value="{{fan_connector_cl}}"
                                        name="fan-connector-cl[]">
                                 <label class="form-check-label" for="fan-connector-cl[]">
-                                    {{fan-connector-cl}}
+                                    {{fan_connector_cl}}
                                 </label>
                             </div>
                         </div>
@@ -517,10 +517,10 @@
                         <div class="form-check">
                             <p><b>Регулировка скорости вращения</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{rotation-speed-control-cl}}"
+                                <input class="form-check-input" type="checkbox" value="{{rotation_speed_control_cl}}"
                                        name="rotation-speed-control-cl[]">
                                 <label class="form-check-label" for="rotation-speed-control-cl[]">
-                                    {{rotation-speed-control-cl}}
+                                    {{rotation_speed_control_cl}}
                                 </label>
                             </div>
                         </div>
@@ -528,10 +528,10 @@
                         <div class="form-check">
                             <p><b>Тип подсветки вентилятора</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{fan-backlight-type-cl}}"
+                                <input class="form-check-input" type="checkbox" value="{{fan_backlight_type_cl}}"
                                        name="fan-backlight-type-cl[]">
                                 <label class="form-check-label" for="fan-backlight-type-cl[]">
-                                    {{fan-backlight-type-cl}}
+                                    {{fan_backlight_type_cl}}
                                 </label>
                             </div>
                         </div>
@@ -539,10 +539,10 @@
                         <div class="form-check">
                             <p><b>Цвет подсветки вентилятора</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{fan-illumination-color-cl}}"
+                                <input class="form-check-input" type="checkbox" value="{{fan_illumination_color_cl}}"
                                        name="fan-illumination-color-cl[]">
                                 <label class="form-check-label" for="fan-illumination-color-cl[]">
-                                    {{fan-illumination-color-cl}}
+                                    {{fan_illumination_color_cl}}
                                 </label>
                             </div>
                         </div>
@@ -595,10 +595,10 @@
                         <div class="form-check">
                             <p><b>Объем накопителя</b></p>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{value-sg}}"
+                                <input class="form-check-input" type="checkbox" value="{{value_sg}}"
                                        name="value-sg[]">
                                 <label class="form-check-label" for="value-sg[]">
-                                    {{value-sg}}
+                                    {{value_sg}}
                                 </label>
                             </div>
                         </div>

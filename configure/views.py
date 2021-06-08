@@ -114,7 +114,8 @@ prioriti_calculators = {
     },
 }
 
-def autopage(request):
+
+def simple_configure(request):
     import time
     tm = time.time()
     time.sleep(0.1)
@@ -194,6 +195,7 @@ def sborka(request, cpu, gpu, mother, ram, cooler, ssd ,hdd, ps):
     }
     return render(request, 'configure/config.html', context=data)
 
+
 def real_auto_configure(budget: int, configure_type: int, hdd_ssd=2, is_banchmarck_mode=0):
     prioriti_calculator = RegressionConfigurePrioritiesCalculator(budget, configure_type)
     priorities = prioriti_calculator.get_priorities()
@@ -203,7 +205,7 @@ def real_auto_configure(budget: int, configure_type: int, hdd_ssd=2, is_banchmar
     return finder.find()
 
 
-def half_auto_configure(budget: int, priorities, hdd_ssd=2, is_banchmarck_mode=0):
+def extended_configure(budget: int, priorities, hdd_ssd=2, is_banchmarck_mode=0):
     from configure.BranchAndBoundMethod import BranchAndBoundMethod
     budget = 70000
     hdd_ssd = 2
