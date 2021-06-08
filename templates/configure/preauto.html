@@ -25,7 +25,8 @@
     .card {
         background: #1f1f1f;
         border: 1px solid white;
-    }</style>
+    }
+    </style>
 </head>
 
 
@@ -571,7 +572,8 @@
                                                     SSD
                                                 </label>
                                             </div>
-                                            <div class="form-check">
+                                        </div>
+                                        <div class="form-check">
                                                 <p><b>Объем накопителя</b></p>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="{{value_sg}}"
@@ -581,26 +583,16 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="cell">
                                         <a class="js-remove pull-right btn btn-danger">-</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="strgs"></div>
-                            <a class="js-add pull-right btn btn-success">+</a>
-                        </div>
 
-                        <div class="form-check">
-                            <p><b>Объем накопителя</b></p>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{value_sg}}"
-                                       name="value-sg[]">
-                                <label class="form-check-label" for="value-sg[]">
-                                    {{value_sg}}
-                                </label>
-                            </div>
+                            <div class="strgs"></div>
+
+                            <a class="js-add pull-right btn btn-success">+</a>
                         </div>
                     </ul>
                 </nav>
@@ -672,14 +664,6 @@
     });
 
 
-    {#var slider = document.getElementById("myRange");#}
-    {#var output = document.getElementById("demo");#}
-    {#output.innerHTML = slider.value; // Display the default slider value#}
-    {##}
-    {#// Update the current slider value (each time you drag the slider handle)#}
-    {#slider.oninput = function () {#}
-    {#    output.innerHTML = this.value;#}
-    {# } #}
 
     function updateTextInput(id, val) {
         document.getElementById(id).value = val;
@@ -726,6 +710,7 @@
             child.parentNode.removeChild(child);
         }
     });
+
 </script>
 
 </body>
