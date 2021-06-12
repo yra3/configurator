@@ -3,18 +3,16 @@ from datetime import time
 
 from django.db.models import F
 
-from configure.StrictConstraintMethod import StrictConstraintMethod
-from configure.ConfigurationFinder import ConfigurationFinder
 from configure.Configuration import *
 from webconf.settings import DEBUG
 from multiprocessing import Process, Lock, cpu_count, Value, Array
 
 
-class BranchAndBoundMethod(ConfigurationFinder):
+class BranchAndBoundMethod:
     def __init__(self, budget: int, component_priorities: dict, hdd_ssd_ssdhdd=2, is_benchmark_find=0):
         """:param: hdd_ssd_ssdhdd  hdd_mode - 0, ssd - 1, hdd and ssd - 2
         :param is_benchmark_find: 0 - use price of component, 1 - use benchmark"""
-        super().__init__(budget)
+        self.budget = budget
         self.component_priorities = component_priorities
         self.hdd_ssd_ssdhdd = hdd_ssd_ssdhdd
         self.budget_constraints = self._get_budget_constraints()
