@@ -156,6 +156,7 @@ def simple_configure(request):
     # }
     # return render(request, 'configure/config.html', context=data)
 
+
 def sborka(request, cpu, gpu, mother, ram, cooler, ssd ,hdd, ps):
     from configure import models
     config = {}
@@ -165,8 +166,8 @@ def sborka(request, cpu, gpu, mother, ram, cooler, ssd ,hdd, ps):
     config['Motherboard'] = models.motherboard.objects.filter(id=mother)[0]
     config['Ram'] = models.RAM.objects.filter(id=ram)[0]
     config['Cooler'] = models.cooler.objects.filter(id=cooler)[0]
-    config['Hard35'] = models.hard35.objects.filter(id=ssd)[0]
-    config['Ssd'] = models.SSD.objects.filter(id=hdd)[0]
+    config['Hard35'] = models.hard35.objects.filter(id=hdd)[0]
+    config['Ssd'] = models.SSD.objects.filter(id=ssd)[0]
     config['PowerSupply'] = models.powersupply.objects.filter(id=ps)[0]
     pics = []
     ans = []
