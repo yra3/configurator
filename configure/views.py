@@ -129,24 +129,25 @@ def simple_configure(request):
     return redirect(s)
 
 
-def real_auto_configure(budget: int, configure_type: int, hdd_ssd=2, is_benchmark_mode=IS_BENCHMARK):
-    prioriti_calculator = RegressionConfigurePrioritiesCalculator(budget, configure_type)
-    priorities = prioriti_calculator.get_priorities()
-    from configure.BranchAndBoundMethod import BranchAndBoundMethod
-    hdd_ssd = 2
-    finder = BranchAndBoundMethod(budget, priorities, hdd_ssd, is_benchmark_mode)
-    return finder.find()
-
-
 def extended_configure(request):
-    from configure.BranchAndBoundMethod import BranchAndBoundMethod
-    budget = 70000
-    hdd_ssd = 2
-    finder = BranchAndBoundMethod(budget, priorities, hdd_ssd)
-    data = {
-        'configuration': finder.find()
+    from configure.BranchAndBoundMethod_forExtended import BranchAndBoundMethod
+    budget = int(request.GET['price'])
+    priorities = {
+        'CPU': int(request.GET['cpu-price'])/100,
+        'GPU': int(request.GET['gpu-price'])/100,
+        'motherboard': int(request.GET['mb-price'])/100,
+        'RAM': int(request.GET['ram-price'])/100,
+        'cooler': int(request.GET['cooler-price'])/100,
+        'hard_35': int(request.GET['storage-price'])*0.5/100,
+        'ssd': int(request.GET['storage-price'])*0.5/100,
+        'powersupply': int(request.GET['ps-price'])/100,
     }
-    return render(request=request, template_name='configure.config', context=data)
-
+    hdd_ssd = 2
+    finder = BranchAndBoundMethod(budget, priorities, hdd_ssd, request=request)
+    config = finder.find()
+    s = '/configuration/'
+    for com in config.values():
+        s += str(com.id) + '/'
+    return redirect(s)
 
 
