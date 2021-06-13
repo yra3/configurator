@@ -29,7 +29,7 @@ def preauto(request):
         'memory_type_gpus': GPU.objects.values_list('memory_type', flat=True).distinct(),
         'pci_version_gpus': GPU.objects.values_list('pci_express_version', flat=True).distinct(),
         'form_factor_pss': powersupply.objects.values_list('form_factor', flat=True).distinct(),
-        'memory_type_ram': RAM.objects.values_list('memory_type', flat=True).distinct(),
+        'memory_type_rams': RAM.objects.values_list('memory_type', flat=True).distinct(),
         'fan_connector_cls': cooler.objects.values_list('fan_connector', flat=True).distinct(),
         'rotation_speed_control_cls': cooler.objects.values_list('rotation_speed_control', flat=True).distinct(),
         'fan_backlight_type_cl': cooler.objects.values_list('fan_backlight_type', flat=True).distinct(),

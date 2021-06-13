@@ -119,7 +119,7 @@ def simple_configure(request):
 
 
 def extended_configure(request):
-    from configure.BranchAndBoundMethod_forExtended import BranchAndBoundMethod
+    from configure.BranchAndBoundMethod_forExtended import BranchAndBoundMethodEx
     budget = int(request.GET['price'])
     priorities = {
         'CPU': int(request.GET['cpu-price'])/100,
@@ -132,7 +132,7 @@ def extended_configure(request):
         'powersupply': int(request.GET['ps-price'])/100,
     }
     hdd_ssd = 2
-    finder = BranchAndBoundMethod(budget, priorities, hdd_ssd, request=request)
+    finder = BranchAndBoundMethodEx(budget, priorities, hdd_ssd, request=request)
     config = finder.find()
     s = '/configuration/'
     for com in config.values():
