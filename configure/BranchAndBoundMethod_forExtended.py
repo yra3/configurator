@@ -164,12 +164,15 @@ class BranchAndBoundMethod:
             memtypes = self.request.GET.getlist('type_memory_cpu[]')
             cores_cpu = [f'memory_type="{memtype}"' for memtype in memtypes]
             condition.append('(' + ' or '.join(cores_cpu) + ')')
-            if '()' in condition:
+            while '()' in condition:
                 condition.remove('()')
-            condition = ' and '.join(condition)
+            if len(condition) != 0:
+                condition = 'where '+' and '.join(condition)
+            else:
+                condition = ''
 
             # if len(manufactures) % 2 == 1:
-            cur.execute(f"SELECT id FROM configure_cpu where {condition}")  # find by manufacturer
+            cur.execute(f"SELECT id FROM configure_cpu  {condition}")  # find by manufacturer
             cpus_hand = cur.fetchall()
             # TODO Add intersect between cpus_hand and component_lists['Cpu']
 
