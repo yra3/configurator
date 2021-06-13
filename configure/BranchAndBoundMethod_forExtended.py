@@ -154,29 +154,6 @@ class BranchAndBoundMethodEx(BranchAndBoundMethod):
             print('Ошибка. Не удалось подключится к базе данных')
         with connection:
             cur = connection.cursor()  # , benchmark_mark, thread_mark
-            # condition = []
-            # manufactures = self.request.GET.getlist('manufacturer_cpu[]')
-            # mfs = [f'name like "%{mf}%"' for mf in manufactures]
-            # condition.append('(' + ' or '.join(mfs) + ')')
-            # socket_cpus = self.request.GET.getlist('socket_cpu[]')
-            # socket_cpus = [f'socket="{socket}"' for socket in socket_cpus]
-            # condition.append('('+' or '.join(socket_cpus)+')')
-            # cores = self.request.GET.getlist('count_cores_cpu[]')
-            # cores_cpu = [f'number_of_cores="{cor}"' for cor in cores]
-            # condition.append('('+' or '.join(cores_cpu)+')')
-            # memtypes = self.request.GET.getlist('type_memory_cpu[]')
-            # cores_cpu = [f'memory_type="{memtype}"' for memtype in memtypes]
-            # condition.append('(' + ' or '.join(cores_cpu) + ')')
-            # while '()' in condition:
-            #     condition.remove('()')
-            # if len(condition) != 0:
-            #     condition = 'where '+' and '.join(condition)
-            # else:
-            #     condition = ''
-            #
-            # # if len(manufactures) % 2 == 1:
-            # cur.execute(f"SELECT id FROM configure_cpu  {condition}")  # find by manufacturer
-            # cpus_hand = cur.fetchall()
             components_hands = {}
             for component_name, conditions in request_dict.items():
                 and_conditions = []
@@ -214,7 +191,7 @@ class BranchAndBoundMethodEx(BranchAndBoundMethod):
                 else:
                     condition = ''
                 cur.execute(f"SELECT id FROM configure_{component_name.lower()} {condition}")
-                components_hand = cur.fetchall_unbuffered()
+                components_hand = cur.fetchall()
                 components_hands[component_name] = components_hand
             intersect_components(components_hand, component_lists)
 
