@@ -1,12 +1,9 @@
 from django.db.models import F
 
-from configure.ConfigurationFinder import ConfigurationFinder
-from configure.ObjectiveFunctionInterface import ObjectiveFunctionInterface
-from configure.ObjectiveFunctionUseDict import ObjectiveFunctionUseDict
 from configure.models import *
 
 
-class StrictConstraintMethod(ConfigurationFinder):
+class StrictConstraintMethod:
     def __init__(self, budget: int, component_priorities: dict, hdd_ssd_ssdhdd=2, is_benchmark_find=0):
         super().__init__(budget)
         self.component_priorities = component_priorities

@@ -9,7 +9,7 @@ from multiprocessing import Process, Lock, cpu_count, Value, Array
 
 
 class BranchAndBoundMethod:
-    def __init__(self, budget: int, component_priorities: dict, hdd_ssd_ssdhdd=2, is_benchmark_find=0):
+    def __init__(self, budget: int, component_priorities: dict, hdd_ssd_ssdhdd=2, is_benchmark_find=0, request=None):
         """:param: hdd_ssd_ssdhdd  hdd_mode - 0, ssd - 1, hdd and ssd - 2
         :param is_benchmark_find: 0 - use price of component, 1 - use benchmark"""
         self.budget = budget
@@ -23,6 +23,7 @@ class BranchAndBoundMethod:
         self.is_benchmark_find = is_benchmark_find
         self.set_types()
         self.lower_estimate = 0
+        self.request = request
 
     def set_types(self):
         if self.hdd_ssd_ssdhdd == 2:
@@ -132,6 +133,46 @@ class BranchAndBoundMethod:
         component_lists = {'Cpu': cpus, 'Gpu': gpus, 'Motherboard': mothers, 'Ram': rams,
                            'Cooler': coolers, 'Hard35': hards, 'Ssd': ssds, 'PowerSupply': powersupplies}
 
+        request_dict = {
+            'socket_cpu[]': 'socket',
+            'count_cores_cpu[]': 'number_of_cores',
+            'memory_type_cpus[]': 'memory_type',
+        }
+        from pymysql import connect, cursors
+        try:
+            connection = connect(
+                host='127.0.0.1',
+                user='django',
+                password='qwerty',
+                db='config',
+                charset='utf8mb4',
+                cursorclass=cursors.DictCursor)
+        except RuntimeError:
+            print('Ошибка. Не удалось подключится к базе данных')
+        with connection:
+            condition = []
+            cur = connection.cursor()  # , benchmark_mark, thread_mark
+            manufactures = self.request.GET.getlist('manufacturer_cpu[]')
+            mfs = [f'name like "%{mf}%"' for mf in manufactures]
+            condition.append('(' + ' or '.join(mfs) + ')')
+            socket_cpus = self.request.GET.getlist('socket_cpu[]')
+            socket_cpus = [f'socket="{socket}"' for socket in socket_cpus]
+            condition.append('('+' or '.join(socket_cpus)+')')
+            cores = self.request.GET.getlist('count_cores_cpu[]')
+            cores_cpu = [f'number_of_cores="{cor}"' for cor in cores]
+            condition.append('('+' or '.join(cores_cpu)+')')
+            memtypes = self.request.GET.getlist('type_memory_cpu[]')
+            cores_cpu = [f'memory_type="{memtype}"' for memtype in memtypes]
+            condition.append('(' + ' or '.join(cores_cpu) + ')')
+            if '()' in condition:
+                condition.remove('()')
+            condition = ' and '.join(condition)
+
+            # if len(manufactures) % 2 == 1:
+            cur.execute(f"SELECT id FROM configure_cpu where {condition}")  # find by manufacturer
+            cpus_hand = cur.fetchall()
+            # TODO Add intersect between cpus_hand and component_lists['Cpu']
+
         return component_lists
 
     @staticmethod
@@ -163,9 +204,6 @@ class BranchAndBoundMethod:
 
         self.find_component(configuration, 0)
         config = {}
-
-
-
 
         # it's convert from own classes to Model objects
         from . import models
