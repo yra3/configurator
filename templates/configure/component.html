@@ -32,39 +32,7 @@
 <body>
 
 <div class="main">
-    <header class="nav">
-        <div class="undent">
-            <div class="site_logo">
-                <img class="logo" src="{% static "images/logo2.png" %}" alt="logo">
-            </div>
-            <div class="for_slogan"><span class="slogan">Соберем PC для каждого!</span></div>
-            <div class="infos">
-                <div class="header-info">
-                    <a class="uk-link-muted uk-text-small">
-            <span class="uk-icon" style="margin-right:2px">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                    <path d="M1 11l9 3 3 9 9-21z" fill="#ccc" fill-rule="evenodd"></path>
-                </svg>
-            </span>
-                        <span class="jsCityLabel" title="625000, Тюменская обл, г Тюмень"
-                              style="color: white">Тюмень</span>
-                    </a>
-                </div>
-                <div class="header-info">
-                    <a href="tel:88002349919" class="header__phone">
-                        <img src="https://edelws.ru/local/templates/main/img/icon/phone.svg" alt="">
-                        <span class="header__phone-tel" style="color: white">8 800 555-35-35</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="underheader bg-dark">
-        <div class="undent">
-            <a href="/" class="tap">Конфигуратор</a>
-            <a href="#" class="tap">Каталог</a>
-        </div>
-    </div>
+    {% include "include_blocks/header.html" %}
     <div class="container">
         <div class="input-block" style="display: flex;">
             <div class="ph-block">
@@ -75,8 +43,8 @@
             <div class="text-block">
                 <div class="tittle">
                     <h3>{{ component_name }}</h3>
-{#                    Видеокарта MSI GeForce RTX 3090 VENTUS 3X OC [RTX 3090 VENTUS 3X 24G OC] [PCI-E 4.0, 24 ГБ#}
-{#                            GDDR6X, 384 бит, 1395 МГц - 1725 МГц, HDMI, DisplayPort (3 шт)]#}
+                    {#                    Видеокарта MSI GeForce RTX 3090 VENTUS 3X OC [RTX 3090 VENTUS 3X 24G OC] [PCI-E 4.0, 24 ГБ#}
+                    {#                            GDDR6X, 384 бит, 1395 МГц - 1725 МГц, HDMI, DisplayPort (3 шт)]#}
                     <br>
                     <div style="display: flex">
                         <div style="display: flex">
@@ -84,7 +52,9 @@
                             <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 14pt; margin-left: 10px">{{ component_price }} ₽</p>
                         </div>
-                        <div style="margin-left: auto"><a href="https://www.dns-shop.ru/"><img src="https://upload.wikimedia.org/wikipedia/ru/5/51/DNS_logo.png" style="width: 180px; height: auto"></a></div>
+                        <div style="margin-left: auto"><a href="https://www.dns-shop.ru/"><img
+                                src="https://upload.wikimedia.org/wikipedia/ru/5/51/DNS_logo.png"
+                                style="width: 180px; height: auto"></a></div>
                     </div>
                 </div>
                 <div class="patch">
@@ -92,15 +62,22 @@
                         <a href="#" class="btn"
                            style="width: 200px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white">В
                             магазин</a>
-                        <a href="#" class="btn"
-                           style="width: 200px ;margin: 10px;background: #0f8d4a; border-color: #1f1f1f;color: white">Добавить</a>
+                        <form action="/hand/configuration/"
+                              method="post" style="width: 200px ;margin: 10px;background: #0f8d4a; border-color: #1f1f1f;color: white">
+        <div class="invz" style="display: none"><input type="id" name="component_id" value="{{component_id}}"></div>
+        <div class="invz" style="display: none"><input type="id" name="component_type" value="{{component_type}}"></div>
+        <div class="invz" style="display: none"><input type="id" name="method" value="add"></div>
+                            {% csrf_token %}
+                            <button class="btn" type="submit"
+                               >Добавить</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
         <div class="characteristics-block">
-            <h5 >Характеристики</h5>
-            <div class="str"  id='0'>
+            <h5>Характеристики</h5>
+            <div class="str" id='0'>
                 <div class="name-characteristic">
                     <p>Страна-производитель</p>
                 </div>
@@ -109,8 +86,8 @@
                 </div>
             </div>
 
-            <div class="str"  id='1'>
-                <div class="name-characteristic" >
+            <div class="str" id='1'>
+                <div class="name-characteristic">
                     <p>Год релиза</p>
                 </div>
                 <div class="characteristic">
@@ -118,12 +95,13 @@
                 </div>
             </div>
 
-            <div class="str"  id='2'>
-                <div class="name-characteristic" >
+            <div class="str" id='2'>
+                <div class="name-characteristic">
                     <p>Особенности, дополнительно</p>
                 </div>
                 <div class="characteristic">
-                    <p>NVIDIA Adaptive Vertical Sync, GeForce Experience , NVIDIA PhysX, NVIDIA GameWorks , ASUS GPU Tweak II</p>
+                    <p>NVIDIA Adaptive Vertical Sync, GeForce Experience , NVIDIA PhysX, NVIDIA GameWorks , ASUS GPU
+                        Tweak II</p>
                 </div>
             </div>
 
@@ -183,7 +161,6 @@
             });
         });
     });
-
 
 
     function DeleteLast() {

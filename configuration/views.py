@@ -63,6 +63,9 @@ def component(request, component_name, component_id):
         return HttpResponse('404')
     data = {'component_name': component.name.split('[')[0],
             'component_price': component.price,
-            'component_photo': component.picture,}
+            'component_photo': component.picture,
+            'component_id': component_id,
+            'component_type': component_name,
+            }
 
     return render(request, template_name='configure/component.html', context=data)

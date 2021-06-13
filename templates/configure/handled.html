@@ -39,43 +39,7 @@
 <body>
 
 <div class="main">
-
-
-    <header class="nav">
-        <div class="undent">
-            <div class="site_logo">
-                <img class="logo"
-                     src="https://psv4.userapi.com/c536132/u240890695/docs/d6/58609214581d/logo2.png?extra=bHj_5M-VguyRqLudFT5PBFKBTMqmU9srl7oCrkmxai3YzvTnE0vDynnUbj6lZbZVigdq6jSSeM6c_WAzhbYojr7emlhJ6bd2KJosOGguvQ3zaRukxFEztQtib6lV0KmjECaFAX8i0l09JDp_nWch-co"
-                     alt="logo">
-            </div>
-            <div class="for_slogan"><span class="slogan">Соберем PC для каждого!</span></div>
-            <div class="infos">
-                <div class="header-info">
-                    <a class="uk-link-muted uk-text-small">
-            <span class="uk-icon" style="margin-right:2px">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                    <path d="M1 11l9 3 3 9 9-21z" fill="#ccc" fill-rule="evenodd"></path>
-                </svg>
-            </span>
-                        <span class="jsCityLabel" title="625000, Тюменская обл, г Тюмень"
-                              style="color: white">Тюмень</span>
-                    </a>
-                </div>
-                <div class="header-info">
-                    <a href="tel:88002349919" class="header__phone">
-                        <img src="https://edelws.ru/local/templates/main/img/icon/phone.svg" alt="">
-                        <span class="header__phone-tel" style="color: white">8 800 555-35-35</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="underheader bg-dark">
-        <div class="undent">
-            <a href="#" class="tap">Конфигуратор</a>
-            <a href="#" class="tap">Каталог</a>
-        </div>
-    </div>
+    {% include "include_blocks/header.html" %}
 
     <div class="container">
         <div class="content">
@@ -1318,27 +1282,29 @@
                             {% else %}
 
 
-                            <div class="itm" id='7'>
-                                <svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px"
-                                     y="0px" viewBox="0 0 122.88 80.89" style="enable-background:new 0 0 122.88 80.89"
-                                     xml:space="preserve"><style type="text/css"><
-                                !
-                                [CDATA[
-                                .st0 {
-                                    fill-rule: evenodd;
-                                    clip-rule: evenodd;
-                                }
+                                <div class="itm" id='7'>
+                                    <svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px"
+                                         y="0px" viewBox="0 0 122.88 80.89"
+                                         style="enable-background:new 0 0 122.88 80.89"
+                                         xml:space="preserve"><style type="text/css"><
+                                    !
+                                    [CDATA[
+                                    .st0 {
+                                        fill-rule: evenodd;
+                                        clip-rule: evenodd;
+                                    }
 
-                                ]
-                                ]
-                                ></style>
-                                    <g><path fill="#727272" class="st0" d="M96.68,61.75l-5.22-0.49l4.33-9.47h5.91l-3.35,5.43l6.03,0.67L93.31,71.18L96.68,61.75L96.68,61.75z M5.1,0 h112.67c1.4,0,2.67,0.58,3.6,1.5l0,0c0.92,0.92,1.5,2.2,1.5,3.61v70.68c0,1.41-0.57,2.68-1.5,3.61c-0.92,0.92-2.2,1.5-3.61,1.5H5.1 c-1.41,0-2.68-0.57-3.61-1.5c-0.05-0.05-0.1-0.1-0.14-0.16C0.51,78.32,0,77.11,0,75.79V5.11c0-1.4,0.57-2.67,1.5-3.6l0.01-0.01 C2.44,0.57,3.71,0,5.1,0L5.1,0z M117.77,4.29H5.1c-0.23,0-0.43,0.09-0.58,0.23L4.52,4.53C4.38,4.67,4.29,4.88,4.29,5.11v70.68 c0,0.2,0.07,0.38,0.18,0.52l0.06,0.06c0.15,0.15,0.35,0.24,0.58,0.24h112.67c0.22,0,0.43-0.09,0.58-0.24s0.24-0.35,0.24-0.58V5.11 c0-0.22-0.09-0.43-0.24-0.58l0,0l0,0C118.21,4.38,118,4.29,117.77,4.29L117.77,4.29z M85.34,11.81h23.9c1.51,0,2.75,1.24,2.75,2.75 v23.52c0,1.52-1.24,2.75-2.75,2.75h-23.9c-1.51,0-2.75-1.24-2.75-2.75V14.56C82.58,13.05,83.82,11.81,85.34,11.81L85.34,11.81 L85.34,11.81z M43.48,30.02c1.24,0.26,2.4,0.74,3.43,1.41l5.31-5.31c-2.46-1.94-5.46-3.22-8.74-3.61V30.02L43.48,30.02z M49.8,34.3 c0.68,1.03,1.18,2.19,1.45,3.44h7.51c-0.4-3.28-1.7-6.28-3.66-8.74L49.8,34.3L49.8,34.3z M51.28,41.83 c-0.25,1.27-0.74,2.45-1.42,3.49l5.31,5.31c1.95-2.48,3.24-5.5,3.61-8.8H51.28L51.28,41.83z M46.98,48.22 c-1.05,0.7-2.23,1.2-3.51,1.46v7.51c3.31-0.39,6.33-1.7,8.81-3.67L46.98,48.22L46.98,48.22z M39.39,49.68 c-1.27-0.26-2.46-0.77-3.51-1.46l-5.3,5.3c2.48,1.97,5.5,3.28,8.81,3.67V49.68L39.39,49.68z M33.01,45.32 c-0.68-1.05-1.17-2.23-1.42-3.49h-7.5c0.37,3.3,1.66,6.32,3.61,8.8L33.01,45.32L33.01,45.32z M31.62,37.74 c0.27-1.25,0.77-2.41,1.45-3.44L27.76,29c-1.96,2.46-3.26,5.46-3.66,8.74H31.62L31.62,37.74z M35.97,31.43 c1.03-0.67,2.19-1.15,3.43-1.41v-7.51c-3.28,0.38-6.27,1.67-8.74,3.61L35.97,31.43L35.97,31.43z M43.48,18.41 c4.4,0.41,8.41,2.15,11.64,4.81l4.67-4.67c-4.44-3.83-10.1-6.29-16.31-6.74V18.41L43.48,18.41z M58.01,26.1 c2.68,3.22,4.43,7.24,4.86,11.65h6.6c-0.46-6.22-2.95-11.88-6.8-16.31L58.01,26.1L58.01,26.1z M62.88,41.83 c-0.4,4.42-2.14,8.46-4.81,11.71l4.67,4.67c3.84-4.46,6.31-10.14,6.74-16.38H62.88L62.88,41.83z M55.19,56.43 c-3.24,2.69-7.28,4.45-11.71,4.87v6.6c6.25-0.45,11.93-2.94,16.38-6.8L55.19,56.43L55.19,56.43z M39.39,61.29 c-4.43-0.42-8.47-2.18-11.71-4.87l-4.67,4.67c4.45,3.87,10.13,6.35,16.38,6.8V61.29L39.39,61.29z M24.8,53.53 c-2.67-3.24-4.41-7.28-4.81-11.71h-6.6c0.43,6.24,2.9,11.92,6.74,16.38L24.8,53.53L24.8,53.53z M20,37.74 c0.43-4.41,2.18-8.42,4.86-11.65l-4.67-4.67c-3.85,4.44-6.34,10.09-6.8,16.31H20L20,37.74z M27.75,23.22 c3.23-2.66,7.24-4.39,11.64-4.81v-6.6c-6.21,0.45-11.87,2.91-16.31,6.74L27.75,23.22L27.75,23.22z M41.44,7.65 c8.89,0,16.94,3.6,22.77,9.43c5.83,5.83,9.43,13.88,9.43,22.77s-3.6,16.94-9.43,22.77c-5.83,5.83-13.88,9.43-22.77,9.43 s-16.94-3.6-22.77-9.43c-5.83-5.83-9.43-13.88-9.43-22.77s3.6-16.94,9.43-22.77C24.5,11.26,32.54,7.65,41.44,7.65L41.44,7.65z M92.74,20.87h1.63c0.23,0,0.44,0.1,0.59,0.25l0,0c0.15,0.15,0.25,0.36,0.25,0.59v3.58c0,0.23-0.1,0.44-0.25,0.59l0,0l0,0 c-0.15,0.15-0.36,0.25-0.59,0.25h-1.63c-0.23,0-0.44-0.1-0.59-0.25l0,0c-0.15-0.15-0.25-0.36-0.25-0.59v-3.58 c0-0.23,0.09-0.44,0.25-0.59C92.3,20.96,92.51,20.87,92.74,20.87L92.74,20.87L92.74,20.87z M98.89,32.72h-3.22 c-0.2,0-0.39-0.08-0.52-0.22s-0.21-0.32-0.21-0.52v-2.04c0-0.51,0.21-0.98,0.55-1.32c0.34-0.34,0.81-0.55,1.32-0.55h0.93 c0.52,0,0.99,0.21,1.33,0.55c0.34,0.34,0.55,0.81,0.55,1.33v2.03c0,0.2-0.08,0.39-0.21,0.52C99.28,32.64,99.1,32.72,98.89,32.72 L98.89,32.72L98.89,32.72z M100.19,20.87h1.63c0.23,0,0.44,0.1,0.59,0.25l0,0c0.15,0.15,0.25,0.36,0.25,0.59v3.58 c0,0.23-0.1,0.44-0.25,0.59l0,0l0,0c-0.15,0.15-0.36,0.25-0.59,0.25h-1.63c-0.23,0-0.44-0.1-0.59-0.25l0,0 c-0.15-0.15-0.25-0.36-0.25-0.59v-3.58c0-0.23,0.09-0.44,0.25-0.59C99.75,20.96,99.96,20.87,100.19,20.87L100.19,20.87 L100.19,20.87z M108.64,14.09c0.66,0,1.2,0.54,1.2,1.2s-0.54,1.2-1.2,1.2c-0.66,0-1.2-0.54-1.2-1.2 C107.44,14.63,107.98,14.09,108.64,14.09L108.64,14.09L108.64,14.09z M86.08,36.01c0.66,0,1.2,0.54,1.2,1.2s-0.54,1.2-1.2,1.2 s-1.2-0.54-1.2-1.2C84.89,36.55,85.42,36.01,86.08,36.01L86.08,36.01L86.08,36.01z M97.19,16.5c5.42,0,9.82,4.4,9.82,9.82 s-4.4,9.82-9.82,9.82c-5.42,0-9.82-4.4-9.82-9.82S91.77,16.5,97.19,16.5L97.19,16.5L97.19,16.5z"/></g></svg>
-                                <div class="itmname">
-                                    <a href="#page-7"><h6 class="card-title" style="margin: 10px; color: #727272">Блок
-                                        питания</h6></a>
+                                    ]
+                                    ]
+                                    ></style>
+                                        <g><path fill="#727272" class="st0" d="M96.68,61.75l-5.22-0.49l4.33-9.47h5.91l-3.35,5.43l6.03,0.67L93.31,71.18L96.68,61.75L96.68,61.75z M5.1,0 h112.67c1.4,0,2.67,0.58,3.6,1.5l0,0c0.92,0.92,1.5,2.2,1.5,3.61v70.68c0,1.41-0.57,2.68-1.5,3.61c-0.92,0.92-2.2,1.5-3.61,1.5H5.1 c-1.41,0-2.68-0.57-3.61-1.5c-0.05-0.05-0.1-0.1-0.14-0.16C0.51,78.32,0,77.11,0,75.79V5.11c0-1.4,0.57-2.67,1.5-3.6l0.01-0.01 C2.44,0.57,3.71,0,5.1,0L5.1,0z M117.77,4.29H5.1c-0.23,0-0.43,0.09-0.58,0.23L4.52,4.53C4.38,4.67,4.29,4.88,4.29,5.11v70.68 c0,0.2,0.07,0.38,0.18,0.52l0.06,0.06c0.15,0.15,0.35,0.24,0.58,0.24h112.67c0.22,0,0.43-0.09,0.58-0.24s0.24-0.35,0.24-0.58V5.11 c0-0.22-0.09-0.43-0.24-0.58l0,0l0,0C118.21,4.38,118,4.29,117.77,4.29L117.77,4.29z M85.34,11.81h23.9c1.51,0,2.75,1.24,2.75,2.75 v23.52c0,1.52-1.24,2.75-2.75,2.75h-23.9c-1.51,0-2.75-1.24-2.75-2.75V14.56C82.58,13.05,83.82,11.81,85.34,11.81L85.34,11.81 L85.34,11.81z M43.48,30.02c1.24,0.26,2.4,0.74,3.43,1.41l5.31-5.31c-2.46-1.94-5.46-3.22-8.74-3.61V30.02L43.48,30.02z M49.8,34.3 c0.68,1.03,1.18,2.19,1.45,3.44h7.51c-0.4-3.28-1.7-6.28-3.66-8.74L49.8,34.3L49.8,34.3z M51.28,41.83 c-0.25,1.27-0.74,2.45-1.42,3.49l5.31,5.31c1.95-2.48,3.24-5.5,3.61-8.8H51.28L51.28,41.83z M46.98,48.22 c-1.05,0.7-2.23,1.2-3.51,1.46v7.51c3.31-0.39,6.33-1.7,8.81-3.67L46.98,48.22L46.98,48.22z M39.39,49.68 c-1.27-0.26-2.46-0.77-3.51-1.46l-5.3,5.3c2.48,1.97,5.5,3.28,8.81,3.67V49.68L39.39,49.68z M33.01,45.32 c-0.68-1.05-1.17-2.23-1.42-3.49h-7.5c0.37,3.3,1.66,6.32,3.61,8.8L33.01,45.32L33.01,45.32z M31.62,37.74 c0.27-1.25,0.77-2.41,1.45-3.44L27.76,29c-1.96,2.46-3.26,5.46-3.66,8.74H31.62L31.62,37.74z M35.97,31.43 c1.03-0.67,2.19-1.15,3.43-1.41v-7.51c-3.28,0.38-6.27,1.67-8.74,3.61L35.97,31.43L35.97,31.43z M43.48,18.41 c4.4,0.41,8.41,2.15,11.64,4.81l4.67-4.67c-4.44-3.83-10.1-6.29-16.31-6.74V18.41L43.48,18.41z M58.01,26.1 c2.68,3.22,4.43,7.24,4.86,11.65h6.6c-0.46-6.22-2.95-11.88-6.8-16.31L58.01,26.1L58.01,26.1z M62.88,41.83 c-0.4,4.42-2.14,8.46-4.81,11.71l4.67,4.67c3.84-4.46,6.31-10.14,6.74-16.38H62.88L62.88,41.83z M55.19,56.43 c-3.24,2.69-7.28,4.45-11.71,4.87v6.6c6.25-0.45,11.93-2.94,16.38-6.8L55.19,56.43L55.19,56.43z M39.39,61.29 c-4.43-0.42-8.47-2.18-11.71-4.87l-4.67,4.67c4.45,3.87,10.13,6.35,16.38,6.8V61.29L39.39,61.29z M24.8,53.53 c-2.67-3.24-4.41-7.28-4.81-11.71h-6.6c0.43,6.24,2.9,11.92,6.74,16.38L24.8,53.53L24.8,53.53z M20,37.74 c0.43-4.41,2.18-8.42,4.86-11.65l-4.67-4.67c-3.85,4.44-6.34,10.09-6.8,16.31H20L20,37.74z M27.75,23.22 c3.23-2.66,7.24-4.39,11.64-4.81v-6.6c-6.21,0.45-11.87,2.91-16.31,6.74L27.75,23.22L27.75,23.22z M41.44,7.65 c8.89,0,16.94,3.6,22.77,9.43c5.83,5.83,9.43,13.88,9.43,22.77s-3.6,16.94-9.43,22.77c-5.83,5.83-13.88,9.43-22.77,9.43 s-16.94-3.6-22.77-9.43c-5.83-5.83-9.43-13.88-9.43-22.77s3.6-16.94,9.43-22.77C24.5,11.26,32.54,7.65,41.44,7.65L41.44,7.65z M92.74,20.87h1.63c0.23,0,0.44,0.1,0.59,0.25l0,0c0.15,0.15,0.25,0.36,0.25,0.59v3.58c0,0.23-0.1,0.44-0.25,0.59l0,0l0,0 c-0.15,0.15-0.36,0.25-0.59,0.25h-1.63c-0.23,0-0.44-0.1-0.59-0.25l0,0c-0.15-0.15-0.25-0.36-0.25-0.59v-3.58 c0-0.23,0.09-0.44,0.25-0.59C92.3,20.96,92.51,20.87,92.74,20.87L92.74,20.87L92.74,20.87z M98.89,32.72h-3.22 c-0.2,0-0.39-0.08-0.52-0.22s-0.21-0.32-0.21-0.52v-2.04c0-0.51,0.21-0.98,0.55-1.32c0.34-0.34,0.81-0.55,1.32-0.55h0.93 c0.52,0,0.99,0.21,1.33,0.55c0.34,0.34,0.55,0.81,0.55,1.33v2.03c0,0.2-0.08,0.39-0.21,0.52C99.28,32.64,99.1,32.72,98.89,32.72 L98.89,32.72L98.89,32.72z M100.19,20.87h1.63c0.23,0,0.44,0.1,0.59,0.25l0,0c0.15,0.15,0.25,0.36,0.25,0.59v3.58 c0,0.23-0.1,0.44-0.25,0.59l0,0l0,0c-0.15,0.15-0.36,0.25-0.59,0.25h-1.63c-0.23,0-0.44-0.1-0.59-0.25l0,0 c-0.15-0.15-0.25-0.36-0.25-0.59v-3.58c0-0.23,0.09-0.44,0.25-0.59C99.75,20.96,99.96,20.87,100.19,20.87L100.19,20.87 L100.19,20.87z M108.64,14.09c0.66,0,1.2,0.54,1.2,1.2s-0.54,1.2-1.2,1.2c-0.66,0-1.2-0.54-1.2-1.2 C107.44,14.63,107.98,14.09,108.64,14.09L108.64,14.09L108.64,14.09z M86.08,36.01c0.66,0,1.2,0.54,1.2,1.2s-0.54,1.2-1.2,1.2 s-1.2-0.54-1.2-1.2C84.89,36.55,85.42,36.01,86.08,36.01L86.08,36.01L86.08,36.01z M97.19,16.5c5.42,0,9.82,4.4,9.82,9.82 s-4.4,9.82-9.82,9.82c-5.42,0-9.82-4.4-9.82-9.82S91.77,16.5,97.19,16.5L97.19,16.5L97.19,16.5z"/></g></svg>
+                                    <div class="itmname">
+                                        <a href="#page-7"><h6 class="card-title" style="margin: 10px; color: #727272">
+                                            Блок
+                                            питания</h6></a>
+                                    </div>
                                 </div>
-                            </div>
                             {% endif %}
                         </div>
                     </div>
@@ -1351,16 +1317,16 @@
                         <scroll-container>
                             <scroll-page id="page-0">
                                 {% if not is_cpu %}
-                                <div class="component">
-                                    <a href="">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                     xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
-                                                     height="512" x="0" y="0" viewBox="0 0 512 512"
-                                                     style="enable-background:new 0 0 512 512" xml:space="preserve"
-                                                     class=""><g>
+                                    <div class="component">
+                                        <a href="">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                         xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
+                                                         height="512" x="0" y="0" viewBox="0 0 512 512"
+                                                         style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                                         class=""><g>
                                 <g xmlns="http://www.w3.org/2000/svg">
                                 	<g>
                                 		<path d="M91.522,56.263h-0.121c-18.519,0.271-33.581,15.565-33.581,34.093v48.72H7.536c-4.162,0-7.536,3.374-7.536,7.536    s3.374,7.536,7.536,7.536h50.285v39.622H7.536c-4.162,0-7.536,3.374-7.536,7.536s3.374,7.536,7.536,7.536h50.285v39.621H7.536    C3.374,248.464,0,251.838,0,256s3.374,7.536,7.536,7.536h50.285v39.621H7.536c-4.162,0-7.536,3.374-7.536,7.536    s3.374,7.536,7.536,7.536h50.285v39.622H7.536c-4.162,0-7.536,3.374-7.536,7.536s3.374,7.536,7.536,7.536h50.285v25.77    c0,4.16,3.376,7.536,7.536,7.536s7.536-3.376,7.536-7.536V90.357c0-10.34,8.4-18.87,18.74-19.031    c4.16-0.06,7.486-3.477,7.416-7.647C98.988,59.559,95.632,56.263,91.522,56.263z"
@@ -1416,66 +1382,72 @@
                                 <g xmlns="http://www.w3.org/2000/svg">
                                 </g>
                                 </g></svg>
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Процессор</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-    padding-left: 20px;">Процессор</h5></div>
-                                    <div class="ph-block">
-                                        <img src="https://c.dns-shop.ru/thumb/st1/fit/200/200/d49a8c330286b98c5fece5b5bb0e48f9/101fcaf00e581ee49898250028cc07931b8619d7b77492bedc2dd70e996066cd.jpg"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href=""><h6 style="padding: 0 12px 0 12px; color: white">Видеокарта MSI
-                                            GeForce RTX 3090 VENTUS 3X
-                                            OC </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10pt; margin-left: 7px">1 950 ₽</p>
-                                    </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
-                                                     height="329pt" viewBox="0 0 329.26933 329" width="329pt">
-                                                    <path fill="#727272"
-                                                          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
-                                                </svg>
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    Удалить
                                                 </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">
+                                                    Процессор</h6>
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+    padding-left: 20px;">Процессор</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Cpu.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href=""><h6 style="padding: 0 12px 0 12px; color: white">
+                                                {{ Cpu.name }}
+                                                </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10pt; margin-left: 7px">{{ Cpu.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+                                            <a href="">
+                                                <div class="svg">
+                                                    <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
+                                                         height="329pt" viewBox="0 0 329.26933 329" width="329pt">
+                                                        <path fill="#727272"
+                                                              d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        <form action="/hand/configuration/" method="post">
+                                                        <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
+                                                        <div class="invz" style="display: none"><input type="id" name="component_type" value="Cpu"></div>
+                                                            {% csrf_token %}
+                                                        <button>Удалить</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </scroll-page>
                             <scroll-page id="page-1">
 
                                 {% if not is_mother %}
-                                <div class="component">
-                                    <a href="">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                     xmlns:svgjs="http://svgjs.com/svgjs"
-                                                     version="1.1" width="512" height="512" x="0" y="0"
-                                                     viewBox="0 0 512 512"
-                                                     style="enable-background:new 0 0 512 512" xml:space="preserve"
-                                                     class=""><g>
+                                    <div class="component">
+                                        <a href="">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                         xmlns:svgjs="http://svgjs.com/svgjs"
+                                                         version="1.1" width="512" height="512" x="0" y="0"
+                                                         viewBox="0 0 512 512"
+                                                         style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                                         class=""><g>
                                 <g xmlns="http://www.w3.org/2000/svg">
                                 	<g>
                                 		<g>
@@ -1582,327 +1554,337 @@
                                 <g xmlns="http://www.w3.org/2000/svg">
                                 </g>
                                 </g></svg>
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Материнская
-                                                плата</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-    padding-left: 20px;">Материнская плата</h5></div>
-                                    <div class="ph-block">
-                                        <img src="https://c.dns-shop.ru/thumb/st1/fit/200/200/d49a8c330286b98c5fece5b5bb0e48f9/101fcaf00e581ee49898250028cc07931b8619d7b77492bedc2dd70e996066cd.jpg"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href=""><h6 style="padding: 0 12px 0 12px; color: white">Видеокарта MSI
-                                            GeForce RTX 3090 VENTUS 3X
-                                            OC Lorem ipsum dolor sit amet. </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10pt; margin-left: 7px">16 950 ₽</p>
-                                    </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
-                                                     height="329pt" viewBox="0 0 329.26933 329" width="329pt">
-                                                    <path fill="#727272"
-                                                          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
-                                                </svg>
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    Удалить
                                                 </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Материнская
+                                                    плата</h6>
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                {% else %}
+
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+    padding-left: 20px;">Материнская плата</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Motherboard.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href=""><h6 style="padding: 0 12px 0 12px; color: white">{{ Motherboard.name }}</h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10pt; margin-left: 7px">{{ Motherboard.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+                                            <a href="">
+                                                <div class="svg">
+                                                    <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
+                                                         height="329pt" viewBox="0 0 329.26933 329" width="329pt">
+                                                        <path fill="#727272"
+                                                              d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        <form action="/hand/configuration/" method="post">
+                                                        <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
+                                                        <div class="invz" style="display: none"><input type="id" name="component_type" value="Motherboard"></div>
+                                                        <button>Удалить</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </scroll-page>
                             <scroll-page id="page-2">
                                 {% if not is_gpu %}
-                                <div class="component">
-                                    <a href="">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                     xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
-                                                     height="512" x="0" y="0" viewBox="0 0 64 64"
-                                                     style="enable-background:new 0 0 512 512" xml:space="preserve"
-                                                     class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m7.467 11.733h-6.4c-.589 0-1.067-.478-1.067-1.066 0-.589.478-1.067 1.067-1.067h6.4c.589 0 1.067.478 1.067 1.067-.001.588-.479 1.066-1.067 1.066z" fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m7.467 54.4c-.589 0-1.067-.478-1.067-1.067v-42.666c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v42.667c-.001.588-.479 1.066-1.067 1.066z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m7.467 32h-4.267c-.589 0-1.067-.478-1.067-1.067v-8.533c0-.589.478-1.067 1.067-1.067h4.267c.589 0 1.067.478 1.067 1.067v8.533c-.001.589-.479 1.067-1.067 1.067zm-3.2-2.133h2.133v-6.4h-2.133z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m7.467 49.067h-4.267c-.589 0-1.067-.478-1.067-1.067v-8.533c0-.589.478-1.067 1.067-1.067h4.267c.589 0 1.067.478 1.067 1.067v8.533c-.001.589-.479 1.067-1.067 1.067zm-3.2-2.134h2.133v-6.4h-2.133z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m38.4 54.4h-23.467c-.589 0-1.067-.478-1.067-1.067v-7.467c0-.589.478-1.067 1.067-1.067h23.467c.589 0 1.067.478 1.067 1.067v7.467c0 .589-.478 1.067-1.067 1.067zm-22.4-2.133h21.333v-5.333h-21.333z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m20.267 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c-.001.589-.479 1.067-1.067 1.067z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m33.067 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c-.001.589-.479 1.067-1.067 1.067z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m49.067 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c-.001.589-.479 1.067-1.067 1.067z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m28.8 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c0 .589-.478 1.067-1.067 1.067z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m24.533 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c0 .589-.478 1.067-1.067 1.067z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m53.333 54.4h-8.533c-.589 0-1.067-.478-1.067-1.067v-7.467c0-.589.478-1.067 1.067-1.067h8.533c.589 0 1.067.478 1.067 1.067v7.467c0 .589-.478 1.067-1.067 1.067zm-7.466-2.133h6.4v-5.333h-6.4z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m7.467 19.2h-4.267c-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067h4.267c.589 0 1.067.478 1.067 1.067s-.479 1.067-1.067 1.067z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m7.467 36.267h-4.267c-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067h4.267c.589 0 1.067.478 1.067 1.067-.001.589-.479 1.067-1.067 1.067z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m22.4 42.667c-6.469 0-11.733-5.264-11.733-11.733s5.264-11.734 11.733-11.734 11.733 5.264 11.733 11.733-5.264 11.734-11.733 11.734zm0-21.334c-5.294 0-9.6 4.307-9.6 9.6s4.306 9.6 9.6 9.6 9.6-4.307 9.6-9.6-4.306-9.6-9.6-9.6z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m22.4 35.2c-2.353 0-4.267-1.914-4.267-4.267s1.914-4.267 4.267-4.267 4.267 1.914 4.267 4.267-1.914 4.267-4.267 4.267zm0-6.4c-1.177 0-2.133.957-2.133 2.133 0 1.177.957 2.133 2.133 2.133 1.177 0 2.133-.957 2.133-2.133s-.956-2.133-2.133-2.133z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m57.601 46.933h-50.134c-.589 0-1.067-.478-1.067-1.067v-29.866c0-.589.478-1.067 1.067-1.067h50.134c3.529 0 6.399 2.87 6.399 6.399v19.203c0 3.528-2.87 6.398-6.399 6.398zm-49.068-2.133h49.068c2.352 0 4.266-1.914 4.266-4.266v-19.202c0-2.352-1.914-4.266-4.266-4.266h-49.068z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m22.4 28.8c-.589 0-1.067-.478-1.067-1.067 0-2.298-2.932-4.267-5.333-4.267-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067c3.453 0 7.467 2.796 7.467 6.4 0 .59-.478 1.068-1.067 1.068z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m28.8 40.533c-3.453 0-7.467-2.796-7.467-6.4 0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067c0 2.298 2.932 4.267 5.333 4.267.589 0 1.067.478 1.067 1.067 0 .588-.478 1.066-1.067 1.066z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m13.867 38.4c-.589 0-1.067-.478-1.067-1.067 0-3.453 2.796-7.467 6.4-7.467.589 0 1.067.478 1.067 1.067s-.478 1.067-1.067 1.067c-2.298 0-4.267 2.933-4.267 5.333 0 .589-.478 1.067-1.066 1.067z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m25.6 32c-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067c2.298 0 4.267-2.933 4.267-5.333 0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067c-.001 3.453-2.797 7.467-6.401 7.467z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m11.841 30.492c-.273 0-.546-.105-.754-.313-.417-.416-.417-1.091 0-1.508 1.187-1.187 2.972-2.027 4.774-2.245 2.035-.251 3.823.282 5.031 1.491.416.417.416 1.092 0 1.508-.417.417-1.092.417-1.508 0-.724-.724-1.913-1.045-3.265-.882-1.345.163-2.661.775-3.522 1.636-.21.208-.484.313-.756.313z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m27.979 35.501c-1.634 0-3.056-.535-4.07-1.551-.416-.417-.416-1.092 0-1.508.417-.417 1.092-.417 1.508 0 .724.724 1.914 1.047 3.265.882 1.345-.163 2.661-.775 3.522-1.636.417-.417 1.092-.417 1.508 0 .417.416.417 1.091 0 1.508-1.187 1.187-2.972 2.027-4.774 2.245-.326.041-.647.06-.959.06z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m20.892 42.559c-.273 0-.546-.105-.754-.313-2.442-2.442-3.302-7.257-.754-9.805.417-.417 1.092-.417 1.508 0 .417.416.417 1.091 0 1.508-1.625 1.625-.944 5.091.754 6.788.417.417.417 1.091 0 1.508-.208.21-.481.314-.754.314z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m24.662 29.738c-.273 0-.546-.105-.754-.313-.417-.416-.417-1.091 0-1.508 1.625-1.625.944-5.091-.754-6.788-.417-.417-.417-1.091 0-1.508.416-.417 1.092-.417 1.508 0 2.442 2.442 3.302 7.257.754 9.805-.207.207-.481.312-.754.312z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m48 42.667c-6.469 0-11.733-5.264-11.733-11.733s5.264-11.734 11.733-11.734 11.733 5.264 11.733 11.733-5.264 11.734-11.733 11.734zm0-21.334c-5.294 0-9.6 4.307-9.6 9.6s4.306 9.6 9.6 9.6 9.6-4.307 9.6-9.6-4.306-9.6-9.6-9.6z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m48 35.2c-2.353 0-4.267-1.914-4.267-4.267s1.914-4.267 4.267-4.267 4.267 1.914 4.267 4.267-1.914 4.267-4.267 4.267zm0-6.4c-1.177 0-2.133.957-2.133 2.133 0 1.177.957 2.133 2.133 2.133s2.133-.957 2.133-2.133-.956-2.133-2.133-2.133z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m48 28.8c-.589 0-1.067-.478-1.067-1.067 0-2.298-2.932-4.267-5.333-4.267-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067c3.453 0 7.467 2.796 7.467 6.4 0 .59-.478 1.068-1.067 1.068z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m54.4 40.533c-3.453 0-7.467-2.796-7.467-6.4 0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067c0 2.298 2.932 4.267 5.333 4.267.589 0 1.067.478 1.067 1.067 0 .588-.478 1.066-1.067 1.066z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m39.467 38.4c-.589 0-1.067-.478-1.067-1.067 0-3.453 2.796-7.467 6.4-7.467.589 0 1.067.478 1.067 1.067s-.478 1.067-1.067 1.067c-2.298 0-4.267 2.933-4.267 5.333 0 .589-.478 1.067-1.066 1.067z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m51.2 32c-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067c2.298 0 4.267-2.933 4.267-5.333 0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067c-.001 3.453-2.797 7.467-6.401 7.467z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m37.441 30.492c-.273 0-.546-.105-.754-.313-.417-.416-.417-1.091 0-1.508 1.187-1.187 2.972-2.027 4.774-2.245 2.035-.251 3.823.282 5.031 1.491.416.417.416 1.092 0 1.508-.417.417-1.092.417-1.508 0-.724-.724-1.914-1.045-3.265-.882-1.345.163-2.661.775-3.522 1.636-.21.208-.484.313-.756.313z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m53.579 35.501c-1.634 0-3.056-.535-4.07-1.551-.416-.417-.416-1.092 0-1.508.417-.417 1.092-.417 1.508 0 .724.724 1.913 1.047 3.265.882 1.345-.163 2.661-.775 3.522-1.636.417-.417 1.092-.417 1.508 0 .417.416.417 1.091 0 1.508-1.187 1.187-2.972 2.027-4.774 2.245-.326.041-.647.06-.959.06z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m46.492 42.559c-.273 0-.546-.105-.754-.313-2.442-2.442-3.302-7.257-.754-9.805.417-.417 1.092-.417 1.508 0 .417.416.417 1.091 0 1.508-1.625 1.625-.944 5.091.754 6.788.417.417.417 1.091 0 1.508-.208.21-.481.314-.754.314z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        d="m50.262 29.738c-.273 0-.546-.105-.754-.313-.417-.416-.417-1.091 0-1.508 1.625-1.625.944-5.091-.754-6.788-.417-.417-.417-1.091 0-1.508.416-.417 1.092-.417 1.508 0 2.442 2.442 3.302 7.257.754 9.805-.207.207-.481.312-.754.312z"
-                                                        fill="#727272" data-original="#000000" style=""
-                                                        class=""/></g></svg>
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Видеокарта</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Видеокарта</h5></div>
-                                    <div class="ph-block">
-                                        <img src="https://c.dns-shop.ru/thumb/st1/fit/200/200/d49a8c330286b98c5fece5b5bb0e48f9/101fcaf00e581ee49898250028cc07931b8619d7b77492bedc2dd70e996066cd.jpg"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href=""><h6 style="padding: 0 12px 0 12px; color: white">Видеокарта MSI
-                                            GeForce RTX 3090 VENTUS 3X
-                                            OC </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">1 950 ₽</p>
-                                    </div>
-                                    <div class="remove-block">
+                                    <div class="component">
                                         <a href="">
-                                            <div class="svg">
-                                                <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
-                                                     height="329pt" viewBox="0 0 329.26933 329" width="329pt">
-                                                    <path fill="#727272"
-                                                          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
-                                                </svg>
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    Удалить
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                         xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
+                                                         height="512" x="0" y="0" viewBox="0 0 64 64"
+                                                         style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                                         class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m7.467 11.733h-6.4c-.589 0-1.067-.478-1.067-1.066 0-.589.478-1.067 1.067-1.067h6.4c.589 0 1.067.478 1.067 1.067-.001.588-.479 1.066-1.067 1.066z" fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m7.467 54.4c-.589 0-1.067-.478-1.067-1.067v-42.666c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v42.667c-.001.588-.479 1.066-1.067 1.066z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m7.467 32h-4.267c-.589 0-1.067-.478-1.067-1.067v-8.533c0-.589.478-1.067 1.067-1.067h4.267c.589 0 1.067.478 1.067 1.067v8.533c-.001.589-.479 1.067-1.067 1.067zm-3.2-2.133h2.133v-6.4h-2.133z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m7.467 49.067h-4.267c-.589 0-1.067-.478-1.067-1.067v-8.533c0-.589.478-1.067 1.067-1.067h4.267c.589 0 1.067.478 1.067 1.067v8.533c-.001.589-.479 1.067-1.067 1.067zm-3.2-2.134h2.133v-6.4h-2.133z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m38.4 54.4h-23.467c-.589 0-1.067-.478-1.067-1.067v-7.467c0-.589.478-1.067 1.067-1.067h23.467c.589 0 1.067.478 1.067 1.067v7.467c0 .589-.478 1.067-1.067 1.067zm-22.4-2.133h21.333v-5.333h-21.333z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m20.267 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c-.001.589-.479 1.067-1.067 1.067z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m33.067 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c-.001.589-.479 1.067-1.067 1.067z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m49.067 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c-.001.589-.479 1.067-1.067 1.067z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m28.8 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c0 .589-.478 1.067-1.067 1.067z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m24.533 54.4c-.589 0-1.067-.478-1.067-1.067v-3.2c0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067v3.2c0 .589-.478 1.067-1.067 1.067z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m53.333 54.4h-8.533c-.589 0-1.067-.478-1.067-1.067v-7.467c0-.589.478-1.067 1.067-1.067h8.533c.589 0 1.067.478 1.067 1.067v7.467c0 .589-.478 1.067-1.067 1.067zm-7.466-2.133h6.4v-5.333h-6.4z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m7.467 19.2h-4.267c-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067h4.267c.589 0 1.067.478 1.067 1.067s-.479 1.067-1.067 1.067z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m7.467 36.267h-4.267c-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067h4.267c.589 0 1.067.478 1.067 1.067-.001.589-.479 1.067-1.067 1.067z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m22.4 42.667c-6.469 0-11.733-5.264-11.733-11.733s5.264-11.734 11.733-11.734 11.733 5.264 11.733 11.733-5.264 11.734-11.733 11.734zm0-21.334c-5.294 0-9.6 4.307-9.6 9.6s4.306 9.6 9.6 9.6 9.6-4.307 9.6-9.6-4.306-9.6-9.6-9.6z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m22.4 35.2c-2.353 0-4.267-1.914-4.267-4.267s1.914-4.267 4.267-4.267 4.267 1.914 4.267 4.267-1.914 4.267-4.267 4.267zm0-6.4c-1.177 0-2.133.957-2.133 2.133 0 1.177.957 2.133 2.133 2.133 1.177 0 2.133-.957 2.133-2.133s-.956-2.133-2.133-2.133z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m57.601 46.933h-50.134c-.589 0-1.067-.478-1.067-1.067v-29.866c0-.589.478-1.067 1.067-1.067h50.134c3.529 0 6.399 2.87 6.399 6.399v19.203c0 3.528-2.87 6.398-6.399 6.398zm-49.068-2.133h49.068c2.352 0 4.266-1.914 4.266-4.266v-19.202c0-2.352-1.914-4.266-4.266-4.266h-49.068z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m22.4 28.8c-.589 0-1.067-.478-1.067-1.067 0-2.298-2.932-4.267-5.333-4.267-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067c3.453 0 7.467 2.796 7.467 6.4 0 .59-.478 1.068-1.067 1.068z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m28.8 40.533c-3.453 0-7.467-2.796-7.467-6.4 0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067c0 2.298 2.932 4.267 5.333 4.267.589 0 1.067.478 1.067 1.067 0 .588-.478 1.066-1.067 1.066z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m13.867 38.4c-.589 0-1.067-.478-1.067-1.067 0-3.453 2.796-7.467 6.4-7.467.589 0 1.067.478 1.067 1.067s-.478 1.067-1.067 1.067c-2.298 0-4.267 2.933-4.267 5.333 0 .589-.478 1.067-1.066 1.067z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m25.6 32c-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067c2.298 0 4.267-2.933 4.267-5.333 0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067c-.001 3.453-2.797 7.467-6.401 7.467z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m11.841 30.492c-.273 0-.546-.105-.754-.313-.417-.416-.417-1.091 0-1.508 1.187-1.187 2.972-2.027 4.774-2.245 2.035-.251 3.823.282 5.031 1.491.416.417.416 1.092 0 1.508-.417.417-1.092.417-1.508 0-.724-.724-1.913-1.045-3.265-.882-1.345.163-2.661.775-3.522 1.636-.21.208-.484.313-.756.313z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m27.979 35.501c-1.634 0-3.056-.535-4.07-1.551-.416-.417-.416-1.092 0-1.508.417-.417 1.092-.417 1.508 0 .724.724 1.914 1.047 3.265.882 1.345-.163 2.661-.775 3.522-1.636.417-.417 1.092-.417 1.508 0 .417.416.417 1.091 0 1.508-1.187 1.187-2.972 2.027-4.774 2.245-.326.041-.647.06-.959.06z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m20.892 42.559c-.273 0-.546-.105-.754-.313-2.442-2.442-3.302-7.257-.754-9.805.417-.417 1.092-.417 1.508 0 .417.416.417 1.091 0 1.508-1.625 1.625-.944 5.091.754 6.788.417.417.417 1.091 0 1.508-.208.21-.481.314-.754.314z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m24.662 29.738c-.273 0-.546-.105-.754-.313-.417-.416-.417-1.091 0-1.508 1.625-1.625.944-5.091-.754-6.788-.417-.417-.417-1.091 0-1.508.416-.417 1.092-.417 1.508 0 2.442 2.442 3.302 7.257.754 9.805-.207.207-.481.312-.754.312z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m48 42.667c-6.469 0-11.733-5.264-11.733-11.733s5.264-11.734 11.733-11.734 11.733 5.264 11.733 11.733-5.264 11.734-11.733 11.734zm0-21.334c-5.294 0-9.6 4.307-9.6 9.6s4.306 9.6 9.6 9.6 9.6-4.307 9.6-9.6-4.306-9.6-9.6-9.6z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m48 35.2c-2.353 0-4.267-1.914-4.267-4.267s1.914-4.267 4.267-4.267 4.267 1.914 4.267 4.267-1.914 4.267-4.267 4.267zm0-6.4c-1.177 0-2.133.957-2.133 2.133 0 1.177.957 2.133 2.133 2.133s2.133-.957 2.133-2.133-.956-2.133-2.133-2.133z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m48 28.8c-.589 0-1.067-.478-1.067-1.067 0-2.298-2.932-4.267-5.333-4.267-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067c3.453 0 7.467 2.796 7.467 6.4 0 .59-.478 1.068-1.067 1.068z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m54.4 40.533c-3.453 0-7.467-2.796-7.467-6.4 0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067c0 2.298 2.932 4.267 5.333 4.267.589 0 1.067.478 1.067 1.067 0 .588-.478 1.066-1.067 1.066z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m39.467 38.4c-.589 0-1.067-.478-1.067-1.067 0-3.453 2.796-7.467 6.4-7.467.589 0 1.067.478 1.067 1.067s-.478 1.067-1.067 1.067c-2.298 0-4.267 2.933-4.267 5.333 0 .589-.478 1.067-1.066 1.067z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m51.2 32c-.589 0-1.067-.478-1.067-1.067s.478-1.067 1.067-1.067c2.298 0 4.267-2.933 4.267-5.333 0-.589.478-1.067 1.067-1.067s1.067.478 1.067 1.067c-.001 3.453-2.797 7.467-6.401 7.467z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m37.441 30.492c-.273 0-.546-.105-.754-.313-.417-.416-.417-1.091 0-1.508 1.187-1.187 2.972-2.027 4.774-2.245 2.035-.251 3.823.282 5.031 1.491.416.417.416 1.092 0 1.508-.417.417-1.092.417-1.508 0-.724-.724-1.914-1.045-3.265-.882-1.345.163-2.661.775-3.522 1.636-.21.208-.484.313-.756.313z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m53.579 35.501c-1.634 0-3.056-.535-4.07-1.551-.416-.417-.416-1.092 0-1.508.417-.417 1.092-.417 1.508 0 .724.724 1.913 1.047 3.265.882 1.345-.163 2.661-.775 3.522-1.636.417-.417 1.092-.417 1.508 0 .417.416.417 1.091 0 1.508-1.187 1.187-2.972 2.027-4.774 2.245-.326.041-.647.06-.959.06z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m46.492 42.559c-.273 0-.546-.105-.754-.313-2.442-2.442-3.302-7.257-.754-9.805.417-.417 1.092-.417 1.508 0 .417.416.417 1.091 0 1.508-1.625 1.625-.944 5.091.754 6.788.417.417.417 1.091 0 1.508-.208.21-.481.314-.754.314z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            d="m50.262 29.738c-.273 0-.546-.105-.754-.313-.417-.416-.417-1.091 0-1.508 1.625-1.625.944-5.091-.754-6.788-.417-.417-.417-1.091 0-1.508.416-.417 1.092-.417 1.508 0 2.442 2.442 3.302 7.257.754 9.805-.207.207-.481.312-.754.312z"
+                                                            fill="#727272" data-original="#000000" style=""
+                                                            class=""/></g></svg>
                                                 </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">
+                                                    Видеокарта</h6>
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Видеокарта</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Gpu.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href=""><h6 style="padding: 0 12px 0 12px; color: white"> {{ Gpu.name }}</h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Gpu.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+                                            <a href="">
+                                                <div class="svg">
+                                                    <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
+                                                         height="329pt" viewBox="0 0 329.26933 329" width="329pt">
+                                                        <path fill="#727272"
+                                                              d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        <form action="/hand/configuration/" method="post">
+                                                        <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
+                                                        <div class="invz" style="display: none"><input type="id" name="component_type" value="Gpu"></div>
+                                                        <button>Удалить</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </scroll-page>
                             <scroll-page id="page-3">
                                 {% if not is_ram %}
-                                <div class="component">
-                                    <a href="">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                     xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
-                                                     height="512"
-                                                     x="0" y="0" viewBox="0 0 60 61"
-                                                     style="enable-background:new 0 0 512 512"
-                                                     xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg" id="Page-1" fill="none" fill-rule="evenodd"><g id="037---RAM" fill="rgb(0,0,0)" fill-rule="nonzero"><path id="Shape" d="m15.6455 58.92c-.5225144.0020781-1.0240806-.205269-1.3926-.5757l-7.61-7.6113c-.63501308-.6460083-.75233683-1.6398869-.2852-2.416.42121171-.7442075.29434609-1.6779755-.31015421-2.2828255-.60450031-.6048501-1.53819476-.7322557-2.28264579-.3114745-.77649712.4683058-1.77162213.3509684-2.4179-.2851l-.7715-.771c-.7663652-.7689157-.76681226-2.0127336-.001-2.7822l40.3532-40.3532c.7689076-.76686898 2.0133924-.76686898 2.7823 0l.7724.7725c.6352621.64687058.7517949 1.64184394.2832 2.418-.4194718.74445682-.291505 1.67720497.3129633 2.28118399s1.5373198.73119054 2.2814367.31111601c.7767885-.46695415 1.7710244-.34972157 2.4179.2851l7.61 7.6113c.7673106.7690817.7668632 2.0142699-.001 2.7828l-40.3508 40.352c-.3679645.3699285-.8688335.5769611-1.3906.5748zm-10.9199-15.4342c1.02620102-.0001433 2.010312.4079212 2.7353 1.1342 1.23944414 1.2426418 1.49900854 3.1589124.6348 4.6865l7.5723 7.6246 40.3066-40.353-7.6113-7.5654c-1.5184331.89885352-3.4530809.65360545-4.6992-.5957-1.2389172-1.2424584-1.4988311-3.15792333-.6358-4.6856l-.7324-.7861-40.3066 40.353.7724.7256c.59453569-.3522313 1.27285763-.5380885 1.9639-.5381z" fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m20.4326 60.9722c-.5221858.0018999-1.0233753-.2054405-1.3916-.5757l-2.7353-2.7354c-.2599566-.2510745-.3642126-.6228779-.2726972-.9725073.0915155-.3496295.3645604-.6226744.7141899-.7141899.3496294-.0915154.7214328.0127406.9725073.2726972l2.7364 2.7358 8.8447-8.8911-2.7354-2.69c-.380397-.3921753-.3756228-1.01706.0107219-1.4033774.3863446-.3863173 1.0112297-.3910473 1.4033781-.0106226l2.7353 2.7353c.766869.7689076.766869 2.0133924 0 2.7823l-8.8916 8.8916c-.3678984.3700753-.8687756.5772553-1.3906.5752z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m35.48 45.9253c-.5221858.0018999-1.0233753-.2054405-1.3916-.5757l-2.7354-2.7353c-.3777934-.3924746-.3719371-1.015136.0131714-1.4004352.3851086-.3852993 1.007767-.3914639 1.4004286-.0138648l2.7363 2.7358 22.5235-22.57-2.7354-2.6895c-.3820936-.3919029-.3781252-1.0181666.0089041-1.4051959s1.013293-.3909977 1.4051959-.0089041l2.7349 2.7358c.7672831.7690769.7668804 2.0142195-.0009 2.7828l-22.5691 22.5692c-.3677355.3699636-.8683689.5771682-1.39.5753z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m23.8525 57.9541c-.2652627.0002851-.519701-.105161-.707-.293l-3.42-3.4194c-.3804247-.3921484-.3756947-1.0170335.0106226-1.4033781.3863174-.3863447 1.0112021-.3911189 1.4033774-.0107219l3.42 3.42c.2859208.2860071.3714284.7160737.2166588 1.0897007-.1547695.3736271-.5193447.6172534-.9237588.6172993z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m27.2725 54.5347c-.2652974.0003117-.5197765-.1051364-.7071-.293l-3.42-3.42c-.3904653-.390631-.3903309-1.0238347.0003-1.4143.390631-.3904653 1.0238347-.390331 1.4143.0003l3.42 3.42c.2859794.2859849.3715389.7160737.2167859 1.0897354s-.5193461.6173187-.9237859.6173646z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m38.8994 42.9072c-.2652527.0003337-.5196971-.105079-.707-.2929l-3.42-3.4195c-.3789722-.3923789-.3735524-1.0160848.0121814-1.4018186s1.0094397-.3911536 1.4018186-.0121814l3.42 3.4194c.2859079.2859943.3714219.7160366.216678 1.0896546-.1547439.3736179-.5192821.6172591-.923678.6173454z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m42.3193 39.4878c-.2652627.0002851-.519701-.105161-.707-.293l-3.42-3.42c-.3804247-.3921484-.3756947-1.0170335.0106226-1.4033781.3863174-.3863447 1.0112021-.3911189 1.4033774-.0107219l3.42 3.42c.2859208.2860071.3714284.7160737.2166588 1.0897007-.1547695.3736271-.5193447.6172534-.9237588.6172993z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m45.7393 36.0679c-.2652974.0003117-.5197765-.1051364-.7071-.293l-3.42-3.4194c-.3820936-.3919029-.3781252-1.0181666.0089041-1.4051959s1.013293-.3909977 1.4051959-.0089041l3.42 3.4194c.2859794.2859849.3715389.7160737.2167859 1.0897354s-.5193461.6173187-.9237859.6173646z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m49.1582 32.6484c-.2652549.0003448-.5197034-.1050696-.707-.2929l-3.419-3.42c-.2590307-.2512868-.3625694-.6226481-.2709202-.9717074s.3642662-.621657.713332-.7132815c.3490657-.0916245.7204198.0119404.9716882.2709889l3.4189 3.42c.2859079.2859943.3714219.7160366.216678 1.0896546-.1547439.3736179-.5192821.6172591-.923678.6173454z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m52.5781 29.2285c-.2652737.0003404-.5197324-.1051141-.707-.293l-3.42-3.42c-.2599566-.2510745-.3642126-.6228779-.2726972-.9725073.0915155-.3496295.3645604-.6226744.7141899-.7141899.3496294-.0915154.7214328.0127406.9725073.2726972l3.42 3.42c.2859208.2860071.3714284.7160737.2166588 1.0897007-.1547695.3736271-.5193447.6172534-.9237588.6172993z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m55.998 25.8086c-.2652627.0002851-.519701-.105161-.707-.293l-3.42-3.4194c-.3820936-.3919029-.3781252-1.0181666.0089041-1.4051959s1.013293-.3909977 1.4051959-.0089041l3.42 3.42c.2859208.2860071.3714284.7160737.2166588 1.0897007-.1547695.3736271-.5193447.6172534-.9237588.6172993z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m17.0127 50.7c-.5304359.0009613-1.0393696-.2095799-1.4141-.585l-6.7929-6.7932c-.78028121-.7814338-.78028121-2.0471662 0-2.8286l4.7412-4.7412c.7812395-.7802789 2.0468605-.7802789 2.8281 0l6.793 6.7929c.7802261.7814566.7802261 2.0471434 0 2.8286l-4.7412 4.7412c-.3746811.3755302-.8836209.5861818-1.4141.5853zm-2.0518-13.534-4.7409 4.7412 6.793 6.7935 4.7422-4.7422z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m25.9043 41.8081c-.5302244.0008839-1.0390116-.2092369-1.4141-.584l-6.7929-6.7941c-.7802789-.7812395-.7802789-2.0468605 0-2.8281l4.7412-4.7413c.7812623-.7802238 2.0468377-.7802238 2.8281 0l6.793 6.793c.3751443.3749684.5859129.8836402.5859129 1.41405s-.2107686 1.0390816-.5859129 1.41405l-4.7412 4.7417c-.3748736.3751695-.8837401.5855749-1.4141.5847zm-2.0518-13.5332-4.7412 4.7412 6.793 6.7935 4.7412-4.7417v-.0005l.001-.001z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m34.7959 32.917c-.5304359.0009613-1.0393696-.2095799-1.4141-.585l-6.7939-6.7929c-.7780933-.7818258-.7785402-2.0453241-.001-2.8277l4.7431-4.7422c.3734499-.3762183.8820026-.5872239 1.4121-.5859h.0019c.5307085-.0014456 1.0399276.2095377 1.4141.5859l6.793 6.7935c.3751443.3749684.5859129.8836402.5859129 1.41405s-.2107686 1.0390816-.5859129 1.41405l-4.7411 4.7412c-.3747304.3754201-.8836641.5859613-1.4141.585zm-2.0518-13.5337-4.7421 4.7412 6.7939 6.7935 4.7422-4.7422z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m43.6865 24.0254c-.5301614.0007141-1.0388551-.2093829-1.414-.584l-6.7925-6.7939c-.7802904-.7812738-.7802904-2.0469262 0-2.8282l4.7412-4.7412c.3741724-.37636233.8833915-.58734561 1.4141-.5859h.0019c.5305731-.00124892 1.0395271.21013394 1.4131.5869l6.793 6.792c.3751443.3749684.5859129.8836402.5859129 1.41405s-.2107686 1.0390816-.5859129 1.41405l-4.7412 4.7417c-.375311.3754088-.8847624.5857608-1.4156.5845zm-2.0517-13.5332-4.7412 4.7412 6.7929 6.7935 4.7422-4.7417.001-.001z"
-                                                        fill="#727272" data-original="#000000" style=""
-                                                        class=""/></g></g></g></svg>
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Оперативная
-                                                память</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Оперативная память</h5></div>
-                                    <div class="ph-block">
-                                        <img src="https://c.dns-shop.ru/thumb/st1/fit/200/200/d49a8c330286b98c5fece5b5bb0e48f9/101fcaf00e581ee49898250028cc07931b8619d7b77492bedc2dd70e996066cd.jpg"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href=""><h6 style="padding: 0 12px 0 12px; color: white">Видеокарта MSI
-                                            GeForce RTX 3090 VENTUS 3X
-                                            OC </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">1 950 ₽</p>
-                                    </div>
-                                    <div class="remove-block">
+                                    <div class="component">
                                         <a href="">
-                                            <div class="svg">
-                                                <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
-                                                     height="329pt" viewBox="0 0 329.26933 329" width="329pt">
-                                                    <path fill="#727272"
-                                                          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
-                                                </svg>
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    Удалить
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                         xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
+                                                         height="512"
+                                                         x="0" y="0" viewBox="0 0 60 61"
+                                                         style="enable-background:new 0 0 512 512"
+                                                         xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg" id="Page-1" fill="none" fill-rule="evenodd"><g id="037---RAM" fill="rgb(0,0,0)" fill-rule="nonzero"><path id="Shape" d="m15.6455 58.92c-.5225144.0020781-1.0240806-.205269-1.3926-.5757l-7.61-7.6113c-.63501308-.6460083-.75233683-1.6398869-.2852-2.416.42121171-.7442075.29434609-1.6779755-.31015421-2.2828255-.60450031-.6048501-1.53819476-.7322557-2.28264579-.3114745-.77649712.4683058-1.77162213.3509684-2.4179-.2851l-.7715-.771c-.7663652-.7689157-.76681226-2.0127336-.001-2.7822l40.3532-40.3532c.7689076-.76686898 2.0133924-.76686898 2.7823 0l.7724.7725c.6352621.64687058.7517949 1.64184394.2832 2.418-.4194718.74445682-.291505 1.67720497.3129633 2.28118399s1.5373198.73119054 2.2814367.31111601c.7767885-.46695415 1.7710244-.34972157 2.4179.2851l7.61 7.6113c.7673106.7690817.7668632 2.0142699-.001 2.7828l-40.3508 40.352c-.3679645.3699285-.8688335.5769611-1.3906.5748zm-10.9199-15.4342c1.02620102-.0001433 2.010312.4079212 2.7353 1.1342 1.23944414 1.2426418 1.49900854 3.1589124.6348 4.6865l7.5723 7.6246 40.3066-40.353-7.6113-7.5654c-1.5184331.89885352-3.4530809.65360545-4.6992-.5957-1.2389172-1.2424584-1.4988311-3.15792333-.6358-4.6856l-.7324-.7861-40.3066 40.353.7724.7256c.59453569-.3522313 1.27285763-.5380885 1.9639-.5381z" fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m20.4326 60.9722c-.5221858.0018999-1.0233753-.2054405-1.3916-.5757l-2.7353-2.7354c-.2599566-.2510745-.3642126-.6228779-.2726972-.9725073.0915155-.3496295.3645604-.6226744.7141899-.7141899.3496294-.0915154.7214328.0127406.9725073.2726972l2.7364 2.7358 8.8447-8.8911-2.7354-2.69c-.380397-.3921753-.3756228-1.01706.0107219-1.4033774.3863446-.3863173 1.0112297-.3910473 1.4033781-.0106226l2.7353 2.7353c.766869.7689076.766869 2.0133924 0 2.7823l-8.8916 8.8916c-.3678984.3700753-.8687756.5772553-1.3906.5752z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m35.48 45.9253c-.5221858.0018999-1.0233753-.2054405-1.3916-.5757l-2.7354-2.7353c-.3777934-.3924746-.3719371-1.015136.0131714-1.4004352.3851086-.3852993 1.007767-.3914639 1.4004286-.0138648l2.7363 2.7358 22.5235-22.57-2.7354-2.6895c-.3820936-.3919029-.3781252-1.0181666.0089041-1.4051959s1.013293-.3909977 1.4051959-.0089041l2.7349 2.7358c.7672831.7690769.7668804 2.0142195-.0009 2.7828l-22.5691 22.5692c-.3677355.3699636-.8683689.5771682-1.39.5753z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m23.8525 57.9541c-.2652627.0002851-.519701-.105161-.707-.293l-3.42-3.4194c-.3804247-.3921484-.3756947-1.0170335.0106226-1.4033781.3863174-.3863447 1.0112021-.3911189 1.4033774-.0107219l3.42 3.42c.2859208.2860071.3714284.7160737.2166588 1.0897007-.1547695.3736271-.5193447.6172534-.9237588.6172993z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m27.2725 54.5347c-.2652974.0003117-.5197765-.1051364-.7071-.293l-3.42-3.42c-.3904653-.390631-.3903309-1.0238347.0003-1.4143.390631-.3904653 1.0238347-.390331 1.4143.0003l3.42 3.42c.2859794.2859849.3715389.7160737.2167859 1.0897354s-.5193461.6173187-.9237859.6173646z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m38.8994 42.9072c-.2652527.0003337-.5196971-.105079-.707-.2929l-3.42-3.4195c-.3789722-.3923789-.3735524-1.0160848.0121814-1.4018186s1.0094397-.3911536 1.4018186-.0121814l3.42 3.4194c.2859079.2859943.3714219.7160366.216678 1.0896546-.1547439.3736179-.5192821.6172591-.923678.6173454z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m42.3193 39.4878c-.2652627.0002851-.519701-.105161-.707-.293l-3.42-3.42c-.3804247-.3921484-.3756947-1.0170335.0106226-1.4033781.3863174-.3863447 1.0112021-.3911189 1.4033774-.0107219l3.42 3.42c.2859208.2860071.3714284.7160737.2166588 1.0897007-.1547695.3736271-.5193447.6172534-.9237588.6172993z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m45.7393 36.0679c-.2652974.0003117-.5197765-.1051364-.7071-.293l-3.42-3.4194c-.3820936-.3919029-.3781252-1.0181666.0089041-1.4051959s1.013293-.3909977 1.4051959-.0089041l3.42 3.4194c.2859794.2859849.3715389.7160737.2167859 1.0897354s-.5193461.6173187-.9237859.6173646z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m49.1582 32.6484c-.2652549.0003448-.5197034-.1050696-.707-.2929l-3.419-3.42c-.2590307-.2512868-.3625694-.6226481-.2709202-.9717074s.3642662-.621657.713332-.7132815c.3490657-.0916245.7204198.0119404.9716882.2709889l3.4189 3.42c.2859079.2859943.3714219.7160366.216678 1.0896546-.1547439.3736179-.5192821.6172591-.923678.6173454z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m52.5781 29.2285c-.2652737.0003404-.5197324-.1051141-.707-.293l-3.42-3.42c-.2599566-.2510745-.3642126-.6228779-.2726972-.9725073.0915155-.3496295.3645604-.6226744.7141899-.7141899.3496294-.0915154.7214328.0127406.9725073.2726972l3.42 3.42c.2859208.2860071.3714284.7160737.2166588 1.0897007-.1547695.3736271-.5193447.6172534-.9237588.6172993z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m55.998 25.8086c-.2652627.0002851-.519701-.105161-.707-.293l-3.42-3.4194c-.3820936-.3919029-.3781252-1.0181666.0089041-1.4051959s1.013293-.3909977 1.4051959-.0089041l3.42 3.42c.2859208.2860071.3714284.7160737.2166588 1.0897007-.1547695.3736271-.5193447.6172534-.9237588.6172993z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m17.0127 50.7c-.5304359.0009613-1.0393696-.2095799-1.4141-.585l-6.7929-6.7932c-.78028121-.7814338-.78028121-2.0471662 0-2.8286l4.7412-4.7412c.7812395-.7802789 2.0468605-.7802789 2.8281 0l6.793 6.7929c.7802261.7814566.7802261 2.0471434 0 2.8286l-4.7412 4.7412c-.3746811.3755302-.8836209.5861818-1.4141.5853zm-2.0518-13.534-4.7409 4.7412 6.793 6.7935 4.7422-4.7422z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m25.9043 41.8081c-.5302244.0008839-1.0390116-.2092369-1.4141-.584l-6.7929-6.7941c-.7802789-.7812395-.7802789-2.0468605 0-2.8281l4.7412-4.7413c.7812623-.7802238 2.0468377-.7802238 2.8281 0l6.793 6.793c.3751443.3749684.5859129.8836402.5859129 1.41405s-.2107686 1.0390816-.5859129 1.41405l-4.7412 4.7417c-.3748736.3751695-.8837401.5855749-1.4141.5847zm-2.0518-13.5332-4.7412 4.7412 6.793 6.7935 4.7412-4.7417v-.0005l.001-.001z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m34.7959 32.917c-.5304359.0009613-1.0393696-.2095799-1.4141-.585l-6.7939-6.7929c-.7780933-.7818258-.7785402-2.0453241-.001-2.8277l4.7431-4.7422c.3734499-.3762183.8820026-.5872239 1.4121-.5859h.0019c.5307085-.0014456 1.0399276.2095377 1.4141.5859l6.793 6.7935c.3751443.3749684.5859129.8836402.5859129 1.41405s-.2107686 1.0390816-.5859129 1.41405l-4.7411 4.7412c-.3747304.3754201-.8836641.5859613-1.4141.585zm-2.0518-13.5337-4.7421 4.7412 6.7939 6.7935 4.7422-4.7422z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m43.6865 24.0254c-.5301614.0007141-1.0388551-.2093829-1.414-.584l-6.7925-6.7939c-.7802904-.7812738-.7802904-2.0469262 0-2.8282l4.7412-4.7412c.3741724-.37636233.8833915-.58734561 1.4141-.5859h.0019c.5305731-.00124892 1.0395271.21013394 1.4131.5869l6.793 6.792c.3751443.3749684.5859129.8836402.5859129 1.41405s-.2107686 1.0390816-.5859129 1.41405l-4.7412 4.7417c-.375311.3754088-.8847624.5857608-1.4156.5845zm-2.0517-13.5332-4.7412 4.7412 6.7929 6.7935 4.7422-4.7417.001-.001z"
+                                                            fill="#727272" data-original="#000000" style=""
+                                                            class=""/></g></g></g></svg>
                                                 </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Оперативная
+                                                    память</h6>
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Оперативная память</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Ram.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href=""><h6 style="padding: 0 12px 0 12px; color: white">
+                                                {{ Ram.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Ram.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+                                            <a href="">
+                                                <div class="svg">
+                                                    <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
+                                                         height="329pt" viewBox="0 0 329.26933 329" width="329pt">
+                                                        <path fill="#727272"
+                                                              d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        <form action="/hand/configuration/" method="post">
+                                                        <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
+                                                        <div class="invz" style="display: none"><input type="id" name="component_type" value="Ram"></div>
+                                                        <button>Удалить</button>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </scroll-page>
                             <scroll-page id="page-4">
                                 {% if not is_hard35 %}
-                                <div class="component">
-                                    <a href="">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                     xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
-                                                     height="512" x="0" y="0" viewBox="0 0 512 512"
-                                                     style="enable-background:new 0 0 512 512" xml:space="preserve"
-                                                     class=""><g>
+                                    <div class="component">
+                                        <a href="">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                         xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
+                                                         height="512" x="0" y="0" viewBox="0 0 512 512"
+                                                         style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                                         class=""><g>
 <g xmlns="http://www.w3.org/2000/svg">
 	<g>
 		<path d="M318.015,447.046h-124.03c-4.144,0-7.502,3.359-7.502,7.502c0,4.144,3.358,7.502,7.502,7.502h124.03    c4.144,0,7.502-3.359,7.502-7.502S322.159,447.046,318.015,447.046z"
@@ -1994,165 +1976,167 @@
 <g xmlns="http://www.w3.org/2000/svg">
 </g>
 </g></svg>
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Жесткий
-                                                диск</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Жесткий диск</h5></div>
-                                    <div class="ph-block">
-                                        <img src="https://c.dns-shop.ru/thumb/st1/fit/200/200/d49a8c330286b98c5fece5b5bb0e48f9/101fcaf00e581ee49898250028cc07931b8619d7b77492bedc2dd70e996066cd.jpg"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href=""><h6 style="padding: 0 12px 0 12px; color: white">Видеокарта MSI
-                                            GeForce RTX 3090 VENTUS 3X
-                                            OC </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">1 950 ₽</p>
-                                    </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
-                                                     height="329pt" viewBox="0 0 329.26933 329" width="329pt">
-                                                    <path fill="#727272"
-                                                          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
-                                                </svg>
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    Удалить
                                                 </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Жесткий
+                                                    диск</h6>
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Жесткий диск</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Hard35.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href=""><h6 style="padding: 0 12px 0 12px; color: white">
+                                                {{ Hard35.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Hard35.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+                                            <a href="">
+                                                <div class="svg">
+                                                    <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
+                                                         height="329pt" viewBox="0 0 329.26933 329" width="329pt">
+                                                        <path fill="#727272"
+                                                              d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </scroll-page>
                             <scroll-page id="page-5">
                                 {% if not is_ssd %}
-                                <div class="component">
-                                    <a href="">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                     xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
-                                                     height="512" x="0" y="0" viewBox="0 0 44 60"
-                                                     style="enable-background:new 0 0 512 512" xml:space="preserve"
-                                                     class=""><g><g xmlns="http://www.w3.org/2000/svg" id="Page-1" fill="none" fill-rule="evenodd"><g id="022---SSD" fill="rgb(0,0,0)" fill-rule="nonzero"><path id="Shape" d="m40 60h-36c-2.20811096-.0024799-3.99752006-1.791889-4-4v-52c.00247994-2.20811096 1.79188904-3.99752006 4-4h36c2.208111.00247994 3.9975201 1.79188904 4 4v52c-.0024799 2.208111-1.791889 3.9975201-4 4zm-36-58c-1.10411252.00110246-1.99889754.89588748-2 2v52c.00110246 1.1041125.89588748 1.9988975 2 2h36c1.1041125-.0011025 1.9988975-.8958875 2-2v-52c-.0011025-1.10411252-.8958875-1.99889754-2-2z" fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m29 8h-18c-1.10411252-.00110246-1.99889754-.89588748-2-2v-5c0-.55228475.44771525-1 1-1h20c.5522847 0 1 .44771525 1 1v5c-.0011025 1.10411252-.8958875 1.99889754-2 2zm-18-6v4h18v-4z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><circle
-                                                        id="Oval" cx="5" cy="5" r="1" fill="#727272"
-                                                        data-original="#000000"
-                                                        style="" class=""/><circle id="Oval" cx="39" cy="5" r="1"
-                                                                                   fill="#727272"
-                                                                                   data-original="#000000"
-                                                                                   style="" class=""/><circle id="Oval"
-                                                                                                              cx="5"
-                                                                                                              cy="55"
-                                                                                                              r="1"
-                                                                                                              fill="#727272"
-                                                                                                              data-original="#000000"
-                                                                                                              style=""
-                                                                                                              class=""/><circle
-                                                        id="Oval" cx="39" cy="55" r="1" fill="#727272"
-                                                        data-original="#000000" style="" class=""/><path id="Shape"
-                                                                                                         d="m23 8c-.5522847 0-1-.44771525-1-1v-6c0-.55228475.4477153-1 1-1s1 .44771525 1 1v6c0 .55228475-.4477153 1-1 1z"
-                                                                                                         fill="#727272"
-                                                                                                         data-original="#000000"
-                                                                                                         style=""
-                                                                                                         class=""/><path
-                                                        id="Shape"
-                                                        d="m35 53h-26c-2.76007596-.0032511-4.99674886-2.239924-5-5v-28c.00325114-2.760076 2.23992404-4.9967489 5-5h26c2.760076.0032511 4.9967489 2.239924 5 5v28c-.0032511 2.760076-2.239924 4.9967489-5 5zm-26-36c-1.65610033.0018187-2.99818129 1.3438997-3 3v28c.00181871 1.6561003 1.34389967 2.9981813 3 3h26c1.6561003-.0018187 2.9981813-1.3438997 3-3v-28c-.0018187-1.6561003-1.3438997-2.9981813-3-3z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m12 35c-1.617926.0007829-3.07683773-.9736229-3.69584598-2.4684519-.61900825-1.4948291-.27607629-3.2153778.86874598-4.3586481 1.5812774-1.5125256 4.0729226-1.5125256 5.6542 0 .752904.7478632 1.175262 1.765894 1.1729 2.8271 0 .5522847-.4477153 1-1 1s-1-.4477153-1-1c.0009138-.5305066-.2104175-1.0393366-.5869-1.4131-.7900684-.7568157-2.0361316-.7568157-2.8262 0-.5726992.571388-.74440978 1.431692-.4349437 2.179154.309466.747462 1.0390516 1.2346092 1.8480437 1.233946.5522847 0 1 .4477153 1 1s-.4477153 1-1 1z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m12 41c-2.20811096-.0024799-3.99752006-1.791889-4-4 0-.5522847.44771525-1 1-1s1 .4477153 1 1c.0008837 1.1032688.8956638 1.9970938 1.9989329 1.9967993 1.1032691-.0002946 1.9975718-.8945973 1.9978664-1.9978664.0002945-1.1032691-.8935305-1.9980492-1.9967993-1.9989329-.5522847 0-1-.4477153-1-1s.4477153-1 1-1c2.209139 0 4 1.790861 4 4s-1.790861 4-4 4z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m22 35c-1.617926.0007829-3.0768377-.9736229-3.695846-2.4684519-.6190082-1.4948291-.2760763-3.2153778.868746-4.3586481 1.5812774-1.5125256 4.0729226-1.5125256 5.6542 0 .752904.7478632 1.175262 1.765894 1.1729 2.8271 0 .5522847-.4477153 1-1 1s-1-.4477153-1-1c.0009138-.5305066-.2104175-1.0393366-.5869-1.4131-.7900684-.7568157-2.0361316-.7568157-2.8262 0-.5726992.571388-.7444098 1.431692-.4349437 2.179154.309466.747462 1.0390516 1.2346092 1.8480437 1.233946.5522847 0 1 .4477153 1 1s-.4477153 1-1 1z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m22 41c-2.208111-.0024799-3.9975201-1.791889-4-4 0-.5522847.4477153-1 1-1s1 .4477153 1 1c.0008837 1.1032688.8956638 1.9970938 1.9989329 1.9967993 1.1032691-.0002946 1.9975718-.8945973 1.9978664-1.9978664.0002945-1.1032691-.8935305-1.9980492-1.9967993-1.9989329-.5522847 0-1-.4477153-1-1s.4477153-1 1-1c2.209139 0 4 1.790861 4 4s-1.790861 4-4 4z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/><path
-                                                        id="Shape"
-                                                        d="m32 41h-3c-.5522847 0-1-.4477153-1-1v-12c0-.5522847.4477153-1 1-1h3c2.208111.0024799 3.9975201 1.791889 4 4v6c-.0024799 2.208111-1.791889 3.9975201-4 4zm-2-2h2c1.1041125-.0011025 1.9988975-.8958875 2-2v-6c-.0011025-1.1041125-.8958875-1.9988975-2-2h-2z"
-                                                        fill="#727272" data-original="#000000" style="" class=""/></g></g></g></svg>
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Твердотельный
-                                                накопитель</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Твердотельный накопитель</h5></div>
-                                    <div class="ph-block">
-                                        <img src="https://c.dns-shop.ru/thumb/st1/fit/200/200/d49a8c330286b98c5fece5b5bb0e48f9/101fcaf00e581ee49898250028cc07931b8619d7b77492bedc2dd70e996066cd.jpg"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href=""><h6 style="padding: 0 12px 0 12px; color: white">Видеокарта MSI
-                                            GeForce RTX 3090 VENTUS 3X
-                                            OC </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">1 950 ₽</p>
-                                    </div>
-                                    <div class="remove-block">
+                                    <div class="component">
                                         <a href="">
-                                            <div class="svg">
-                                                <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
-                                                     height="329pt" viewBox="0 0 329.26933 329" width="329pt">
-                                                    <path fill="#727272"
-                                                          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
-                                                </svg>
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    Удалить
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                         xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
+                                                         height="512" x="0" y="0" viewBox="0 0 44 60"
+                                                         style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                                         class=""><g><g xmlns="http://www.w3.org/2000/svg" id="Page-1" fill="none" fill-rule="evenodd"><g id="022---SSD" fill="rgb(0,0,0)" fill-rule="nonzero"><path id="Shape" d="m40 60h-36c-2.20811096-.0024799-3.99752006-1.791889-4-4v-52c.00247994-2.20811096 1.79188904-3.99752006 4-4h36c2.208111.00247994 3.9975201 1.79188904 4 4v52c-.0024799 2.208111-1.791889 3.9975201-4 4zm-36-58c-1.10411252.00110246-1.99889754.89588748-2 2v52c.00110246 1.1041125.89588748 1.9988975 2 2h36c1.1041125-.0011025 1.9988975-.8958875 2-2v-52c-.0011025-1.10411252-.8958875-1.99889754-2-2z" fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m29 8h-18c-1.10411252-.00110246-1.99889754-.89588748-2-2v-5c0-.55228475.44771525-1 1-1h20c.5522847 0 1 .44771525 1 1v5c-.0011025 1.10411252-.8958875 1.99889754-2 2zm-18-6v4h18v-4z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><circle
+                                                            id="Oval" cx="5" cy="5" r="1" fill="#727272"
+                                                            data-original="#000000"
+                                                            style="" class=""/><circle id="Oval" cx="39" cy="5" r="1"
+                                                                                       fill="#727272"
+                                                                                       data-original="#000000"
+                                                                                       style="" class=""/><circle
+                                                            id="Oval"
+                                                            cx="5"
+                                                            cy="55"
+                                                            r="1"
+                                                            fill="#727272"
+                                                            data-original="#000000"
+                                                            style=""
+                                                            class=""/><circle
+                                                            id="Oval" cx="39" cy="55" r="1" fill="#727272"
+                                                            data-original="#000000" style="" class=""/><path id="Shape"
+                                                                                                             d="m23 8c-.5522847 0-1-.44771525-1-1v-6c0-.55228475.4477153-1 1-1s1 .44771525 1 1v6c0 .55228475-.4477153 1-1 1z"
+                                                                                                             fill="#727272"
+                                                                                                             data-original="#000000"
+                                                                                                             style=""
+                                                                                                             class=""/><path
+                                                            id="Shape"
+                                                            d="m35 53h-26c-2.76007596-.0032511-4.99674886-2.239924-5-5v-28c.00325114-2.760076 2.23992404-4.9967489 5-5h26c2.760076.0032511 4.9967489 2.239924 5 5v28c-.0032511 2.760076-2.239924 4.9967489-5 5zm-26-36c-1.65610033.0018187-2.99818129 1.3438997-3 3v28c.00181871 1.6561003 1.34389967 2.9981813 3 3h26c1.6561003-.0018187 2.9981813-1.3438997 3-3v-28c-.0018187-1.6561003-1.3438997-2.9981813-3-3z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m12 35c-1.617926.0007829-3.07683773-.9736229-3.69584598-2.4684519-.61900825-1.4948291-.27607629-3.2153778.86874598-4.3586481 1.5812774-1.5125256 4.0729226-1.5125256 5.6542 0 .752904.7478632 1.175262 1.765894 1.1729 2.8271 0 .5522847-.4477153 1-1 1s-1-.4477153-1-1c.0009138-.5305066-.2104175-1.0393366-.5869-1.4131-.7900684-.7568157-2.0361316-.7568157-2.8262 0-.5726992.571388-.74440978 1.431692-.4349437 2.179154.309466.747462 1.0390516 1.2346092 1.8480437 1.233946.5522847 0 1 .4477153 1 1s-.4477153 1-1 1z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m12 41c-2.20811096-.0024799-3.99752006-1.791889-4-4 0-.5522847.44771525-1 1-1s1 .4477153 1 1c.0008837 1.1032688.8956638 1.9970938 1.9989329 1.9967993 1.1032691-.0002946 1.9975718-.8945973 1.9978664-1.9978664.0002945-1.1032691-.8935305-1.9980492-1.9967993-1.9989329-.5522847 0-1-.4477153-1-1s.4477153-1 1-1c2.209139 0 4 1.790861 4 4s-1.790861 4-4 4z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m22 35c-1.617926.0007829-3.0768377-.9736229-3.695846-2.4684519-.6190082-1.4948291-.2760763-3.2153778.868746-4.3586481 1.5812774-1.5125256 4.0729226-1.5125256 5.6542 0 .752904.7478632 1.175262 1.765894 1.1729 2.8271 0 .5522847-.4477153 1-1 1s-1-.4477153-1-1c.0009138-.5305066-.2104175-1.0393366-.5869-1.4131-.7900684-.7568157-2.0361316-.7568157-2.8262 0-.5726992.571388-.7444098 1.431692-.4349437 2.179154.309466.747462 1.0390516 1.2346092 1.8480437 1.233946.5522847 0 1 .4477153 1 1s-.4477153 1-1 1z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m22 41c-2.208111-.0024799-3.9975201-1.791889-4-4 0-.5522847.4477153-1 1-1s1 .4477153 1 1c.0008837 1.1032688.8956638 1.9970938 1.9989329 1.9967993 1.1032691-.0002946 1.9975718-.8945973 1.9978664-1.9978664.0002945-1.1032691-.8935305-1.9980492-1.9967993-1.9989329-.5522847 0-1-.4477153-1-1s.4477153-1 1-1c2.209139 0 4 1.790861 4 4s-1.790861 4-4 4z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/><path
+                                                            id="Shape"
+                                                            d="m32 41h-3c-.5522847 0-1-.4477153-1-1v-12c0-.5522847.4477153-1 1-1h3c2.208111.0024799 3.9975201 1.791889 4 4v6c-.0024799 2.208111-1.791889 3.9975201-4 4zm-2-2h2c1.1041125-.0011025 1.9988975-.8958875 2-2v-6c-.0011025-1.1041125-.8958875-1.9988975-2-2h-2z"
+                                                            fill="#727272" data-original="#000000" style="" class=""/></g></g></g></svg>
                                                 </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">
+                                                    Твердотельный
+                                                    накопитель</h6>
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Твердотельный накопитель</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Ssd.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href=""><h6 style="padding: 0 12px 0 12px; color: white">
+                                            {{ Ssd.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Ssd.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+                                            <a href="">
+                                                <div class="svg">
+                                                    <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
+                                                         height="329pt" viewBox="0 0 329.26933 329" width="329pt">
+                                                        <path fill="#727272"
+                                                              d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </scroll-page>
                             <scroll-page id="page-6">
                                 {% if not is_cooler %}
-                                <div class="component">
-                                    <a href="">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                     id="Layer_1"
-                                                     x="0px" y="0px" viewBox="0 0 511.999 511.999"
-                                                     style="enable-background:new 0 0 511.999 511.999;"
-                                                     xml:space="preserve">
+                                    <div class="component">
+                                        <a href="">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                         id="Layer_1"
+                                                         x="0px" y="0px" viewBox="0 0 511.999 511.999"
+                                                         style="enable-background:new 0 0 511.999 511.999;"
+                                                         xml:space="preserve">
 <g>
 	<g>
 		<g>
@@ -2175,153 +2159,153 @@
 		</g>
 	</g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
-                                                    <g>
+                                                        <g>
 </g>
 </svg>
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Кулер
-                                                процессора</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Кулер процессора</h5></div>
-                                    <div class="ph-block">
-                                        <img src="https://c.dns-shop.ru/thumb/st1/fit/200/200/d49a8c330286b98c5fece5b5bb0e48f9/101fcaf00e581ee49898250028cc07931b8619d7b77492bedc2dd70e996066cd.jpg"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href=""><h6 style="padding: 0 12px 0 12px; color: white">Видеокарта MSI
-                                            GeForce RTX 3090 VENTUS 3X
-                                            OC </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">1 950 ₽</p>
-                                    </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
-                                                     height="329pt" viewBox="0 0 329.26933 329" width="329pt">
-                                                    <path fill="#727272"
-                                                          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
-                                                </svg>
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    Удалить
                                                 </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Кулер
+                                                    процессора</h6>
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Кулер процессора</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Cooler.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href=""><h6 style="padding: 0 12px 0 12px; color: white">
+                                                {{ Cooler.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Cooler.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+                                            <a href="">
+                                                <div class="svg">
+                                                    <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
+                                                         height="329pt" viewBox="0 0 329.26933 329" width="329pt">
+                                                        <path fill="#727272"
+                                                              d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 {% endif %}
 
                             </scroll-page>
                             <scroll-page id="page-7">
                                 {% if not is_ps %}
-                                <div class="component">
-                                    <a href="">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                     id="Layer_1"
-                                                     x="0px" y="0px" viewBox="0 0 122.88 80.89"
-                                                     style="enable-background:new 0 0 122.88 80.89"
-                                                     xml:space="preserve"><style type="text/css"><
-                                                !
-                                                [CDATA[
-                                                .st0 {
-                                                    fill-rule: evenodd;
-                                                    clip-rule: evenodd;
-                                                }
-
-                                                ]
-                                                ]
-                                                ></style>
-                                                    <g><path fill="#727272" class="st0" d="M96.68,61.75l-5.22-0.49l4.33-9.47h5.91l-3.35,5.43l6.03,0.67L93.31,71.18L96.68,61.75L96.68,61.75z M5.1,0 h112.67c1.4,0,2.67,0.58,3.6,1.5l0,0c0.92,0.92,1.5,2.2,1.5,3.61v70.68c0,1.41-0.57,2.68-1.5,3.61c-0.92,0.92-2.2,1.5-3.61,1.5H5.1 c-1.41,0-2.68-0.57-3.61-1.5c-0.05-0.05-0.1-0.1-0.14-0.16C0.51,78.32,0,77.11,0,75.79V5.11c0-1.4,0.57-2.67,1.5-3.6l0.01-0.01 C2.44,0.57,3.71,0,5.1,0L5.1,0z M117.77,4.29H5.1c-0.23,0-0.43,0.09-0.58,0.23L4.52,4.53C4.38,4.67,4.29,4.88,4.29,5.11v70.68 c0,0.2,0.07,0.38,0.18,0.52l0.06,0.06c0.15,0.15,0.35,0.24,0.58,0.24h112.67c0.22,0,0.43-0.09,0.58-0.24s0.24-0.35,0.24-0.58V5.11 c0-0.22-0.09-0.43-0.24-0.58l0,0l0,0C118.21,4.38,118,4.29,117.77,4.29L117.77,4.29z M85.34,11.81h23.9c1.51,0,2.75,1.24,2.75,2.75 v23.52c0,1.52-1.24,2.75-2.75,2.75h-23.9c-1.51,0-2.75-1.24-2.75-2.75V14.56C82.58,13.05,83.82,11.81,85.34,11.81L85.34,11.81 L85.34,11.81z M43.48,30.02c1.24,0.26,2.4,0.74,3.43,1.41l5.31-5.31c-2.46-1.94-5.46-3.22-8.74-3.61V30.02L43.48,30.02z M49.8,34.3 c0.68,1.03,1.18,2.19,1.45,3.44h7.51c-0.4-3.28-1.7-6.28-3.66-8.74L49.8,34.3L49.8,34.3z M51.28,41.83 c-0.25,1.27-0.74,2.45-1.42,3.49l5.31,5.31c1.95-2.48,3.24-5.5,3.61-8.8H51.28L51.28,41.83z M46.98,48.22 c-1.05,0.7-2.23,1.2-3.51,1.46v7.51c3.31-0.39,6.33-1.7,8.81-3.67L46.98,48.22L46.98,48.22z M39.39,49.68 c-1.27-0.26-2.46-0.77-3.51-1.46l-5.3,5.3c2.48,1.97,5.5,3.28,8.81,3.67V49.68L39.39,49.68z M33.01,45.32 c-0.68-1.05-1.17-2.23-1.42-3.49h-7.5c0.37,3.3,1.66,6.32,3.61,8.8L33.01,45.32L33.01,45.32z M31.62,37.74 c0.27-1.25,0.77-2.41,1.45-3.44L27.76,29c-1.96,2.46-3.26,5.46-3.66,8.74H31.62L31.62,37.74z M35.97,31.43 c1.03-0.67,2.19-1.15,3.43-1.41v-7.51c-3.28,0.38-6.27,1.67-8.74,3.61L35.97,31.43L35.97,31.43z M43.48,18.41 c4.4,0.41,8.41,2.15,11.64,4.81l4.67-4.67c-4.44-3.83-10.1-6.29-16.31-6.74V18.41L43.48,18.41z M58.01,26.1 c2.68,3.22,4.43,7.24,4.86,11.65h6.6c-0.46-6.22-2.95-11.88-6.8-16.31L58.01,26.1L58.01,26.1z M62.88,41.83 c-0.4,4.42-2.14,8.46-4.81,11.71l4.67,4.67c3.84-4.46,6.31-10.14,6.74-16.38H62.88L62.88,41.83z M55.19,56.43 c-3.24,2.69-7.28,4.45-11.71,4.87v6.6c6.25-0.45,11.93-2.94,16.38-6.8L55.19,56.43L55.19,56.43z M39.39,61.29 c-4.43-0.42-8.47-2.18-11.71-4.87l-4.67,4.67c4.45,3.87,10.13,6.35,16.38,6.8V61.29L39.39,61.29z M24.8,53.53 c-2.67-3.24-4.41-7.28-4.81-11.71h-6.6c0.43,6.24,2.9,11.92,6.74,16.38L24.8,53.53L24.8,53.53z M20,37.74 c0.43-4.41,2.18-8.42,4.86-11.65l-4.67-4.67c-3.85,4.44-6.34,10.09-6.8,16.31H20L20,37.74z M27.75,23.22 c3.23-2.66,7.24-4.39,11.64-4.81v-6.6c-6.21,0.45-11.87,2.91-16.31,6.74L27.75,23.22L27.75,23.22z M41.44,7.65 c8.89,0,16.94,3.6,22.77,9.43c5.83,5.83,9.43,13.88,9.43,22.77s-3.6,16.94-9.43,22.77c-5.83,5.83-13.88,9.43-22.77,9.43 s-16.94-3.6-22.77-9.43c-5.83-5.83-9.43-13.88-9.43-22.77s3.6-16.94,9.43-22.77C24.5,11.26,32.54,7.65,41.44,7.65L41.44,7.65z M92.74,20.87h1.63c0.23,0,0.44,0.1,0.59,0.25l0,0c0.15,0.15,0.25,0.36,0.25,0.59v3.58c0,0.23-0.1,0.44-0.25,0.59l0,0l0,0 c-0.15,0.15-0.36,0.25-0.59,0.25h-1.63c-0.23,0-0.44-0.1-0.59-0.25l0,0c-0.15-0.15-0.25-0.36-0.25-0.59v-3.58 c0-0.23,0.09-0.44,0.25-0.59C92.3,20.96,92.51,20.87,92.74,20.87L92.74,20.87L92.74,20.87z M98.89,32.72h-3.22 c-0.2,0-0.39-0.08-0.52-0.22s-0.21-0.32-0.21-0.52v-2.04c0-0.51,0.21-0.98,0.55-1.32c0.34-0.34,0.81-0.55,1.32-0.55h0.93 c0.52,0,0.99,0.21,1.33,0.55c0.34,0.34,0.55,0.81,0.55,1.33v2.03c0,0.2-0.08,0.39-0.21,0.52C99.28,32.64,99.1,32.72,98.89,32.72 L98.89,32.72L98.89,32.72z M100.19,20.87h1.63c0.23,0,0.44,0.1,0.59,0.25l0,0c0.15,0.15,0.25,0.36,0.25,0.59v3.58 c0,0.23-0.1,0.44-0.25,0.59l0,0l0,0c-0.15,0.15-0.36,0.25-0.59,0.25h-1.63c-0.23,0-0.44-0.1-0.59-0.25l0,0 c-0.15-0.15-0.25-0.36-0.25-0.59v-3.58c0-0.23,0.09-0.44,0.25-0.59C99.75,20.96,99.96,20.87,100.19,20.87L100.19,20.87 L100.19,20.87z M108.64,14.09c0.66,0,1.2,0.54,1.2,1.2s-0.54,1.2-1.2,1.2c-0.66,0-1.2-0.54-1.2-1.2 C107.44,14.63,107.98,14.09,108.64,14.09L108.64,14.09L108.64,14.09z M86.08,36.01c0.66,0,1.2,0.54,1.2,1.2s-0.54,1.2-1.2,1.2 s-1.2-0.54-1.2-1.2C84.89,36.55,85.42,36.01,86.08,36.01L86.08,36.01L86.08,36.01z M97.19,16.5c5.42,0,9.82,4.4,9.82,9.82 s-4.4,9.82-9.82,9.82c-5.42,0-9.82-4.4-9.82-9.82S91.77,16.5,97.19,16.5L97.19,16.5L97.19,16.5z"/></g></svg>
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Блок
-                                                питания</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Блок питания</h5></div>
-                                    <div class="ph-block">
-                                        <img src="https://c.dns-shop.ru/thumb/st1/fit/200/200/d49a8c330286b98c5fece5b5bb0e48f9/101fcaf00e581ee49898250028cc07931b8619d7b77492bedc2dd70e996066cd.jpg"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href=""><h6 style="padding: 0 12px 0 12px; color: white">Видеокарта MSI
-                                            GeForce RTX 3090 VENTUS 3X
-                                            OC </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">1 950 ₽</p>
-                                    </div>
-                                    <div class="remove-block">
+                                    <div class="component">
                                         <a href="">
-                                            <div class="svg">
-                                                <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
-                                                     height="329pt" viewBox="0 0 329.26933 329" width="329pt">
-                                                    <path fill="#727272"
-                                                          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
-                                                </svg>
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    Удалить
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                         xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                         id="Layer_1"
+                                                         x="0px" y="0px" viewBox="0 0 122.88 80.89"
+                                                         style="enable-background:new 0 0 122.88 80.89"
+                                                         xml:space="preserve"><style type="text/css"><
+                                                    !
+                                                    [CDATA[
+                                                    .st0 {
+                                                        fill-rule: evenodd;
+                                                        clip-rule: evenodd;
+                                                    }
+
+                                                    ]
+                                                    ]
+                                                    ></style>
+                                                        <g><path fill="#727272" class="st0" d="M96.68,61.75l-5.22-0.49l4.33-9.47h5.91l-3.35,5.43l6.03,0.67L93.31,71.18L96.68,61.75L96.68,61.75z M5.1,0 h112.67c1.4,0,2.67,0.58,3.6,1.5l0,0c0.92,0.92,1.5,2.2,1.5,3.61v70.68c0,1.41-0.57,2.68-1.5,3.61c-0.92,0.92-2.2,1.5-3.61,1.5H5.1 c-1.41,0-2.68-0.57-3.61-1.5c-0.05-0.05-0.1-0.1-0.14-0.16C0.51,78.32,0,77.11,0,75.79V5.11c0-1.4,0.57-2.67,1.5-3.6l0.01-0.01 C2.44,0.57,3.71,0,5.1,0L5.1,0z M117.77,4.29H5.1c-0.23,0-0.43,0.09-0.58,0.23L4.52,4.53C4.38,4.67,4.29,4.88,4.29,5.11v70.68 c0,0.2,0.07,0.38,0.18,0.52l0.06,0.06c0.15,0.15,0.35,0.24,0.58,0.24h112.67c0.22,0,0.43-0.09,0.58-0.24s0.24-0.35,0.24-0.58V5.11 c0-0.22-0.09-0.43-0.24-0.58l0,0l0,0C118.21,4.38,118,4.29,117.77,4.29L117.77,4.29z M85.34,11.81h23.9c1.51,0,2.75,1.24,2.75,2.75 v23.52c0,1.52-1.24,2.75-2.75,2.75h-23.9c-1.51,0-2.75-1.24-2.75-2.75V14.56C82.58,13.05,83.82,11.81,85.34,11.81L85.34,11.81 L85.34,11.81z M43.48,30.02c1.24,0.26,2.4,0.74,3.43,1.41l5.31-5.31c-2.46-1.94-5.46-3.22-8.74-3.61V30.02L43.48,30.02z M49.8,34.3 c0.68,1.03,1.18,2.19,1.45,3.44h7.51c-0.4-3.28-1.7-6.28-3.66-8.74L49.8,34.3L49.8,34.3z M51.28,41.83 c-0.25,1.27-0.74,2.45-1.42,3.49l5.31,5.31c1.95-2.48,3.24-5.5,3.61-8.8H51.28L51.28,41.83z M46.98,48.22 c-1.05,0.7-2.23,1.2-3.51,1.46v7.51c3.31-0.39,6.33-1.7,8.81-3.67L46.98,48.22L46.98,48.22z M39.39,49.68 c-1.27-0.26-2.46-0.77-3.51-1.46l-5.3,5.3c2.48,1.97,5.5,3.28,8.81,3.67V49.68L39.39,49.68z M33.01,45.32 c-0.68-1.05-1.17-2.23-1.42-3.49h-7.5c0.37,3.3,1.66,6.32,3.61,8.8L33.01,45.32L33.01,45.32z M31.62,37.74 c0.27-1.25,0.77-2.41,1.45-3.44L27.76,29c-1.96,2.46-3.26,5.46-3.66,8.74H31.62L31.62,37.74z M35.97,31.43 c1.03-0.67,2.19-1.15,3.43-1.41v-7.51c-3.28,0.38-6.27,1.67-8.74,3.61L35.97,31.43L35.97,31.43z M43.48,18.41 c4.4,0.41,8.41,2.15,11.64,4.81l4.67-4.67c-4.44-3.83-10.1-6.29-16.31-6.74V18.41L43.48,18.41z M58.01,26.1 c2.68,3.22,4.43,7.24,4.86,11.65h6.6c-0.46-6.22-2.95-11.88-6.8-16.31L58.01,26.1L58.01,26.1z M62.88,41.83 c-0.4,4.42-2.14,8.46-4.81,11.71l4.67,4.67c3.84-4.46,6.31-10.14,6.74-16.38H62.88L62.88,41.83z M55.19,56.43 c-3.24,2.69-7.28,4.45-11.71,4.87v6.6c6.25-0.45,11.93-2.94,16.38-6.8L55.19,56.43L55.19,56.43z M39.39,61.29 c-4.43-0.42-8.47-2.18-11.71-4.87l-4.67,4.67c4.45,3.87,10.13,6.35,16.38,6.8V61.29L39.39,61.29z M24.8,53.53 c-2.67-3.24-4.41-7.28-4.81-11.71h-6.6c0.43,6.24,2.9,11.92,6.74,16.38L24.8,53.53L24.8,53.53z M20,37.74 c0.43-4.41,2.18-8.42,4.86-11.65l-4.67-4.67c-3.85,4.44-6.34,10.09-6.8,16.31H20L20,37.74z M27.75,23.22 c3.23-2.66,7.24-4.39,11.64-4.81v-6.6c-6.21,0.45-11.87,2.91-16.31,6.74L27.75,23.22L27.75,23.22z M41.44,7.65 c8.89,0,16.94,3.6,22.77,9.43c5.83,5.83,9.43,13.88,9.43,22.77s-3.6,16.94-9.43,22.77c-5.83,5.83-13.88,9.43-22.77,9.43 s-16.94-3.6-22.77-9.43c-5.83-5.83-9.43-13.88-9.43-22.77s3.6-16.94,9.43-22.77C24.5,11.26,32.54,7.65,41.44,7.65L41.44,7.65z M92.74,20.87h1.63c0.23,0,0.44,0.1,0.59,0.25l0,0c0.15,0.15,0.25,0.36,0.25,0.59v3.58c0,0.23-0.1,0.44-0.25,0.59l0,0l0,0 c-0.15,0.15-0.36,0.25-0.59,0.25h-1.63c-0.23,0-0.44-0.1-0.59-0.25l0,0c-0.15-0.15-0.25-0.36-0.25-0.59v-3.58 c0-0.23,0.09-0.44,0.25-0.59C92.3,20.96,92.51,20.87,92.74,20.87L92.74,20.87L92.74,20.87z M98.89,32.72h-3.22 c-0.2,0-0.39-0.08-0.52-0.22s-0.21-0.32-0.21-0.52v-2.04c0-0.51,0.21-0.98,0.55-1.32c0.34-0.34,0.81-0.55,1.32-0.55h0.93 c0.52,0,0.99,0.21,1.33,0.55c0.34,0.34,0.55,0.81,0.55,1.33v2.03c0,0.2-0.08,0.39-0.21,0.52C99.28,32.64,99.1,32.72,98.89,32.72 L98.89,32.72L98.89,32.72z M100.19,20.87h1.63c0.23,0,0.44,0.1,0.59,0.25l0,0c0.15,0.15,0.25,0.36,0.25,0.59v3.58 c0,0.23-0.1,0.44-0.25,0.59l0,0l0,0c-0.15,0.15-0.36,0.25-0.59,0.25h-1.63c-0.23,0-0.44-0.1-0.59-0.25l0,0 c-0.15-0.15-0.25-0.36-0.25-0.59v-3.58c0-0.23,0.09-0.44,0.25-0.59C99.75,20.96,99.96,20.87,100.19,20.87L100.19,20.87 L100.19,20.87z M108.64,14.09c0.66,0,1.2,0.54,1.2,1.2s-0.54,1.2-1.2,1.2c-0.66,0-1.2-0.54-1.2-1.2 C107.44,14.63,107.98,14.09,108.64,14.09L108.64,14.09L108.64,14.09z M86.08,36.01c0.66,0,1.2,0.54,1.2,1.2s-0.54,1.2-1.2,1.2 s-1.2-0.54-1.2-1.2C84.89,36.55,85.42,36.01,86.08,36.01L86.08,36.01L86.08,36.01z M97.19,16.5c5.42,0,9.82,4.4,9.82,9.82 s-4.4,9.82-9.82,9.82c-5.42,0-9.82-4.4-9.82-9.82S91.77,16.5,97.19,16.5L97.19,16.5L97.19,16.5z"/></g></svg>
                                                 </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Блок
+                                                    питания</h6>
                                             </div>
                                         </a>
                                     </div>
-                                </div>
+                                {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Блок питания</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ PowerSupply.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href=""><h6 style="padding: 0 12px 0 12px; color: white">
+                                                {{ PowerSupply.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ PowerSupply.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+                                            <a href="">
+                                                <div class="svg">
+                                                    <svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg"
+                                                         height="329pt" viewBox="0 0 329.26933 329" width="329pt">
+                                                        <path fill="#727272"
+                                                              d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </scroll-page>
                         </scroll-container>
