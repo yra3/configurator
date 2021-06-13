@@ -10,7 +10,14 @@ from configure.BranchAndBoundMethod import BranchAndBoundMethod
 
 
 def intersect_components(components_hand, component_lists):
-    pass
+    res = {}
+    for k in component_lists:
+        res[k] = []
+        for i in component_lists[k]:
+            for j in components_hand[k]:
+                if j[0] == i.id:
+                    res[k].append(i)
+    return res
 
 
 class BranchAndBoundMethodEx(BranchAndBoundMethod):
@@ -145,8 +152,8 @@ class BranchAndBoundMethodEx(BranchAndBoundMethod):
         try:
             connection = connect(
                 host='127.0.0.1',
-                user='django',
-                password='qwerty',
+                user='root',
+                password='50135013',
                 db='config',
                 charset='utf8mb4',
                 cursorclass=cursors.Cursor)
@@ -192,8 +199,9 @@ class BranchAndBoundMethodEx(BranchAndBoundMethod):
                     condition = ''
                 cur.execute(f"SELECT id FROM configure_{component_name.lower()} {condition}")
                 components_hand = cur.fetchall()
+
                 components_hands[component_name] = components_hand
-            intersect_components(components_hand, component_lists)
+            component_lists = intersect_components(components_hands, component_lists)
 
             # TODO Add intersect between cpus_hand and component_lists['Cpu']
 
