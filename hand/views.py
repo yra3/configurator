@@ -42,32 +42,3 @@ def configuration(request):
 
     response = render(request, template_name='configure/handled.html', context=data)
     return response
-
-    # if "cpu_id" in request.COOKIES:
-    #     is_cpu = True
-    #     cpu = request.COOKIES["cpu_id"]
-    # else:
-    #     cpu = None
-    #
-    # data = {
-    #     'is_cpu': is_cpu,
-    #     'Cpu': cpu ,
-    #     'is_gpu': True,
-    #     'Gpu': gpu,
-    #     'is_gpu': True,
-    #     'Motherboard': mother,
-    #     'is_gpu': True,
-    #     'Hard35': hard,
-    #     'is_gpu': True,
-    #     'Ssd': ssd,
-    #     'is_gpu': True,
-    #     'Cooler': cooler,
-    #     'is_gpu': True,
-    #     'PowerSupply': ps,
-    #     'is_gpu': True,
-    #     'Ram': ram,
-    #
-    # }
-    # return render(request, template_name='configure/handled.html', context=data)
-    # die monkey
-

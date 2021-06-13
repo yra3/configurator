@@ -232,7 +232,7 @@
                                 </div>
 
                             {% endif %}
-                            {% if is_mother %}
+                            {% if is_motherboard %}
                                 <div class="itm" id='1'>
                                     <svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"
                                          xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
@@ -1254,7 +1254,7 @@
                                     </div>
                                 </div>
                             {% endif %}
-                            {% if is_ps %}
+                            {% if is_powersupply %}
 
 
                                 <div class="itm" id='7'>
@@ -1436,7 +1436,7 @@
                             </scroll-page>
                             <scroll-page id="page-1">
 
-                                {% if not is_mother %}
+                                {% if not is_motherboard %}
                                     <div class="component">
                                         <a href="">
                                             <div style="margin: auto">
@@ -1595,6 +1595,7 @@
                                                         <form action="/hand/configuration/" method="post">
                                                         <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
                                                         <div class="invz" style="display: none"><input type="id" name="component_type" value="Motherboard"></div>
+                                                            {% csrf_token %}
                                                         <button>Удалить</button>
                                                         </form>
                                                     </div>
@@ -1756,6 +1757,7 @@
                                                         <form action="/hand/configuration/" method="post">
                                                         <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
                                                         <div class="invz" style="display: none"><input type="id" name="component_type" value="Gpu"></div>
+                                                            {% csrf_token %}
                                                         <button>Удалить</button>
                                                         </form>
                                                     </div>
@@ -1863,6 +1865,7 @@
                                                         <form action="/hand/configuration/" method="post">
                                                         <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
                                                         <div class="invz" style="display: none"><input type="id" name="component_type" value="Ram"></div>
+                                                            {% csrf_token %}
                                                         <button>Удалить</button>
                                                         </form>
 
@@ -2015,7 +2018,12 @@
                                                 <div class="but">
                                                     <div class="btn"
                                                          style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
+                                                        <form action="/hand/configuration/" method="post">
+                                                        <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
+                                                        <div class="invz" style="display: none"><input type="id" name="component_type" value="Hard35"></div>
+                                                            {% csrf_token %}
+                                                        <button>Удалить</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </a>
@@ -2117,7 +2125,12 @@
                                                 <div class="but">
                                                     <div class="btn"
                                                          style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
+                                                        <form action="/hand/configuration/" method="post">
+                                                        <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
+                                                        <div class="invz" style="display: none"><input type="id" name="component_type" value="Ssd"></div>
+                                                            {% csrf_token %}
+                                                        <button>Удалить</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </a>
@@ -2229,7 +2242,12 @@
                                                 <div class="but">
                                                     <div class="btn"
                                                          style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
+                                                        <form action="/hand/configuration/" method="post">
+                                                        <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
+                                                        <div class="invz" style="display: none"><input type="id" name="component_type" value="Cooler"></div>
+                                                            {% csrf_token %}
+                                                        <button>Удалить</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </a>
@@ -2239,7 +2257,7 @@
 
                             </scroll-page>
                             <scroll-page id="page-7">
-                                {% if not is_ps %}
+                                {% if not is_powersupply %}
                                     <div class="component">
                                         <a href="">
                                             <div style="margin: auto">
@@ -2300,7 +2318,12 @@
                                                 <div class="but">
                                                     <div class="btn"
                                                          style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
+                                                        <form action="/hand/configuration/" method="post">
+                                                        <div class="invz" style="display: none"><input type="id" name="method" value="delete"></div>
+                                                        <div class="invz" style="display: none"><input type="id" name="component_type" value="PowerSupply"></div>
+                                                            {% csrf_token %}
+                                                        <button>Удалить</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </a>
