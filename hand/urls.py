@@ -5,6 +5,8 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name="about_us/about.html",
          extra_context={"header": "О сайте"})),
     path('configuration/', views.configuration),
+    path('catalog/', views.catalog_cpu),
+
 ]
 
 

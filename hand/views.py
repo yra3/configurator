@@ -42,3 +42,13 @@ def configuration(request):
 
     response = render(request, template_name='configure/handled.html', context=data)
     return response
+
+
+def catalog_cpu(request):
+    # , context=data
+    cpus = CPU.objects.all()
+    data = {
+        'cpus': cpus,
+    }
+    response = render(request, template_name='configure/catalog2.html', context=data)
+    return response
