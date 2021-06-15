@@ -36,7 +36,7 @@
     <div class="container">
         <div class="input-block" style="display: flex;">
             <div class="ph-block">
-                <img src="{{ component_photo }}" alt="А вот(((("
+                <img src="{{ component.picture }}" alt="А вот(((("
                      style="width: 100%; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 20px 2px #02ca58;
     border: 3px solid #02ca58;">
             </div>
@@ -50,7 +50,7 @@
                         <div style="display: flex">
                             <i class="fas fa-tags fa-2x" style="color: #02ca58"></i>
                             <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 14pt; margin-left: 10px">{{ component_price }} ₽</p>
+    font-size: 14pt; margin-left: 10px">{{ component.price }} ₽</p>
                         </div>
                         <div style="margin-left: auto"><a href="https://www.dns-shop.ru/"><img
                                 src="https://upload.wikimedia.org/wikipedia/ru/5/51/DNS_logo.png"
@@ -59,19 +59,29 @@
                 </div>
                 <div class="patch">
                     <div class="butt-block" style="display:flex;">
-                        <a href="#" class="btn"
-                           style="width: 200px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white">В
-                            магазин</a>
-                        <form action="/hand/configuration/"
-                              method="post" style="width: 200px ;margin: 10px;background: #0f8d4a; border-color: #1f1f1f;color: white">
-        <div class="invz" style="display: none"><input type="id" name="component_id" value="{{component_id}}"></div>
-        <div class="invz" style="display: none"><input type="id" name="component_type" value="{{component_type}}"></div>
-        <div class="invz" style="display: none"><input type="id" name="method" value="add"></div>
-                            {% csrf_token %}
-                            <button class="btn" type="submit"
-                               >Добавить</button>
-                        </form>
-                    </div>
+<div style="margin-left:auto"><a href="{{ component.link }}" class="btn"
+style="width: 130px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white">В
+магазин</a>
+</div>
+<form action="/hand/configuration/"
+method="post" style="margin-left:auto">
+<div class="invz" style="display: none"><input type="id" name="component_id"
+value="{{component_id}}"></div>
+<div class="invz" style="display: none"><input type="id" name="component_type"
+value="{{component_type}}"></div>
+<div class="invz" style="display: none"><input type="id" name="method" value="add"></div>
+{% csrf_token %}
+<button type="submit" style="border: none; background: none;">
+
+<div class="but">
+<div class="btn"
+style=" width: 130px;height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+Добавить
+</div>
+</div>
+</button>
+</form>
+</div>
                 </div>
             </div>
         </div>
@@ -108,42 +118,7 @@
         </div>
 
     </div>
-    <footer class="bov">
-        <div class="container">
-            <div class="row padding text-center">
-                <div class="information">
-                    <div class="inf-for-user">
-                        <h3>Информация пользователю</h3>
-                    </div>
-                    <div class="col">
-                        <a href="#">
-                            <div class="tap">Источники</div>
-                        </a>
-                        <a href="#">
-                            <div class="tap">Справка</div>
-                        </a>
-                        <a href="#">
-                            <div class="tap">О нас</div>
-                        </a>
-                        <a href="#">
-                            <div class="tap">Контакты</div>
-                        </a>
-                    </div>
-                </div>
-                <div class="contacts">
-                    <a href="#"><i class="fab fa-vk"> </i></a>
-                    <a href="#"><i class="fab fa-instagram"> </i></a>
-                    <a href="#"><i class="fab fa-youtube"> </i></a>
-                    <a href="#"><i class="fab fa-twitter"> </i></a>
-                    <a href="#"><i class="fab fa-facebook"> </i></a>
-                </div>
-            </div>
-            <div class="last-section">
-                © 2021 ConfigPC. Все права защищены.
-            </div>
-        </div>
-
-    </footer>
+    {% include 'include_blocks/footer.html' %}
 </div>
 
 

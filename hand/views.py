@@ -44,7 +44,7 @@ def configuration(request):
     return response
 
 
-def catalog_cpu(request):
+def catalog_cpu(request, component_name):
     # , context=data
     cpus = CPU.objects.all()
     data = {
@@ -103,13 +103,11 @@ def catalog_cpu(request):
                 'processor_techprocess',
                 CPU.objects.values_list('technical_process', flat=True).distinct()
             ],
-            # [
-            #     'Год релиза',
-            #     'year_cpu[]',
-            #     CPU.objects.values_list('release_year', flat=True).distinct()
-            # ],
         ],
         'cpus': cpus,
     }
+
+    Cpu = CPU.objects.all()
+    data['cpus'] = Cpu
     response = render(request, template_name='configure/catalog.html', context=data)
     return response

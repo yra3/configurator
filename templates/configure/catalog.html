@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style_catalog2.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static "css/slick/slick/slick.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/slick/slick/slick-theme.css" %}"/>
+    <script src="{% static 'css/slick/slick/slick.min.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href=""/>
+    <script src="css/slick/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/slick/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/slick/slick/slick-theme.css"/>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7635fe0a2f.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+    <title>catalog</title>
+    <style> a:hover {
+        text-decoration: none;
+    }
+
+    .card {
+        background: #1f1f1f;
+        border: 1px solid white;
+    }
+    </style>
+</head>
+
+
+<body>
+
+<div class="main">
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+         aria-hidden="true" style="padding-right: 0">
+        <div class="modal-dialog" role="document" style="margin: 0;
+        width: 100%; max-width: 100%">
+            <div class="modal-content" style="background: #1f1f1f; color: white">
+                <div class="modal-header" style="border-color: #02ca58">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Параметры</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+
+
+                        <nav class="dws-menu">
+                            <input type="checkbox" name="toggle" id="mb_processor_price" class="toggleMenu">
+                            <label for="mb_processor_price" class="toggleMenu" style="display: flex">
+                                <div class="right" style="margin-right: 5px;">
+                                    {% include "svg_images/arrow_right.html" %}
+                                </div>
+                                <div class="bottom" style="margin-right: 5px;">
+                                    {% include "svg_images/arrow_down.html" %}
+                                </div>
+                                <div class="text"> Цена</div>
+                            </label>
+                            <ul>
+                                <div class="price-input"> <input type="number" name="price_left"
+                                                                 value="" min="{{min}}" max="{{max}}"
+                                                                 step="50" placeholder="от {{min}} руб.">
+                                    <input type="number" name="price_right"
+                                           value="" min="{{min}}" max="{{max}}"
+                                           step="50" placeholder="до {{max}} руб.">
+                                </div>
+                            </ul>
+                        </nav>
+
+                        {% for values in values_list %}
+                        <nav class="dws-menu">
+                            <input type="checkbox" name="toggle" id="mb_{{ values.2 }}" class="toggleMenu">
+                            <label for="mb_{{ values.2 }}" class="toggleMenu" style="display: flex">
+                                <div class="right" style="margin-right: 5px;">
+                                    {% include "svg_images/arrow_right.html" %}
+                                </div>
+                                <div class="bottom" style="margin-right: 5px;">
+                                    {% include "svg_images/arrow_down.html" %}
+                                </div>
+                                <div class="text">{{ values.0 }}</div>
+                            </label>
+                            <ul>
+                                <div class="form-check">
+                                    {% for value in values.3 %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{value}}"
+                                               name="{{ values.1 }}">
+                                        <label class="form-check-label" for="{{ values.1 }}">
+                                            {{value}}
+                                        </label>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </ul>
+                        </nav>
+                        {% endfor %}
+
+                        <div class="endbtn" style="width: 180px; margin: auto; padding-top: 40px; padding-bottom: 20px">
+                            <button class="btn btn-primary"
+                                    style="width: 180px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto"
+                                    type="submit"
+                            >Применить
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!--                <div class="modal-footer">-->
+                <!--                    <button type="button" class="btn btn-primary">Применить</button>-->
+                <!--                </div>-->
+            </div>
+        </div>
+    </div>
+    {% include "include_blocks/header.html" %}
+
+    <div class="container">
+        <div class="content">
+            <div class="text-type">
+                <div class="text-header"><h2>Выберите</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="cl1">
+                <div class="mb-menu">
+                    <div class="btn" data-toggle="modal" data-target="#exampleModalLong"
+                         style="width: 70px; height: 46px; background: #0f8d4a; border-color: #1f1f1f;color: white; margin: auto">
+                        <i class="fas fa-sliders-h fa-2x"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body" style="padding: 0px">
+                        <h5 class="card-title">Параметры</h5>
+                        <br>
+                        <form action="">
+
+                            <nav class="dws-menu">
+                                <input type="checkbox" name="toggle" id="processor_price" class="toggleMenu">
+                                <label for="processor_price" class="toggleMenu" style="display: flex">
+                                    <div class="right" style="margin-right: 5px;">
+                                        {% include "svg_images/arrow_right.html" %}
+                                    </div>
+                                    <div class="bottom" style="margin-right: 5px;">
+                                        {% include "svg_images/arrow_down.html" %}
+                                    </div>
+                                    <div class="text"> Цена</div>
+                                </label>
+                                <ul>
+                                    <div class="price-input"> <input type="number" name="price_left"
+                                           value="" min="{{min}}" max="{{max}}"
+                                           step="50" placeholder="от {{min}} руб.">
+                                        <input type="number" name="price_right"
+                                               value="" min="{{min}}" max="{{max}}"
+                                               step="50" placeholder="до {{max}} руб.">
+                                    </div>
+                                </ul>
+                            </nav>
+                        {% for values in values_list %}
+                            <nav class="dws-menu">
+                                <input type="checkbox" name="toggle" id="{{ values.2 }}" class="toggleMenu">
+                                <label for="{{ values.2 }}" class="toggleMenu" style="display: flex">
+                                    <div class="right" style="margin-right: 5px;">
+                                        {% include "svg_images/arrow_right.html" %}
+                                    </div>
+                                    <div class="bottom" style="margin-right: 5px;">
+                                        {% include "svg_images/arrow_down.html" %}
+                                    </div>
+                                    <div class="text">{{ values.0 }}</div>
+                                </label>
+                                <ul>
+                                    <div class="form-check">
+                                        {% for value in values.3 %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="{{value}}"
+                                                   name="{{ values.1 }}">
+                                            <label class="form-check-label" for="{{ values.1 }}">
+                                                {{value}}
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </ul>
+                            </nav>
+                        {% endfor %}
+
+                            <div class="endbtn"
+                                 style="width: 180px; margin: auto; padding-top: 40px; padding-bottom: 20px">
+                                <button class="btn btn-primary"
+                                        style="width: 180px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto"
+                                        type="submit"
+                                >Применить
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cl2">
+                <div class="card">
+                    <div class="card-body" style="display: flex; flex-direction: column;">
+                        {% for cpu in cpus %}
+                            <div class="picked_component">
+                            <div class="ph-block">
+                                <img src="{{ cpu.picture }}"
+                                     style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+    border: 3px solid #02ca58;margin: 20px;">
+                            </div>
+                            <div class="text-block">
+                                <a href="/configuration/Cpu/{{ cpu.id }}"><h6 style=" color: white">{{ cpu.name }}</h6></a>
+                            </div>
+                            <div class="price-block">
+                                <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                 style="color: #02ca58"></i></div>
+                                <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10pt; margin-left: 7px">{{ cpu.price }} ₽</p>
+                            </div>
+                            <div class="button-block">
+                                <a href="{{cpu.link}}">
+                                    <div class="btn"
+                                         style="height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
+                                        В магазин
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="btn"
+                                         style="width: 100px; height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
+                                        Добавить
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="mb-button-block">
+                                <div class="mb-buy">
+                                    <a href="#">
+                                        <div class="btn"
+                                             style="width: 50px; height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
+                                            <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                 xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
+                                                 height="512" x="0" y="0" viewBox="0 0 511.796 511.796"
+                                                 style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                                 class=""><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="m297.009 248.725h-64.395l12.404 96.773c.003.025.003.049.006.074h51.986v-96.847z" fill="#ffffff" data-original="#000000" style="" class=""/><path
+                                                    d="m391.297 248.725h-64.289v96.847h51.981c.004-.036.004-.07.008-.106z"
+                                                    fill="#ffffff" data-original="#000000" style="" class=""/><path
+                                                    d="m437.695 121.641-12.343 97.084h71.777l13.812-59.811c4.631-17.589-10.193-37.384-29.396-37.114l-43.848-.177c-.001.006-.001.012-.002.018z"
+                                                    fill="#ffffff" data-original="#000000" style="" class=""/><path
+                                                    d="m297.009 121.056-80.802-.325 12.561 97.994h68.241z"
+                                                    fill="#ffffff" data-original="#000000" style="" class=""/><path
+                                                    d="m421.538 248.725-12.313 96.847h28.83c17.535 0 32.537-11.933 36.481-29.017l15.664-67.83z"
+                                                    fill="#ffffff" data-original="#000000" style="" class=""/><path
+                                                    d="m214.781 345.572-12.414-96.847h-74.145l18.001 66.786c-12.003.436-23.183 5.318-31.661 13.92-8.908 9.04-13.692 21.006-13.471 33.695.442 25.377 21.451 46.023 46.833 46.023h21.872c-3.251 6.824-5.076 14.453-5.076 22.501 0 28.95 23.552 52.502 52.502 52.502s52.502-23.552 52.502-52.502c0-8.049-1.826-15.677-5.077-22.501h94.716c-3.248 6.822-5.073 14.447-5.073 22.493 0 28.95 23.553 52.502 52.502 52.502 28.95 0 52.503-23.553 52.503-52.502 0-8.359-1.974-16.263-5.464-23.285 5.936-1.999 10.216-7.598 10.216-14.207 0-8.284-6.716-15-15-15-72.595 0-229.365 0-301.124 0-22.388-1.148-21.92-32.65.049-33.68z"
+                                                    fill="#ffffff" data-original="#000000" style="" class=""/><path
+                                                    d="m327.009 121.177v97.548h68.103l12.36-97.223z" fill="#ffffff"
+                                                    data-original="#000000" style="" class=""/></g><g><g><path d="m77.959 62.235 7.505 27.847h31.07l-9.614-35.67c-4.267-15.761-18.65-26.768-34.978-26.768h-56.942c-8.284 0-15 6.716-15 15s6.716 15 15 15h56.942c2.811-.001 5.287 1.894 6.017 4.591z" fill="#ffffff" data-original="#000000" style="" class=""/><path
+                                                    d="m185.96 120.717c-.002-.016-.003-.032-.004-.048h-92.247c3.474 12.896 22.586 83.796 26.429 98.056h78.385z"
+                                                    fill="#ffffff" data-original="#000000" style="" class=""/></g></g></g></g></svg>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="mb-add">
+                                    <a href="#">
+                                        <div class="btn"
+                                             style="width: 50px; height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
+                                            <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
+                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                 xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512"
+                                                 height="512" x="0" y="0" viewBox="0 0 448 448"
+                                                 style="enable-background:new 0 0 512 512" xml:space="preserve"
+                                                 class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff" data-original="#000000" style="" class=""/></g></svg>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'include_blocks/footer.html' %}
+</div>
+
+<script src="./css/slick/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+    $(function () {
+        $(window).scroll(function () {
+            var top = $(document).scrollTop();
+            if (top < 95) $(".underheader").css({top: '0', position: 'relative'});
+            else $(".underheader").css({
+                top: '0',
+                left: '0',
+                position: 'fixed',
+                width: '100%',
+                background: 'none repeat scroll 0% 0% rgba(9, 125, 240, 0.7)'
+            });
+        });
+    });
+
+    function DeleteLast() {
+        var x = document.getElementsByClassName('itm').length
+        var id = x - 1
+        document.getElementById(id).style.border = "none";
+
+    }
+
+    $(document).ready(function () {
+        DeleteLast();
+    });
+
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('.multiple-items').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+                }
+            ]
+        });
+    });
+
+</script>
+</body>
+</html>
