@@ -216,27 +216,26 @@
             <div class="cl2">
                 <div class="card">
                     <div class="card-body" style="display: flex; flex-direction: column;">
-                        <div class="picked_component">
+                        {% for cpu in cpus %}
+                            <div class="picked_component">
                             <div class="ph-block">
-                                <img src="https://c.dns-shop.ru/thumb/st1/fit/200/200/d49a8c330286b98c5fece5b5bb0e48f9/101fcaf00e581ee49898250028cc07931b8619d7b77492bedc2dd70e996066cd.jpg"
+                                <img src="{{ cpu.picture }}"
                                      style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
     border: 3px solid #02ca58;margin: 20px;">
                             </div>
                             <div class="text-block">
-                                <a href=""><h6 style=" color: white">Видеокарта MSI
-                                    GeForce RTX 3090 VENTUS 3X
-                                    OC</h6></a>
+                                <a href="/configuration/Cpu/{{ cpu.id }}"><h6 style=" color: white">{{ cpu.name }}</h6></a>
                             </div>
                             <div class="price-block">
                                 <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
                                                                  style="color: #02ca58"></i></div>
                                 <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10pt; margin-left: 7px">10 950 ₽</p>
+    font-size: 10pt; margin-left: 7px">{{ cpu.price }} ₽</p>
                             </div>
                             <div class="button-block">
-                                <a href="#">
+                                <a href="{{cpu.link}}">
                                     <div class="btn"
-                                         style="width: 100px; height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
+                                         style="height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
                                         В магазин
                                     </div>
                                 </a>
@@ -291,6 +290,8 @@
 
                             </div>
                         </div>
+                        {% endfor %}
+
 
                     </div>
                 </div>

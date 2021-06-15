@@ -66,6 +66,7 @@ def component(request, component_name, component_id):
             'component_photo': component.picture,
             'component_id': component_id,
             'component_type': component_name,
+            'component': component,
             }
 
     return render(request, template_name='configure/component.html', context=data)
