@@ -1,0 +1,27 @@
+{% for values in values_list %}
+<nav class="dws-menu">
+    <input type="checkbox" name="toggle" id="{{ 'mb_processor_multithreaded' }}" class="toggleMenu">
+    <label for="{{ 'mb_processor_multithreaded' }}" class="toggleMenu" style="display: flex">
+        <div class="right" style="margin-right: 5px;">
+            {% include "svg_images/arrow_right.html" %}
+        </div>
+        <div class="bottom" style="margin-right: 5px;">
+            {% include "svg_images/arrow_down.html" %}
+        </div>
+        <div class="text">{{ 'Многопоточность' }}</div>
+    </label>
+    <ul>
+        <div class="form-check">
+        {% for check_value in values %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="true"
+                       name="{{ 'multithreaded_cpu[]' }}">
+                <label class="form-check-label" for="{{ 'multithreaded_cpu[]' }}">
+                    Да
+                </label>
+            </div>
+        {% endfor %}
+        </div>
+    </ul>
+</nav>
+{% endfor %}
