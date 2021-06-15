@@ -293,29 +293,28 @@
                                         <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 10pt; margin-left: 7px">{{ Cpu.price }} ₽</p>
                                     </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                {% include "svg_images/cross.html" %}
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    <form action="/hand/configuration/" method="post">
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="method"
-                                                                                                       value="delete">
-                                                        </div>
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="component_type"
-                                                                                                       value="Cpu">
-                                                        </div>
-                                                        {% csrf_token %}
-                                                        <button>Удалить</button>
-                                                    </form>
+                                    <div class="remove-block" >
+
+                                        <form action="/hand/configuration/" method="post" style="display:flex">
+                                            <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                           value="delete"></div>
+                                            <div class="invz" style="display: none"><input type="id"
+                                                                                           name="component_type"
+                                                                                           value="Cpu"></div>
+                                            {% csrf_token %}
+                                            <button type="submit"
+                                                    style="border: none; background: none;width: 150px; height: 38px;">
+                                                <div class="svg">
+                                                    {% include "svg_images/cross.html" %}
                                                 </div>
-                                            </div>
-                                        </a>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 {% endif %}
@@ -355,29 +354,28 @@
                                         <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 10pt; margin-left: 7px">{{ Motherboard.price }} ₽</p>
                                     </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                {% include "svg_images/cross.html" %}
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    <form action="/hand/configuration/" method="post">
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="method"
-                                                                                                       value="delete">
-                                                        </div>
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="component_type"
-                                                                                                       value="Motherboard">
-                                                        </div>
-                                                        {% csrf_token %}
-                                                        <button>Удалить</button>
-                                                    </form>
+                                    <div class="remove-block" >
+
+                                        <form action="/hand/configuration/" method="post" style="display:flex">
+                                            <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                           value="delete"></div>
+                                            <div class="invz" style="display: none"><input type="id"
+                                                                                           name="component_type"
+                                                                                           value="Motherboard"></div>
+                                            {% csrf_token %}
+                                            <button type="submit"
+                                                    style="border: none; background: none;width: 150px; height: 38px;">
+                                                <div class="svg">
+                                                    {% include "svg_images/cross.html" %}
                                                 </div>
-                                            </div>
-                                        </a>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 {% endif %}
@@ -415,29 +413,28 @@
                                         <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
                                     font-size: 10pt; margin-left: 7px">{{ Gpu.price }} ₽</p>
                                     </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                {% include "svg_images/cross.html" %}
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    <form action="/hand/configuration/" method="post">
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="method"
-                                                                                                       value="delete">
-                                                        </div>
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="component_type"
-                                                                                                       value="Gpu">
-                                                        </div>
-                                                        {% csrf_token %}
-                                                        <button>Удалить</button>
-                                                    </form>
+                                    <div class="remove-block" >
+
+                                        <form action="/hand/configuration/" method="post" style="display:flex">
+                                            <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                           value="delete"></div>
+                                            <div class="invz" style="display: none"><input type="id"
+                                                                                           name="component_type"
+                                                                                           value="Gpu"></div>
+                                            {% csrf_token %}
+                                            <button type="submit"
+                                                    style="border: none; background: none;width: 150px; height: 38px;">
+                                                <div class="svg">
+                                                    {% include "svg_images/cross.html" %}
                                                 </div>
-                                            </div>
-                                        </a>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 {% endif %}
@@ -476,30 +473,28 @@
                                         <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
                                     font-size: 10pt; margin-left: 7px">{{ Ram.price }} ₽</p>
                                     </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                {% include "svg_images/cross.html" %}
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    <form action="/hand/configuration/" method="post">
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="method"
-                                                                                                       value="delete">
-                                                        </div>
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="component_type"
-                                                                                                       value="Ram">
-                                                        </div>
-                                                        {% csrf_token %}
-                                                        <button>Удалить</button>
-                                                    </form>
+                                    <div class="remove-block" >
 
+                                        <form action="/hand/configuration/" method="post" style="display:flex">
+                                            <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                           value="delete"></div>
+                                            <div class="invz" style="display: none"><input type="id"
+                                                                                           name="component_type"
+                                                                                           value="Ram"></div>
+                                            {% csrf_token %}
+                                            <button type="submit"
+                                                    style="border: none; background: none;width: 150px; height: 38px;">
+                                                <div class="svg">
+                                                    {% include "svg_images/cross.html" %}
                                                 </div>
-                                            </div>
-                                        </a>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 {% endif %}
@@ -538,29 +533,28 @@
                                         <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
                                     font-size: 10pt; margin-left: 7px">{{ Hard35.price }} ₽</p>
                                     </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                {% include "svg_images/cross.html" %}
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    <form action="/hand/configuration/" method="post">
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="method"
-                                                                                                       value="delete">
-                                                        </div>
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="component_type"
-                                                                                                       value="Hard35">
-                                                        </div>
-                                                        {% csrf_token %}
-                                                        <button>Удалить</button>
-                                                    </form>
+                                    <div class="remove-block" >
+
+                                        <form action="/hand/configuration/" method="post" style="display:flex">
+                                            <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                           value="delete"></div>
+                                            <div class="invz" style="display: none"><input type="id"
+                                                                                           name="component_type"
+                                                                                           value="Hard35"></div>
+                                            {% csrf_token %}
+                                            <button type="submit"
+                                                    style="border: none; background: none;width: 150px; height: 38px;">
+                                                <div class="svg">
+                                                    {% include "svg_images/cross.html" %}
                                                 </div>
-                                            </div>
-                                        </a>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 {% endif %}
@@ -662,29 +656,28 @@
                                         <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
                                     font-size: 10pt; margin-left: 7px">{{ Cooler.price }} ₽</p>
                                     </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                {% include "svg_images/cross.html" %}
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    <form action="/hand/configuration/" method="post">
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="method"
-                                                                                                       value="delete">
-                                                        </div>
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="component_type"
-                                                                                                       value="Cooler">
-                                                        </div>
-                                                        {% csrf_token %}
-                                                        <button>Удалить</button>
-                                                    </form>
+                                    <div class="remove-block" >
+
+                                        <form action="/hand/configuration/" method="post" style="display:flex">
+                                            <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                           value="delete"></div>
+                                            <div class="invz" style="display: none"><input type="id"
+                                                                                           name="component_type"
+                                                                                           value="Cooler"></div>
+                                            {% csrf_token %}
+                                            <button type="submit"
+                                                    style="border: none; background: none;width: 150px; height: 38px;">
+                                                <div class="svg">
+                                                    {% include "svg_images/cross.html" %}
                                                 </div>
-                                            </div>
-                                        </a>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 {% endif %}
@@ -724,29 +717,28 @@
                                         <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
                                     font-size: 10pt; margin-left: 7px">{{ PowerSupply.price }} ₽</p>
                                     </div>
-                                    <div class="remove-block">
-                                        <a href="">
-                                            <div class="svg">
-                                                {% include "svg_images/cross.html" %}
-                                            </div>
-                                            <div class="but">
-                                                <div class="btn"
-                                                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                    <form action="/hand/configuration/" method="post">
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="method"
-                                                                                                       value="delete">
-                                                        </div>
-                                                        <div class="invz" style="display: none"><input type="id"
-                                                                                                       name="component_type"
-                                                                                                       value="PowerSupply">
-                                                        </div>
-                                                        {% csrf_token %}
-                                                        <button>Удалить</button>
-                                                    </form>
+                                    <div class="remove-block" >
+
+                                        <form action="/hand/configuration/" method="post" style="display:flex">
+                                            <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                           value="delete"></div>
+                                            <div class="invz" style="display: none"><input type="id"
+                                                                                           name="component_type"
+                                                                                           value="PowerSupply"></div>
+                                            {% csrf_token %}
+                                            <button type="submit"
+                                                    style="border: none; background: none;width: 150px; height: 38px;">
+                                                <div class="svg">
+                                                    {% include "svg_images/cross.html" %}
                                                 </div>
-                                            </div>
-                                        </a>
+                                                <div class="but">
+                                                    <div class="btn"
+                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                        Удалить
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 {% endif %}

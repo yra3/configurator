@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/style_catalog2.css' %}">
+    <link rel="stylesheet" href="/static/css/style_catalog2.css?{% now "U" %}"/>
 
     <link rel="stylesheet" type="text/css" href="{% static "css/slick/slick/slick.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/slick/slick/slick-theme.css" %}"/>
@@ -239,12 +239,24 @@
                                         В магазин
                                     </div>
                                 </a>
-                                <a href="#">
+                                <form action="/hand/configuration/"
+                              method="post" style="height: 38px; width: 100%; display:flex">
+                            <div class="invz" style="display: none"><input type="id" name="component_id"
+                                                                           value="{{cpu.id}}"></div>
+                            <div class="invz" style="display: none"><input type="id" name="component_type"
+                                                                           value="Cpu"></div>
+                            <div class="invz" style="display: none"><input type="id" name="method" value="add"></div>
+                            {% csrf_token %}
+                            <button type="submit" style="border: none; background: none;">
+
+                                <div class="but">
                                     <div class="btn"
-                                         style="width: 100px; height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
+                                         style="height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
                                         Добавить
                                     </div>
-                                </a>
+                                </div>
+                            </button>
+                        </form>
                             </div>
                             <div class="mb-button-block">
                                 <div class="mb-buy">

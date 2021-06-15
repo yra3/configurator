@@ -189,9 +189,7 @@
 .title{
     display: none;
 }
-.but{
-    display: none;
-}
+
 .ph-block{
     height: auto;
     flex-basis: 140px;
@@ -224,7 +222,8 @@
     /*padding-top: 20px;*/
 
 }
-.button-block > a{
+.button-block > a,
+.button-block > form{
     margin: auto;
 }
 .picked_component:hover{
