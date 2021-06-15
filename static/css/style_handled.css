@@ -225,6 +225,12 @@ scroll-page {
     /*width: 300px;*/
     /*flex-grow: 2;*/
 }
+.price-block > div{
+    margin-left: auto;
+}
+.price-block > p{
+    margin-right: auto;
+}
 .overall{
     display: flex;
    flex-wrap: wrap;
@@ -267,6 +273,9 @@ scroll-page {
 .tp-mobile, .tw-mobile {
     display: none;
 }
+.remove-block{
+    width: 17px;
+}
 .endbtn{
     display: flex;
     width: 180px;
@@ -302,8 +311,6 @@ scroll-page {
     }
     .but{
         display: flex;
-        width: 170px;
-        height: 70px;
         margin: auto;
     }
     .svg{
@@ -336,6 +343,11 @@ scroll-page {
     .total-price, .total-wattage{
         display: none;
     }
+    .remove-block > form {
+        height: 70px;
+        justify-content: center;
+    }
+
 }
 
 .component:hover
