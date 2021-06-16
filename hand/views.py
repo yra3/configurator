@@ -1,7 +1,16 @@
 from django.shortcuts import render
 from configure.models import *
 
-
+component_names_list = {
+        'Cpu': CPU,
+        'Gpu': GPU,
+        'Motherboard': motherboard,
+        'Cooler': cooler,
+        'Ram': RAM,
+        'Hard35': hard35,
+        'Ssd': SSD,
+        'PowerSupply': powersupply,
+    }
 def configuration(request):
     component_names_list = {
         'Cpu': CPU,
@@ -47,8 +56,12 @@ def configuration(request):
 request_dict = {
             'Cpu': {
                 'socket_cpu[]': 'socket',
-                'count_cores_cpu[]': 'number_of_cores',
-                'memory_type_cpus[]': 'memory_type',
+                'cores_cpu[]': 'number_of_cores',
+                'memory_type_cpu[]': 'memory_type',
+                'integrated_graphics_core_cpu[]': 'integrated_graphics_core',
+                'multithreaded_cpu[]': 'multithreading',
+                'year_cpu[]': 'release_year',
+                'techprocess_cpu[]': 'technical_process',
             },
             'Motherboard': {
                 'chipset_mb[]': 'chipset',
@@ -192,13 +205,16 @@ def catalog_cpu(request, component_name):
         if len(and_conditions) != 0:
             condition = 'where ' + ' and '.join(and_conditions)
         else:
-            condition = ''
+            return render(request, template_name='configure/catalog.html', context=data)
         cur.execute(f"SELECT id FROM configure_{component_name.lower()} {condition}")
         components_hand = cur.fetchall()
+        components_hand = [component[0] for component in components_hand]
+        components = component_names_list[component_name].objects.all().filter(pk__in=components_hand)
 
-    from configure.BranchAndBoundMethod_forExtended import intersect_components
-    Cpu = CPU.objects.all()
-    # intersect_components(components_hand, Cpu)
-    data['cpus'] = Cpu
+    # from configure.BranchAndBoundMethod_forExtended import intersect_components
+
+    # components_all = component_names_list[component_name].objects.all()
+    # components = intersect_components(components_hand, components_all)
+    data['cpus'] = components
     response = render(request, template_name='configure/catalog.html', context=data)
     return response
