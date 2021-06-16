@@ -152,8 +152,8 @@ class BranchAndBoundMethodEx(BranchAndBoundMethod):
         try:
             connection = connect(
                 host='127.0.0.1',
-                user='root',
-                password='50135013',
+                user='django',
+                password='qwerty',
                 db='config',
                 charset='utf8mb4',
                 cursorclass=cursors.Cursor)

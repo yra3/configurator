@@ -211,7 +211,7 @@ def catalog_cpu(request, component_name):
         cur.execute(f"SELECT id FROM configure_{component_name.lower()} {condition}")
         components_hand = cur.fetchall()
         components_hand = [component[0] for component in components_hand]
-        components = component_names_list[component_name].objects.all().filter(pk__in=components_hand)
+        components = component_names_list[component_name].objects.all().filter(pk__in=components_hand).order_by('price')
 
 
     data['cpus'] = components
