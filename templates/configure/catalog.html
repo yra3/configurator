@@ -217,7 +217,16 @@
                 <div class="card">
                     <div class="card-body" style="display: flex; flex-direction: column;">
                         {% for cpu in cpus %}
+                                <form action="/hand/configuration/"
+                                    method="post">
                             <div class="picked_component">
+                                    <div class="invz" style="display: none"><input type="id" name="component_id"
+                                    value="{{cpu.id}}"></div>
+                                    <div class="invz" style="display: none"><input type="text" name="component_type"
+                                    value="{{component_name}}"></div>
+                                    <div class="invz" style="display: none"><input type="text" name="method" value="add"></div>
+                                    {% csrf_token %}
+
                             <div class="ph-block">
                                 <img src="{{ cpu.picture }}"
                                      style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
@@ -240,15 +249,17 @@
                                     </div>
                                 </a>
                                 <a href="#">
+                                    <button type="submit" style="border: none; background: none;">
                                     <div class="btn"
                                          style="width: 100px; height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
                                         Добавить
                                     </div>
+                                    </button>
                                 </a>
                             </div>
                             <div class="mb-button-block">
                                 <div class="mb-buy">
-                                    <a href="#">
+                                    <a href="{{cpu.link}}">
                                         <div class="btn"
                                              style="width: 50px; height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
                                             <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
@@ -276,6 +287,7 @@
                                 </div>
                                 <div class="mb-add">
                                     <a href="#">
+                                    <button type="submit" style="border: none; background: none;">
                                         <div class="btn"
                                              style="width: 50px; height: 38px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
                                             <svg width="100%" height="auto" xmlns="http://www.w3.org/2000/svg"
@@ -285,14 +297,14 @@
                                                  style="enable-background:new 0 0 512 512" xml:space="preserve"
                                                  class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40 40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031 8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156 40-40s-17.910156-40-40-40zm0 0" fill="#ffffff" data-original="#000000" style="" class=""/></g></svg>
                                         </div>
+                                    </button>
                                     </a>
                                 </div>
 
                             </div>
-                        </div>
+                            </div>
+                                </form>
                         {% endfor %}
-
-
                     </div>
                 </div>
             </div>

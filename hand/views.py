@@ -96,7 +96,7 @@ request_dict = {
 
 def catalog_cpu(request, component_name):
     # , context=data
-    cpus = CPU.objects.all()
+    cpus = component_names_list[component_name].objects.all()
     data = {
         'values_list': [
             [
@@ -155,7 +155,9 @@ def catalog_cpu(request, component_name):
             ],
         ],
         'cpus': cpus,
+        'component_name': component_name,
     }
+
 
 
     conditions = request_dict[component_name]
@@ -184,18 +186,18 @@ def catalog_cpu(request, component_name):
                 and_conditions.append('(power_nominal >= 500 and power_nominal < 1000)')
             else:
                 and_conditions.append('(power_nominal >= 1000)')
-        if component_name == 'Ram':
-            frequency_type = request.GET['frequency-ram']
-            if frequency_type == '1':
-                and_conditions.append('(clock_frequency < 1000)')
-            elif frequency_type == '2':
-                and_conditions.append('(clock_frequency >= 1000 and clock_frequency < 2000)')
-            elif frequency_type == '3':
-                and_conditions.append('(clock_frequency >= 2000 and clock_frequency < 3000)')
-            elif frequency_type == '4':
-                and_conditions.append('(clock_frequency >= 3000 and clock_frequency < 4000)')
-            else:
-                and_conditions.append('(clock_frequency >= 4000)')
+        # if component_name == 'Ram':
+            # frequency_type = request.GET['frequency-ram']
+            # if frequency_type == '1':
+            #     and_conditions.append('(clock_frequency < 1000)')
+            # elif frequency_type == '2':
+            #     and_conditions.append('(clock_frequency >= 1000 and clock_frequency < 2000)')
+            # elif frequency_type == '3':
+            #     and_conditions.append('(clock_frequency >= 2000 and clock_frequency < 3000)')
+            # elif frequency_type == '4':
+            #     and_conditions.append('(clock_frequency >= 3000 and clock_frequency < 4000)')
+            # else:
+            #     and_conditions.append('(clock_frequency >= 4000)')
         for c1, c2 in conditions.items():
             condition1 = request.GET.getlist(c1)
             or_conditions = [f'{c2}="{ccc}"' for ccc in condition1]
