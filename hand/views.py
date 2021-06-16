@@ -178,14 +178,14 @@ def catalog_cpu(request, component_name):
         if component_name == 'Cpu':
             mfs = [f'name like "%{mf}%"' for mf in request.GET.getlist('manufacturer_cpu[]')]
             and_conditions.append('(' + ' or '.join(mfs) + ')')
-        if component_name == 'PowerSupply':
-            power_nominal_type = request.GET['power-ps']
-            if power_nominal_type == '1':
-                and_conditions.append('(power_nominal < 500)')
-            elif power_nominal_type == '2':
-                and_conditions.append('(power_nominal >= 500 and power_nominal < 1000)')
-            else:
-                and_conditions.append('(power_nominal >= 1000)')
+        # if component_name == 'PowerSupply':
+        #     power_nominal_type = request.GET['power-ps']
+        #     if power_nominal_type == '1':
+        #         and_conditions.append('(power_nominal < 500)')
+        #     elif power_nominal_type == '2':
+        #         and_conditions.append('(power_nominal >= 500 and power_nominal < 1000)')
+        #     else:
+        #         and_conditions.append('(power_nominal >= 1000)')
         # if component_name == 'Ram':
             # frequency_type = request.GET['frequency-ram']
             # if frequency_type == '1':
@@ -213,10 +213,7 @@ def catalog_cpu(request, component_name):
         components_hand = [component[0] for component in components_hand]
         components = component_names_list[component_name].objects.all().filter(pk__in=components_hand)
 
-    # from configure.BranchAndBoundMethod_forExtended import intersect_components
 
-    # components_all = component_names_list[component_name].objects.all()
-    # components = intersect_components(components_hand, components_all)
     data['cpus'] = components
     response = render(request, template_name='configure/catalog.html', context=data)
     return response
