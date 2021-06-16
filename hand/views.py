@@ -44,6 +44,56 @@ def configuration(request):
     return response
 
 
+def catalog_gpu(request, component_name):
+    gpus = GPU.objects.all()
+    data = {
+        'values_list': [
+            [
+                'Производитель',
+                'manufacturer_card[]',
+                'gpu_manufacturer',
+                ['ASUS', 'GIGABYTE', 'Inno3D', 'KFA2', 'MSI', 'Palit', 'PNY', 'PowerColor', 'Zotac']
+            ],
+            [
+                'Объем видеопамяти (ГБ)',
+                'memory_gpu[]',
+                'video_memory',
+                GPU.objects.values_list('video_memory_size', flat=True).distinct()
+            ],
+            [
+                'Производитель графического процессора',
+                'manufacturer_gpu[]',
+                'gpu_manufacturer',
+                ['AMD', 'NVIDIA']
+            ],
+            [
+                'Тип памяти',
+                'memory_type_gpu[]',
+                'memory_type',
+                GPU.objects.values_list('memory_type', flat=True).distinct()
+            ],
+            [
+                'Разрядность шины памяти (бит)',
+                'memory_bus_width_gpu[]',
+                'gpu_memory_bus_width',
+                GPU.objects.values_list('memory_bus_width', flat=True).distinct()
+            ],
+            [
+                'Количество подключаемых одновременно мониторов (шт)',
+                'number_of_simultaneously_connected_monitors_gpu[]',
+                'gpu_number_of_simultaneously_connected_monitors',
+                GPU.objects.values_list('number_of_simultaneously_connected_monitors', flat=True).distinct()
+            ],
+            [
+                'Тип и количество установленных вентиляторов',
+                'type_and_number_of_fans_installed_gpu[]',
+                'gpu_type_and_number_of_fans_installed',
+                GPU.objects.values_list('type_and_number_of_fans_installed', flat=True).distinct()
+            ],
+        ]
+    }
+
+
 def catalog_cpu(request, component_name):
     # , context=data
     cpus = CPU.objects.all()
@@ -52,19 +102,19 @@ def catalog_cpu(request, component_name):
             [
                 'Количество ядер',
                 'cores_cpu[]',
-                'processor_manufacturer',
+                'processor_cores',
                 CPU.objects.values_list('number_of_cores', flat=True).distinct()
             ],
             [
                 'Производитель процессора',
                 'manufacturer_cpu[]',
-                'processor_socket',
+                'processor_manufacturer',
                 ['AMD', 'Intel']
             ],
             [
                 'Сокет',
                 'socket_cpu[]',
-                'processor_cores',
+                'processor_socket',
                 CPU.objects.values_list('socket', flat=True).distinct()
             ],
             [
