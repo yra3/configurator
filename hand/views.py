@@ -44,6 +44,43 @@ def configuration(request):
     return response
 
 
+request_dict = {
+            'Cpu': {
+                'socket_cpu[]': 'socket',
+                'count_cores_cpu[]': 'number_of_cores',
+                'memory_type_cpus[]': 'memory_type',
+            },
+            'Motherboard': {
+                'chipset_mb[]': 'chipset',
+                'form-factor-mb[]': 'form_factor',
+                'memory-slots-mb[]': 'number_of_memory_slots',
+                'memory-type-mb[]': 'supported_memory_type',
+                'haswifi-mb[]': 'built_in_wi_fi_adapter',
+                'm2-slots-mb[]': 'number_of_m_2_slots',
+            },
+            'Gpu': {
+                'video-memory-gpu[]': 'video_memory_size',
+                'memory-type-gpu[]': 'memory_type',
+                'pci-version-gpu[]': 'pci_express_version',
+            },
+            'PowerSupply': {
+                'form-factor-ps[]': 'form_factor',
+            },
+            'Ram': {
+                'memory-type-ram[]': 'memory_type',
+                'color-ram[]': 'illumination_of_board_elements',
+            },
+            'Cooler': {
+                'fan-connector-cl[]': 'fan_connector',
+                'rotation-speed-control-cl[]': 'rotation_speed_control',
+                'fan-backlight-type-cl[]': 'fan_backlight_type',
+                'fan-illumination-color-cl[]': 'fan_illumination_color',
+            },
+            'Ssd': {},
+            'Hard35': {},
+        }
+
+
 def catalog_cpu(request, component_name):
     # , context=data
     cpus = CPU.objects.all()
@@ -107,7 +144,61 @@ def catalog_cpu(request, component_name):
         'cpus': cpus,
     }
 
+
+    conditions = request_dict[component_name]
+    from pymysql import connect, cursors
+    try:
+        connection = connect(
+            host='127.0.0.1',
+            user='django',
+            password='qwerty',
+            db='config',
+            charset='utf8mb4',
+            cursorclass=cursors.Cursor)
+    except RuntimeError:
+        print('Ошибка. Не удалось подключится к базе данных')
+    with connection:
+        cur = connection.cursor()
+        and_conditions = []
+        if component_name == 'Cpu':
+            mfs = [f'name like "%{mf}%"' for mf in request.GET.getlist('manufacturer_cpu[]')]
+            and_conditions.append('(' + ' or '.join(mfs) + ')')
+        if component_name == 'PowerSupply':
+            power_nominal_type = request.GET['power-ps']
+            if power_nominal_type == '1':
+                and_conditions.append('(power_nominal < 500)')
+            elif power_nominal_type == '2':
+                and_conditions.append('(power_nominal >= 500 and power_nominal < 1000)')
+            else:
+                and_conditions.append('(power_nominal >= 1000)')
+        if component_name == 'Ram':
+            frequency_type = request.GET['frequency-ram']
+            if frequency_type == '1':
+                and_conditions.append('(clock_frequency < 1000)')
+            elif frequency_type == '2':
+                and_conditions.append('(clock_frequency >= 1000 and clock_frequency < 2000)')
+            elif frequency_type == '3':
+                and_conditions.append('(clock_frequency >= 2000 and clock_frequency < 3000)')
+            elif frequency_type == '4':
+                and_conditions.append('(clock_frequency >= 3000 and clock_frequency < 4000)')
+            else:
+                and_conditions.append('(clock_frequency >= 4000)')
+        for c1, c2 in conditions.items():
+            condition1 = request.GET.getlist(c1)
+            or_conditions = [f'{c2}="{ccc}"' for ccc in condition1]
+            and_conditions.append('(' + ' or '.join(or_conditions) + ')')
+        while '()' in and_conditions:
+            and_conditions.remove('()')
+        if len(and_conditions) != 0:
+            condition = 'where ' + ' and '.join(and_conditions)
+        else:
+            condition = ''
+        cur.execute(f"SELECT id FROM configure_{component_name.lower()} {condition}")
+        components_hand = cur.fetchall()
+
+    from configure.BranchAndBoundMethod_forExtended import intersect_components
     Cpu = CPU.objects.all()
+    # intersect_components(components_hand, Cpu)
     data['cpus'] = Cpu
     response = render(request, template_name='configure/catalog.html', context=data)
     return response
