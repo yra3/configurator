@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from configuration.models import reversed_translator as translators
 
 
 def configuration_view(request, cpu, gpu, mother, ram, cooler, ssd ,hdd, ps):
@@ -45,19 +46,27 @@ def component(request, component_name, component_id):
     from configure import models
     if component_name == 'Cpu':
         component = models.CPU.objects.get(pk=component_id)
+        translator = translators['CPU']
     elif component_name == 'Gpu':
         component = models.GPU.objects.get(pk=component_id)
+        translator = translators['GPU']
     elif component_name == 'Motherboard':
+        translator = translators['motherboard']
         component = models.motherboard.objects.get(pk=component_id)
     elif component_name == 'Cooler':
+        translator = translators['cooler']
         component = models.cooler.objects.get(pk=component_id)
     elif component_name == 'Ram':
+        translator = translators['RAM']
         component = models.RAM.objects.get(pk=component_id)
     elif component_name == 'Hard35':
+        translator = translators['hard35']
         component = models.hard35.objects.get(pk=component_id)
     elif component_name == 'Ssd':
+        translator = translators['ssd']
         component = models.SSD.objects.get(pk=component_id)
     elif component_name == 'PowerSupply':
+        translator = translators['powersupply']
         component = models.powersupply.objects.get(pk=component_id)
     else:
         return HttpResponse('404')
@@ -68,5 +77,35 @@ def component(request, component_name, component_id):
             'component_type': component_name,
             'component': component,
             }
+
+    from pymysql import connect, cursors
+    connection = connect(
+        host='127.0.0.1',
+        user='django',
+        password='qwerty',
+        db='config',
+        charset='utf8mb4',
+        cursorclass=cursors.DictCursor)
+    with connection:
+        cur = connection.cursor()
+        cur.execute(f"SELECT * FROM configure_{component_name.lower()} where id = {component_id}")
+        component_characteristics = cur.fetchall()[0]
+    del component_characteristics['name']
+    del component_characteristics['price']
+    del component_characteristics['picture']
+    del component_characteristics['id']
+    del component_characteristics['link']
+    none_keys = []
+    for k, v in component_characteristics.items():
+        if v is None:
+            none_keys.append(k)
+    for key in none_keys:
+        del component_characteristics[key]
+    # del component_characteristics['type']
+    keys = component_characteristics.keys()
+    values = component_characteristics.values()
+    indexes = range(len(component_characteristics))
+    component_translated = {translator[name]: [value, index] for name, value, index in zip(keys, values, indexes)}
+    data['characteristics'] = component_translated
 
     return render(request, template_name='configure/component.html', context=data)

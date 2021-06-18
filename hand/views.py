@@ -115,31 +115,31 @@ def catalog_cpu(request, component_name):
                 'Сокет',
                 'socket_cpu[]',
                 'processor_cores',
-                CPU.objects.values_list('socket', flat=True).distinct()
+                CPU.objects.values_list('socket', flat=True).filter(socket__isnull=False).distinct()
             ],
             [
                 'Интегрированное графическое ядро',
                 'integrated_graphics_core_cpu[]',
                 'processor_integrated_graphics_core',
-                CPU.objects.values_list('integrated_graphics_core', flat=True).distinct()
+                CPU.objects.values_list('integrated_graphics_core', flat=True).filter(integrated_graphics_core__isnull=False).distinct()
             ],
             [
                 'Многопоточность',
                 'multithreaded_cpu[]',
                 'processor_multithreaded',
-                CPU.objects.values_list('multithreading', flat=True).distinct()
+                CPU.objects.values_list('multithreading', flat=True).filter(multithreading__isnull=False).distinct()
             ],
             [
                 'Год релиза',
                 'year_cpu[]',
                 'processor_year',
-                CPU.objects.values_list('release_year', flat=True).distinct()
+                CPU.objects.values_list('release_year', flat=True).filter(release_year__isnull=False).distinct()
             ],
             [
                 'Тип памяти',
                 'memory_type_cpu[]',
                 'processor_memory_type',
-                CPU.objects.values_list('memory_type', flat=True).distinct()
+                CPU.objects.values_list('memory_type', flat=True).filter(memory_type__isnull=False).distinct()
             ],
             [
                 'Базовая частота процессора (МГц)',
@@ -151,7 +151,7 @@ def catalog_cpu(request, component_name):
                 'Техпроцесс',
                 'techprocess_cpu[]',
                 'processor_techprocess',
-                CPU.objects.values_list('technical_process', flat=True).distinct()
+                CPU.objects.values_list('technical_process', flat=True).filter(technical_process__isnull=False).distinct()
             ],
         ],
         'cpus': cpus,
@@ -178,6 +178,17 @@ def catalog_cpu(request, component_name):
         if component_name == 'Cpu':
             mfs = [f'name like "%{mf}%"' for mf in request.GET.getlist('manufacturer_cpu[]')]
             and_conditions.append('(' + ' or '.join(mfs) + ')')
+            frequency_type = request.GET.get('frequency_cpu')
+            if frequency_type == '1':
+                and_conditions.append('(cpu_base_frequency < 1000)')
+            elif frequency_type == '2':
+                and_conditions.append('(cpu_base_frequency >= 1000 and cpu_base_frequency < 2000)')
+            elif frequency_type == '3':
+                and_conditions.append('(cpu_base_frequency >= 2000 and cpu_base_frequency < 3000)')
+            elif frequency_type == '4':
+                and_conditions.append('(cpu_base_frequency >= 3000 and cpu_base_frequency < 4000)')
+            else:
+                and_conditions.append('(cpu_base_frequency >= 4000)')
         # if component_name == 'PowerSupply':
         #     power_nominal_type = request.GET['power-ps']
         #     if power_nominal_type == '1':
