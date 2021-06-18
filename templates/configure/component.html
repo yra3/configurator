@@ -85,33 +85,19 @@ style=" width: 130px;height: 38px; margin: 10px; background: #0f8d4a; border-col
         </div>
         <div class="characteristics-block">
             <h5>Характеристики</h5>
-            <div class="str" id='0'>
-                <div class="name-characteristic">
-                    <p>Страна-производитель</p>
-                </div>
-                <div class="characteristic">
-                    <p>Вьетнам</p>
-                </div>
-            </div>
 
-            <div class="str" id='1'>
-                <div class="name-characteristic">
-                    <p>Год релиза</p>
-                </div>
-                <div class="characteristic">
-                    <p>2017</p>
-                </div>
-            </div>
 
-            <div class="str" id='2'>
+            {% for name, value in characteristics.items %}
+            <div class="str" id='{{ value.1 }}'>
                 <div class="name-characteristic">
-                    <p>Особенности, дополнительно</p>
+                    <p>{{ name }}</p>
                 </div>
                 <div class="characteristic">
-                    <p>NVIDIA Adaptive Vertical Sync, GeForce Experience , NVIDIA PhysX, NVIDIA GameWorks , ASUS GPU
-                        Tweak II</p>
+                    <p>{{ value.0 }}</p>
                 </div>
             </div>
+            {% endfor %}
+
 
         </div>
 
