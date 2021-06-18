@@ -39,41 +39,7 @@
 <div class="main">
 
 
-    <header class="nav">
-        <div class="undent">
-            <div class="site_logo">
-                <img class="logo"
-                     src="{% static "images/logo2.png" %}"
-                     alt="logo">
-            </div>
-            <div class="for_slogan"><span class="slogan">Соберем PC для каждого!</span></div>
-            <div class="infos">
-                <div class="header-info">
-                    <a class="uk-link-muted uk-text-small">
-            <span class="uk-icon" style="margin-right:2px">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                    <path d="M1 11l9 3 3 9 9-21z" fill="#ccc" fill-rule="evenodd"></path>
-                </svg>
-            </span>
-                        <span class="jsCityLabel" title="625000, Тюменская обл, г Тюмень"
-                              style="color: white">Тюмень</span>
-                    </a>
-                </div>
-                <div class="header-info">
-                    <a href="tel:88002349919" class="header__phone">
-                        <img src="https://edelws.ru/local/templates/main/img/icon/phone.svg" alt="">
-                        <span class="header__phone-tel" style="color: white">8 800 555-35-35</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="underheader bg-dark">
-        <div class="undent">
-            <a href="/" class="tap">Конфигуратор</a>
-            <a href="#" class="tap">Каталог</a>
-        </div>
-    </div>
+    {% include "include_blocks/header.html" %}
     <div class="imgs">
         <div class="slider multiple-items"> <!-- create div block into slider for each component -->
 
@@ -133,12 +99,18 @@ margin-top: 25px;margin-bottom: 25px;"
                             inventore itaque laudantium magnam non nostrum odit qui quisquam ratione, reiciendis rerum
                             suscipit voluptate.</h6>
                         <div class="butt-block">
-                            <a href="#" class="btn"
-                               style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Редактировать</a>
-                            <a href="#" class="btn"
-                               style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f;">Скачать</a>
-                            <a href="#" class="btn btn1"
-                               style="width: 200px; background: #0f8d4a; border-color: #1f1f1f;">Копировать ссылку</a>
+                            <button class="btn btn-primary"
+                            style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" type="submit"
+                            data-bs-toggle="modal" data-bs-target="#loadModal">Редактировать
+                    </button>
+                            <button class="btn btn-primary"
+                            style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" type="submit"
+                            data-bs-toggle="modal" data-bs-target="#loadModal">Скачать
+                    </button>
+                            <button class="btn btn-primary btn1"
+                            style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" type="submit"
+                            data-bs-toggle="modal" data-bs-target="#loadModal">Копировать ссылку
+                    </button>
 
                         </div>
                     </div>
