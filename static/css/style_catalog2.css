@@ -12,7 +12,7 @@
 .content {
     display: flex;
     padding-top: 20px;
-    justify-content: center;
+
     align-items: center;
     color: #02ca58;
 }
@@ -94,10 +94,13 @@
 
 }
 .content {
-    justify-content: center;
+    padding-top: 20px;
+
     align-items: center;
-    color: Red;
+    color: #02a546;
+
 }
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -179,9 +182,7 @@
     height: auto;
 
 }
-.title{
-    display: none;
-}
+
 
 .ph-block{
     height: auto;

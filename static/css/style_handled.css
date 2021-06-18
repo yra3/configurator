@@ -98,7 +98,8 @@
 .content {
     justify-content: center;
     align-items: center;
-    color: Red;
+    color: #02ca58;
+    margin-bottom: 20px;
 }
 .row {
     display: flex;
