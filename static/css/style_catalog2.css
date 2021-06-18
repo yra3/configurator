@@ -76,14 +76,7 @@
     opacity: 20%;
 }
 
-.underheader {
-    color: #fffefe;
-    box-shadow: 0 5px 10px #090808;
-    align-items: center;
-    display: flex;
-    z-index: 5;
 
-}
 .main .underheader .tap {
     font-size: large;
     color: #fffefe;
@@ -171,7 +164,6 @@
 .card {
     min-height: 200px;
     height: auto;
-    z-index: 1;
 }
 
 .component{
@@ -232,9 +224,9 @@
     background: #2f2f2f;
 }
 .cl1 > .card{
-    position:-webkit-sticky;
+   /*position:-webkit-sticky;
     position: sticky;
-    top: 79px;
+    top: 79px;*/
 }
 
 .dws-menu * {
@@ -472,7 +464,7 @@ input[name="price_left"],  input[name="price_right"]{
 .card-body {
     color: #ffffff;
     position: static;
-    z-index: 1;
+
 }
 .butt-block{
     margin-top: auto;

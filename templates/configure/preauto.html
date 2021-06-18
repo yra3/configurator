@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static "css/style_preauto.css" %}">
+    <link rel="stylesheet" href="/static/css/style_preauto.css?{% now "U" %}"/>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -34,42 +34,7 @@
 
 <div class="main">
 
-    <header class="nav">
-        <div class="undent">
-            <div class="site_logo">
-                <img class="logo"
-                     src="{% static "images/logo2.png" %}" alt="logo"
-{#                     src="https://psv4.userapi.com/c536132/u240890695/docs/d6/58609214581d/logo2.png?extra=bHj_5M-VguyRqLudFT5PBFKBTMqmU9srl7oCrkmxai3YzvTnE0vDynnUbj6lZbZVigdq6jSSeM6c_WAzhbYojr7emlhJ6bd2KJosOGguvQ3zaRukxFEztQtib6lV0KmjECaFAX8i0l09JDp_nWch-co"#}
-                     alt="logo">
-            </div>
-            <div class="for_slogan"><span class="slogan">Соберем PC для каждого!</span></div>
-            <div class="infos">
-                <div class="header-info">
-                    <a class="uk-link-muted uk-text-small">
-            <span class="uk-icon" style="margin-right:2px">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                    <path d="M1 11l9 3 3 9 9-21z" fill="#ccc" fill-rule="evenodd"></path>
-                </svg>
-            </span>
-                        <span class="jsCityLabel" title="625000, Тюменская обл, г Тюмень"
-                              style="color: white">Тюмень</span>
-                    </a>
-                </div>
-                <div class="header-info">
-                    <a href="tel:88002349919" class="header__phone">
-                        <img src="https://edelws.ru/local/templates/main/img/icon/phone.svg" alt="">
-                        <span class="header__phone-tel" style="color: white">8 800 555-35-35</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="underheader bg-dark">
-        <div class="undent">
-            <a href="/" class="tap">Конфигуратор</a>
-            <a href="#" class="tap">Каталог</a>
-        </div>
-    </div>
+    {% include "include_blocks/header.html" %}
     <div class="container">
         <div class="content">
             <div class="text-type">
@@ -100,11 +65,11 @@
                     <tr style="padding-left: 10px; width: 100%; ">
                         <td style="margin-right: auto">Процессор:</td>
                         <td style="margin: auto">
-                            <input type="range" class="slider" name="rangeInput" id="rangeInput1" min="0" max="100"
+                            <input type="range" class="slider" name="rangeInput" id="rangeInput1" min="0" value="19" max="100"
                                    step="1" onchange="updateTextInput('textInput1', this.value);updateSum();"
                                    style="width: 50%;">
                         </td>
-                        <td style="margin-left: auto"><input name="cpu-price" type="number" id="textInput1" value="10"
+                        <td style="margin-left: auto"><input name="cpu-price" type="number" id="textInput1" value="19"
                                                              size="3"
                                                              onchange="updateRangeInput('rangeInput1', this.value);updateSum();"
                                                              style="width: 40px;">%
@@ -114,12 +79,12 @@
                     <tr>
                         <td>Материнская плата:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" id="rangeInput2" min="0" max="100"
+                            <input type="range" class="slider" name="rangeInput" id="rangeInput2" min="0" value="6" max="100"
                                    step="1" onchange="updateTextInput('textInput2', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="mb-price" type="number" id="textInput2" value="10" size="3"
+                        <td><input name="mb-price" type="number" id="textInput2" value="6" size="3"
                                    onchange="updateRangeInput('rangeInput2', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
@@ -128,12 +93,12 @@
                     <tr>
                         <td>Видеокарта:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" id="rangeInput3" max="100"
+                            <input type="range" class="slider" name="rangeInput" min="0" id="rangeInput3" value="51" max="100"
                                    step="1" onchange="updateTextInput('textInput3', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="gpu-price" type="number" id="textInput3" value="10" size="3"
+                        <td><input name="gpu-price" type="number" id="textInput3" value="51" size="3"
                                    onchange="updateRangeInput('rangeInput3', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
@@ -141,12 +106,12 @@
                     <tr>
                         <td>Оперативная память:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" max="100" id="rangeInput4"
+                            <input type="range" class="slider" name="rangeInput" min="0" value="6" max="100" id="rangeInput4"
                                    step="1" onchange="updateTextInput('textInput4', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="ram-price" type="number" id="textInput4" value="10" size="3"
+                        <td><input name="ram-price" type="number" id="textInput4" value="6" size="3"
                                    onchange="updateRangeInput('rangeInput4', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
@@ -155,27 +120,40 @@
                     <tr>
                         <td>Кулер:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" max="100" id="rangeInput5"
+                            <input type="range" class="slider" name="rangeInput" min="0"value="1" max="100" id="rangeInput5"
                                    step="1" onchange="updateTextInput('textInput5', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="cooler-price" type="number" id="textInput5" value="10" size="3"
+                        <td><input name="cooler-price" type="number" id="textInput5" value="1" size="3"
                                    onchange="updateRangeInput('rangeInput5', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
                     </tr>
 
                     <tr>
-                        <td>Хранилище:</td>
+                        <td>Жесткий диск:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" max="100" id="rangeInput6"
+                            <input type="range" class="slider" name="rangeInput" min="0" value="4" max="100" id="rangeInput6"
                                    step="1" onchange="updateTextInput('textInput6', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="storage-price" type="number" id="textInput6" value="10" size="3"
+                        <td><input name="storage-price" type="number" id="textInput6" value="4" size="3"
                                    onchange="updateRangeInput('rangeInput6', this.value);updateSum();"
+                                   style="width: 40px;">%
+                        </td>
+                    </tr>
+<tr>
+                        <td>Твердотельный накопитель:</td>
+                        <td>
+                            <input type="range" class="slider" name="rangeInput" min="0" value="5" max="100" id="rangeInput8"
+                                   step="1" onchange="updateTextInput('textInput6', this.value);updateSum();"
+                                   style="width: 50%;">
+
+                        </td>
+                        <td><input name="storage-price" type="number" id="textInput8" value="5" size="3"
+                                   onchange="updateRangeInput('rangeInput8', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
                     </tr>
@@ -183,19 +161,19 @@
                     <tr>
                         <td>Блок питания:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" max="100" step="1"
+                            <input type="range" class="slider" name="rangeInput" min="0" value="1" max="100" step="1"
                                    id="rangeInput7" onchange="updateTextInput('textInput7', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="ps-price" type="number" id="textInput7" value="10" size="3"
+                        <td><input name="ps-price" type="number" id="textInput7" value="1" size="3"
                                    onchange="updateRangeInput('rangeInput7', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
                     </tr>
                     <tr>
                         <td>Итого (от заданной цены):</td>
-                        <td align="right"><input id="sum" type="number" size="3" readonly/></td>
+                        <td align="right"><input id="sum"  value="93" type="number" size="3" readonly/></td>
                         <td>%</td>
                     </tr>
 
@@ -591,8 +569,55 @@
                     </ul>
                 </nav>
                 <nav class="dws-menu">
-                    <input type="checkbox" name="toggle" id="storage" class="toggleMenu">
-                    <label for="storage" class="toggleMenu"><i class="fa fa-bars"></i>Хранилище</label>
+                    <input type="checkbox" name="toggle" id="hdd" class="toggleMenu">
+                    <label for="hdd" class="toggleMenu"><i class="fa fa-bars"></i>Жесткий диск</label>
+                    <ul>
+                        <div class="dynamic_fields">
+                            <div class="example_store">
+                                <div class="table1">
+                                    <div class="cell">
+                                        <div class="form-check">
+                                            <p><b>Тип накопителя </b></p>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="1"
+                                                       name="type-sg[]">
+                                                <label class="form-check-label" for="type-sg[]">
+                                                    HDD
+                                                </label>
+                                                <br>
+                                                <input class="form-check-input" type="checkbox" value="2"
+                                                       name="type-sg[]">
+                                                <label class="form-check-label" for="type-sg[]">
+                                                    SSD
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-check">
+                                                <p><b>Объем накопителя</b></p>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="{{value_sg}}"
+                                                           name="value-sg[]">
+                                                    <label class="form-check-label" for="value-sg[]">
+                                                        {{value_sg}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="cell">
+                                        <a class="js-remove pull-right btn btn-danger">-</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="strgs"></div>
+
+                            <a class="js-add pull-right btn btn-success">+</a>
+                        </div>
+                    </ul>
+                </nav>
+                <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="ssd" class="toggleMenu">
+                    <label for="ssd" class="toggleMenu"><i class="fa fa-bars"></i>Твердотельный накопитель</label>
                     <ul>
                         <div class="dynamic_fields">
                             <div class="example_store">

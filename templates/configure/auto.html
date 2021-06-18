@@ -107,42 +107,7 @@
         </div>
     </div>
 
-    <header class="nav">
-        <div class="undent">
-            <div class="site_logo">
-                <img class="logo"
-                     src="{% static "images/logo2.png" %}" alt="logo">
-<!--                     src="https://psv4.userapi.com/c536132/u240890695/docs/d6/58609214581d/logo2.png?extra=bHj_5M-VguyRqLudFT5PBFKBTMqmU9srl7oCrkmxai3YzvTnE0vDynnUbj6lZbZVigdq6jSSeM6c_WAzhbYojr7emlhJ6bd2KJosOGguvQ3zaRukxFEztQtib6lV0KmjECaFAX8i0l09JDp_nWch-co"-->
-
-            </div>
-            <div class="for_slogan"><span class="slogan">Соберем PC для каждого!</span></div>
-            <div class="infos">
-                <div class="header-info">
-                    <a class="uk-link-muted uk-text-small">
-            <span class="uk-icon" style="margin-right:2px">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                    <path d="M1 11l9 3 3 9 9-21z" fill="#ccc" fill-rule="evenodd"></path>
-                </svg>
-            </span>
-                        <span class="jsCityLabel" title="625000, Тюменская обл, г Тюмень"
-                              style="color: white">Тюмень</span>
-                    </a>
-                </div>
-                <div class="header-info">
-                    <a href="tel:88002349919" class="header__phone">
-                        <img src="https://edelws.ru/local/templates/main/img/icon/phone.svg" alt="">
-                        <span class="header__phone-tel" style="color: white">8 800 555-35-35</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="underheader bg-dark">
-        <div class="undent">
-            <a href="/" class="tap">Конфигуратор</a>
-            <a href="#" class="tap">Каталог</a>
-        </div>
-    </div>
+    {% include "include_blocks/header.html" %}
     <div class="container">
         <div class="content">
             <div class="text-type">

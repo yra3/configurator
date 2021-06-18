@@ -1,7 +1,7 @@
 {% load static %}
 <style>
     .my-menu{
-    z-index: 5;
+
     box-shadow: 0 5px 10px #090808;
     background: #343a40;
 }
@@ -11,6 +11,9 @@
     width: 90%;
     margin: auto;
 
+}
+.inside-block{
+    z-index: 5;
 }
 .my-menu [type="checkbox"],
 .my-menu label.toggleSubmenu{
@@ -94,9 +97,6 @@
     }
 }
 
-body{
-    background-image: url("../img/ep_naturalwhite.png");
-}
 header{
     /*margin-top: 200px;*/
     font-family: Cuprum, Arial, Helvetica, sans-serif;
@@ -175,7 +175,7 @@ header{
 @media all and (min-width: 800px) {
     .my-menu li:hover > ul {
         display: block;
-        z-index: 1;
+        z-index: 2;
     }
 }
 
@@ -217,7 +217,7 @@ header{
                 <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m1">
                 <a href="#"><i class="fa fa-shopping-cart"></i>Каталог</a>
                 <label for="sub_m1" class="toggleSubmenu"><i class="fa"></i></label>
-                <ul>
+                <ul class="inside-block">
                     <li><a href="/hand/catalog/Cpu">Процессоры</a></li>
                     <li><a href="/hand/catalog/Motherboard">Материнские платы</a></li>
                     <li><a href="/hand/catalog/Gpu">Видеокарты</a></li>
@@ -249,4 +249,6 @@ header{
             });
         });
     });
+
+
 </script>

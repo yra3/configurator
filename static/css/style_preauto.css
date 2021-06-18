@@ -179,7 +179,7 @@
     }
 
 
-    input.toggleMenu:checked + label.toggleMenu {
+    .dws-menu input.toggleMenu:checked + label.toggleMenu {
         background: #161616;
         color: #02ca58;
         box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 20px 2px #02ca58;
