@@ -179,8 +179,8 @@ class Configuration:
 
 
 class Cpu(Component):
-    def __init__(self, cpu, priority):
-        super().__init__(cpu, cpu.price)# ^ priority)
+    def __init__(self, cpu, priority, maximized_component):
+        super().__init__(cpu, maximized_component)# ^ priority)
         self.socket = cpu.socket
         self.maximum_frequency_of_ram = cpu.maximum_frequency_of_ram
         self.minimum_frequency_of_ram = cpu.minimum_frequency_of_ram
@@ -199,8 +199,8 @@ class Cpu(Component):
 
 
 class Gpu(Component):
-    def __init__(self, gpu,  priority):
-        super().__init__(gpu, gpu.price)# ^ priority)
+    def __init__(self, gpu,  priority, maximized_component):
+        super().__init__(gpu, maximized_component)# ^ priority)
         self.maximum_power_consumption = gpu.maximum_power_consumption
         self.bench = gpu.g3d_mark
 
