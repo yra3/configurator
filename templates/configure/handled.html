@@ -38,7 +38,19 @@
 
 <div class="main">
     {% include "include_blocks/header.html" %}
-
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+				<div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+					<div class="toast-header">
+						<div id="div1" class="fa"></div>
+						<strong class="me-auto">Важно!</strong>
+						<small>Только что</small>
+						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+					</div>
+					<div class="toast-body">
+						Данный режим использует cookies.
+					</div>
+				</div>
+			</div>
     <div class="container">
         <div class="content">
             <div class="text-type">
@@ -787,6 +799,18 @@
 
 <script src="./css/slick/slick/slick.js" type="text/javascript" charset="utf-8"></script>
 <script>
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+			var toastList = toastElList.map(function (toastEl) {
+				return new bootstrap.Toast(toastEl, {delay: 5000})
+			})
+			var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+			var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+				return new bootstrap.Popover(popoverTriggerEl)
+			})
+			var notImplError = toastList[0];
+			$(document).ready(function () {
+        notImplError.show();
+    });
 
     $(function () {
         $(window).scroll(function () {
