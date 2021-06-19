@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static "css/style_preauto.css" %}">
+    <link rel="stylesheet" href="/static/css/style_preauto.css?{% now " U" %}"/>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -26,6 +26,16 @@
         background: #1f1f1f;
         border: 1px solid white;
     }
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 
@@ -33,49 +43,267 @@
 <body>
 
 <div class="main">
+    {% load static %}
+<style>
+    .my-menu{
 
-    <header class="nav">
-        <div class="undent">
-            <div class="site_logo">
-                <img class="logo"
-                     src="{% static "images/logo2.png" %}" alt="logo"
-{#                     src="https://psv4.userapi.com/c536132/u240890695/docs/d6/58609214581d/logo2.png?extra=bHj_5M-VguyRqLudFT5PBFKBTMqmU9srl7oCrkmxai3YzvTnE0vDynnUbj6lZbZVigdq6jSSeM6c_WAzhbYojr7emlhJ6bd2KJosOGguvQ3zaRukxFEztQtib6lV0KmjECaFAX8i0l09JDp_nWch-co"#}
-                     alt="logo">
-            </div>
-            <div class="for_slogan"><span class="slogan">Соберем PC для каждого!</span></div>
-            <div class="infos">
-                <div class="header-info">
-                    <a class="uk-link-muted uk-text-small">
+    box-shadow: 0 5px 10px #090808;
+    background: #343a40;
+}
+.my-menu > ul{
+    background: #343a40;
+    display: flex;
+    width: 90%;
+    margin: auto;
+
+}
+.inside-block{
+    z-index: 5;
+}
+.my-menu [type="checkbox"],
+.my-menu label.toggleSubmenu{
+    display: none;
+}
+.my-menu label.toggleMenu{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c9c9c9+0,f6f6f6+2,c4c5c7+98,757577+100;Custom+3 */
+    background: #343a40;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9c9c9', endColorstr='#757577', GradientType=0); /* IE6-9 */
+
+    display: none;
+    padding: 15px 40px;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.my-menu label.toggleMenu .fa{
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    font-size: 18px;
+}
+@media all and (max-width: 800px){
+    .my-menu{
+        overflow: hidden;
+        background: #343a40;
+        color: #9d9d9d;
+    }
+    .my-menu ul{
+        display: block;
+        max-height: 0;
+        transition: max-height 0.1s;
+    }
+    .my-menu li>ul li ul{
+        position: absolute;
+        right: auto;
+        top: auto;
+    }
+    .my-menu label.toggleMenu{
+        display: block;
+    }
+    .my-menu input.toggleMenu:checked + label.toggleMenu{
+        background: #000;
+        color: #9d9d9d;
+
+    }
+    .my-menu input.toggleMenu:checked ~ ul,
+    .my-menu input.toggleSubmenu:checked ~ ul{
+        display: block;
+        position: relative;
+        max-height: 5000px;
+        transition: max-height 2s ease-in;
+    }
+    .my-menu label.toggleSubmenu{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        display: block;
+    }
+    .my-menu input.toggleSubmenu:checked ~ a{
+        background: #454547;
+        color: #fff;
+    }
+    .my-menu label.toggleSubmenu .fa:before{
+        content: "\f0d7";
+        color: #9d9d9d;
+    }
+    .my-menu label.toggleSubmenu .fa{
+        position: absolute;
+        top: 15px;
+        right: 30px;
+    }
+    .my-menu input.toggleSubmenu:checked ~ label.toggleSubmenu .fa::before{
+        content: "\f0d8";
+        color: #ffffff;
+    }
+}
+
+header{
+    /*margin-top: 200px;*/
+    font-family: Cuprum, Arial, Helvetica, sans-serif;
+}
+.my-menu *{
+    margin: 0;
+    padding: 0;
+}
+.my-menu ul,
+.my-menu ol{
+    list-style: none;
+}
+.my-menu > ul{
+    display: flex;
+    /*justify-content: center;*/
+}
+.my-menu > ul li{
+    position: relative;
+    /*border-right: 1px solid #c7c8ca;*/
+}
+.my-menu > ul li:first-child{
+    /*border-left: 1px solid #b2b3b5;*/
+}
+.my-menu > ul li:last-child{
+    /*border-right: 1px solid #babbbd;*/
+}
+.my-menu > ul li > a i.fa{
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    font-size: 18px;
+}
+.my-menu > ul li a{
+    display: block;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c9c9c9+0,f6f6f6+2,c4c5c7+98,757577+100;Custom+3 */
+    background: #343a40;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9c9c9', endColorstr='#757577', GradientType=0); /* IE6-9 */
+
+    padding: 15px 30px 15px 40px;
+    font-size: 14px;
+    color: #9d9d9d;
+
+    text-decoration: none;
+    text-transform:uppercase;
+    transition: all 1s ease;
+}
+.my-menu li a:hover{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e0e1e5+0,454547+2,454547+98,e0e1e5+100 */
+    background: #343a40;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9c9c9', endColorstr='#757577', GradientType=0); /* IE6-9 */
+
+    color: #ffffff;
+    box-shadow: 1px 5px 10px -5px black;
+    transition: all 1s ease;
+}
+
+/*sub menu*/
+.my-menu li ul{
+    position: absolute;
+    min-width: 150px;
+    display: none;
+}
+.my-menu li > ul li{
+    /*border: 1px solid #c7c8ca;*/
+}
+.my-menu li > ul li a{
+    padding: 10px;
+    text-transform: none;
+    background: #e4e4e5;
+}
+.my-menu li > ul li ul{
+    position: absolute;
+    right: -150px;
+    top: 0;
+}
+@media all and (min-width: 800px) {
+    .my-menu li:hover > ul {
+        display: block;
+        z-index: 2;
+    }
+}
+
+
+</style>
+<header class="nav">
+    <div class="undent">
+        <div class="site_logo">
+            <img class="logo" src="{% static "images/logo2.png" %}" alt="logo">
+        </div>
+        <div class="for_slogan"><span class="slogan">Соберем PC для каждого!</span></div>
+        <div class="infos">
+            <div class="header-info">
+                <a class="uk-link-muted uk-text-small">
             <span class="uk-icon" style="margin-right:2px">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
                     <path d="M1 11l9 3 3 9 9-21z" fill="#ccc" fill-rule="evenodd"></path>
                 </svg>
             </span>
-                        <span class="jsCityLabel" title="625000, Тюменская обл, г Тюмень"
-                              style="color: white">Тюмень</span>
-                    </a>
-                </div>
-                <div class="header-info">
-                    <a href="tel:88002349919" class="header__phone">
-                        <img src="https://edelws.ru/local/templates/main/img/icon/phone.svg" alt="">
-                        <span class="header__phone-tel" style="color: white">8 800 555-35-35</span>
-                    </a>
-                </div>
+                    <span class="jsCityLabel" title="625000, Тюменская обл, г Тюмень"
+                          style="color: white">Тюмень</span>
+                </a>
+            </div>
+            <div class="header-info">
+                <a href="tel:88002349919" class="header__phone">
+                    <img src="https://edelws.ru/local/templates/main/img/icon/phone.svg" alt="">
+                    <span class="header__phone-tel" style="color: white">8 800 555-35-35</span>
+                </a>
             </div>
         </div>
-    </header>
-    <div class="underheader bg-dark">
-        <div class="undent">
-            <a href="/" class="tap">Конфигуратор</a>
-            <a href="#" class="tap">Каталог</a>
-        </div>
     </div>
+</header>
+<nav class="my-menu">
+        <input type="checkbox" name="toggle" id="menu" class="toggleMenu">
+        <label for="menu" class="toggleMenu"><i class="fa fa-bars"></i>Меню</label>
+        <ul>
+            <li><a href="/"><i class="fa fa-home"></i>Конфигуратор</a></li>
+            <li>
+                <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m1">
+                <a href="#"><i class="fa fa-shopping-cart"></i>Каталог</a>
+                <label for="sub_m1" class="toggleSubmenu"><i class="fa"></i></label>
+                <ul class="inside-block">
+                    <li><a href="/hand/catalog/Cpu">Процессоры</a></li>
+                    <li><a href="/hand/catalog/Motherboard">Материнские платы</a></li>
+                    <li><a href="/hand/catalog/Gpu">Видеокарты</a></li>
+                    <li><a href="/hand/catalog/Ram">Оперативная память</a></li>
+                    <li><a href="/hand/catalog/Hard35">Жесткие диски</a></li>
+                    <li><a href="/hand/catalog/Ssd">Твердотельные накопители</a></li>
+                    <li><a href="/hand/catalog/Cooler">Кулеры процессора</a></li>
+                    <li><a href="/hand/catalog/PowerSupply">Блоки питания</a></li>
+
+                </ul>
+            </li>
+            <!--            <li><a href="#"><i class="fa fa-th-list"></i>Партнеры</a></li>-->
+            <li><a href="#"><i class="fa fa-envelope-open"></i>Контакты</a></li>
+        </ul>
+    </nav>
+
+<script>
+    $(function () {
+        $(window).scroll(function () {
+            var top = $(document).scrollTop();
+            if (top < 95) $(".my-menu").css({top: '0', position: 'relative', zIndex: '5'});
+            else $(".my-menu").css({
+                top: '0',
+                left: '0',
+                position: 'fixed',
+                width: '100%',
+                zIndex: '5',
+                background: '#343a40'
+            });
+        });
+    });
+
+
+</script>
     <div class="container">
         <div class="content">
             <div class="text-type">
                 <div class="text-header"><h2>Расширенный</h2>
                 </div>
-                <div class="text-info">В расширенном режиме вы можете более тонко настроить конфигурацию, задав желаемые показатели производительности.
+                <div class="text-info">В расширенном режиме вы можете более тонко настроить конфигурацию, задав желаемые
+                    показатели производительности.
                 </div>
             </div>
             <div class="photo-block">
@@ -100,40 +328,41 @@
                     <tr style="padding-left: 10px; width: 100%; ">
                         <td style="margin-right: auto">Процессор:</td>
                         <td style="margin: auto">
-                            <input type="range" class="slider" name="rangeInput" id="rangeInput1" min="0" max="100"
+                            <input type="range" class="slider" name="rangeInput" id="rangeInput1" min="0" value="19"
+                                   max="100"
                                    step="1" onchange="updateTextInput('textInput1', this.value);updateSum();"
                                    style="width: 50%;">
                         </td>
-                        <td style="margin-left: auto"><input name="cpu-price" type="number" id="textInput1" value=""
+                        <td style="margin-left: auto"><input name="cpu-price" type="number" id="textInput1" value="19"
                                                              size="3"
                                                              onchange="updateRangeInput('rangeInput1', this.value);updateSum();"
                                                              style="width: 40px;">%
                         </td>
                     </tr>
-
                     <tr>
                         <td>Материнская плата:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" id="rangeInput2" min="0" max="100"
+                            <input type="range" class="slider" name="rangeInput" id="rangeInput2" min="0" value="6"
+                                   max="100"
                                    step="1" onchange="updateTextInput('textInput2', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="mb-price" type="number" id="textInput2" value="" size="3"
+                        <td><input name="mb-price" type="number" id="textInput2" value="6" size="3"
                                    onchange="updateRangeInput('rangeInput2', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
                     </tr>
-
                     <tr>
                         <td>Видеокарта:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" id="rangeInput3" max="100"
+                            <input type="range" class="slider" name="rangeInput" min="0" id="rangeInput3" value="51"
+                                   max="100"
                                    step="1" onchange="updateTextInput('textInput3', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="gpu-price" type="number" id="textInput3" value="" size="3"
+                        <td><input name="gpu-price" type="number" id="textInput3" value="51" size="3"
                                    onchange="updateRangeInput('rangeInput3', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
@@ -141,41 +370,56 @@
                     <tr>
                         <td>Оперативная память:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" max="100" id="rangeInput4"
+                            <input type="range" class="slider" name="rangeInput" min="0" value="6" max="100"
+                                   id="rangeInput4"
                                    step="1" onchange="updateTextInput('textInput4', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="ram-price" type="number" id="textInput4" value="" size="3"
+                        <td><input name="ram-price" type="number" id="textInput4" value="6" size="3"
                                    onchange="updateRangeInput('rangeInput4', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
                     </tr>
-
                     <tr>
-                        <td>Кулер:</td>
+                        <td>Жесткий диск:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" max="100" id="rangeInput5"
-                                   step="1" onchange="updateTextInput('textInput5', this.value);updateSum();"
-                                   style="width: 50%;">
-
-                        </td>
-                        <td><input name="cooler-price" type="number" id="textInput5" value="" size="3"
-                                   onchange="updateRangeInput('rangeInput5', this.value);updateSum();"
-                                   style="width: 40px;">%
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Хранилище:</td>
-                        <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" max="100" id="rangeInput6"
+                            <input type="range" class="slider" name="rangeInput" min="0" value="4" max="100"
+                                   id="rangeInput6"
                                    step="1" onchange="updateTextInput('textInput6', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="storage-price" type="number" id="textInput6" value="" size="3"
+                        <td><input name="storage-price" type="number" id="textInput6" value="4" size="3"
                                    onchange="updateRangeInput('rangeInput6', this.value);updateSum();"
+                                   style="width: 40px;">%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Твердотельный накопитель:</td>
+                        <td>
+                            <input type="range" class="slider" name="rangeInput" min="0" value="5" max="100"
+                                   id="rangeInput8"
+                                   step="1" onchange="updateTextInput('textInput6', this.value);updateSum();"
+                                   style="width: 50%;">
+
+                        </td>
+                        <td><input name="storage-price" type="number" id="textInput8" value="5" size="3"
+                                   onchange="updateRangeInput('rangeInput8', this.value);updateSum();"
+                                   style="width: 40px;">%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Кулер процессора:</td>
+                        <td>
+                            <input type="range" class="slider" name="rangeInput" min="0" value="1" max="100"
+                                   id="rangeInput5"
+                                   step="1" onchange="updateTextInput('textInput5', this.value);updateSum();"
+                                   style="width: 50%;">
+
+                        </td>
+                        <td><input name="cooler-price" type="number" id="textInput5" value="1" size="3"
+                                   onchange="updateRangeInput('rangeInput5', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
                     </tr>
@@ -183,19 +427,19 @@
                     <tr>
                         <td>Блок питания:</td>
                         <td>
-                            <input type="range" class="slider" name="rangeInput" min="0" max="100" step="1"
+                            <input type="range" class="slider" name="rangeInput" min="0" value="1" max="100" step="1"
                                    id="rangeInput7" onchange="updateTextInput('textInput7', this.value);updateSum();"
                                    style="width: 50%;">
 
                         </td>
-                        <td><input name="ps-price" type="number" id="textInput7" value="" size="3"
+                        <td><input name="ps-price" type="number" id="textInput7" value="1" size="3"
                                    onchange="updateRangeInput('rangeInput7', this.value);updateSum();"
                                    style="width: 40px;">%
                         </td>
                     </tr>
                     <tr>
                         <td>Итого (от заданной цены):</td>
-                        <td align="right"><input id="sum" type="number" size="3" readonly/></td>
+                        <td align="right"><input id="sum" value="93" type="number" size="3" readonly/></td>
                         <td>%</td>
                     </tr>
 
@@ -290,7 +534,7 @@
                 </nav>
                 <nav class="dws-menu">
                     <input type="checkbox" name="toggle" id="motherboard" class="toggleMenu">
-                    <label for="motherboard" class="toggleMenu"><i class="fa fa-bars"></i>Мать</label>
+                    <label for="motherboard" class="toggleMenu"><i class="fa fa-bars"></i>Материнская плата</label>
                     <ul>
 
                         <div class="form-check">
@@ -433,44 +677,6 @@
                     </ul>
                 </nav>
                 <nav class="dws-menu">
-                    <input type="checkbox" name="toggle" id="powersupply" class="toggleMenu">
-                    <label for="powersupply" class="toggleMenu"><i class="fa fa-bars"></i>Блок питания</label>
-                    <ul>
-                        <div class="form-check">
-                            <p><b>Мощность (Вт)</b></p>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="1" name="power-ps">
-                                <label class="form-check-label" for="power-ps">
-                                    Менее 500
-                                </label>
-                                <br>
-                                <input class="form-check-input" type="radio" value="2" name="power-ps">
-                                <label class="form-check-label" for="power-ps">
-                                    500-1000
-                                </label>
-                                <br>
-                                <input class="form-check-input" type="radio" value="3" name="power-ps">
-                                <label class="form-check-label" for="power-ps">
-                                    1000 и более
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-check">
-                            <p><b>Форм-фактор</b></p>
-                            {% for form_factor_ps in form_factor_pss %}
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{form_factor_ps}}"
-                                       name="form-factor-ps[]">
-                                <label class="form-check-label" for="form-factor-ps[]">
-                                    {{form_factor_ps}}
-                                </label>
-                            </div>
-                            {% endfor %}
-                        </div>
-
-                    </ul>
-                </nav>
-                <nav class="dws-menu">
                     <input type="checkbox" name="toggle" id="ram" class="toggleMenu">
                     <label for="ram" class="toggleMenu"><i class="fa fa-bars"></i>Оперативная память</label>
                     <ul>
@@ -534,6 +740,219 @@
                     </ul>
                 </nav>
                 <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="hdd" class="toggleMenu">
+                    <label for="hdd" class="toggleMenu"><i class="fa fa-bars"></i>Жесткий диск</label>
+                    <ul>
+                        <div class="form-check">
+                            <p><b>Производитель </b></p>
+
+                            {% for manufacturer_hdd in manufacturer_hdd_list %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{manufacturer_hdd}}"
+                                       name="manufacturer_hdd[]">
+                                <label class="form-check-label" for="manufacturer_hdd[]">
+                                    {{manufacturer_hdd}}
+                                </label>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="form-check">
+                            <p><b>Объем накопителя (ТБ)</b></p>
+
+                            {% for volume_hdd in volume_hdd_list %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{volume_hdd}}"
+                                       name="volume_hdd[]">
+                                <label class="form-check-label" for="volume_hdd[]">
+                                    {{volume_hdd}}
+                                </label>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="form-check">
+                            <p><b>Скорость вращения шпинделя (об/мин)</b></p>
+
+                            {% for speed_hdd in speed_hdd_list %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{speed_hdd}}"
+                                       name="speed_hdd[]">
+                                <label class="form-check-label" for="speed_hdd[]">
+                                    {{speed_hdd}}
+                                </label>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="form-check">
+                            <p><b>Объем кэш-памяти (МБ)</b></p>
+
+                            {% for volume_cash_memory_hdd in volume_cash_memory_hdd_list %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{volume_cash_memory_hdd}}"
+                                       name="volume_cash_memory_hdd[]">
+                                <label class="form-check-label" for="volume_cash_memory_hdd[]">
+                                    {{volume_cash_memory_hdd}}
+                                </label>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </ul>
+                </nav>
+                <nav class="dws-menu">
+                    <input type="checkbox" name="toggle" id="ssd" class="toggleMenu">
+                    <label for="ssd" class="toggleMenu"><i class="fa fa-bars"></i>Твердотельный накопитель</label>
+                    <ul>
+                        <div class="form-check">
+                            <p><b>Производитель</b></p>
+
+                            {% for manufacturer_ssd in manufacturer_ssd_list %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{manufacturer_ssd}}"
+                                       name="manufacturer_ssd[]">
+                                <label class="form-check-label" for="manufacturer_ssd[]">
+                                    {{manufacturer_ssd}}
+                                </label>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="form-check">
+                            <p><b>Объем накопителя (ГБ)</b></p>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="1" name="volume_ssd">
+                                <label class="form-check-label" for="volume_ssd">
+                                    Все
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="2" name="volume_ssd">
+                                <label class="form-check-label" for="volume_ssd">
+                                    Менее 239
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="3" name="volume_ssd">
+                                <label class="form-check-label" for="volume_ssd">
+                                    240-479
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="4" name="volume_ssd">
+                                <label class="form-check-label" for="volume_ssd">
+                                    480-959
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="5" name="volume_ssd">
+                                <label class="form-check-label" for="volume_ssd">
+                                    960-1919
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="6" name="volume_ssd">
+                                <label class="form-check-label" for="volume_ssd">
+                                    1920 и более
+                                </label>
+                                <br>
+                            </div>
+
+
+                        </div>
+                        <div class="form-check">
+                            <p><b>Форм-фактор накопителя</b></p>
+
+                            {% for ff_ssd in ff_ssd_list %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{ff_ssd}}"
+                                       name="ff_ssd[]">
+                                <label class="form-check-label" for="ff_ssd[]">
+                                    {{ff_ssd}}
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+
+                        <div class="form-check">
+                            <p><b>Максимальная скорость последовательного чтения (Мбайт/сек)</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="1" name="read_speed_ssd">
+                                <label class="form-check-label" for="read_speed_ssd">
+                                    Все
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="2" name="read_speed_ssd">
+                                <label class="form-check-label" for="read_speed_ssd">
+                                    Менее 500
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="3" name="read_speed_ssd">
+                                <label class="form-check-label" for="read_speed_ssd">
+                                    501-1000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="4" name="read_speed_ssd">
+                                <label class="form-check-label" for="read_speed_ssd">
+                                    1001-1500
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="5" name="read_speed_ssd">
+                                <label class="form-check-label" for="read_speed_ssd">
+                                    1501-2000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="6" name="read_speed_ssd">
+                                <label class="form-check-label" for="read_speed_ssd">
+                                    2001-2500
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="7" name="read_speed_ssd">
+                                <label class="form-check-label" for="read_speed_ssd">
+                                    2501 и более
+                                </label>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <p><b>Максимальная скорость последовательной записи (Мбайт/сек)</b></p>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="1" name="write_speed_ssd">
+                                <label class="form-check-label" for="write_speed_ssd">
+                                    Все
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="2" name="write_speed_ssd">
+                                <label class="form-check-label" for="write_speed_ssd">
+                                    Менее 500
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="3" name="write_speed_ssd">
+                                <label class="form-check-label" for="write_speed_ssd">
+                                    501-1000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="4" name="write_speed_ssd">
+                                <label class="form-check-label" for="write_speed_ssd">
+                                    1001-1500
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="5" name="write_speed_ssd">
+                                <label class="form-check-label" for="write_speed_ssd">
+                                    1501-2000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="6" name="write_speed_ssd">
+                                <label class="form-check-label" for="write_speed_ssd">
+                                    2001 и более
+                                </label>
+                                <br>
+
+                            </div>
+
+                        </div>
+                    </ul>
+                </nav>
+                <nav class="dws-menu">
                     <input type="checkbox" name="toggle" id="cooler" class="toggleMenu">
                     <label for="cooler" class="toggleMenu"><i class="fa fa-bars"></i>Кулер процессора</label>
                     <ul>
@@ -591,52 +1010,44 @@
                     </ul>
                 </nav>
                 <nav class="dws-menu">
-                    <input type="checkbox" name="toggle" id="storage" class="toggleMenu">
-                    <label for="storage" class="toggleMenu"><i class="fa fa-bars"></i>Хранилище</label>
+                    <input type="checkbox" name="toggle" id="powersupply" class="toggleMenu">
+                    <label for="powersupply" class="toggleMenu"><i class="fa fa-bars"></i>Блок питания</label>
                     <ul>
-                        <div class="dynamic_fields">
-                            <div class="example_store">
-                                <div class="table1">
-                                    <div class="cell">
-                                        <div class="form-check">
-                                            <p><b>Тип накопителя </b></p>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="1"
-                                                       name="type-sg[]">
-                                                <label class="form-check-label" for="type-sg[]">
-                                                    HDD
-                                                </label>
-                                                <br>
-                                                <input class="form-check-input" type="checkbox" value="2"
-                                                       name="type-sg[]">
-                                                <label class="form-check-label" for="type-sg[]">
-                                                    SSD
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-check">
-                                                <p><b>Объем накопителя</b></p>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="{{value_sg}}"
-                                                           name="value-sg[]">
-                                                    <label class="form-check-label" for="value-sg[]">
-                                                        {{value_sg}}
-                                                    </label>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div class="cell">
-                                        <a class="js-remove pull-right btn btn-danger">-</a>
-                                    </div>
-                                </div>
+                        <div class="form-check">
+                            <p><b>Мощность (Вт)</b></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="1" name="power-ps">
+                                <label class="form-check-label" for="power-ps">
+                                    Менее 500
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="2" name="power-ps">
+                                <label class="form-check-label" for="power-ps">
+                                    500-1000
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" value="3" name="power-ps">
+                                <label class="form-check-label" for="power-ps">
+                                    1000 и более
+                                </label>
                             </div>
-
-                            <div class="strgs"></div>
-
-                            <a class="js-add pull-right btn btn-success">+</a>
                         </div>
+                        <div class="form-check">
+                            <p><b>Форм-фактор</b></p>
+                            {% for form_factor_ps in form_factor_pss %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{form_factor_ps}}"
+                                       name="form-factor-ps[]">
+                                <label class="form-check-label" for="form-factor-ps[]">
+                                    {{form_factor_ps}}
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+
                     </ul>
                 </nav>
+
                 <p style="padding-top: 35px; padding-left: 10px;">Введите описание</p>
                 <div class="intext"><input type="text" name="description" value=""></div>
 

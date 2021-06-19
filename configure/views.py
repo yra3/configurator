@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from configure.models import *
-IS_BENCHMARK = 0
+IS_BENCHMARK = 1
 
 
 def convert_to_int(string_value):
@@ -111,7 +111,10 @@ def simple_configure(request):
     from configure.BranchAndBoundMethod import BranchAndBoundMethod
     hdd_ssd = 2
     finder = BranchAndBoundMethod(budget, priorities, hdd_ssd, IS_BENCHMARK)
-    config = finder.find()
+    try:
+        config = finder.find()
+    except:
+        return redirect('/configure/simple')
     s = '/configuration/'
     for com in config.values():
         s += str(com.id)+'/'
@@ -132,8 +135,11 @@ def extended_configure(request):
         'powersupply': int(request.GET['ps-price'])/100,
     }
     hdd_ssd = 2
-    finder = BranchAndBoundMethodEx(budget, priorities, hdd_ssd, request=request)
-    config = finder.find()
+    finder = BranchAndBoundMethodEx(budget, priorities, hdd_ssd, is_benchmark_find=IS_BENCHMARK, request=request)
+    try:
+        config = finder.find()
+    except:
+        return redirect('/configure/extended')
     s = '/configuration/'
     for com in config.values():
         s += str(com.id) + '/'

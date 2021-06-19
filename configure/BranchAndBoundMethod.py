@@ -9,7 +9,7 @@ from multiprocessing import Process, Lock, cpu_count, Value, Array
 
 
 class BranchAndBoundMethod:
-    def __init__(self, budget: int, component_priorities: dict, hdd_ssd_ssdhdd=2, is_benchmark_find=0):
+    def __init__(self, budget: int, component_priorities: dict, hdd_ssd_ssdhdd=2, is_benchmark_find=1):
         """:param: hdd_ssd_ssdhdd  hdd_mode - 0, ssd - 1, hdd and ssd - 2
         :param is_benchmark_find: 0 - use price of component, 1 - use benchmark"""
         self.budget = budget
@@ -19,7 +19,7 @@ class BranchAndBoundMethod:
         if is_benchmark_find == 0:
             self.maximize_component = ['-price', '-price']
         else:
-            self.maximize_component = ['-benchmark_mark', '-benchmark_mark']
+            self.maximize_component = ['-benchmark_mark', '-g3d_mark']
         self.is_benchmark_find = is_benchmark_find
         self.set_types()
         self.lower_estimate = 0
@@ -79,17 +79,26 @@ class BranchAndBoundMethod:
         # if cpu:
         #     component_lists['Cpu'] = cpus = models.CPU.objects.filter(price__lte=budget_constraints['CPU'],
 
-        # find all available cpu in database without null values in attributes used in configuring and sort it
-        cpus = models.CPU.objects.filter(price__lte=budget_constraints['CPU'], socket__isnull=False,
-                                         maximum_frequency_of_ram__isnull=False, minimum_frequency_of_ram__isnull=False,
-                                         heat_dissipation_tdp__isnull=False, ).order_by(self.maximize_component[0])
-        # maximized attribute selected in Configuration.Cpu.__init__
-        cpus = [Cpu(cpu, self.component_priorities['CPU']) for cpu in cpus]  # create list of not Model cpu objects
-
         gpus = models.GPU.objects.filter(price__lte=budget_constraints['GPU'],
                                          maximum_power_consumption__isnull=False).order_by(self.maximize_component[1])
+        # maximized attribute selected in Configuration.Cpu.__init__
+        cpus = models.CPU.objects.filter(price__lte=budget_constraints['CPU'], socket__isnull=False,
+                                         maximum_frequency_of_ram__isnull=False,
+                                         minimum_frequency_of_ram__isnull=False,
+                                         heat_dissipation_tdp__isnull=False, ).order_by(self.maximize_component[0])
+        if self.is_benchmark_find == 0:
+            cpus = [Cpu(cpu, self.component_priorities['CPU'], cpu.price) for cpu in
+                    cpus]  # create list of not Model cpu objects
+            gpus = [Gpu(gpu, self.component_priorities['GPU'], gpu.price) for gpu in
+                    gpus]  # create list of not Model gpu objects
+        else:
+            cpus = models.CPU.objects.filter(benchmark_mark__isnull=False).order_by(self.maximize_component[0])
+            gpus = models.GPU.objects.filter(g3d_mark__isnull=False).order_by(self.maximize_component[1])
+            cpus = [Cpu(cpu, self.component_priorities['CPU'], cpu.benchmark_mark) for cpu in
+                    cpus]  # create list of not Model cpu objects
+            gpus = [Gpu(gpu, self.component_priorities['GPU'], gpu.g3d_mark) for gpu in
+                    gpus]  # create list of not Model gpu objects
         # maximized attribute selected in Configuration.Gpu.__init__
-        gpus = [Gpu(gpu, self.component_priorities['GPU']) for gpu in gpus]  # create list of not Model gpu objects
 
         mothers = models.motherboard.objects.filter(price__lte=budget_constraints['motherboard'],
                                                     socket__isnull=False, supported_memory_form_factor__isnull=False,
