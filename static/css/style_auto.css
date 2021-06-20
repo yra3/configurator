@@ -1,6 +1,7 @@
 .main {
     margin: auto;
-    background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
+    background: black;
+    /*background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");*/
     background-attachment: fixed;
 }
 
@@ -8,6 +9,29 @@
     width: 90%;
     max-width: 100%;
     margin: auto;
+}
+.active {
+    margin: 0 -1% 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+}
+.active div {
+    display: none;
+    width: 23%;
+    margin: 1%;
+    background-image: linear-gradient(135deg, #3c3c3c, #2d2d2d);
+    font-size: 60px;
+    color: #fff;
+    text-align: center;
+    height: auto;
+    padding: 20px;
+}
+.active div h1{
+    font-size: 18px;
+}
+.active div p{
+    font-size: 13px;
 }
 .nav {
     background: #1f1f1f;
@@ -56,7 +80,6 @@
     box-shadow: 0 5px 10px #090808;
     align-items: center;
     display: flex;
-    z-index: 5;
 
 }
 .main .underheader .tap {
@@ -76,12 +99,18 @@
 
 }
 .content {
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    padding-top: 20px;
+    padding: 20px;
     justify-content: center;
     align-items: center;
     color: #02ca58;
-    margin-bottom: 20px;
 }
 .text-type{
     width: 60%;
@@ -92,9 +121,7 @@
 
 .input-block{
     color: #ffffff;
-    background: #1f1f1f;
-    border: 1px solid white;
-    margin-bottom: 30px;
+    background: #161616;
 }
 .configs{
     width: 80%;
@@ -114,13 +141,19 @@
 .card {
     min-height: 300px;
     height: 100%;
-    z-index: 1;
 }
+.card-title {
+    margin-top: .75rem;
+    text-align: center;
+    /*border-bottom: 3px solid #02ca58;*/
 
+}
+.card-img-top{
+    padding: 10px;
+}
 .card-body {
     color: #ffffff;
     position: static;
-    z-index: 1;
 }
 .card:hover {
     background: #3e3e3e;
@@ -129,7 +162,6 @@
 }
 
 .card:active {
-
     box-shadow: 0 0 50px 0 #02ca58 inset, 0 0 50px 2px #02ca58;
     border: 3px solid #02ca58;
 }
@@ -237,5 +269,32 @@ footer{
 }
 .last-section{
     text-align: center;
+}
+
+
+
+@media all and (max-width: 994px){
+    .content .photo-block{
+        display: none;
+    }
+    .content .text-type{text-align: center;
+    }
+    .content .text-type .text-header h2{
+        font-size: 20px;
+    }
+    .active{
+        flex-direction: column;
+        align-items: baseline;
+    }
+    .active div{
+        width: 100%;
+    }
+    .top-photo{
+        margin-bottom: 40px;
+    }
+    .content{
+        top: 40%;
+    }
+
 }
 /*# sourceMappingURL=style.css.map */

@@ -382,81 +382,6 @@ input[name="price_left"],  input[name="price_right"]{
     padding-left: 20px;
 
 }
-@media all and (max-width:  1150px){
-    .cl1{
-        flex-basis: 100%;
-    }
-    .price-block{
-        margin-left: auto;
-    }
-}
-
-@media all and (max-width:  850px){
-    .title{
-        display: block;
-        flex-basis: 100%;
-        border-bottom: 1px groove #a4a4a4;
-        flex-grow: 5;
-    }
-    .ph-block{
-        margin-left: auto;
-    }
-    .text-block{
-        flex-basis: 50%;
-         margin-right: auto;
-    }
-    .price-block{
-        flex-basis: 50%;
-        margin-left: 0;
-        padding-top: 10px;
-        margin-right: auto;
-        padding-right: 0;
-    }
-
-    .price-block > p{
-        margin-right: auto;
-    }
-    .remove-block{
-        flex-basis: 100%;
-        justify-content: center;
-    }
-    .svg{
-        display: none;
-    }
-    .total-price, .total-wattage{
-        display: none;
-    }
-    .ph-block{
-        margin-left: 0;
-        height: auto;
-        flex-basis: 140px;
-    }
-    .text-block{
-        flex-basis: 50%;
-        padding-right: 20px;
-    }
-    .button-block{
-        display: none;
-    }
-    .mb-button-block{
-        display: flex;
-        flex-basis: 20%;
-        margin-left: auto;
-    }
-    .mb-button-block > div{
-        padding-right: 20px;
-    }
-    .cl1 .card{
-        display: none;
-    }
-    .mb-menu{
-        display: block;
-    }
-    .modal-dialog{
-        display: block;
-    }
-
-}
 
 .component:hover
 {
@@ -521,6 +446,80 @@ footer{
 }
 .last-section{
     text-align: center;
+}
+@media all and (max-width:  1150px){
+    .cl1{
+        flex-basis: 100%;
+    }
+    .price-block{
+        margin-left: auto;
+    }
+}
+
+@media all and (max-width:  994px){
+    .title{
+        display: block;
+        flex-basis: 100%;
+        flex-grow: 5;
+    }
+    .ph-block{
+        margin-left: auto;
+    }
+    .text-block{
+        flex-basis: 50%;
+         margin-right: auto;
+    }
+    .price-block{
+        flex-basis: 50%;
+        margin-left: 0;
+        padding-top: 10px;
+        margin-right: auto;
+        padding-right: 0;
+    }
+
+    .price-block > p{
+        margin-right: auto;
+    }
+    .remove-block{
+        flex-basis: 100%;
+        justify-content: center;
+    }
+    .svg{
+        display: none;
+    }
+    .total-price, .total-wattage{
+        display: none;
+    }
+    .ph-block{
+        margin-left: 0;
+        height: auto;
+        flex-basis: 140px;
+    }
+    .text-block{
+        flex-basis: 50%;
+        padding-right: 20px;
+    }
+    .button-block{
+        display: none;
+    }
+    .mb-button-block{
+        display: flex;
+        flex-basis: 20%;
+        margin-left: auto;
+    }
+    .mb-button-block > div{
+        padding-right: 20px;
+    }
+    .cl1 .card{
+        display: none;
+    }
+    .mb-menu{
+        display: block;
+    }
+    .modal-dialog{
+        display: block;
+    }
+
 }
 
 /*# sourceMappingURL=style.css.map */

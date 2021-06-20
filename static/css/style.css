@@ -1,12 +1,516 @@
 .main {
-    background: #fffefe;
+    background: #000000;
     margin: auto;
-    background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
+	/*background:url("https://andpro.ru/upload/iblock/21f/Game_PC_2020.jpg") repeat-x,
+                #fff url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg") repeat-x 100% 0;
+    padding: 10px;Поля вокруг текста */
+	/*background-image: url("https://sun9-1.userapi.com/impg/lnuZ7SBXo13t6VI4IB4isMHgfHqqdGdNqNwF4w/nx6yElAm5sI.jpg?size=1501x1101&quality=96&sign=c514f89afb2f74358fb58564fab85560&type=album");*/
+    /*background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");*/
     background-attachment: fixed;
+}
+.active {
+    margin: 0 -1% 15px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -50%);
+}
+
+.active div {
+    display: none;
+    float: left;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.9);
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+
+}
+
+.passive-bottom-left {
+
+    overflow: hidden;
+    bottom: 8px;
+    left: 16px;
+    width: 500px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    flex-basis: 40%;
+}
+
+.passive-top-left {
+
+    margin-left: auto;
+    overflow: hidden;
+    width: 500px;
+    height: auto;
+    top: 8px;
+    left: 16px;
+    margin-right: auto;
+    flex-basis: 40%;
+
+}
+
+
+.passive-top-right {
+
+    overflow: hidden;
+    top: 8px;
+    right: 16px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-basis: 40%;
+    height: auto;
+}
+
+.passive-bottom-right {
+    overflow: hidden;
+    width: 500px;
+    bottom: 8px;
+    right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-basis: 40%;
+    height: auto;
+}
+
+.passive-bottom-left div,
+.passive-top-left div,
+.passive-top-right div,
+.passive-bottom-right div {
+    display: none;
+    float: left;
+    position: relative;
+    flex-basis: 30%;
+    height: 80%;
+    width: 100%;
+    margin: auto;
+    padding: 20px 20px;
+    background: rgba(0, 0, 0, 0.9);
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+
+}
+
+
+.col i{
+    display: inline-block;
+
+    border-radius: 50%;
+    padding: 0.3em;
+    border: 7px solid white; /* Параметры рамки */
+    -moz-box-sizing: border-box; /* Для Firefox */
+    box-sizing: border-box; /* Ширина блока с полями */
+
+}
+.fa-robot{
+    font-size: 70px;
+    transform: scale(1.1,1.25);
+
+}
+.fa-sliders-h,
+.fa-hand-paper {
+    font-size: 90px;
+}
+.fa-robot,
+.fa-sliders-h,
+.fa-hand-paper {
+    background-color: transparent;
+    margin: auto;
+    color: white;
+    transition: .3s;
+}
+.fa-robot:hover,
+.fa-sliders-h:hover,
+.fa-hand-paper:hover {
+    animation: pulse 1s infinite;
+    transition: .3s;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.img-box {height: 200px;
+    overflow: hidden;}
+.dws-wrapper {
+    display: flex;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+}
+.container-images {
+    min-width: 100%;
+    height: 500px;
+    display: flex;
+    padding: 0px;
+}
+.img-box {
+    flex-grow: 1;
+    height: 100%;
+    background-size: 750px 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 1s;
+    filter: grayscale(1);
+}
+.img-box:hover {
+    background-size: 900px 600px;
+    flex-grow: 5;
+    filter: grayscale(0);
+    opacity: 1;
+}
+.bor-left-right::before,
+.bor-top-bottom::before,
+.bor-left-right::after,
+.bor-top-bottom::after {
+    content: '';
+    position: absolute;
+    background-color: #ffffff;
+    opacity: .3;
+    transition: 1s;
+}
+.bor-left-right::before {
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 10px;
+}
+.bor-top-bottom::before {
+    width: 100%;
+    height: 1px;
+    top: 10px;
+    left: 0;
+}
+.bor-left-right::after {
+    width: 1px;
+    height: 100%;
+    bottom: 0;
+    right: 10px;
+}
+.bor-top-bottom::after {
+    width: 100%;
+    height: 1px;
+    bottom: 10px;
+    left: 0;
+}
+.img-box:hover .bor-left-right::after,
+.img-box:hover .bor-left-right::before,
+.img-box:hover .bor-top-bottom::before,
+.img-box:hover .bor-top-bottom::after {
+    transition: 1s;
+    opacity: .7;
+    transition-delay: 0.3s;
+}
+.img-box:hover .bor-left-right::after {
+    transform: translateY(-100%);
+}
+.img-box:hover .bor-left-right::before {
+    transform: translateY(100%);
+}
+.img-box:hover .bor-top-bottom::before {
+    transform: translateX(100%);
+}
+.img-box:hover .bor-top-bottom::after {
+    transform: translateX(-100%);
+}
+.content-text {
+    color: #ffffff;
+    background-color: #000;
+    opacity: .7;
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    text-align: justify;
+    width: 70%;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    -webkit-transform: translateY(120%);
+    -moz-transform: translateY(120%);
+    -ms-transform: translateY(120%);
+    -o-transform: translateY(120%);
+    transform: translateY(120%);
+    transition: 0.5s;
+}
+.img-box:hover .content-text {
+    transform: translateY(0);
+    transition-delay: 1s;
+}
+.content-text h2 {
+    margin: 0 0 5px;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 26px;
+    color: #4cdde5;
+}
+.content-text p {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+.my-menu{
+    z-index: 5;
+    box-shadow: 0 5px 10px #090808;
+    background: #343a40;
+}
+.my-menu > ul{
+    background: #343a40;
+    display: flex;
+    width: 90%;
+    margin: auto;
+
+}
+.my-menu [type="checkbox"],
+.my-menu label.toggleSubmenu{
+    display: none;
+}
+.my-menu label.toggleMenu{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c9c9c9+0,f6f6f6+2,c4c5c7+98,757577+100;Custom+3 */
+    background: #343a40;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9c9c9', endColorstr='#757577', GradientType=0); /* IE6-9 */
+
+    display: none;
+    padding: 15px 40px;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.my-menu label.toggleMenu .fa{
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    font-size: 18px;
+}
+.top-img{
+    position: relative; width: 100%; height: auto;
+}
+.active > div > h5{
+    font-size: 50px; color: white;
+}
+.active > div > p{
+    margin-top: 30px;
+}
+/*@media all and (max-width: 994px){*/
+/*    .my-menu{*/
+/*        overflow: hidden;*/
+/*        background: #343a40;*/
+/*        color: #9d9d9d;*/
+/*    }*/
+/*    .my-menu ul{*/
+/*        display: block;*/
+/*        max-height: 0;*/
+/*        transition: max-height 0.1s;*/
+/*    }*/
+/*    .my-menu li>ul li ul{*/
+/*        position: absolute;*/
+/*        right: auto;*/
+/*        top: auto;*/
+/*    }*/
+/*    .my-menu label.toggleMenu{*/
+/*        display: block;*/
+/*    }*/
+/*    .my-menu input.toggleMenu:checked + label.toggleMenu{*/
+/*        background: #000;*/
+/*        color: #9d9d9d;*/
+
+/*    }*/
+/*    .my-menu input.toggleMenu:checked ~ ul,*/
+/*    .my-menu input.toggleSubmenu:checked ~ ul{*/
+/*        display: block;*/
+/*        position: relative;*/
+/*        max-height: 5000px;*/
+/*        transition: max-height 2s ease-in;*/
+/*    }*/
+/*    .my-menu label.toggleSubmenu{*/
+/*        position: absolute;*/
+/*        top: 0;*/
+/*        right: 0;*/
+/*        width: 100%;*/
+/*        height: 100%;*/
+/*        cursor: pointer;*/
+/*        display: block;*/
+/*    }*/
+/*    .my-menu input.toggleSubmenu:checked ~ a{*/
+/*        background: #454547;*/
+/*        color: #fff;*/
+/*    }*/
+/*    .my-menu label.toggleSubmenu .fa:before{*/
+/*        content: "\f0d7";*/
+/*        color: #9d9d9d;*/
+/*    }*/
+/*    .my-menu label.toggleSubmenu .fa{*/
+/*        position: absolute;*/
+/*        top: 15px;*/
+/*        right: 30px;*/
+/*    }*/
+/*    .my-menu input.toggleSubmenu:checked ~ label.toggleSubmenu .fa::before{*/
+/*        content: "\f0d8";*/
+/*        color: #ffffff;*/
+/*    }*/
+/*    .facts{*/
+/*        display: none;*/
+/*    }*/
+
+/*}*/
+
+body{
+    background-image: url("../img/ep_naturalwhite.png");
+}
+header{
+    /*margin-top: 200px;*/
+    font-family: Cuprum, Arial, Helvetica, sans-serif;
+}
+.my-menu *{
+    margin: 0;
+    padding: 0;
+}
+.my-menu ul,
+.my-menu ol{
+    list-style: none;
+}
+.my-menu > ul{
+    display: flex;
+    /*justify-content: center;*/
+}
+.my-menu > ul li{
+    position: relative;
+    /*border-right: 1px solid #c7c8ca;*/
+}
+.my-menu > ul li:first-child{
+    /*border-left: 1px solid #b2b3b5;*/
+}
+.my-menu > ul li:last-child{
+    /*border-right: 1px solid #babbbd;*/
+}
+.my-menu > ul li > a i.fa{
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    font-size: 18px;
+}
+.my-menu > ul li a{
+    display: block;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c9c9c9+0,f6f6f6+2,c4c5c7+98,757577+100;Custom+3 */
+    background: #343a40;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9c9c9', endColorstr='#757577', GradientType=0); /* IE6-9 */
+
+    padding: 15px 30px 15px 40px;
+    font-size: 14px;
+    color: #9d9d9d;
+
+    text-decoration: none;
+    text-transform:uppercase;
+    transition: all 1s ease;
+}
+.my-menu li a:hover{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e0e1e5+0,454547+2,454547+98,e0e1e5+100 */
+    background: #343a40;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9c9c9', endColorstr='#757577', GradientType=0); /* IE6-9 */
+
+    color: #ffffff;
+    box-shadow: 1px 5px 10px -5px black;
+    transition: all 1s ease;
+}
+
+/*sub menu*/
+.my-menu li ul{
+    position: absolute;
+    min-width: 150px;
+    display: none;
+}
+.my-menu li > ul li{
+    /*border: 1px solid #c7c8ca;*/
+}
+.my-menu li > ul li a{
+    padding: 10px;
+    text-transform: none;
+    background: #e4e4e5;
+}
+.my-menu li > ul li ul{
+    position: absolute;
+    right: -150px;
+    top: 0;
+}
+/*@media all and (min-width: 994px) {*/
+/*    .my-menu li:hover > ul {*/
+/*        display: block;*/
+/*        z-index: 1;*/
+/*    }*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.facts-block{
+    position: relative; width: 100%; height: auto; display: flex;
+}
+.facts{
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; width: 80%; height: 70%; flex-wrap: wrap;
+}
+.set-mode{
+    width: 100%; display: flex; height: 1000px; background: #161616;
 }
 
 .main .container {
-padding-top: 30px;
     width: 90%;
     max-width: 100%;
     margin: auto;
@@ -48,21 +552,93 @@ padding-top: 30px;
 .card {
     min-height: 500px;
     height: 100%;
-    z-index: 1;
+
 }
 
 .card-body {
     color: #ffffff;
     background: #1f1f1f;
     position: static;
-    z-index: 1;
-}
 
+}
+.card-body > hr{
+    width: 100px; color: #02ca58; height: 2px; opacity: 1;
+}
+.card-title {
+    margin-top: .75rem;
+    text-align: center;
+    /*border-bottom: 3px solid #02ca58;*/
+
+}
 .card .card-body:hover {
     background: #3e3e3e;
 }
-
-
+.card .card-body:hover  .card-photo {
+    -webkit-animation: 0.1s tremor ease-out 2;
+    animation: 0.1s tremor ease-out 2;
+}
+@-webkit-keyframes tremor {
+    0%, 25% {
+        left: -0.5px;
+        top:-0.5px;
+        -webkit-transform: rotate(-1deg);
+        transform: rotate(-1deg);
+    }
+    50%, 100% {
+        left: 1px;
+        top: 1px;
+        -webkit-transform: rotate(1deg);
+        transform: rotate(1deg);
+    }
+}
+@-moz-keyframes tremor {
+    0%, 25% {
+        left: -0.5px;
+        -webkit-transform: rotate(-1deg);
+        transform: rotate(-1deg);
+    }
+    50%, 100% {
+        left: 1px;
+        -webkit-transform: rotate(1deg);
+        transform: rotate(1deg);
+    }
+}
+@-ms-keyframes tremor {
+    0%, 25% {
+        left: -0.5px;
+        -webkit-transform: rotate(-1deg);
+        transform: rotate(-1deg);
+    }
+    50%, 100% {
+        left: 1px;
+        -webkit-transform: rotate(1deg);
+        transform: rotate(1deg);
+    }
+}
+@-o-keyframes tremor {
+    0%, 25% {
+        left: -0.5px;
+        -webkit-transform: rotate(-1deg);
+        transform: rotate(-1deg);
+    }
+    50%, 100% {
+        left: 1px;
+        -webkit-transform: rotate(1deg);
+        transform: rotate(1deg);
+    }
+}
+@keyframes tremor {
+    0%, 25% {
+        left: -0.5px;
+        -webkit-transform: rotate(-1deg);
+        transform: rotate(-1deg);
+    }
+    50%, 100% {
+        left: 1px;
+        -webkit-transform: rotate(1deg);
+        transform: rotate(1deg);
+    }
+}
 .card .card-body:active {
     background: #151414;
 }
@@ -143,6 +719,9 @@ padding-top: 30px;
     color: #02a546;
 }
 
+.content .title {
+
+}
 
 .row {
     display: flex;
@@ -191,4 +770,117 @@ footer{
 .last-section{
     text-align: center;
 }
+.mb-desc{
+    display: none;
+}
+.container > .content > .title{
+    font-size: 80px;
+}
+@media all and (max-width: 994px){
+    .my-menu{
+        overflow: hidden;
+        background: #343a40;
+        color: #9d9d9d;
+    }
+    .my-menu ul{
+        display: block;
+        max-height: 0;
+        transition: max-height 0.1s;
+    }
+    .my-menu li>ul li ul{
+        position: absolute;
+        right: auto;
+        top: auto;
+    }
+    .my-menu label.toggleMenu{
+        display: block;
+    }
+    .my-menu input.toggleMenu:checked + label.toggleMenu{
+        background: #000;
+        color: #9d9d9d;
+
+    }
+    .my-menu input.toggleMenu:checked ~ ul,
+    .my-menu input.toggleSubmenu:checked ~ ul{
+        display: block;
+        position: relative;
+        max-height: 5000px;
+        transition: max-height 2s ease-in;
+    }
+    .my-menu label.toggleSubmenu{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        display: block;
+    }
+    .my-menu input.toggleSubmenu:checked ~ a{
+        background: #454547;
+        color: #fff;
+    }
+    .my-menu label.toggleSubmenu .fa:before{
+        content: "\f0d7";
+        color: #9d9d9d;
+    }
+    .my-menu label.toggleSubmenu .fa{
+        position: absolute;
+        top: 15px;
+        right: 30px;
+    }
+    .my-menu input.toggleSubmenu:checked ~ label.toggleSubmenu .fa::before{
+        content: "\f0d8";
+        color: #ffffff;
+    }
+    .facts{
+        display: none;
+    }
+    .dws-wrapper{
+        display: none;
+    }
+    .active{
+        display: none;
+    }
+    .mb-desc{
+        padding: 20px 20px;
+        color: white;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.9);
+    }
+    .mb-desc > div > h5{
+        text-align: center;
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+    .mb-desc > div > p{
+        text-align: center;
+        font-size: 16px;
+    }
+    .container > .content > .title{
+        font-size: 25px;
+    }
+    .card {
+        flex-basis: 100%;
+    }
+    .set-mode{
+        height: auto;
+    }
+    .card{
+        margin-top: 10px;
+    }
+
+}
+@media all and (min-width: 994px) {
+    .my-menu li:hover > ul {
+        display: block;
+        z-index: 1;
+    }
+}
+
+
 /*# sourceMappingURL=style.css.map */

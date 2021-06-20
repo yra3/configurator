@@ -1,12 +1,41 @@
 .main {
     margin: auto;
-    background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
+    background: black;
     background-attachment: fixed;
 }
-
-.content {
+.active {
+    margin: 0 -1% 15px;
+    overflow: hidden;
     display: flex;
-    padding-top: 20px;
+    align-items: stretch;
+}
+.active div {
+    display: none;
+    width: 23%;
+    margin: 1%;
+    background-image: linear-gradient(135deg, #3c3c3c, #2d2d2d);
+    font-size: 60px;
+    color: #fff;
+    text-align: center;
+    height: auto;
+    padding: 20px;
+}
+.active div h1{
+    font-size: 18px;
+}
+.active div p{
+    font-size: 13px;
+}
+.content {
+background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    padding: 20px;
     justify-content: center;
     align-items: center;
     color: #02ca58;
@@ -28,6 +57,10 @@
     width: 90%;
     max-width: 100%;
     margin: auto;
+    margin-bottom: 120px;
+}
+.bov .container{
+    margin-bottom: 0;
 }
 .nav {
     background: #1f1f1f;
@@ -240,8 +273,8 @@ scroll-page {
     height: auto;
     width: 100.6%;
     color: white;
-    background: #1f1f1f;
-    border:1px solid white;
+   background-image: linear-gradient(135deg, #222222, #161616);
+
     border-radius: 0.25rem;
     margin-bottom: 10px;
     padding: 10px;
@@ -283,73 +316,7 @@ scroll-page {
     height: 70px;
     margin: auto;
 }
-@media all and (max-width:  767px){
-    .title{
-        display: block;
-        flex-basis: 100%;
-        border-bottom: 1px groove #a4a4a4;
-        flex-grow: 5;
-    }
-    .ph-block{
-        margin-left: auto;
-    }
-    .text-block{
-        flex-basis: 50%;
-         margin-right: auto;
-    }
-    .price-block{
-        flex-basis: 100%;
-    }
-    .price-block > div{
-        margin-left: auto;
-    }
-    .price-block > p{
-        margin-right: auto;
-    }
-    .remove-block{
-        flex-basis: 100%;
-        justify-content: center;
-    }
-    .but{
-        display: flex;
-        margin: auto;
-    }
-    .svg{
-        display: none;
-    }
-    .tp-mobile{
-        display: flex;
-        flex-basis: 44%;
-        flex-wrap: wrap;
-        margin-left: auto;
-    }
-    .tw-mobile {
-        display: flex;
-        flex-basis: 44%;
-        flex-wrap: wrap;
-        margin-right: auto;
-    }
-    .tp-mobile > i{
-        margin-left: auto;
-    }
-    .tp-mobile > p{
-        margin-right: auto;
-    }
-    .tw-mobile > i{
-        margin-left: auto;
-    }
-    .tw-mobile > p{
-        margin-right: auto;
-    }
-    .total-price, .total-wattage{
-        display: none;
-    }
-    .remove-block > form {
-        height: 70px;
-        justify-content: center;
-    }
 
-}
 
 .component:hover
 {
@@ -415,5 +382,92 @@ footer{
 .last-section{
     text-align: center;
 }
+@media all and (max-width: 994px){
+.title{
+        display: block;
+        flex-basis: 100%;
+        border-bottom: 1px groove #a4a4a4;
+        flex-grow: 5;
+    }
+    .ph-block{
+        margin-left: auto;
+    }
+    .text-block{
+        flex-basis: 50%;
+         margin-right: auto;
+    }
+    .price-block{
+        flex-basis: 100%;
+    }
+    .price-block > div{
+        margin-left: auto;
+    }
+    .price-block > p{
+        margin-right: auto;
+    }
+    .remove-block{
+        flex-basis: 100%;
+        justify-content: center;
+    }
+    .but{
+        display: flex;
+        margin: auto;
+    }
+    .svg{
+        display: none;
+    }
+    .tp-mobile{
+        display: flex;
+        flex-basis: 44%;
+        flex-wrap: wrap;
+        margin-left: auto;
+    }
+    .tw-mobile {
+        display: flex;
+        flex-basis: 44%;
+        flex-wrap: wrap;
+        margin-right: auto;
+    }
+    .tp-mobile > i{
+        margin-left: auto;
+    }
+    .tp-mobile > p{
+        margin-right: auto;
+    }
+    .tw-mobile > i{
+        margin-left: auto;
+    }
+    .tw-mobile > p{
+        margin-right: auto;
+    }
+    .total-price, .total-wattage{
+        display: none;
+    }
+    .remove-block > form {
+        height: 70px;
+        justify-content: center;
+    }
+    .content .photo-block{
+        display: none;
+    }
+    .content .text-type{text-align: center;
+    }
+    .content .text-type .text-header h2{
+        font-size: 20px;
+    }
+    .active{
+        flex-direction: column;
+        align-items: baseline;
+    }
+    .active div{
+        width: 100%;
+    }
+    .top-photo{
+        margin-bottom: 40px;
+    }
+    .content{
+        top: 40%;
+    }
 
+}
 /*# sourceMappingURL=style.css.map */

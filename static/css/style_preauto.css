@@ -50,7 +50,29 @@
     width: 1px;
     padding-left: 10px;
 }
-
+.active {
+    margin: 0 -1% 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+}
+.active div {
+    display: none;
+    width: 23%;
+    margin: 1%;
+    background-image: linear-gradient(135deg, #3c3c3c, #2d2d2d);
+    font-size: 60px;
+    color: #fff;
+    text-align: center;
+    height: auto;
+    padding: 20px;
+}
+.active div h1{
+    font-size: 18px;
+}
+.active div p{
+    font-size: 13px;
+}
 .btn {
     display: inline-block;
     padding: 6px 12px;
@@ -88,8 +110,8 @@
 }
 .main {
     margin: auto;
+    background: black;
     background-attachment: fixed;
-    background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
     /*background-image: -moz-linear-gradient(bottom,  rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 100%),url("https://artline.ua/storage/images/editor/editor_1599143277632562_0.png"); !* FF3.6-15 *!*/
     /*background-image: -webkit-linear-gradient(bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,0.5) 100%),url("https://artline.ua/storage/images/editor/editor_1599143277632562_0.png"); !* Chrome10-25,Safari5.1-6 *!*/
     /*background-image: linear-gradient(to top,  rgba(0,0,0,1) 0%,rgba(0,0,0,0.5) 100%),url("https://artline.ua/storage/images/editor/editor_1599143277632562_0.png"); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
@@ -327,12 +349,18 @@
 }
 
 .content {
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    padding-top: 20px;
+    padding: 20px;
     justify-content: center;
     align-items: center;
     color: #02ca58;
-    margin-bottom: 20px;
 }
 
 .text-type {
@@ -345,8 +373,9 @@
 
 .input-block {
     color: #ffffff;
-    background: #1f1f1f;
-    border: 1px solid white;
+    background: #161616;
+    border-left: 3px solid #02ca58;
+    border-right: 3px solid #02ca58;
     margin-bottom: 30px;
 }
 
@@ -512,5 +541,28 @@ footer {
 .last-section {
     text-align: center;
 }
+@media all and (max-width: 994px){
+    .content .photo-block{
+        display: none;
+    }
+    .content .text-type{text-align: center;
+    }
+    .content .text-type .text-header h2{
+        font-size: 20px;
+    }
+    .active{
+        flex-direction: column;
+        align-items: baseline;
+    }
+    .active div{
+        width: 100%;
+    }
+    .top-photo{
+        margin-bottom: 40px;
+    }
+    .content{
+        top: 40%;
+    }
 
+}
 /*# sourceMappingURL=style.css.map */

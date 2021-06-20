@@ -51,13 +51,14 @@
 					</div>
 				</div>
 			</div>
-    <div class="container">
+    <div class="top-photo">
+        <img src="https://sun9-26.userapi.com/impg/lOvCXB5ci0RwOnkycLV9thSCVndfySDrcPU-Qw/YF0Y6QAXTJg.jpg?size=1016x567&quality=96&sign=76dc05bbbb9db1a624316165874f8409&type=album"
+             style="width: 100%; height: auto;">
         <div class="content">
             <div class="text-type">
-                <div class="text-header"><h2>Ручной режим</h2>
+                <div class="text-header"><h2>Расширенный режим</h2>
                 </div>
-                <div class="text-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dignissimos fugit
-                    nihil nisi non odio officia sapiente sed voluptas? Ad.
+                <div class="text-info">Данный режим предназначен для опытных пользователей. Выбор комплектующих осуществляется вручную.
                 </div>
             </div>
             <div class="photo-block">
@@ -65,6 +66,41 @@
                      src="https://edelws.ru/upload/iblock/b9e/b9e9f4c65319f0769f7ecbd44c3840c4.png" alt="">
             </div>
         </div>
+    </div>
+
+    <div class="container">
+        <div class="active">
+            <div>
+                <h1>
+                    Подсказка 1
+                </h1>
+                <p>
+                    Здесь Вы можете отслеживать общее энергопотребление Вашей предварительной сборки.
+                </p>
+            </div>
+            <div><h1>
+                Подсказка 2
+            </h1>
+                <p>
+                    Выбор комплектующих осуществляется вручную.
+                </p></div>
+            <div><h1>
+                Подсказка 3
+            </h1>
+                <p>
+                    Все комплектующие удовлетворяют условиям совместимости.
+                </p></div>
+            <div><h1>
+                Готово!
+            </h1>
+                <p>
+                    Получите готовую сборку!
+                </p></div>
+        </div>
+    </div>
+    <hr style="margin-left:auto; width: 70%; color: #02ca58; height: 2px; opacity: 1;">
+    <div style="background: #161616">
+    <div class="container">
         <div class="overall">
             <div class="total-price">
                 <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
@@ -98,10 +134,13 @@
                 </div>
             </a></div>
         </div>
+    </div>
+
+    <div class="container">
         <div class="row">
             <div class="cl1">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card" style="border:none; background: #161616">
+                    <div class="card-body" style="background: #161616">
                         <div class="box">
                             {% if is_cpu %}
                             <div class="itm" id='0'>
@@ -267,7 +306,7 @@
             </div>
 
             <div class="cl2">
-                <div class="card">
+                <div class="card" style="border:none; border-left: 3px solid #02ca58">
                     <div class="card-body" style="display: flex; flex-direction: column;">
                         <scroll-container>
                             <scroll-page id="page-0">
@@ -759,6 +798,7 @@
             </div>
         </div>
     </div>
+        </div>
     <footer class="bov">
         <div class="container">
             <div class="row padding text-center">
@@ -869,5 +909,39 @@
 
 
 </script>
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    var block_show = false;
+
+    function scrollTracking() {
+        if (block_show) {
+            return false;
+        }
+
+        var wt = $(window).scrollTop();
+        var wh = $(window).height();
+        var et = $('.active').offset().top;
+        var eh = $('.active').outerHeight();
+        var dh = $(document).height();
+
+        if (wt + wh >= et || wh + wt == dh || eh + et < wh) {
+            block_show = true;
+
+            // Код анимации
+            $('.active div:eq(0)').show('fast', function () {
+                $(this).next().show('fast', arguments.callee);
+            });
+        }
+    }
+
+    $(window).scroll(function () {
+        scrollTracking();
+    });
+
+    $(document).ready(function () {
+        scrollTracking();
+    });
+</script>
+
 </body>
 </html>

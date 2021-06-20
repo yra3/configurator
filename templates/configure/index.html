@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-{% load static %}
+
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/static/css/style.css?{% now "U" %}"/>
-
+    <link rel="stylesheet" href="/static/css/style.css?{% now " U" %}"/>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -22,62 +21,220 @@
     <style> a:hover {
         text-decoration: none;
     }</style>
+
 </head>
 
 
 <body>
 <div class="main">
-
     {% include "include_blocks/header.html" %}
-    <div class="container">
-        <div class="content">
-            <h1 class="title">Выберите режим сборки</h1>
+    <div class="dws-wrapper " style="margin-bottom: 150px">
+        <section class="container-images">
+            <div class="img-box"
+                 style="background-image: url('https://pc60.pro/wp-content/uploads/2020/03/dark_flash_tower_webready-08678.jpg')">
+                <span class="bor-left-right"></span>
+                <span class="bor-top-bottom"></span>
+                <div class="content-text">
+                    <h2>Простой режим сборки</h2>
+                    <p>Данный режим предназначен для автоматической оптимальной конфигурации персонального компьютера,
+                        исходя из вашего бюджета и целей данного устройства.</p>
+                </div>
+            </div>
+            <div class="img-box"
+                 style="background-image: url('https://www.itl.cat/pngfile/big/293-2936310_computer-gamer-gaming-republic-technics-technology-pc-gaming.jpg')">
+                <span class="bor-left-right"></span>
+                <span class="bor-top-bottom"></span>
+                <div class="content-text">
+                    <h2>Расширенный режим сборки</h2>
+                    <p>Данный режим предназначен для полуавтоматической оптимальной конфигурации персонального
+                        компьютера. Здесь Вы можете задать как бюджет в целом, так и предпочитаемые ценовые диапазоны
+                        для каждой из комплектующих, а так же и другие их параметры.</p>
+                </div>
+            </div>
+            <div class="img-box"
+                 style="background-image: url('https://www.newegg.com/insider/wp-content/uploads/2019/03/dark-flash-i5-build-gaming-PC.jpg')">
+                <span class="bor-left-right"></span>
+                <span class="bor-top-bottom"></span>
+                <div class="content-text">
+                    <h2>Ручной режим сборки</h2>
+                    <p>Данный режим предназначен для ручного подбора комплектующих. Пользователь самостоятельно
+                        осуществляет выбор комплектующих из списка доступных и удовлетворяющих условиям
+                        совместимости.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="top-img" >
+        <img src="https://sun9-64.userapi.com/impg/EAW59HJKdHBO_i6u0V5CJ70OdRc1zI5KyLpkZg/TCiKqDDVKSs.jpg?size=926x659&quality=96&sign=32da25025d1f48be9990d0cca05aee72&type=album"
+             style="width: 100%; height: auto">
+        <div class="active">
+            <div><h5>Конфигуратор ПК</h5>
+                <p>
+                    Это онлайн-конструктор, с помощью которого можно самостоятельно или автоматически подобрать
+                    комплектующие для будущего компьютера или обновить уже существующую систему.
+                </p></div>
         </div>
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 ">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body" onclick = "f1()">
-                        <h5 class="card-title">Простой</h5>
-                        <p class="card-text">Простой режим позволит быстро найти подходящую вам конфигурацию.</p>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-body" onclick = "f2()">
-                        <h5 class="card-title">Расширенный</h5>
-                        <p class="card-text">В расширенном режиме вы можете более тонко настроить конфигурацию, задав желаемые показатели производительности.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-body" onclick = "f3()">
-                        <h5 class="card-title">Ручной</h5>
-                        <p class="card-text">Данный режим предназначен для опытных пользователей. Выбор комплектующих осуществляется вручную.</p>
-                    </div>
-                </div>
-
-            </div>
-
+        <div class="mb-desc">
+            <div><h5>Конфигуратор ПК</h5>
+                <p>
+                    Это онлайн-конструктор, с помощью которого можно самостоятельно или автоматически подобрать
+                    комплектующие для будущего компьютера или обновить уже существующую систему.
+                </p></div>
         </div>
     </div>
-    {% include 'include_blocks/footer.html' %}
+    <div class="container" style="padding-top: 40px">
+        <div class="content">
+            <h1 class="title" >Выберите режим сборки</h1>
+            <hr style="width: 40%; color: #02ca58; height: 3px; opacity: 1">
+        </div>
+    </div>
+
+
+
+    <div class="set-mode">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 ">
+                <div class="col">
+                    <div class="card" style="background: #161616">
+                        <div class="card-body" onclick="f1()">
+                            <div class="card-photo"><img class="img-fluid"
+                                                         src="https://edelws.ru/upload/iblock/b9e/b9e9f4c65319f0769f7ecbd44c3840c4.png">
+                            </div>
+                            <h5 class="card-title">Простой</h5>
+                            <hr>
+                            <p class="card-text">Простой режим позволит быстро найти подходящую вам конфигурацию.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card" style="background: #161616">
+                        <div class="card-body" onclick="f2()">
+                            <div class="card-photo"><img class="img-fluid"
+                                                         src="https://edelws.ru/upload/iblock/b9e/b9e9f4c65319f0769f7ecbd44c3840c4.png">
+                            </div>
+
+                            <h5 class="card-title">Расширенный</h5>
+                            <hr >
+                            <p class="card-text">В расширенном режиме вы можете более тонко настроить конфигурацию,
+                                задав желаемые показатели производительности.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card" style="background: #161616">
+                        <div class="card-body" onclick="f3()">
+                            <div class="card-photo"><img class="img-fluid"
+                                                         src="https://edelws.ru/upload/iblock/b9e/b9e9f4c65319f0769f7ecbd44c3840c4.png">
+                            </div>
+
+                            <h5 class="card-title">Ручной</h5>
+                            <hr >
+                            <p class="card-text">Данный режим предназначен для опытных пользователей. Выбор
+                                комплектующих осуществляется вручную.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class= "facts-block">
+        <img src="https://sun9-70.userapi.com/impg/IpNrlICRxb8T_Pu_P7pZF1MpCsXah2ci3EjhOw/4EKMcxwH0i4.jpg?size=1483x1080&quality=96&sign=1f152fe47fab3b6cc010022ac69b2fbc&type=album"
+             style="width: 100%">
+        <div class="facts">
+                <div class="passive-top-left">
+                <div class="qwe"><h5> Факт 1</h5>
+                    <p style="font-size: 18px">
+                        Каждая комплектующая была запаршена с каталога DNS. Наша база данных обновляется каждый день.
+                    </p></div>
+            </div>
+
+
+            <div class="passive-top-right">
+                <div class="qwe"><h5> Факт 2</h5>
+                    <p  style="font-size: 18px">
+                        Для критериев подбора комплектующих в автоматическом режиме использовались реальные
+                        цены комплектующих для каждого из типов ПК.
+                    </p></div>
+
+            </div>
+            <div class="passive-bottom-left">
+                <div class="qwe">
+                    <h5> Факт 3</h5>
+                    <p style="font-size: 18px">
+                        Для определения производительности CPU и GPU используются бенчмарки.
+                    </p></div>
+            </div>
+            <div class="passive-bottom-right">
+                <div class="qwe"><h5> Факт 4</h5>
+                    <p style="font-size: 18px">
+                        Этот блок был сделан для красоты.
+                    </p></div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="bov">
+        <div class="container">
+            <div class="row padding text-center">
+                <div class="information">
+                    <div class="inf-for-user">
+                        <h3>Информация пользователю</h3>
+                    </div>
+                    <div class="col">
+                        <a href="#">
+                            <div class="tap">Источники</div>
+                        </a>
+                        <a href="#">
+                            <div class="tap">Справка</div>
+                        </a>
+                        <a href="#">
+                            <div class="tap">О нас</div>
+                        </a>
+                        <a href="#">
+                            <div class="tap">Контакты</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <a href="#"><i class="fab fa-vk"> </i></a>
+                    <a href="#"><i class="fab fa-instagram"> </i></a>
+                    <a href="#"><i class="fab fa-youtube"> </i></a>
+                    <a href="#"><i class="fab fa-twitter"> </i></a>
+                    <a href="#"><i class="fab fa-facebook"> </i></a>
+                </div>
+            </div>
+            <div class="last-section">
+                © 2021 ConfigPC. Все права защищены.
+            </div>
+        </div>
+
+    </footer>
 </div>
 
 
 <script>
-    $(function(){
-        $(window).scroll(function() {
+    $(function () {
+        $(window).scroll(function () {
             var top = $(document).scrollTop();
-            if (top < 95) $(".underheader").css({top: '0', position: 'relative'});
-            else $(".underheader").css({top: '0', left: '0', position: 'fixed', width:'100%', background: 'none repeat scroll 0% 0% rgba(9, 125, 240, 0.7)'});
+            if (top < 95) $(".my-menu").css({top: '0', position: 'relative', zIndex: '5'});
+            else $(".my-menu").css({
+                top: '0',
+                left: '0',
+                position: 'fixed',
+                width: '100%',
+                zIndex: '5',
+                background: '#343a40'
+            });
         });
     });
+
     function f1() {
         location.href = "/configure/simple";
     }
@@ -88,12 +245,85 @@
         location.href = "/hand/configuration";
     }
 
-<!--        function f(x) {-->
-<!--    if (x===1) (location.href = "/configure/simple";)-->
-<!--    else if(x===2) ( location.href = "/configure/extended"; )-->
-<!--    else if(x===3) ( location.href = "/configure/handled";)-->
+</script>
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    var block_show = false;
 
-<!--    }-->
+    function scrollTracking() {
+        if (block_show) {
+            return false;
+        }
+
+        var wt = $(window).scrollTop();
+        var wh = $(window).height();
+        var et = $('.active').offset().top;
+        var eh = $('.active').outerHeight();
+        var dh = $(document).height();
+
+        if (wt + wh >= et || wh + wt == dh || eh + et < wh) {
+            block_show = true;
+
+            // Код анимации
+            $('.active div:eq(0)').show('slow', function () {
+                $(this).next().show('slow', arguments.callee);
+            });
+        }
+    }
+
+    $(window).scroll(function () {
+        scrollTracking();
+    });
+
+    $(document).ready(function () {
+        scrollTracking();
+    });
+
+</script>
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    var pblock_show = false;
+
+    function pscrollTracking() {
+        if (pblock_show) {
+            return false;
+        }
+
+        var wt = $(window).scrollTop();
+        var wh = $(window).height();
+        var et = $('.passive-top-left').offset().top;
+        var eh = $('.passive-top-left').outerHeight();
+
+        var dh = $(document).height();
+
+        if (wt + wh >= et || wh + wt == dh || eh + et < wh) {
+            pblock_show = true;
+            // Код анимации
+            $('.passive-top-left div:eq(0)').show('slow', function () {
+                $(this).next().show('slow', arguments.callee);
+            });
+            $('.passive-top-right div:eq(0)').delay(250).show('slow', function () {
+                $(this).next().show('slow', arguments.callee);
+            });
+            $('.passive-bottom-left div:eq(0)').delay(500).show('slow', function () {
+                $(this).next().show('slow', arguments.callee);
+            });
+            $('.passive-bottom-right div:eq(0)').delay(750).show('slow', function () {
+                $(this).next().show('slow', arguments.callee);
+            });
+        }
+
+    }
+
+
+    $(window).scroll(function () {
+        pscrollTracking();
+    });
+
+    $(document).ready(function () {
+        pscrollTracking();
+    });
+
 </script>
 
 </body>
