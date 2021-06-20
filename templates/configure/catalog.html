@@ -33,9 +33,7 @@
     }
 
     .card {
-        background: #1f1f1f;
-        border: 1px solid white;
-    }
+        background: #161616;    }
     </style>
 </head>
 
@@ -126,7 +124,11 @@
         </div>
     </div>
     {% include "include_blocks/header.html" %}
+    <div class="top-photo">
+        <img src="https://sun9-71.userapi.com/impg/QDOIzENMUINTghix9TCf2OLME8rfu54CrNIWOg/vAiFwkG9wU0.jpg?size=1070x334&quality=96&sign=316c4be1ca3531ece070e537aae1c707&type=album"
+             style="width: 100%; height: 300px;">
 
+    </div>
     <div class="container">
         <div class="content">
             <h2 class="title">Выберите {{component_name}}</h2>
@@ -226,7 +228,7 @@
                             <div class="ph-block">
                                 <img src="{{ cpu.picture }}"
                                      style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-    border: 3px solid #02ca58;margin: 20px;">
+    border: 3px solid #02ca58;margin: 20px;" onerror="this.src = 'https://hyperpc.ru/cache/hp_part_img/palit-gaming-pro-3080-314x177.jpg'">
                             </div>
                             <div class="text-block">
                                 <a href="/configuration/{{component_name}}/{{ cpu.id }}"><h6 style=" color: white">{{ cpu.name }}</h6></a>

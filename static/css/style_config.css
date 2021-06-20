@@ -1,6 +1,6 @@
 .main {
     margin: auto;
-    background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
+    background-image: url("https://sun1-99.userapi.com/impg/BJ-as7sW0E3bPXf1FWKFCxvw5Qoj6r9z0_GBsQ/ftKUeDEbpGw.jpg?size=1186x764&quality=96&sign=8a8c6925fd395cd34e5e737879ba5312&type=album");
     background-attachment: fixed;
 }
 
@@ -99,7 +99,49 @@
     flex: 1 1 100px;
     flex-basis:700px; flex-grow: 3;
 }
+.picked_component{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
 
+}
+.photo-block {
+    width: 500px;
+}
+.prc {
+    display: flex;
+    flex-basis: 100%;
+}
+.price-block{
+    display: flex;
+    padding-top: 20px;
+    flex-basis: 25%;
+    height:  auto;
+    /*width: 300px;*/
+    /*flex-grow: 2;*/
+}
+.card-price .price-block{
+    display: flex;
+    padding-top: 0;
+    height:  auto;
+}
+.price-block > div{
+    margin-left: auto;
+}
+.price-block > p{
+    margin-right: 30px;
+}
+.text-block{
+    padding-top: 20px;
+    flex-basis: 50%;
+    height:  auto;
+    /*width: 300px;*/
+    /*flex-grow: 2;*/
+}
+.text-block a h6 {
+    font-size: 20px;
+}
 .card .card-body .box .itm {
     display: flex;
     margin: 2%;
@@ -114,14 +156,22 @@
     padding: 20px;
 }
 .card-head{
-    border-bottom: 2px solid white;
+padding-top:20px;
+padding-bottom: 40px;
+padding-left: 20px;
+    border-bottom: 2px solid #02ca58;
 }
 .card-foot{
-    border-top: 2px solid white;
+padding-top:40px;
+padding-bottom: 20px;
+padding-left: 20px;
+    border-top: 2px solid #02ca58;
     display: flex;
 }
 .card-price{
     margin-left: auto;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 18px;
 }
 .imgs{
     background: white;
@@ -148,14 +198,12 @@
 .card-body {
     color: #ffffff;
     position: static;
-    z-index: 1;
 }
 .butt-block{
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
+    display:flex;
+    margin: auto;
+    justify-content:center;
 }
-
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -205,5 +253,12 @@ footer{
 .last-section{
     text-align: center;
 }
-
+@media all and (max-width: 994px){
+    .price-block{
+        flex-basis: 100%;
+    }
+    .price-block > p{
+    margin-right: auto;
+}
+}
 /*# sourceMappingURL=style.css.map */

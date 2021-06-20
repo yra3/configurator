@@ -1,6 +1,6 @@
 .main {
     margin: auto;
-    background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
+    background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/22/44/Fx8GV2.jpg");
     background-attachment: fixed;
 }
 .patch {
@@ -102,15 +102,14 @@
 
 .input-block{
     color: #ffffff;
-    background: #1f1f1f;
-    border: 1px solid white;
+    background:  #161616;
+
     height: auto;
 }
 
 .characteristics-block{
     color: #ffffff;
-    background: #1f1f1f;
-    border: 1px solid white;
+    background:  #161616;
     height: auto;
 }
 

@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/css/style_handled.css?{% now "U" %}"/>
+    <link rel="stylesheet" href="/static/css/style_handled.css?{% now " U" %}"/>
 
     <script src="css/slick/slick/slick.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/slick/slick/slick.css"/>
@@ -30,6 +30,7 @@
         border: 1px solid white;
     }
 
+
     </style>
 </head>
 
@@ -39,18 +40,18 @@
 <div class="main">
     {% include "include_blocks/header.html" %}
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
-				<div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-					<div class="toast-header">
-						<div id="div1" class="fa"></div>
-						<strong class="me-auto">Важно!</strong>
-						<small>Только что</small>
-						<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-					</div>
-					<div class="toast-body">
-						Данный режим использует cookies.
-					</div>
-				</div>
-			</div>
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <div id="div1" class="fa"></div>
+                <strong class="me-auto">Важно!</strong>
+                <small>Только что</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Данный режим использует cookies.
+            </div>
+        </div>
+    </div>
     <div class="top-photo">
         <img src="https://sun9-26.userapi.com/impg/lOvCXB5ci0RwOnkycLV9thSCVndfySDrcPU-Qw/YF0Y6QAXTJg.jpg?size=1016x567&quality=96&sign=76dc05bbbb9db1a624316165874f8409&type=album"
              style="width: 100%; height: auto;">
@@ -58,7 +59,8 @@
             <div class="text-type">
                 <div class="text-header"><h2>Расширенный режим</h2>
                 </div>
-                <div class="text-info">Данный режим предназначен для опытных пользователей. Выбор комплектующих осуществляется вручную.
+                <div class="text-info">Данный режим предназначен для опытных пользователей. Выбор комплектующих
+                    осуществляется вручную.
                 </div>
             </div>
             <div class="photo-block">
@@ -100,705 +102,717 @@
     </div>
     <hr style="margin-left:auto; width: 70%; color: #02ca58; height: 2px; opacity: 1;">
     <div style="background: #161616">
-    <div class="container">
-        <div class="overall">
-            <div class="total-price">
-                <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                 style="color: #02ca58;margin-top: 6px"></i></div>
-                <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+        <div class="container">
+            <div class="overall">
+                <div class="total-price">
+                    <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                     style="color: #02ca58;margin-top: 6px"></i></div>
+                    <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 12pt; margin-left: 7px">Общая стоимость 1 950 ₽</p>
 
-            </div>
-            <div class="tp-mobile">
-                <i class="fas fa-tags fa-x"
-                   style="color: #02ca58;margin-top: 6px"></i>
-                <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12pt; margin-left: 7px">1 950 ₽</p>
-            </div>
-            <div class="total-wattage">
-                <div style="font-size: 1rem;"><i class="fas fa-bolt fa-x"
-                                                 style="color: #02ca58;margin-top: 6px"></i></div>
-                <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12pt; margin-left: 7px">Общее энергопотребление 11W</p>
-            </div>
-            <div class="tw-mobile">
-                <i class="fas fa-bolt fa-x"
-                   style="color: #02ca58;margin-top: 6px"></i>
-                <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12pt; margin-left: 7px">11 W</p>
-            </div>
-            <div class="endbtn"><a href="/configuration/{{Cpu.id}}/{{Gpu.id}}/{{Motherboard.id}}/{{Ram.id}}/{{Cooler.id}}/{{Ssd.id}}/{{Hard35.id}}/{{PowerSupply.id}}/">
-                <div class="btn"
-                     style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
-                    Собрать
                 </div>
-            </a></div>
+                <div class="tp-mobile">
+                    <i class="fas fa-tags fa-x"
+                       style="color: #02ca58;margin-top: 6px"></i>
+                    <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12pt; margin-left: 7px">1 950 ₽</p>
+                </div>
+                <div class="total-wattage">
+                    <div style="font-size: 1rem;"><i class="fas fa-bolt fa-x"
+                                                     style="color: #02ca58;margin-top: 6px"></i></div>
+                    <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12pt; margin-left: 7px">Общее энергопотребление 11W</p>
+                </div>
+                <div class="tw-mobile">
+                    <i class="fas fa-bolt fa-x"
+                       style="color: #02ca58;margin-top: 6px"></i>
+                    <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12pt; margin-left: 7px">11 W</p>
+                </div>
+                <div class="endbtn"><a
+                        href="/configuration/{{Cpu.id}}/{{Gpu.id}}/{{Motherboard.id}}/{{Ram.id}}/{{Cooler.id}}/{{Ssd.id}}/{{Hard35.id}}/{{PowerSupply.id}}/">
+                    <div class="btn"
+                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;">
+                        Собрать
+                    </div>
+                </a></div>
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="cl1">
-                <div class="card" style="border:none; background: #161616">
-                    <div class="card-body" style="background: #161616">
-                        <div class="box">
-                            {% if is_cpu %}
-                            <div class="itm" id='0'>
-                                {% include "svg_images/cpu_green.html" %}
-                                <div class="itmname">
-                                    <a href="#page-0"><h6 class="card-title" style="margin: 10px; color: white">
-                                        Процессор</h6></a>
+        <div class="container">
+            <div class="row">
+                <div class="cl1">
+                    <div class="card" style="border:none; background: #161616">
+                        <div class="card-body" style="background: #161616">
+                            <div class="box">
+                                {% if is_cpu %}
+                                <div class="itm" id='0'>
+                                    {% include "svg_images/cpu_green.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-0"><h6 class="card-title" style="margin: 10px; color: white">
+                                            Процессор</h6></a>
+                                    </div>
                                 </div>
-                            </div>
 
-                            {% else %}
-                            <div class="itm" id='0'>
-                                {% include "svg_images/cpu_black.html" %}
-                                <div class="itmname">
-                                    <a href="#page-0"><h6 class="card-title" style="margin: 10px; color: #727272">
-                                        Процессор</h6></a>
+                                {% else %}
+                                <div class="itm" id='0'>
+                                    {% include "svg_images/cpu_black.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-0"><h6 class="card-title" style="margin: 10px; color: #727272">
+                                            Процессор</h6></a>
+                                    </div>
                                 </div>
-                            </div>
 
-                            {% endif %}
-                            {% if is_motherboard %}
-                            <div class="itm" id='1'>
-                                {% include "svg_images/mother_green.html" %}
-                                <div class="itmname">
-                                    <a href="#page-1"><h6 class="card-title" style="margin: 10px; color: white">
-                                        Материнская плата </h6></a>
+                                {% endif %}
+                                {% if is_motherboard %}
+                                <div class="itm" id='1'>
+                                    {% include "svg_images/mother_green.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-1"><h6 class="card-title" style="margin: 10px; color: white">
+                                            Материнская плата </h6></a>
+                                    </div>
                                 </div>
-                            </div>
 
-                            {% else %}
-                            <div class="itm" id='1'>
-                                {% include "svg_images/mother_black.html" %}
-                                <div class="itmname">
-                                    <a href="#page-1"><h6 class="card-title" style="margin: 10px; color: #727272">
-                                        Материнская плата </h6></a>
+                                {% else %}
+                                <div class="itm" id='1'>
+                                    {% include "svg_images/mother_black.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-1"><h6 class="card-title" style="margin: 10px; color: #727272">
+                                            Материнская плата </h6></a>
+                                    </div>
                                 </div>
-                            </div>
 
-                            {% endif %}
-                            {% if is_gpu %}
+                                {% endif %}
+                                {% if is_gpu %}
 
-                            <div class="itm" id='2'>
-                                {% include "svg_images/gpu_green.html" %}
-                                <div class="itmname">
-                                    <a href="#page-2"><h6 class="card-title" style="margin: 10px; color: white">
-                                        Видеокарта </h6></a>
+                                <div class="itm" id='2'>
+                                    {% include "svg_images/gpu_green.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-2"><h6 class="card-title" style="margin: 10px; color: white">
+                                            Видеокарта </h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% else %}
-                            <div class="itm" id='2'>
-                                {% include "svg_images/gpu_black.html" %}
-                                <div class="itmname">
-                                    <a href="#page-2"><h6 class="card-title" style="margin: 10px; color: #727272">
-                                        Видеокарта </h6></a>
+                                {% else %}
+                                <div class="itm" id='2'>
+                                    {% include "svg_images/gpu_black.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-2"><h6 class="card-title" style="margin: 10px; color: #727272">
+                                            Видеокарта </h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% endif %}
+                                {% endif %}
 
-                            {% if is_ram %}
-                            <div class="itm" id='3'>
-                                {% include "svg_images/ram_green.html" %}
-                                <div class="itmname">
-                                    <a href="#page-3"><h6 class="card-title" style="margin: 10px; color: white">
-                                        Оперативная память</h6></a>
+                                {% if is_ram %}
+                                <div class="itm" id='3'>
+                                    {% include "svg_images/ram_green.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-3"><h6 class="card-title" style="margin: 10px; color: white">
+                                            Оперативная память</h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% else %}
+                                {% else %}
 
-                            <div class="itm" id='3'>
-                                {% include "svg_images/ram_black.html" %}
-                                <div class="itmname">
-                                    <a href="#page-3"><h6 class="card-title" style="margin: 10px; color: #727272">
-                                        Оперативная память</h6></a>
+                                <div class="itm" id='3'>
+                                    {% include "svg_images/ram_black.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-3"><h6 class="card-title" style="margin: 10px; color: #727272">
+                                            Оперативная память</h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% endif %}
-                            {% if is_hard35 %}
-                            <div class="itm" id='4'>
-                                {% include "svg_images/hard35_green.html" %}
-                                <div class="itmname">
-                                    <a href="#page-4"><h6 class="card-title" style="margin: 10px; color: white">
-                                        HDD </h6></a>
+                                {% endif %}
+                                {% if is_hard35 %}
+                                <div class="itm" id='4'>
+                                    {% include "svg_images/hard35_green.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-4"><h6 class="card-title" style="margin: 10px; color: white">
+                                            HDD </h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% else %}
+                                {% else %}
 
-                            <div class="itm" id='4'>
-                                {% include "svg_images/hard35_black.html" %}
-                                <div class="itmname">
-                                    <a href="#page-4"><h6 class="card-title" style="margin: 10px; color: #727272">
-                                        HDD </h6></a>
+                                <div class="itm" id='4'>
+                                    {% include "svg_images/hard35_black.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-4"><h6 class="card-title" style="margin: 10px; color: #727272">
+                                            HDD </h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% endif %}
-                            {% if is_ssd %}
+                                {% endif %}
+                                {% if is_ssd %}
 
-                            <div class="itm" id='5'>
-                                {% include "svg_images/ssd_green.html" %}
-                                <div class="itmname">
-                                    <a href="#page-5"><h6 class="card-title" style="margin: 10px; color: white">
-                                        SSD </h6></a>
+                                <div class="itm" id='5'>
+                                    {% include "svg_images/ssd_green.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-5"><h6 class="card-title" style="margin: 10px; color: white">
+                                            SSD </h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% else %}
+                                {% else %}
 
 
-                            <div class="itm" id='5'>
-                                {% include "svg_images/ssd_black.html" %}
-                                <div class="itmname">
-                                    <a href="#page-5"><h6 class="card-title" style="margin: 10px; color: #727272">
-                                        SSD </h6></a>
+                                <div class="itm" id='5'>
+                                    {% include "svg_images/ssd_black.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-5"><h6 class="card-title" style="margin: 10px; color: #727272">
+                                            SSD </h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% endif %}
-                            {% if is_cooler %}
+                                {% endif %}
+                                {% if is_cooler %}
 
 
-                            <div class="itm" id='6'>
-                                {% include "svg_images/cooler_green.html" %}
-                                <div class="itmname">
-                                    <a href="#page-6"><h6 class="card-title" style="margin: 10px; color: white">
-                                        Кулер
-                                        процессора </h6></a>
+                                <div class="itm" id='6'>
+                                    {% include "svg_images/cooler_green.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-6"><h6 class="card-title" style="margin: 10px; color: white">
+                                            Кулер
+                                            процессора </h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% else %}
+                                {% else %}
 
 
-                            <div class="itm" id='6'>
-                                {% include "svg_images/cooler_black.html" %}
-                                <div class="itmname">
-                                    <a href="#page-6"><h6 class="card-title" style="margin: 10px; color: #727272">
-                                        Кулер
-                                        процессора </h6></a>
+                                <div class="itm" id='6'>
+                                    {% include "svg_images/cooler_black.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-6"><h6 class="card-title" style="margin: 10px; color: #727272">
+                                            Кулер
+                                            процессора </h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% endif %}
-                            {% if is_powersupply %}
+                                {% endif %}
+                                {% if is_powersupply %}
 
 
-                            <div class="itm" id='7'>
-                                {% include "svg_images/ps_green.html" %}
-                                <div class="itmname">
-                                    <a href="#page-7"><h6 class="card-title" style="margin: 10px; color: white">Блок
-                                        питания</h6></a>
+                                <div class="itm" id='7'>
+                                    {% include "svg_images/ps_green.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-7"><h6 class="card-title" style="margin: 10px; color: white">Блок
+                                            питания</h6></a>
+                                    </div>
                                 </div>
-                            </div>
-                            {% else %}
+                                {% else %}
 
 
-                            <div class="itm" id='7'>
-                                {% include "svg_images/ps_black.html" %}
-                                <div class="itmname">
-                                    <a href="#page-7"><h6 class="card-title" style="margin: 10px; color: #727272">
-                                        Блок
-                                        питания</h6></a>
+                                <div class="itm" id='7'>
+                                    {% include "svg_images/ps_black.html" %}
+                                    <div class="itmname">
+                                        <a href="#page-7"><h6 class="card-title" style="margin: 10px; color: #727272">
+                                            Блок
+                                            питания</h6></a>
+                                    </div>
                                 </div>
+                                {% endif %}
                             </div>
-                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cl2">
+                    <div class="card" style="border:none; border-left: 3px solid #02ca58">
+                        <div class="card-body" style="display: flex; flex-direction: column;">
+                            <scroll-container>
+                                <scroll-page id="page-0">
+                                    {% if not is_cpu %}
+                                    <div class="component">
+                                        <a href="/hand/catalog/Cpu">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    {% include "svg_images/cpu_big.html" %}
+                                                </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">
+                                                    Процессор</h6>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+    padding-left: 20px;">Процессор</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Cpu.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href="/configuration/Cpu/{{Cpu.id}}/"><h6
+                                                    style="padding: 0 12px 0 12px; color: white">
+                                                {{ Cpu.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10pt; margin-left: 7px">{{ Cpu.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+
+                                            <form action="/hand/configuration/" method="post" style="display:flex">
+                                                <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                               value="delete"></div>
+                                                <div class="invz" style="display: none"><input type="id"
+                                                                                               name="component_type"
+                                                                                               value="Cpu"></div>
+                                                {% csrf_token %}
+                                                <button type="submit"
+                                                        style="border: none; background: none;width: 150px; height: 38px;">
+                                                    <div class="svg">
+                                                        {% include "svg_images/cross.html" %}
+                                                    </div>
+                                                    <div class="but">
+                                                        <div class="btn"
+                                                             style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                            Удалить
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </scroll-page>
+                                <scroll-page id="page-1">
+
+                                    {% if not is_motherboard %}
+                                    <div class="component">
+                                        <a href="/hand/catalog/Motherboard">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    {% include "svg_images/mother_big.html" %}
+                                                </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Материнская
+                                                    плата</h6>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% else %}
+
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+    padding-left: 20px;">Материнская плата</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Motherboard.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href="/configuration/Motherboard/{{Motherboard.id}}/"><h6
+                                                    style="padding: 0 12px 0 12px; color: white">{{ Motherboard.name
+                                                }}</h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10pt; margin-left: 7px">{{ Motherboard.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+
+                                            <form action="/hand/configuration/" method="post" style="display:flex">
+                                                <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                               value="delete"></div>
+                                                <div class="invz" style="display: none"><input type="id"
+                                                                                               name="component_type"
+                                                                                               value="Motherboard">
+                                                </div>
+                                                {% csrf_token %}
+                                                <button type="submit"
+                                                        style="border: none; background: none;width: 150px; height: 38px;">
+                                                    <div class="svg">
+                                                        {% include "svg_images/cross.html" %}
+                                                    </div>
+                                                    <div class="but">
+                                                        <div class="btn"
+                                                             style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                            Удалить
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </scroll-page>
+                                <scroll-page id="page-2">
+                                    {% if not is_gpu %}
+                                    <div class="component">
+                                        <a href="/hand/catalog/Gpu">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    {% include "svg_images/gpu_big.html" %}
+                                                </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">
+                                                    Видеокарта</h6>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Видеокарта</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Gpu.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href="/configuration/Gpu/{{Gpu.id}}/"><h6
+                                                    style="padding: 0 12px 0 12px; color: white"> {{ Gpu.name }}</h6>
+                                            </a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Gpu.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+
+                                            <form action="/hand/configuration/" method="post" style="display:flex">
+                                                <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                               value="delete"></div>
+                                                <div class="invz" style="display: none"><input type="id"
+                                                                                               name="component_type"
+                                                                                               value="Gpu"></div>
+                                                {% csrf_token %}
+                                                <button type="submit"
+                                                        style="border: none; background: none;width: 150px; height: 38px;">
+                                                    <div class="svg">
+                                                        {% include "svg_images/cross.html" %}
+                                                    </div>
+                                                    <div class="but">
+                                                        <div class="btn"
+                                                             style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                            Удалить
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </scroll-page>
+                                <scroll-page id="page-3">
+                                    {% if not is_ram %}
+                                    <div class="component">
+                                        <a href="/hand/catalog/Ram">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    {% include "svg_images/ram_big.html" %}
+                                                </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Оперативная
+                                                    память</h6>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Оперативная память</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Ram.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href="/configuration/Ram/{{Ram.id}}/"><h6
+                                                    style="padding: 0 12px 0 12px; color: white">
+                                                {{ Ram.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Ram.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+
+                                            <form action="/hand/configuration/" method="post" style="display:flex">
+                                                <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                               value="delete"></div>
+                                                <div class="invz" style="display: none"><input type="id"
+                                                                                               name="component_type"
+                                                                                               value="Ram"></div>
+                                                {% csrf_token %}
+                                                <button type="submit"
+                                                        style="border: none; background: none;width: 150px; height: 38px;">
+                                                    <div class="svg">
+                                                        {% include "svg_images/cross.html" %}
+                                                    </div>
+                                                    <div class="but">
+                                                        <div class="btn"
+                                                             style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                            Удалить
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </scroll-page>
+                                <scroll-page id="page-4">
+                                    {% if not is_hard35 %}
+                                    <div class="component">
+                                        <a href="/hand/catalog/Hard35">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    {% include "svg_images/hard35_big.html" %}
+                                                </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Жесткий
+                                                    диск</h6>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Жесткий диск</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Hard35.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href="/configuration/Hard35/{{Hard35.id}}/"><h6
+                                                    style="padding: 0 12px 0 12px; color: white">
+                                                {{ Hard35.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Hard35.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+
+                                            <form action="/hand/configuration/" method="post" style="display:flex">
+                                                <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                               value="delete"></div>
+                                                <div class="invz" style="display: none"><input type="id"
+                                                                                               name="component_type"
+                                                                                               value="Hard35"></div>
+                                                {% csrf_token %}
+                                                <button type="submit"
+                                                        style="border: none; background: none;width: 150px; height: 38px;">
+                                                    <div class="svg">
+                                                        {% include "svg_images/cross.html" %}
+                                                    </div>
+                                                    <div class="but">
+                                                        <div class="btn"
+                                                             style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                            Удалить
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </scroll-page>
+                                <scroll-page id="page-5">
+                                    {% if not is_ssd %}
+                                    <div class="component">
+                                        <a href="/hand/catalog/Ssd">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    {% include "svg_images/ssd_big.html" %}
+                                                </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">
+                                                    Твердотельный
+                                                    накопитель</h6>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Твердотельный накопитель</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Ssd.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href="/configuration/Ssd/{{Ssd.id}}/"><h6
+                                                    style="padding: 0 12px 0 12px; color: white">
+                                                {{ Ssd.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Ssd.price }} ₽</p>
+                                        </div>
+
+                                        <div class="remove-block">
+
+                                            <form action="/hand/configuration/" method="post" style="display:flex">
+                                                <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                               value="delete"></div>
+                                                <div class="invz" style="display: none"><input type="id"
+                                                                                               name="component_type"
+                                                                                               value="Ssd"></div>
+                                                {% csrf_token %}
+                                                <button type="submit"
+                                                        style="border: none; background: none;width: 150px; height: 38px;">
+                                                    <div class="svg">
+                                                        {% include "svg_images/cross.html" %}
+                                                    </div>
+                                                    <div class="but">
+                                                        <div class="btn"
+                                                             style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                            Удалить
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                    {% endif %}
+                                </scroll-page>
+                                <scroll-page id="page-6">
+                                    {% if not is_cooler %}
+                                    <div class="component">
+                                        <a href="/hand/catalog/Cooler">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    {% include "svg_images/cooler_big.html" %}
+                                                </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Кулер
+                                                    процессора</h6>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Кулер процессора</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ Cooler.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href="/configuration/Cooler/{{Cooler.id}}/"><h6
+                                                    style="padding: 0 12px 0 12px; color: white">
+                                                {{ Cooler.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ Cooler.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+
+                                            <form action="/hand/configuration/" method="post" style="display:flex">
+                                                <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                               value="delete"></div>
+                                                <div class="invz" style="display: none"><input type="id"
+                                                                                               name="component_type"
+                                                                                               value="Cooler"></div>
+                                                {% csrf_token %}
+                                                <button type="submit"
+                                                        style="border: none; background: none;width: 150px; height: 38px;">
+                                                    <div class="svg">
+                                                        {% include "svg_images/cross.html" %}
+                                                    </div>
+                                                    <div class="but">
+                                                        <div class="btn"
+                                                             style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                            Удалить
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+
+                                </scroll-page>
+                                <scroll-page id="page-7">
+                                    {% if not is_powersupply %}
+                                    <div class="component">
+                                        <a href="/hand/catalog/PowerSupply">
+                                            <div style="margin: auto">
+                                                <div style="width: 100px; margin: auto">
+                                                    {% include "svg_images/ps_big.html" %}
+                                                </div>
+                                                <h6 class="card-title"
+                                                    style="margin: 10px; color: #727272; text-align: center">Блок
+                                                    питания</h6>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    {% else %}
+                                    <div class="picked_component">
+                                        <div class="title"><h5 style="margin-bottom: 20px;
+                                    padding-left: 20px;">Блок питания</h5></div>
+                                        <div class="ph-block">
+                                            <img src="{{ PowerSupply.picture }}"
+                                                 style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;">
+                                        </div>
+                                        <div class="text-block">
+                                            <a href="/configuration/PowerSupply/{{PowerSupply.id}}/"><h6
+                                                    style="padding: 0 12px 0 12px; color: white">
+                                                {{ PowerSupply.name }}
+                                            </h6></a>
+                                        </div>
+                                        <div class="price-block">
+                                            <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
+                                                                             style="color: #02ca58"></i></div>
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 10pt; margin-left: 7px">{{ PowerSupply.price }} ₽</p>
+                                        </div>
+                                        <div class="remove-block">
+
+                                            <form action="/hand/configuration/" method="post" style="display:flex">
+                                                <div class="invz" style="display: none"><input type="id" name="method"
+                                                                                               value="delete"></div>
+                                                <div class="invz" style="display: none"><input type="id"
+                                                                                               name="component_type"
+                                                                                               value="PowerSupply">
+                                                </div>
+                                                {% csrf_token %}
+                                                <button type="submit"
+                                                        style="border: none; background: none;width: 150px; height: 38px;">
+                                                    <div class="svg">
+                                                        {% include "svg_images/cross.html" %}
+                                                    </div>
+                                                    <div class="but">
+                                                        <div class="btn"
+                                                             style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
+                                                            Удалить
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </scroll-page>
+                            </scroll-container>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="cl2">
-                <div class="card" style="border:none; border-left: 3px solid #02ca58">
-                    <div class="card-body" style="display: flex; flex-direction: column;">
-                        <scroll-container>
-                            <scroll-page id="page-0">
-                                {% if not is_cpu %}
-                                <div class="component">
-                                        <a href="/hand/catalog/Cpu">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                {% include "svg_images/cpu_big.html" %}
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">
-                                                Процессор</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-    padding-left: 20px;">Процессор</h5></div>
-                                    <div class="ph-block">
-                                        <img src="{{ Cpu.picture }}"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href="/configuration/Cpu/{{Cpu.id}}/"><h6 style="padding: 0 12px 0 12px; color: white">
-                                            {{ Cpu.name }}
-                                        </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10pt; margin-left: 7px">{{ Cpu.price }} ₽</p>
-                                    </div>
-                                    <div class="remove-block" >
-
-                                        <form action="/hand/configuration/" method="post" style="display:flex">
-                                            <div class="invz" style="display: none"><input type="id" name="method"
-                                                                                           value="delete"></div>
-                                            <div class="invz" style="display: none"><input type="id"
-                                                                                           name="component_type"
-                                                                                           value="Cpu"></div>
-                                            {% csrf_token %}
-                                            <button type="submit"
-                                                    style="border: none; background: none;width: 150px; height: 38px;">
-                                                <div class="svg">
-                                                    {% include "svg_images/cross.html" %}
-                                                </div>
-                                                <div class="but">
-                                                    <div class="btn"
-                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </scroll-page>
-                            <scroll-page id="page-1">
-
-                                {% if not is_motherboard %}
-                                <div class="component">
-                                    <a href="/hand/catalog/Motherboard">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                {% include "svg_images/mother_big.html" %}
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Материнская
-                                                плата</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-    padding-left: 20px;">Материнская плата</h5></div>
-                                    <div class="ph-block">
-                                        <img src="{{ Motherboard.picture }}"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href="/configuration/Motherboard/{{Motherboard.id}}/"><h6 style="padding: 0 12px 0 12px; color: white">{{ Motherboard.name }}</h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10pt; margin-left: 7px">{{ Motherboard.price }} ₽</p>
-                                    </div>
-                                    <div class="remove-block" >
-
-                                        <form action="/hand/configuration/" method="post" style="display:flex">
-                                            <div class="invz" style="display: none"><input type="id" name="method"
-                                                                                           value="delete"></div>
-                                            <div class="invz" style="display: none"><input type="id"
-                                                                                           name="component_type"
-                                                                                           value="Motherboard"></div>
-                                            {% csrf_token %}
-                                            <button type="submit"
-                                                    style="border: none; background: none;width: 150px; height: 38px;">
-                                                <div class="svg">
-                                                    {% include "svg_images/cross.html" %}
-                                                </div>
-                                                <div class="but">
-                                                    <div class="btn"
-                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </scroll-page>
-                            <scroll-page id="page-2">
-                                {% if not is_gpu %}
-                                <div class="component">
-                                    <a href="/hand/catalog/Gpu">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                {% include "svg_images/gpu_big.html" %}
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">
-                                                Видеокарта</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Видеокарта</h5></div>
-                                    <div class="ph-block">
-                                        <img src="{{ Gpu.picture }}"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href="/configuration/Gpu/{{Gpu.id}}/"><h6 style="padding: 0 12px 0 12px; color: white"> {{ Gpu.name }}</h6>
-                                        </a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">{{ Gpu.price }} ₽</p>
-                                    </div>
-                                    <div class="remove-block" >
-
-                                        <form action="/hand/configuration/" method="post" style="display:flex">
-                                            <div class="invz" style="display: none"><input type="id" name="method"
-                                                                                           value="delete"></div>
-                                            <div class="invz" style="display: none"><input type="id"
-                                                                                           name="component_type"
-                                                                                           value="Gpu"></div>
-                                            {% csrf_token %}
-                                            <button type="submit"
-                                                    style="border: none; background: none;width: 150px; height: 38px;">
-                                                <div class="svg">
-                                                    {% include "svg_images/cross.html" %}
-                                                </div>
-                                                <div class="but">
-                                                    <div class="btn"
-                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </scroll-page>
-                            <scroll-page id="page-3">
-                                {% if not is_ram %}
-                                <div class="component">
-                                        <a href="/hand/catalog/Ram">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                {% include "svg_images/ram_big.html" %}
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Оперативная
-                                                память</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Оперативная память</h5></div>
-                                    <div class="ph-block">
-                                        <img src="{{ Ram.picture }}"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href="/configuration/Ram/{{Ram.id}}/"><h6 style="padding: 0 12px 0 12px; color: white">
-                                            {{ Ram.name }}
-                                        </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">{{ Ram.price }} ₽</p>
-                                    </div>
-                                    <div class="remove-block" >
-
-                                        <form action="/hand/configuration/" method="post" style="display:flex">
-                                            <div class="invz" style="display: none"><input type="id" name="method"
-                                                                                           value="delete"></div>
-                                            <div class="invz" style="display: none"><input type="id"
-                                                                                           name="component_type"
-                                                                                           value="Ram"></div>
-                                            {% csrf_token %}
-                                            <button type="submit"
-                                                    style="border: none; background: none;width: 150px; height: 38px;">
-                                                <div class="svg">
-                                                    {% include "svg_images/cross.html" %}
-                                                </div>
-                                                <div class="but">
-                                                    <div class="btn"
-                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </scroll-page>
-                            <scroll-page id="page-4">
-                                {% if not is_hard35 %}
-                                <div class="component">
-                                        <a href="/hand/catalog/Hard35">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                {% include "svg_images/hard35_big.html" %}
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Жесткий
-                                                диск</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Жесткий диск</h5></div>
-                                    <div class="ph-block">
-                                        <img src="{{ Hard35.picture }}"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href="/configuration/Hard35/{{Hard35.id}}/"><h6 style="padding: 0 12px 0 12px; color: white">
-                                            {{ Hard35.name }}
-                                        </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">{{ Hard35.price }} ₽</p>
-                                    </div>
-                                    <div class="remove-block" >
-
-                                        <form action="/hand/configuration/" method="post" style="display:flex">
-                                            <div class="invz" style="display: none"><input type="id" name="method"
-                                                                                           value="delete"></div>
-                                            <div class="invz" style="display: none"><input type="id"
-                                                                                           name="component_type"
-                                                                                           value="Hard35"></div>
-                                            {% csrf_token %}
-                                            <button type="submit"
-                                                    style="border: none; background: none;width: 150px; height: 38px;">
-                                                <div class="svg">
-                                                    {% include "svg_images/cross.html" %}
-                                                </div>
-                                                <div class="but">
-                                                    <div class="btn"
-                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </scroll-page>
-                            <scroll-page id="page-5">
-                                {% if not is_ssd %}
-                                <div class="component">
-                                        <a href="/hand/catalog/Ssd">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                {% include "svg_images/ssd_big.html" %}
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">
-                                                Твердотельный
-                                                накопитель</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Твердотельный накопитель</h5></div>
-                                    <div class="ph-block">
-                                        <img src="{{ Ssd.picture }}"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href="/configuration/Ssd/{{Ssd.id}}/"><h6 style="padding: 0 12px 0 12px; color: white">
-                                            {{ Ssd.name }}
-                                        </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">{{ Ssd.price }} ₽</p>
-                                    </div>
-
-                                    <div class="remove-block" >
-
-                                        <form action="/hand/configuration/" method="post" style="display:flex">
-                                            <div class="invz" style="display: none"><input type="id" name="method"
-                                                                                           value="delete"></div>
-                                            <div class="invz" style="display: none"><input type="id"
-                                                                                           name="component_type"
-                                                                                           value="Ssd"></div>
-                                            {% csrf_token %}
-                                            <button type="submit"
-                                                    style="border: none; background: none;width: 150px; height: 38px;">
-                                                <div class="svg">
-                                                    {% include "svg_images/cross.html" %}
-                                                </div>
-                                                <div class="but">
-                                                    <div class="btn"
-                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-
-                                </div>
-                                {% endif %}
-                            </scroll-page>
-                            <scroll-page id="page-6">
-                                {% if not is_cooler %}
-                                <div class="component">
-                                        <a href="/hand/catalog/Cooler">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                {% include "svg_images/cooler_big.html" %}
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Кулер
-                                                процессора</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Кулер процессора</h5></div>
-                                    <div class="ph-block">
-                                        <img src="{{ Cooler.picture }}"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href="/configuration/Cooler/{{Cooler.id}}/"><h6 style="padding: 0 12px 0 12px; color: white">
-                                            {{ Cooler.name }}
-                                        </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">{{ Cooler.price }} ₽</p>
-                                    </div>
-                                    <div class="remove-block" >
-
-                                        <form action="/hand/configuration/" method="post" style="display:flex">
-                                            <div class="invz" style="display: none"><input type="id" name="method"
-                                                                                           value="delete"></div>
-                                            <div class="invz" style="display: none"><input type="id"
-                                                                                           name="component_type"
-                                                                                           value="Cooler"></div>
-                                            {% csrf_token %}
-                                            <button type="submit"
-                                                    style="border: none; background: none;width: 150px; height: 38px;">
-                                                <div class="svg">
-                                                    {% include "svg_images/cross.html" %}
-                                                </div>
-                                                <div class="but">
-                                                    <div class="btn"
-                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                {% endif %}
-
-                            </scroll-page>
-                            <scroll-page id="page-7">
-                                {% if not is_powersupply %}
-                                <div class="component">
-                                        <a href="/hand/catalog/PowerSupply">
-                                        <div style="margin: auto">
-                                            <div style="width: 100px; margin: auto">
-                                                {% include "svg_images/ps_big.html" %}
-                                            </div>
-                                            <h6 class="card-title"
-                                                style="margin: 10px; color: #727272; text-align: center">Блок
-                                                питания</h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                {% else %}
-                                <div class="picked_component">
-                                    <div class="title"><h5 style="margin-bottom: 20px;
-                                    padding-left: 20px;">Блок питания</h5></div>
-                                    <div class="ph-block">
-                                        <img src="{{ PowerSupply.picture }}"
-                                             style="width: 100px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
-                                    border: 3px solid #02ca58;margin: 20px;">
-                                    </div>
-                                    <div class="text-block">
-                                        <a href="/configuration/PowerSupply/{{PowerSupply.id}}/"><h6 style="padding: 0 12px 0 12px; color: white">
-                                            {{ PowerSupply.name }}
-                                        </h6></a>
-                                    </div>
-                                    <div class="price-block">
-                                        <div style="font-size: 1rem;"><i class="fas fa-tags fa-x"
-                                                                         style="color: #02ca58"></i></div>
-                                        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 10pt; margin-left: 7px">{{ PowerSupply.price }} ₽</p>
-                                    </div>
-                                    <div class="remove-block" >
-
-                                        <form action="/hand/configuration/" method="post" style="display:flex">
-                                            <div class="invz" style="display: none"><input type="id" name="method"
-                                                                                           value="delete"></div>
-                                            <div class="invz" style="display: none"><input type="id"
-                                                                                           name="component_type"
-                                                                                           value="PowerSupply"></div>
-                                            {% csrf_token %}
-                                            <button type="submit"
-                                                    style="border: none; background: none;width: 150px; height: 38px;">
-                                                <div class="svg">
-                                                    {% include "svg_images/cross.html" %}
-                                                </div>
-                                                <div class="but">
-                                                    <div class="btn"
-                                                         style="width: 150px; height: 38px; margin: 10px; background: #0f8d4a; border-color: #1f1f1f;color: white;position: inherit">
-                                                        Удалить
-                                                    </div>
-                                                </div>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            </scroll-page>
-                        </scroll-container>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-        </div>
     <footer class="bov">
         <div class="container">
             <div class="row padding text-center">
@@ -880,6 +894,7 @@
 
 
 
+
 </script>
 <script type="text/javascript">
     $(function () {
@@ -904,6 +919,7 @@
             ]
         });
     });
+
 
 
 
@@ -941,6 +957,7 @@
     $(document).ready(function () {
         scrollTracking();
     });
+
 </script>
 
 </body>

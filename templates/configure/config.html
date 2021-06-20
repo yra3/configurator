@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static "css/style_config.css" %}">
+    <link rel="stylesheet" href="/static/css/style_config.css?{% now " U" %}"/>
     <script src="{% static "css/slick/slick/slick.min.js" %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static "css/slick/slick/slick.css" %}"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/slick/slick/slick-theme.css" %}"/>
@@ -28,9 +28,9 @@
     }
 
     .card {
-        background: #1f1f1f;
-        border: 1px solid white;
-    }</style>
+        background: #161616;
+    }
+    </style>
 </head>
 
 
@@ -38,23 +38,7 @@
 
 <div class="main">
 
-
     {% include "include_blocks/header.html" %}
-    <div class="imgs">
-        <div class="slider multiple-items"> <!-- create div block into slider for each component -->
-
-{% for i in  pics %}
-            <div>
-                <img style="display: block;
-    margin-left: auto;
-    margin-right: auto; height: 100px; width: auto;
-margin-top: 25px;margin-bottom: 25px;"
-                     src="{{ i|safe }}" alt="А вот">
-            </div>
-            {% endfor %}
-
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="cl1">
@@ -62,75 +46,74 @@ margin-top: 25px;margin-bottom: 25px;"
                     <div class="card-body">
                         <h5 class="card-head">Список комплектующих</h5>
                         <div class="box">
-
-                            <!--{% for  i in  nums %}
-                                <div class="itm" id='{{ i }}'>
-                                    <div class="itmname">
-                                        <h6 class="card-title" style="margin: 10px"><a href="/{{ rows.i.id }}"
-                                                                                       style="color: #17a2b8">
-                                            {{ rows.i.name }}</a></h6>
-                                    </div>
-                                    <div class="itmprice">
-                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{{ rows.i.price}}'Р'</h6>
-                                    </div>
+                            <div class="picked_component">
+                                <div class="ph-block">
+                                    <img src="{{ Cooler.picture }}"
+                                         style="width: 180px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
+                                    border: 3px solid #02ca58;margin: 20px;" onerror="this.src = 'https://hyperpc.ru/cache/hp_part_img/palit-gaming-pro-3080-314x177.jpg'">
                                 </div>
-                            {% endfor %}-->
-                            {% for h in hm %}
-                                {{ h|safe }}
-                            {% endfor %}
+                                <div class="text-block">
+                                    <a href="/configuration/Cooler/{{Cooler.id}}/"><h6
+                                            style="padding: 0 12px 0 12px; color: white">
+                                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur blanditiis fugiat pariatur?
+                                    </h6></a>
+                                </div>
+                                <div class="price-block">
+                                    <div style="font-size: 1rem;"><i class="fas fa-tags fa-lg"
+                                                                     style="color: #02ca58"></i></div>
+                                    <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 18px; margin-left: 7px">228 000 ₽</p>
+                                </div>
 
-
+                            </div>
                         </div>
                         <div class="card-foot">
-                            <h5 class="card-total">Тотал</h5>
-                            <h5 class="card-price">{{ sum_price }}Р</h5>
+                            <div class="prc">
+                            <h5 class="card-total">Итого</h5>
+                            <h5 class="card-price"><div class="price-block">
+                                    <div style="font-size: 1rem;"><i class="fas fa-tags fa-lg"
+                                                                     style="color: #02ca58"></i></div>
+                                    <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
+                                    font-size: 18px; margin-left: 7px">228 000 ₽</p>
+                                </div></h5>
+                                </div>
 
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cl2">
-                <div class="card">
-                    <div class="card-body" style="display: flex; flex-direction: column;">
-                        <h5 class="card-head">Описание</h5>
-                        <h6 style="border-bottom: 1px solid #02ca58; padding-top: 50px;">Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit. Animi cumque distinctio eaque eius exercitationem illum in
-                            inventore itaque laudantium magnam non nostrum odit qui quisquam ratione, reiciendis rerum
-                            suscipit voluptate.</h6>
                         <div class="butt-block">
-                            <button class="btn btn-primary"
-                            style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" type="submit"
-                            data-bs-toggle="modal" data-bs-target="#loadModal">Редактировать
-                    </button>
-                            <button class="btn btn-primary"
-                            style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" type="submit"
-                            data-bs-toggle="modal" data-bs-target="#loadModal">Скачать
-                    </button>
-                            <button class="btn btn-primary btn1"
-                            style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin: auto" type="submit"
-                            data-bs-toggle="modal" data-bs-target="#loadModal">Копировать ссылку
-                    </button>
-
-                        </div>
+                                <button class="btn btn-primary"
+                                        style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin-right:10px;"
+                                        type="submit"
+                                        data-bs-toggle="modal" data-bs-target="#loadModal">Редактировать
+                                </button>
+                                <button class="btn btn-primary"
+                                        style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f;"
+                                        type="submit"
+                                        data-bs-toggle="modal" data-bs-target="#loadModal">Скачать
+                                </button>
+                                <button class="btn btn-primary btn1"
+                                        style="width: 200px ;background: #0f8d4a; border-color: #1f1f1f; margin-left:10px; "
+                                        type="submit"
+                                        data-bs-toggle="modal" data-bs-target="#loadModal">Копировать ссылку
+                                </button>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {% include 'include_blocks/footer.html' %}
-</div>
-
-<script src="{% static "css/slick/slick/slick.js" %}" type="text/javascript" charset="utf-8"></script>
-<!-- скрипт для кнопки копирования -->
-<script>
+        {% include 'include_blocks/footer.html' %}
+    </div>
+    <script src="{% static " css/slick/slick/slick.js" %}" type="text/javascript" charset="utf-8"></script>
+    <!-- скрипт для кнопки копирования -->
+    <script>
     jQuery(document).ready(function($){
 var url = document.location.href;
 new Clipboard('.btn1', {text: function(){ return url;}});
 $('.btn1').click(function(){alert('Cсылка успешно скопирована в буфер обмена.');});
 });
-</script>
-<script>
+
+    </script>
+    <script>
     $(function () {
         $(window).scroll(function () {
             var top = $(document).scrollTop();
@@ -162,8 +145,9 @@ $('.btn1').click(function(){alert('Cсылка успешно скопирова
         markup.select();
         document.execCommand("copy");
     }
-</script>
-<script type="text/javascript">
+
+    </script>
+    <script type="text/javascript">
     $(function () {
         $('.multiple-items').slick({
             infinite: true,
@@ -186,6 +170,7 @@ $('.btn1').click(function(){alert('Cсылка успешно скопирова
             ]
         });
     });
-</script>
+
+    </script>
 </body>
 </html>

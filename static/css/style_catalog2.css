@@ -1,6 +1,6 @@
 .main {
     margin: auto;
-    background-image: url("https://img1.goodfon.ru/wallpaper/nbig/c/ed/background-triangles-black.jpg");
+    background: black;
     background-attachment: fixed;
 }
 .mb-menu{
@@ -29,10 +29,12 @@
 
 
 .main .container {
-    padding-top: 30px;
+
     width: 90%;
     max-width: 100%;
     margin: auto;
+    top:-100px;
+
 }
 .nav {
     background: #1f1f1f;
