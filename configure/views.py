@@ -111,10 +111,10 @@ def simple_configure(request):
     from configure.BranchAndBoundMethod import BranchAndBoundMethod
     hdd_ssd = 2
     finder = BranchAndBoundMethod(budget, priorities, hdd_ssd, IS_BENCHMARK)
-    try:
-        config = finder.find()
-    except:
-        return redirect('/configure/simple')
+    # try:
+    config = finder.find()
+    # except:
+    #     return redirect('/configure/simple')
     s = '/configuration/'
     for com in config.values():
         s += str(com.id)+'/'

@@ -142,7 +142,8 @@
 
             <div class="input-block">
 
-                <form action="config">
+                <form action="/configure/simple/find/" method="POST">
+                    {% csrf_token %}
                     <p style="padding-top: 35px; padding-left: 10px;">Введите Ваш бюджет <input type="number"
                                                                                                 name="price"
                                                                                                 value="" min="5000"

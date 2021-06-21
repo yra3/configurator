@@ -46,26 +46,28 @@
                     <div class="card-body">
                         <h5 class="card-head">Список комплектующих</h5>
                         <div class="box">
-                            <div class="picked_component">
+                            {% for component in components %}
+                            <div class="picked_component" style="margin-bottom: 20px">
                                 <div class="ph-block">
-                                    <img src="{{ Cooler.picture }}"
+                                    <img src="{{ component.picture }}"
                                          style="width: 180px; height: auto;box-shadow: 0 0 10px 0 #02ca58 inset, 0 0 10px 2px #02ca58;
                                     border: 3px solid #02ca58;margin: 20px;" onerror="this.src = 'https://hyperpc.ru/cache/hp_part_img/palit-gaming-pro-3080-314x177.jpg'">
                                 </div>
                                 <div class="text-block">
-                                    <a href="/configuration/Cooler/{{Cooler.id}}/"><h6
+                                    <a href="/configuration/{{ component.type }}/{{ component.id }}/"><h6
                                             style="padding: 0 12px 0 12px; color: white">
-                                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur blanditiis fugiat pariatur?
+                                      {{ component.name }}
                                     </h6></a>
                                 </div>
                                 <div class="price-block">
                                     <div style="font-size: 1rem;"><i class="fas fa-tags fa-lg"
                                                                      style="color: #02ca58"></i></div>
                                     <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 18px; margin-left: 7px">228 000 ₽</p>
+                                    font-size: 18px; margin-left: 7px">{{ component.price }} ₽</p>
                                 </div>
 
                             </div>
+                            {% endfor %}
                         </div>
                         <div class="card-foot">
                             <div class="prc">
@@ -74,7 +76,7 @@
                                     <div style="font-size: 1rem;"><i class="fas fa-tags fa-lg"
                                                                      style="color: #02ca58"></i></div>
                                     <p style="font-family: Verdana, Arial, Helvetica, sans-serif;
-                                    font-size: 18px; margin-left: 7px">228 000 ₽</p>
+                                    font-size: 18px; margin-left: 7px">{{ sum_price }} ₽</p>
                                 </div></h5>
                                 </div>
 

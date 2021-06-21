@@ -16,31 +16,39 @@ def configuration_view(request, cpu, gpu, mother, ram, cooler, ssd ,hdd, ps):
     config['Ssd'] = models.SSD.objects.filter(id=ssd)[0]
     config['PowerSupply'] = models.powersupply.objects.filter(id=ps)[0]
     pics = []
-    ans = []
-    sum_price = 0
-    for key, comp, i in zip(config.keys(), config.values(), range(8)):
-        pics.append(comp.picture)
-        sum_price += comp.price
-        ans.append( \
-            f''' <div class="itm" id='{i}'>
-                                    <div class="itmname">
-                                        <h6 class="card-title" style="margin: 10px"><a href="/configuration/{key}/{comp.id}"
-                                                                                       style="color: #17a2b8">
-                                            {comp.name}</a></h6>
-                                    </div>
-                                    <div class="itmprice" style="margin-left: auto;">
-                                        <h6 class="card-title" style="margin: 10px; color: aliceblue">{comp.price}'Р'</h6>
-                                    </div>
-                                </div>''')
-
+    sum = 0
+    for x in config.values():
+        sum += x.price
     data = {
-        'hm': ans,
-        'rows': config,
-        'nums': r,
-        'pics': pics,
-        'sum_price': sum_price,
+        'components': config.values(),
+        'sum_price': sum,
     }
     return render(request, 'configure/config.html', context=data)
+    # ans = []
+    # sum_price = 0
+    # for key, comp, i in zip(config.keys(), config.values(), range(8)):
+    #     pics.append(comp.picture)
+    #     sum_price += comp.price
+    #     ans.append( \
+    #         f''' <div class="itm" id='{i}'>
+    #                                 <div class="itmname">
+    #                                     <h6 class="card-title" style="margin: 10px"><a href="/configuration/{key}/{comp.id}"
+    #                                                                                    style="color: #17a2b8">
+    #                                         {comp.name}</a></h6>
+    #                                 </div>
+    #                                 <div class="itmprice" style="margin-left: auto;">
+    #                                     <h6 class="card-title" style="margin: 10px; color: aliceblue">{comp.price}'Р'</h6>
+    #                                 </div>
+    #                             </div>''')
+    #
+    # data = {
+    #     'hm': ans,
+    #     'rows': config,
+    #     'nums': r,
+    #     'pics': pics,
+    #     'sum_price': sum_price,
+    # }
+    # return render(request, 'configure/config.html', context=data)
 
 def component(request, component_name, component_id):
     from configure import models
@@ -81,7 +89,7 @@ def component(request, component_name, component_id):
     from pymysql import connect, cursors
     connection = connect(
         host='127.0.0.1',
-        user='django',
+        user='root',
         password='qwerty',
         db='config',
         charset='utf8mb4',
