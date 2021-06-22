@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html>
 <head>
     <meta charset="utf-8">
@@ -31,7 +31,7 @@
     <div class="dws-wrapper " style="margin-bottom: 150px">
         <section class="container-images">
             <div class="img-box"
-                 style="background-image: url('https://pc60.pro/wp-content/uploads/2020/03/dark_flash_tower_webready-08678.jpg')">
+                 style="background-image: url('{% static "images/left_wrapper.jpg" %}')">
                 <span class="bor-left-right"></span>
                 <span class="bor-top-bottom"></span>
                 <div class="content-text">
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="img-box"
-                 style="background-image: url('https://www.itl.cat/pngfile/big/293-2936310_computer-gamer-gaming-republic-technics-technology-pc-gaming.jpg')">
+                 style="background-image: url('{% static "images/mid_wrapper1.jpeg" %}')">
                 <span class="bor-left-right"></span>
                 <span class="bor-top-bottom"></span>
                 <div class="content-text">
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="img-box"
-                 style="background-image: url('https://www.newegg.com/insider/wp-content/uploads/2019/03/dark-flash-i5-build-gaming-PC.jpg')">
+                 style="background-image: url('{% static "images/right_wrapper.jpg" %}')">
                 <span class="bor-left-right"></span>
                 <span class="bor-top-bottom"></span>
                 <div class="content-text">
@@ -65,8 +65,8 @@
         </section>
     </div>
     <div class="top-img" >
-        <img src="https://sun9-64.userapi.com/impg/EAW59HJKdHBO_i6u0V5CJ70OdRc1zI5KyLpkZg/TCiKqDDVKSs.jpg?size=926x659&quality=96&sign=32da25025d1f48be9990d0cca05aee72&type=album"
-             style="width: 100%; height: auto">
+        <img src="{% static "images/index_background1.jpg" %}" alt="logo"
+        style="width: 100%; height: auto">
         <div class="active">
             <div><h5>Конфигуратор ПК</h5>
                 <p>
@@ -98,7 +98,7 @@
                     <div class="card" style="background: #161616">
                         <div class="card-body" onclick="f1()">
                             <div class="card-photo"><img class="img-fluid"
-                                                         src="https://edelws.ru/upload/iblock/b9e/b9e9f4c65319f0769f7ecbd44c3840c4.png">
+                                                         src="{% static "images/config_type.png" %}" alt="logo">
                             </div>
                             <h5 class="card-title">Простой</h5>
                             <hr>
@@ -112,7 +112,7 @@
                     <div class="card" style="background: #161616">
                         <div class="card-body" onclick="f2()">
                             <div class="card-photo"><img class="img-fluid"
-                                                         src="https://edelws.ru/upload/iblock/b9e/b9e9f4c65319f0769f7ecbd44c3840c4.png">
+                                                        src="{% static "images/config_type.png" %}" alt="logo">
                             </div>
 
                             <h5 class="card-title">Расширенный</h5>
@@ -127,7 +127,7 @@
                     <div class="card" style="background: #161616">
                         <div class="card-body" onclick="f3()">
                             <div class="card-photo"><img class="img-fluid"
-                                                         src="https://edelws.ru/upload/iblock/b9e/b9e9f4c65319f0769f7ecbd44c3840c4.png">
+                                                         src="{% static "images/config_type.png" %}" alt="logo">
                             </div>
 
                             <h5 class="card-title">Ручной</h5>
@@ -144,7 +144,7 @@
     </div>
 
     <div class= "facts-block">
-        <img src="https://sun9-70.userapi.com/impg/IpNrlICRxb8T_Pu_P7pZF1MpCsXah2ci3EjhOw/4EKMcxwH0i4.jpg?size=1483x1080&quality=96&sign=1f152fe47fab3b6cc010022ac69b2fbc&type=album"
+        <img src="{% static "images/bottom_main.jpg" %}" alt="logo"
              style="width: 100%">
         <div class="facts">
                 <div class="passive-top-left">
