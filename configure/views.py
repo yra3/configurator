@@ -116,8 +116,9 @@ def simple_configure(request):
     # except:
     #     return redirect('/configure/simple')
     s = '/configuration/'
-    for com in config.values():
-        s += str(com.id)+'/'
+    cops = ['Cpu', 'Gpu', 'Motherboard', 'Ram', 'Cooler', 'Ssd', 'Hard35', 'PowerSupply']
+    for com in cops:
+        s += str(config[com].id)+'/'
     return redirect(s)
 
 
@@ -141,8 +142,9 @@ def extended_configure(request):
     except:
         return redirect('/configure/extended')
     s = '/configuration/'
-    for com in config.values():
-        s += str(com.id) + '/'
+    cops = ['Cpu', 'Gpu', 'Motherboard', 'Ram', 'Cooler', 'Ssd', 'Hard35', 'PowerSupply']
+    for com in cops:
+        s += str(config[com].id) + '/'
     return redirect(s)
 
 

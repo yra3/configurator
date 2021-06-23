@@ -194,7 +194,7 @@ class Cpu(Component):
         return self.minimum_frequency_of_ram <= ram.clock_frequency <= self.maximum_frequency_of_ram
 
     def is_compatible_cooler(self, cooler):
-        return self.heat_dissipation_tdp <= cooler.power_dissipation
+        return self.heat_dissipation_tdp*2 <= cooler.power_dissipation
 
 
 
@@ -250,7 +250,7 @@ class PowerSupply(Component):
         self.power_nominal = powerSupply.power_nominal
 
     def is_compatible_cpu_and_gpu(self, cpu, gpu):
-        return self.power_nominal >= cpu.heat_dissipation_tdp + gpu.maximum_power_consumption + 5 + 20 + 9 + 6 + 3
+        return self.power_nominal >= cpu.heat_dissipation_tdp*2 + gpu.maximum_power_consumption*1.2 + 5 + 20 + 9 + 6 + 3
 
 
 class Hard35(Component):
