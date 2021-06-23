@@ -199,7 +199,7 @@ def catalog_cpu(request, component_name):
                 and_conditions.append('(cpu_base_frequency >= 2000 and cpu_base_frequency < 3000)')
             elif frequency_type == '4':
                 and_conditions.append('(cpu_base_frequency >= 3000 and cpu_base_frequency < 4000)')
-            else:
+            elif frequency_type == '5':
                 and_conditions.append('(cpu_base_frequency >= 4000)')
         # if component_name == 'PowerSupply':
         #     power_nominal_type = request.GET['power-ps']
@@ -253,14 +253,18 @@ def catalog_cpu(request, component_name):
                 component = component_names_list_not_model[name](component, 1)
             configuration.set_component(component, name)
     for component in components:
-        configuration.set_component(component, component_name)
-        # try:
-        if configuration.is_compatible(component_name):
-            compotible_components.append(component)
-        # except:
-        #     pass
+        try:
+            if component_name in 'CpuGpu':
+                component = component_names_list_not_model[component_name](component, 1, 1)
+            else:
+                component = component_names_list_not_model[component_name](component, 1)
+            configuration.set_component(component, component_name)
+            if configuration.is_compatible(component_name):
+                compotible_components.append(component)
+        except:
+            pass
         configuration.drop_component(component_name)
     data['cpus'] = components
-    data['compotible_components'] = compotible_components
+    data['cpus'] = compotible_components
     response = render(request, template_name='configure/catalog.html', context=data)
     return response
