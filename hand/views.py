@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from configure.models import *
+from configure import Configuration
 
 component_names_list = {
         'Cpu': CPU,
@@ -11,6 +12,19 @@ component_names_list = {
         'Ssd': SSD,
         'PowerSupply': powersupply,
     }
+
+component_names_list_not_model = {
+        'Cpu': Configuration.Cpu,
+        'Gpu': Configuration.Gpu,
+        'Motherboard': Configuration.Motherboard,
+        'Cooler': Configuration.Cooler,
+        'Ram': Configuration.Ram,
+        'Hard35': Configuration.Hard35,
+        'Ssd': Configuration.Ssd,
+        'PowerSupply': Configuration.PowerSupply,
+    }
+
+
 def configuration(request):
     component_names_list = {
         'Cpu': CPU,
@@ -158,8 +172,6 @@ def catalog_cpu(request, component_name):
         'component_name': component_name,
     }
 
-
-
     conditions = request_dict[component_name]
     from pymysql import connect, cursors
     try:
@@ -218,13 +230,37 @@ def catalog_cpu(request, component_name):
         if len(and_conditions) != 0:
             condition = 'where ' + ' and '.join(and_conditions)
         else:
-            return render(request, template_name='configure/catalog.html', context=data)
+            condition = ''
+            #return render(request, template_name='configure/catalog.html', context=data)
         cur.execute(f"SELECT id FROM configure_{component_name.lower()} {condition}")
         components_hand = cur.fetchall()
         components_hand = [component[0] for component in components_hand]
         components = component_names_list[component_name].objects.all().filter(pk__in=components_hand).order_by('price')
-
-
+    from configure import Configuration
+    x1 = {'Cpu': 100000000, 'Gpu': 100000000, 'Motherboard': 100000000, 'Ram': 100000000,
+                           'Cooler': 100000000, 'Hard35': 100000000, 'Ssd': 100000000, 'PowerSupply': 100000000}
+    x2 = {'Cpu': 0, 'Gpu': 0, 'Motherboard': 0, 'Ram': 0,
+                           'Cooler': 0, 'Hard35': 0, 'Ssd': 0, 'PowerSupply': 0}
+    configuration = Configuration.Configuration(x1, 1000000000, x2)
+    compotible_components = []
+    for name, model in component_names_list.items():
+        if name.lower() in request.COOKIES:
+            id = request.COOKIES[name.lower()]
+            component = model.objects.get(pk=id)
+            if name in 'CpuGpu':
+                component = component_names_list_not_model[name](component, 1, 1)
+            else:
+                component = component_names_list_not_model[name](component, 1)
+            configuration.set_component(component, name)
+    for component in components:
+        configuration.set_component(component, component_name)
+        # try:
+        if configuration.is_compatible(component_name):
+            compotible_components.append(component)
+        # except:
+        #     pass
+        configuration.drop_component(component_name)
     data['cpus'] = components
+    data['compotible_components'] = compotible_components
     response = render(request, template_name='configure/catalog.html', context=data)
     return response

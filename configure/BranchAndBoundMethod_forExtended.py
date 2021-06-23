@@ -211,6 +211,5 @@ class BranchAndBoundMethodEx(BranchAndBoundMethod):
                 components_hands[component_name] = components_hand
             component_lists = intersect_components(components_hands, component_lists)
 
-
         return component_lists
 

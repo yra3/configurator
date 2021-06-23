@@ -3,7 +3,7 @@ from django.shortcuts import render
 from configuration.models import reversed_translator as translators
 
 
-def configuration_view(request, cpu, gpu, mother, ram, cooler, ssd ,hdd, ps):
+def configuration_view(request, cpu, gpu, mother, ram, cooler, ssd, hdd, ps):
     from configure import models
     config = {}
     r = range(8)
