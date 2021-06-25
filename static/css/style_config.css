@@ -6,7 +6,7 @@
 
 .main .container {
     padding-top: 30px;
-    width: 90%;
+    width: 70%;
     max-width: 100%;
     margin: auto;
 }
@@ -103,7 +103,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    height: 200px;
+    height: auto;
 
 }
 .photo-block {
@@ -115,8 +115,9 @@
 }
 .price-block{
     display: flex;
-    padding-top: 20px;
-    flex-basis: 25%;
+    padding-top: 5px;
+    flex-basis: 15%;
+    margin-left: auto;
     height:  auto;
     /*width: 300px;*/
     /*flex-grow: 2;*/
@@ -133,14 +134,14 @@
     margin-right: 30px;
 }
 .text-block{
-    padding-top: 20px;
-    flex-basis: 50%;
+    padding-top: 5px;
+    flex-basis: 70%;
     height:  auto;
     /*width: 300px;*/
     /*flex-grow: 2;*/
 }
 .text-block a h6 {
-    font-size: 20px;
+    font-size: 14px;
 }
 .card .card-body .box .itm {
     display: flex;
