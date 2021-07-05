@@ -260,7 +260,7 @@ def catalog_cpu(request, component_name):
                 component = component_names_list_not_model[component_name](component, 1)
             configuration.set_component(component, component_name)
             if configuration.is_compatible(component_name):
-                compotible_components.append(component)
+                compotible_components.append(component_names_list[component_name].objects.get(pk=component.id))
         except:
             pass
         configuration.drop_component(component_name)

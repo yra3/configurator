@@ -62,7 +62,7 @@ class RegressionConfigurePrioritiesCalculator:
             'RAM': 5.35811 * pow(10, -17) * xxx - 2.20686 * pow(10, -11) * xx + 2.28215 * pow(10, -6) * x + 0.0747362,
             'cooler': -8.55621 * pow(10, -13) * xx + 2.36216 * pow(10, -7) * x + 0.0235645,
             'hard_35': 7.81749 * pow(10, -12) * xx - 2.40609 * pow(10, -6) * x + 0.201275,
-            'ssd': 7.81749 * pow(10, 12) * xx - 2.40609 * pow(10, -6) * x + 0.201275,
+            'ssd': 7.81749 * pow(10, -12) * xx - 2.40609 * pow(10, -6) * x + 0.201275,
             'powersupply': 2.57604 * pow(10, -12) * xx - 9.86143 * pow(10, -7) * x + 0.138944,
         }
 
@@ -112,7 +112,10 @@ def simple_configure(request):
     hdd_ssd = 2
     finder = BranchAndBoundMethod(budget, priorities, hdd_ssd, IS_BENCHMARK)
     # try:
+    import time
+    start_time = time.time()
     config = finder.find()
+    print("--- %s seconds ---" % (time.time() - start_time))
     # except:
     #     return redirect('/configure/simple')
     s = '/configuration/'
